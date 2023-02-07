@@ -6,6 +6,8 @@ DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
 ParameterizedFunctions = "65888b18-ceab-5e60-b2b9-181511a3b968"
+Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+RandomNumbers = "e6cf234a-135c-5ec9-84dd-332b85af5143"
 StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
 
 [compat]
