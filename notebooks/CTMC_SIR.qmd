@@ -1,0 +1,25 @@
+---
+title: "Untitled"
+format: html
+---
+
+The goal of this notebook is to derive the $Q$ matrix (aka. Infinetestimal generator) from a CTMC model of an SIR disease process simulated using Gillespie's algorithm.
+
+To begin, lets define the model.
+
+The SIR compartmental model features 3 compartiments (Susceptible, Infectious, and Recovered) though which N individuals progress (i.e. $S + I + R = N$).  A single individual here can only move to the next compartiment (i.e. from S to I, or from I to R). Since $R = S+I -N$, se can represent the state of the system with $\{S, I\}$, where $S \in \{0,1, ... , N-I-R\}$, $I \in \{0,1, ... , N-S-R\}$.
+
+For states other than $\{0,0\}$ ... etc. 
+
+Gillespie algorithm
+
+1. Define event space (Susceptible -> infectious, Infectious -> Recovered) and the propensity function for each event 
+    $p\_{inf} = \beta \times S \times I$
+    $p\_{rec} = \gamma \times I$
+
+2. Determine the time until the next event ($\tau$) by sampling from an exponential distribution with parameter $\frac{1}{\sum{p}}$
+
+3. Determine which event occurs at time $t + \tau$ by weighting a random sample of $x\sim unif(0,1)$ according top each event's propensity and taking the large of the two. 
+
+4. Update time and state to be t + \tau and ___ 
+
