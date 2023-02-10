@@ -18,7 +18,6 @@ digraph SIR {
 
 If we are working in discrete time, these probabilities are all we need to specify the dynamics of the system. At each time step, a random process decides which event will occur according to p__ and p__. 
 
-in continuous time, however, the length of each time stem, \delta t, is also random, and we need to specify how it will be realised. 
-Information about time between and probability of events can simultaneously be encoded in Rates. 
+in continuous time, however, the length of each time step, \delta t, is also random, and we need to specify how it will be realised. To do this we note without proof the the length of time between events will be exponentially distributed. We can then define the 'holding time', Ti ~ Exponenial(q_i), as the time (on average 1/q_i units) that a CTMC starting in state i stays in i before transitioning to some different state j. 
 
-For each state transition, we can define the rate at which that transition occurs. 
+q
