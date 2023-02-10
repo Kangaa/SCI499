@@ -14,4 +14,11 @@ digraph SIR {
 
 * These to possible events (S -> I and I -> R) can be represented by a change in the global state  variable $X(t) = \{s,i\}$ (which I read as "system $X$ at time $t$ has $s$ susceptible and $i$ infectious individuals"), with an infection after time $\Delta t$ giving  $X(t + \Delta t) = \{s-1, i + 1\}$ and  recovery $X(t + \Delta t) = \{s, i-1\}$.
 
-The probability that a susceptible individual will become infected $p_{\{s-1, i+1\} \leftarrow \{s, i\}} = p_{i+1} = \frac{\beta\times s\times i}{N}$
+* The probability that a susceptible individual will become infected $p_{\{s-1, i+1\} \leftarrow \{s, i\}} = p_{i+1} = \frac{\beta\times s\times i}{N}$
+
+If we are working in discrete time, these probabilities are all we need to specify the dynamics of the system. At each time step, a random process decides which event will occur according to p__ and p__. 
+
+in continuous time, however, the length of each time stem, \delta t, is also random, and we need to specify how it will be realised. 
+Information about time between and probability of events can simultaneously be encoded in Rates. 
+
+For each state transition, we can define the rate at which that transition occurs. 
