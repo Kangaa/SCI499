@@ -4,11 +4,14 @@ To begin, lets define the model.
 
 * The SIR compartmental model features 3 compartiments (Susceptible, Infectious, and Recovered) though which N individuals progress (i.e. $S + I + R = N$).  A single individual here can only move to the next compartiment (i.e. from Susceptible to Infectious, or from Infectious to Recovered). 
 
-```mermaid
-graph LR
-S --> I --> R
+```dot
+digraph SIR {
+    rankdir = "LR"
+    S->I
+    I->R
+}
 ```
 
-* These to possible events (S -> I and I -> R) can be represented by a change in the global state  variable $X(t) = \{s,i\}$ (which I read as "system $X$ at time $t$ has $s$ susceptible and $i$ infectious individuals"), with an infection after time $\Delta t$ giving  $X(t + \Delta t) = \{s-1, i + 1\}$ and  recovery $X(t + \Delta t) = \{S, I-1\}$.
+* These to possible events (S -> I and I -> R) can be represented by a change in the global state  variable $X(t) = \{s,i\}$ (which I read as "system $X$ at time $t$ has $s$ susceptible and $i$ infectious individuals"), with an infection after time $\Delta t$ giving  $X(t + \Delta t) = \{s-1, i + 1\}$ and  recovery $X(t + \Delta t) = \{s, i-1\}$.
 
-The probability that a susceptible individual will become infected $p_{s-1, i+1}\leftarrow{s, i} = \frac$
+The probability that a susceptible individual will become infected $p_{\{s-1, i+1\} \leftarrow \{s, i\}} = p_{i+1} = \frac{\beta\times s\times i}{N}$
