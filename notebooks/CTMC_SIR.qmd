@@ -71,25 +71,32 @@ using Distributions
 β = 0.5
 λ = 0.1
 Δt = rand(Exponential(1/sum(Transition_Function(Xt,β, λ))))
+t += Δt
 ```
 
-Next we need to determine which event will happen
+Next we need to determine which event will happen. The probability of a transition will be given by the proportion of the 
 
 ```{julia}
+Pt = Transition_Function(Xt,β, λ)
 Pi = Transition_Function(Xt,β, λ)[1]/sum(Transition_Function(Xt,β, λ))
 Pr = Transition_Function(Xt,β, λ)[2]/sum(Transition_Function(Xt,β, λ))
+```
 
-tf = Transition_Function(Xt,β, λ)
-t = rand() * sum(tf)
+
+To sample one event with probability weighting according to its relative propensity,
+```{julia}
+t = rand() 
 i = 1
 cw = tf[1]
-while cw < t && i < 2
+while cw < t && i < size(tf)
     i += 1
-    @inbounds cw += w[i]
+    @inbounds cw += tf[i]
 end
-Δx = SIR_events[1]
+Δx = SIR_events[i]
 
 Xt += Δx
+
+push!(SIR_CTMC, [t;Xt])
 ```
 
 
