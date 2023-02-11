@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -96,9 +33,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="CTMC_SIR_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="CTMC_SIR_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="CTMC_SIR_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -126,9 +60,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>The goal of this notebook is to derive the <span class="math inline">\(Q\)</span> matrix (aka. Infinetestimal generator) from a CTMC model of an SIR disease process simulated using Gillespie’s algorithm.</p>
-<p>To begin, lets define the model.</p>
-<p>The SIR compartmental model features 3 compartiments (Susceptible, Infectious, and Recovered) though which N individuals progress (i.e.&nbsp;<span class="math inline">\(S + I + R = N\)</span>). A single individual here can only move to the next compartiment (i.e.&nbsp;from S to I, or from I to R). Since <span class="math inline">\(R = S+I -N\)</span>, se can represent the state of the system with <span class="math inline">\(\{S, I\}\)</span>, where <span class="math inline">\(S \in \{0,1, ... , N-I-R\}\)</span>, <span class="math inline">\(I \in \{0,1, ... , N-S-R\}\)</span>.</p>
+<p>The goal of this notebook is to derive the <span class="math inline">\(Q\)</span> matrix (aka. Infinetestimal generator Matrix) from data generated by a gillespie simulated CTMC model of a SIR disease process.</p>
+<p>To begin, lets define the disease model.</p>
+<p>The SIR compartmental model features 3 compartiments (Susceptible, Infectious, and Recovered) though which N individuals pass between (i.e.&nbsp;<span class="math inline">\(S + I + R = N\)</span>) over time. To impliment this, lets define a type to represent the state of an SIR system at time t, <span class="math inline">\(X(t) = \{S, I, R\}\)</span>.</p>
+<pre class="{julia}"><code>struct SIR_state
+    S::Int
+    I::Int
+    R::Int
+    t::Real
+end</code></pre>
+<p>In an SIR system there are two possible events: after a certain time <span class="math inline">\(\Delta t\)</span>, $, infection (i.e.&nbsp;an individual moves from the Susceptible compartment to the Infectious compartment) <span class="math inline">\(X(t + \Delta t) = \{s-1, i + 1, R\}\)</span> and recovery <span class="math inline">\(X(t + \Delta t) = \{s, i-1, R +1\}\)</span>.</p>
+<p>These to possible events (S -&gt; I and I -&gt; R) can be represented by a change in the global state variable <span class="math inline">\(E_SI = {S-1, I + 1}\)</span> and <span class="math inline">\(S_IR = {S, I-1}\)</span> (note that since the total number of individuals is constant and <span class="math inline">\(S + I + R = N\)</span>, the entire global state is determined by E = {S, I}).</p>
+<p>The probability that a susceptible individual will become infected <span class="math inline">\(p_{s-1, i+1}\leftarrow{s, i} = \frac\)</span></p>
+<p>Since <span class="math inline">\(R = S+I -N\)</span>, se can represent the state of the system with <span class="math inline">\(\{S, I\}\)</span>, where <span class="math inline">\(S \in \{0,1, ... , N-I-R\}\)</span>, <span class="math inline">\(I \in \{0,1, ... , N-S-R\}\)</span>.</p>
 <p>for example, when N = 3, we can represent the system with a graph:</p>
 <p>As a discrete time process this Markov chain can be represented by the transition matrix <span class="math display">\[
 p = \begin{bmatrix}
@@ -141,79 +85,62 @@ p = \begin{bmatrix}
 <li><p>Determine which event occurs at time <span class="math inline">\(t + \tau\)</span> by weighting a random sample of <span class="math inline">\(x\sim unif(0,1)\)</span> according top each event’s propensity and taking the large of the two.</p></li>
 <li><p>Update time and state to be t + and ___</p></li>
 </ol>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="fl">3</span>;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>S0 <span class="op">=</span> <span class="fl">2</span>;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>I0 <span class="op">=</span> <span class="fl">1</span>;</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>R0 <span class="op">=</span> N<span class="op">-</span>I0<span class="op">-</span>S0;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> <span class="fl">100</span>;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>β <span class="op">=</span> <span class="fl">0.1</span>;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>γ <span class="op">=</span> <span class="fl">0.05</span> ;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="fl">0</span>;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    S <span class="op">=</span> S0;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    I <span class="op">=</span> I0;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> R0;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ta <span class="op">=</span> [];</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    Sa <span class="op">=</span> [];</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    Ia <span class="op">=</span> [];</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    Ra <span class="op">=</span> [];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> t <span class="op">&lt;</span> tf</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(ta, t)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(Sa, S)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(Ia, I)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(Ra, R)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    pf1 <span class="op">=</span> β<span class="op">*</span>S<span class="op">*</span>I</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    pf2 <span class="op">=</span> γ<span class="op">*</span>I</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    pf <span class="op">=</span> pf1 <span class="op">+</span> pf2</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> <span class="fu">rand</span>(<span class="fu">Exponential</span>(<span class="fl">1</span><span class="op">/</span>pf))</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t<span class="op">+</span>dt</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> t <span class="op">&gt;</span> tf</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    ru <span class="op">=</span> <span class="fu">rand</span>()</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ru <span class="op">&lt;</span> (pf1<span class="op">/</span>pf)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        S <span class="op">=</span> S<span class="op">-</span><span class="fl">1</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        I <span class="op">=</span> I <span class="op">+</span><span class="fl">1</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>    </span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        I <span class="op">=</span> I<span class="op">-</span><span class="fl">1</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        R <span class="op">=</span> R<span class="op">+</span><span class="fl">1</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> <span class="fu">DataFrame</span>()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>results[!, <span class="op">:</span>time] <span class="op">=</span> ta</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>results[!, <span class="op">:</span>S] <span class="op">=</span> Sa</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>results[!, <span class="op">:</span>I] <span class="op">=</span> Ia</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>results[!, <span class="op">:</span>R] <span class="op">=</span> Ra</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<pre class="{julia}"><code>N = 3;
 
-<div><div style="float: left;"><span>6×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;"><table class="data-frame table table-sm table-striped" style="margin-bottom: 6px;"><thead><tr class="header"><th class="rowNumber" style="font-weight: bold; text-align: right;">Row</th><th style="text-align: left;">time</th><th style="text-align: left;">S</th><th style="text-align: left;">I</th><th style="text-align: left;">R</th></tr><tr class="subheader headerLastRow"><th class="rowNumber" style="font-weight: bold; text-align: right;"></th><th title="Any" style="text-align: left;">Any</th><th title="Any" style="text-align: left;">Any</th><th title="Any" style="text-align: left;">Any</th><th title="Any" style="text-align: left;">Any</th></tr></thead><tbody><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">1</td><td style="text-align: left;">0</td><td style="text-align: left;">2</td><td style="text-align: left;">1</td><td style="text-align: left;">0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">2</td><td style="text-align: left;">1.42781</td><td style="text-align: left;">1</td><td style="text-align: left;">2</td><td style="text-align: left;">0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">3</td><td style="text-align: left;">1.76355</td><td style="text-align: left;">1</td><td style="text-align: left;">1</td><td style="text-align: left;">1</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">4</td><td style="text-align: left;">13.92</td><td style="text-align: left;">0</td><td style="text-align: left;">2</td><td style="text-align: left;">1</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">5</td><td style="text-align: left;">19.1308</td><td style="text-align: left;">0</td><td style="text-align: left;">1</td><td style="text-align: left;">2</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">6</td><td style="text-align: left;">65.1015</td><td style="text-align: left;">0</td><td style="text-align: left;">0</td><td style="text-align: left;">3</td></tr></tbody></table></div>
-</div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">StatsPlots</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> results <span class="fu">plot</span>(<span class="op">:</span>time,  [ <span class="op">:</span>S, <span class="op">:</span>I, <span class="op">:</span>R])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<p><img src="CTMC_SIR_files/figure-html/cell-6-output-1.svg" class="img-fluid"></p>
-</div>
-</div>
+S0 = 2;
+I0 = 1;
+R0 = N-I0-S0;
+
+tf = 100;
+β = 0.1;
+γ = 0.05 ;</code></pre>
+<pre class="{julia}"><code>    t = 0.0
+    S = S0;
+    I = I0;
+    R = R0;
+
+    ta = [];
+    Sa = [];
+    Ia = [];
+    Ra = [];</code></pre>
+<pre class="{julia}"><code>using Distributions
+
+
+while t &lt; tf
+
+    push!(ta, t)
+    push!(Sa, S)
+    push!(Ia, I)
+    push!(Ra, R)
+    
+    pf1 = β*S*I
+    pf2 = γ*I
+    pf = pf1 + pf2
+    dt = rand(Exponential(1/pf))
+    t = t+dt
+    if t &gt; tf
+        break
+    end
+    ru = rand()
+    if ru &lt; (pf1/pf)
+        S = S-1
+        I = I +1
+    else    
+        I = I-1
+        R = R+1
+    end
+
+end</code></pre>
+<pre class="{julia}"><code>using DataFrames
+
+results = DataFrame()
+results[!, :time] = ta
+results[!, :S] = Sa
+results[!, :I] = Ia
+results[!, :R] = Ra
+return(results)</code></pre>
+<pre class="{julia}"><code>using StatsPlots
+@df results plot(:time,  [ :S, :I, :R])</code></pre>
 
 </main>
 <!-- /main column -->
