@@ -17,7 +17,16 @@ struct SIR_state
 end
 ```
 
- In an SIR system there are two possible events: after a certain time $\Delta t$, infection (i.e. an individual moves from the Susceptible compartment to the Infectious compartment) $X(t + \Delta t) = \{s-1, i + 1, R\}$ and  recovery $X(t + \Delta t) = \{s, i-1, R +1\}$. Lets define these as triples which we can add to our SIR_State variable
+
+```{dot}
+digraph SIR {
+    rankdir = "LR"
+    S->I
+    I->R
+}
+```
+
+ In an SIR system there are two possible events that can occur after a certain time $\Delta t$: infection (i.e. an individual moves from the Susceptible compartment to the Infectious compartment) $X(t + \Delta t) = \{s-1, i + 1, r\}$ and  recovery $X(t + \Delta t) = \{s, i-1, r +1\}$. Lets define these as triples which we can add to our SIR_State variable
  
 ```{julia}
 SIR_events = (
@@ -25,10 +34,11 @@ SIR_events = (
     recovery = [0,-1,1]
 )
 ```
-Which event will occur? Epidemiologcal theory tells us that, assuming homogenous mixing on Infectious and Susceptible individuals there will be $S \times I$ opportunities for contact. only a proportion of these opporunities will result in infection, so let the parameter $\beta$, the 'transmission rate' l modulate this. 
 
+Only one event can occur at a time* which event will occur? Epidemiologcal theory tells us that, assuming homogenous mixing of infectious and susceptible individuals there will be $S \times I$ opportunities for contact. Only a proportion of these opporunities will result in infection, so let the parameter $\beta$, the 'transmission rate' l modulate this. 
 
-lets define a 'transition' function, which, given a state X(t) will return the probability of each event occurring
+Simiularly, we'll specify a constant parameter, \lambda, which will modulate the rate of recovery.
+Lets define a 'transition' function which, given a state $X(t) = \{s, i,r\}$ will return the ___ of each event occurring
 
 ```{julia}
 function Transition_Function(X, β, γ)
@@ -36,7 +46,7 @@ function Transition_Function(X, β, γ)
   infection = β*S*I
   recovery = γ*I
   [infection,recovery]
-end
+end;
 ```
 
 Ok thats enough setting up, lets simulate the evolution of the system throrugh time.
@@ -57,9 +67,10 @@ SIR_CTMC = DataFrame(
 and set the initial conditions
 
 ```{julia}
-X0 = [999,1,0]
+X0 = [99,1,0]
 t0 = 0
-
+β = 0.005
+γ = 0.1
 Xt = X0
 t = t0
 push!(SIR_CTMC, [t;Xt])
@@ -68,36 +79,72 @@ now for a time step. Delta t will have an exponential distribution with paramete
 
 ```{julia}
 using Distributions
-β = 0.5
-λ = 0.1
-Δt = rand(Exponential(1/sum(Transition_Function(Xt,β, λ))))
+
+Δt = rand(Exponential(1/sum(Transition_Function(Xt,β, γ))))
 t += Δt
 ```
 
 Next we need to determine which event will happen. The probability of a transition will be given by the proportion of the 
 
 ```{julia}
-Pt = Transition_Function(Xt,β, λ)
-Pi = Transition_Function(Xt,β, λ)[1]/sum(Transition_Function(Xt,β, λ))
-Pr = Transition_Function(Xt,β, λ)[2]/sum(Transition_Function(Xt,β, λ))
+Pt = Transition_Function(Xt,β, γ)
+Pi = Pt[1]/sum(Pt)
+Pr = Pt[2]/sum(Pt)
 ```
-
 
 To sample one event with probability weighting according to its relative propensity,
 ```{julia}
 t = rand() 
 i = 1
-cw = tf[1]
-while cw < t && i < size(tf)
+cw = Pt[1]
+while cw < t && i < length(Pt)
     i += 1
-    @inbounds cw += tf[i]
+    @inbounds cw += Pt[i]
 end
+
 Δx = SIR_events[i]
 
 Xt += Δx
 
 push!(SIR_CTMC, [t;Xt])
 ```
+We probably want to automate that step, so lets put that in a function
+
+```{julia}
+tend = 50
+while t < tend
+    Δt = rand(Exponential(1/sum(Transition_Function(Xt, β, γ))))
+
+
+    t += Δt
+
+    Pt = Transition_Function(Xt,β, γ)
+    Ptn = Pt ./ sum(Pt)
+
+    i = 1
+    cw = Ptn[1]
+    while cw < rand() && i < length(Ptn)
+        i += 1
+        @inbounds cw += Ptn[i]
+    end
+
+    Δx = SIR_events[i]
+
+    Xt += Δx
+
+    push!(SIR_CTMC, [t;Xt])
+end
+```
+
+lets plot the results for a clearer picture
+
+```{julia}
+using StatsPlots
+
+@df SIR_CTMC plot(:t, [:S, :I, :R] )
+```
+
+
 
 
 
@@ -116,6 +163,132 @@ $$
 p = \begin{bmatrix}
 \end{bmatrix}
 $$
+
+
+looks reasonable. How about in comparison to the deterministic ODE solution
+
+
+```{julia}
+using DifferentialEquations
+
+function SIRModel!(du, u, p, t)
+    S, I, R = u
+    β, γ = p
+    du[1] = -β*S*I
+    du[2] = β*S*I-γ*I
+    du[3] = γ*I
+end 
+
+p = [.5,.1]
+u0 = [.99,.01,0]
+tspan = (0.0, 50)
+
+prob = ODEProblem(SIRModel!, u0, tspan, p)
+
+sol = solve(prob)
+
+plot(sol)
+```
+
+
+
+They're not identical but maybe this is to be expected given the small sample size. We could inrease the sample size (which extended to \infty would equal the ODE), but lets instead perform the N = 100 simulation a few more times.
+
+For convenience I'll wrap the whole simulation in a function which takes initial conditions and parameters in and outputs the data
+
+```{julia}
+
+function SIR_sim(X0::Vector{Int64}, tmax::Float64, params::Vector{Float64} )
+
+    SIR_events = (
+        infection = [-1, 1, 0],
+        recovery = [0,-1,1]
+    )
+
+    function Transition_Function(X, β, γ)
+    (S,I,R) = X
+    infection = β*S*I
+    recovery = γ*I
+    [infection,recovery]
+    end
+
+    SIR_CTMC = DataFrame(
+    t = Vector{Float64}(),
+    S = Vector{Int64}(),
+    I = Vector{Int64}(),
+    R = Vector{Int64}())
+
+
+    X0 = X0
+    t0 = 0
+    β = params[1]
+    γ = params[2]
+    Xt = X0
+    t = t0
+    push!(SIR_CTMC, [t;Xt])
+
+    Δt = rand(Exponential(1/sum(Transition_Function(Xt,β, γ))))
+    t += Δt
+    tmax = tmax
+    while t < tmax
+        Δt = rand(Exponential(1/sum(Transition_Function(Xt, β, γ))))
+
+
+        t += Δt
+
+        Pt = Transition_Function(Xt,β, γ)
+        Ptn = Pt ./ sum(Pt)
+
+        i = 1
+        cw = Ptn[1]
+        while cw < rand() && i < length(Ptn)
+            i += 1
+            @inbounds cw += Ptn[i]
+        end
+
+        Δx = SIR_events[i]
+
+        Xt += Δx
+
+        push!(SIR_CTMC, [t;Xt])
+   
+
+    end
+     return SIR_CTMC
+end
+```
+
+and run this 50 times
+
+```{julia}
+Sims = DataFrame(
+    rep = Vector{Int64}(), 
+    t = Vector{Float64}(),
+    S = Vector{Int64}(),
+    I = Vector{Int64}(),
+    R = Vector{Int64}()) 
+
+for i in 1:100
+    sim = SIR_sim([99,1,0], 50.0, [.005, .1])
+    newrep =  hcat(
+        sim, 
+        DataFrame(rep = fill(i, nrow(sim))
+        ))
+    Sims = vcat(Sims, newrep)
+end
+
+
+@df df plot(:t, [:S, :I, :R])
+```
+
+
+
+
+
+
+
+
+
 
 
 In continuous time, siple transition probabilities are not sufficient to describe the process. We need the Transition rates which are related to the trasition probabilities
