@@ -49,8 +49,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="sis-dtmc" class="level2">
-<h2 class="anchored" data-anchor-id="sis-dtmc">SIS DTMC</h2>
+<section id="sis-dtmc" class="level1">
+<h1>SIS DTMC</h1>
+<p>The compartmental model</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -66,6 +67,71 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>Can be described by a Markov chain of a random variable I(t) representing the number of individuals infected at time t.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="672" height="480" viewbox="0.00 0.00 332.00 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-112 328,-112 328,4 -4,4"></polygon> <!-- 0 --> <g id="node1" class="node">
+<title>
+0
+</title>
+<ellipse fill="none" stroke="black" cx="117" cy="-72" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="117" y="-67.8" font-family="Times,serif" font-size="14.00">0</text> </g> <!-- 0&#45;&gt;0 --> <g id="edge1" class="edge">
+<title>
+0-&gt;0
+</title>
+<path fill="none" stroke="black" d="M101.77,-87.17C97.16,-97.66 102.23,-108 117,-108 126.92,-108 132.47,-103.33 133.64,-97.09"></path> <polygon fill="black" stroke="black" points="137.1,-96.57 132.23,-87.17 130.17,-97.56 137.1,-96.57"></polygon> </g> <!-- 1 --> <g id="node2" class="node">
+<title>
+1
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">1</text> </g> <!-- 1&#45;&gt;0 --> <g id="edge2" class="edge">
+<title>
+1-&gt;0
+</title>
+<path fill="none" stroke="black" d="M47.53,-29.98C59.38,-37.26 74.7,-46.66 87.84,-54.72"></path> <polygon fill="black" stroke="black" points="86.17,-57.8 96.52,-60.05 89.83,-51.84 86.17,-57.8"></polygon> </g> <!-- 2 --> <g id="node3" class="node">
+<title>
+2
+</title>
+<ellipse fill="none" stroke="black" cx="117" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="117" y="-13.8" font-family="Times,serif" font-size="14.00">2</text> </g> <!-- 1&#45;&gt;2 --> <g id="edge3" class="edge">
+<title>
+1-&gt;2
+</title>
+<path fill="none" stroke="black" d="M52.51,-11.88C61.4,-11.27 71.62,-11.1 81.22,-11.38"></path> <polygon fill="black" stroke="black" points="81.16,-14.88 91.31,-11.86 81.49,-7.89 81.16,-14.88"></polygon> </g> <!-- 2&#45;&gt;1 --> <g id="edge4" class="edge">
+<title>
+2-&gt;1
+</title>
+<path fill="none" stroke="black" d="M91.31,-24.14C82.41,-24.74 72.18,-24.9 62.59,-24.61"></path> <polygon fill="black" stroke="black" points="62.67,-21.11 52.51,-24.12 62.33,-28.1 62.67,-21.11"></polygon> </g> <!-- ... --> <g id="node4" class="node">
+<title>
+…
+</title>
+<ellipse fill="none" stroke="black" cx="207" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="207" y="-13.8" font-family="Times,serif" font-size="14.00">…</text> </g> <!-- 2&#45;&gt;... --> <g id="edge5" class="edge">
+<title>
+2-&gt;…
+</title>
+<path fill="none" stroke="black" d="M142.51,-11.88C151.4,-11.27 161.62,-11.1 171.22,-11.38"></path> <polygon fill="black" stroke="black" points="171.16,-14.88 181.31,-11.86 171.49,-7.89 171.16,-14.88"></polygon> </g> <!-- ...&#45;&gt;2 --> <g id="edge6" class="edge">
+<title>
+…-&gt;2
+</title>
+<path fill="none" stroke="black" d="M181.31,-24.14C172.41,-24.74 162.18,-24.9 152.59,-24.61"></path> <polygon fill="black" stroke="black" points="152.67,-21.11 142.51,-24.12 152.33,-28.1 152.67,-21.11"></polygon> </g> <!-- N --> <g id="node5" class="node">
+<title>
+N
+</title>
+<ellipse fill="none" stroke="black" cx="297" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="297" y="-13.8" font-family="Times,serif" font-size="14.00">N</text> </g> <!-- ...&#45;&gt;N --> <g id="edge7" class="edge">
+<title>
+…-&gt;N
+</title>
+<path fill="none" stroke="black" d="M232.51,-11.88C241.4,-11.27 251.62,-11.1 261.22,-11.38"></path> <polygon fill="black" stroke="black" points="261.16,-14.88 271.31,-11.86 261.49,-7.89 261.16,-14.88"></polygon> </g> <!-- N&#45;&gt;... --> <g id="edge8" class="edge">
+<title>
+N-&gt;…
+</title>
+<path fill="none" stroke="black" d="M271.31,-24.14C262.41,-24.74 252.18,-24.9 242.59,-24.61"></path> <polygon fill="black" stroke="black" points="242.67,-21.11 232.51,-24.12 242.33,-28.1 242.67,-21.11"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+<p>Note that I(t) = 0 is an absorbing state (i.e.&nbsp;if there are no infectious people they cannot infect anyone). All other states {1,…, N} are transient.</p>
 <p>Possible transitions are specified by</p>
 <p><span id="eq-SIS_DTMC_Trans"><span class="math display">\[
 p _ {ji} ( \Delta t ) =
@@ -93,6 +159,141 @@ p_{i}(t + \Delta t) =
     p_{i}(t)(1- [ b(i)  + d(i)] \Delta t)
 \]</span></p>
 <p>for <span class="math inline">\(i = 1,2,..., N\)</span>, where <span class="math inline">\(b(i) = \beta (N-1/N)\)</span>, and <span class="math inline">\(d(i)= \gamma i\)</span></p>
+<p>The transition matrix <span class="math inline">\(P(\Delta t)\)</span> is given by <span class="math display">\[
+\begin{pmatrix}
+    1 &amp; d(1)\Delta t &amp; 0 &amp;  \cdots &amp; 0 &amp; 0 \\
+    0  &amp; 1-(b+d)(1)\Delta t &amp; d(2)\Delta t &amp;  \cdots &amp; 0 &amp; 0 \\
+    0 &amp; b(1)\Delta t &amp; 1-(b+d)(1)\Delta t &amp;  \cdots &amp; 0 &amp; 0 \\
+    0 &amp; 0t &amp; b(1)\Delta &amp;  \cdots &amp; 0 &amp; 0 \\
+    \vdots &amp; \vdots &amp; \vdots &amp;  \ddots &amp; \vdots &amp; \vdots \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; d(N-1) \Delta t &amp; 0 \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; 1-(b+d)(N-1)\Delta t &amp; d(N) \Delta t \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; b(N-1)\Delta t &amp; 1- d(N) \Delta t \\
+\end{pmatrix}
+\]</span></p>
+</section>
+<section id="sir-dtmc" class="level1">
+<h1>SIR DTMC</h1>
+<p>The compartmental model</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
+    S --&gt; I
+    I --&gt; S
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<p>Can be described by a Markov chain of a random variable I(t) representing the number of individuals infected at time t.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="672" height="480" viewbox="0.00 0.00 332.00 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-112 328,-112 328,4 -4,4"></polygon> <!-- 0 --> <g id="node1" class="node">
+<title>
+0
+</title>
+<ellipse fill="none" stroke="black" cx="117" cy="-72" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="117" y="-67.8" font-family="Times,serif" font-size="14.00">0</text> </g> <!-- 0&#45;&gt;0 --> <g id="edge1" class="edge">
+<title>
+0-&gt;0
+</title>
+<path fill="none" stroke="black" d="M101.77,-87.17C97.16,-97.66 102.23,-108 117,-108 126.92,-108 132.47,-103.33 133.64,-97.09"></path> <polygon fill="black" stroke="black" points="137.1,-96.57 132.23,-87.17 130.17,-97.56 137.1,-96.57"></polygon> </g> <!-- 1 --> <g id="node2" class="node">
+<title>
+1
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">1</text> </g> <!-- 1&#45;&gt;0 --> <g id="edge2" class="edge">
+<title>
+1-&gt;0
+</title>
+<path fill="none" stroke="black" d="M47.53,-29.98C59.38,-37.26 74.7,-46.66 87.84,-54.72"></path> <polygon fill="black" stroke="black" points="86.17,-57.8 96.52,-60.05 89.83,-51.84 86.17,-57.8"></polygon> </g> <!-- 2 --> <g id="node3" class="node">
+<title>
+2
+</title>
+<ellipse fill="none" stroke="black" cx="117" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="117" y="-13.8" font-family="Times,serif" font-size="14.00">2</text> </g> <!-- 1&#45;&gt;2 --> <g id="edge3" class="edge">
+<title>
+1-&gt;2
+</title>
+<path fill="none" stroke="black" d="M52.51,-11.88C61.4,-11.27 71.62,-11.1 81.22,-11.38"></path> <polygon fill="black" stroke="black" points="81.16,-14.88 91.31,-11.86 81.49,-7.89 81.16,-14.88"></polygon> </g> <!-- 2&#45;&gt;1 --> <g id="edge4" class="edge">
+<title>
+2-&gt;1
+</title>
+<path fill="none" stroke="black" d="M91.31,-24.14C82.41,-24.74 72.18,-24.9 62.59,-24.61"></path> <polygon fill="black" stroke="black" points="62.67,-21.11 52.51,-24.12 62.33,-28.1 62.67,-21.11"></polygon> </g> <!-- ... --> <g id="node4" class="node">
+<title>
+…
+</title>
+<ellipse fill="none" stroke="black" cx="207" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="207" y="-13.8" font-family="Times,serif" font-size="14.00">…</text> </g> <!-- 2&#45;&gt;... --> <g id="edge5" class="edge">
+<title>
+2-&gt;…
+</title>
+<path fill="none" stroke="black" d="M142.51,-11.88C151.4,-11.27 161.62,-11.1 171.22,-11.38"></path> <polygon fill="black" stroke="black" points="171.16,-14.88 181.31,-11.86 171.49,-7.89 171.16,-14.88"></polygon> </g> <!-- ...&#45;&gt;2 --> <g id="edge6" class="edge">
+<title>
+…-&gt;2
+</title>
+<path fill="none" stroke="black" d="M181.31,-24.14C172.41,-24.74 162.18,-24.9 152.59,-24.61"></path> <polygon fill="black" stroke="black" points="152.67,-21.11 142.51,-24.12 152.33,-28.1 152.67,-21.11"></polygon> </g> <!-- N --> <g id="node5" class="node">
+<title>
+N
+</title>
+<ellipse fill="none" stroke="black" cx="297" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="297" y="-13.8" font-family="Times,serif" font-size="14.00">N</text> </g> <!-- ...&#45;&gt;N --> <g id="edge7" class="edge">
+<title>
+…-&gt;N
+</title>
+<path fill="none" stroke="black" d="M232.51,-11.88C241.4,-11.27 251.62,-11.1 261.22,-11.38"></path> <polygon fill="black" stroke="black" points="261.16,-14.88 271.31,-11.86 261.49,-7.89 261.16,-14.88"></polygon> </g> <!-- N&#45;&gt;... --> <g id="edge8" class="edge">
+<title>
+N-&gt;…
+</title>
+<path fill="none" stroke="black" d="M271.31,-24.14C262.41,-24.74 252.18,-24.9 242.59,-24.61"></path> <polygon fill="black" stroke="black" points="242.67,-21.11 232.51,-24.12 242.33,-28.1 242.67,-21.11"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+<p>Note that I(t) = 0 is an absorbing state (i.e.&nbsp;if there are no infectious people they cannot infect anyone). All other states {1,…, N} are transient.</p>
+<p>Possible transitions are specified by</p>
+<p><span id="eq-SIS_DTMC_Trans"><span class="math display">\[
+p _ {ji} ( \Delta t ) =
+     \begin{cases}
+        {\frac { \beta i ( N - i ) } { N}} \Delta t, &amp; {j = i + 1 } \\
+        { \gamma i \Delta t}, &amp; { j = i - 1 } \\
+        { 1 - \bigg[ \frac { \beta i (N - i) } { N } +  \gamma i }\bigg] \Delta t, &amp; { j = i } \\
+        0, &amp; { j \neq i +1, i, i-1}
+    \end{cases}
+\tag{3}\]</span></span></p>
+<p>Which can be simplified to</p>
+<p><span id="eq-SIS_DTMC_Trans_BD"><span class="math display">\[
+p _ {ji} ( \Delta t ) =
+    \begin{cases}
+        b(i) \Delta t, &amp; {j = i + 1 } \\
+        d(i) \Delta t, &amp; { j = i - 1 } \\
+        1 - [ b(i)  + d(i)] \Delta t, &amp; { j = i } \\
+        0, &amp; { j \neq i +1, i, i-1}
+    \end{cases}
+\tag{4}\]</span></span></p>
+<p>The probability of being in state <span class="math inline">\(i\)</span> at time <span class="math inline">\(t + \Delta t\)</span> can be experessed in terms of probabilities at time <span class="math inline">\(t\)</span>. <span class="math display">\[
+p_{i}(t + \Delta t) =
+    p_{i-1}(t)b(i-1)\Delta t +
+    p_{i+1}(t)d(i+1)\Delta t +
+    p_{i}(t)(1- [ b(i)  + d(i)] \Delta t)
+\]</span></p>
+<p>for <span class="math inline">\(i = 1,2,..., N\)</span>, where <span class="math inline">\(b(i) = \beta (N-1/N)\)</span>, and <span class="math inline">\(d(i)= \gamma i\)</span></p>
+<p>The transition matrix <span class="math inline">\(P(\Delta t)\)</span> is given by <span class="math display">\[
+\begin{pmatrix}
+    1 &amp; d(1)\Delta t &amp; 0 &amp;  \cdots &amp; 0 &amp; 0 \\
+    0  &amp; 1-(b+d)(1)\Delta t &amp; d(2)\Delta t &amp;  \cdots &amp; 0 &amp; 0 \\
+    0 &amp; b(1)\Delta t &amp; 1-(b+d)(1)\Delta t &amp;  \cdots &amp; 0 &amp; 0 \\
+    0 &amp; 0t &amp; b(1)\Delta &amp;  \cdots &amp; 0 &amp; 0 \\
+    \vdots &amp; \vdots &amp; \vdots &amp;  \ddots &amp; \vdots &amp; \vdots \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; d(N-1) \Delta t &amp; 0 \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; 1-(b+d)(N-1)\Delta t &amp; d(N) \Delta t \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; b(N-1)\Delta t &amp; 1- d(N) \Delta t \\
+\end{pmatrix}
+\]</span></p>
 </section>
 
 </main>
