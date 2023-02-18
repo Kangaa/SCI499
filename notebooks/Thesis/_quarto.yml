@@ -1,0 +1,50 @@
+project:
+  type: book
+
+book:
+  title: "Thesis"
+  author: "J. Reuben Bender"
+  chapters:
+    - index.qmd
+
+  page-footer:
+    left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023"
+    border: false
+    background: light
+  sidebar:
+    background: "#cccccc"
+    style: "docked"
+
+toc: true
+toc-title: "<b>Sections</b>"
+
+bibliography: SCI499.bib
+
+html-math-method: katex
+published-title: "Last updated"
+date-format: "DD MMMM YYYY"
+number-depth: 2
+csl: apa-single-spaced.csl
+fig-height: 3.8
+fig-width: 6.3
+degreetype: Graduate Diploma in Applied Statistics
+submitted: 2023
+affiliation: Department of Econometrics & Business Statistics
+degrees: 'B.Sc. (Hons), University of Queensland'
+execute:
+  freeze: auto
+  echo: false
+
+format:
+  html:
+    theme:
+      - cosmo
+      - thesis.scss
+    fontsize: 16px
+    mainfont: "Merriweather, Georgia, serif"
+    code-link: true
+  monashthesis-pdf:
+    keep-tex: false
+
+
+
