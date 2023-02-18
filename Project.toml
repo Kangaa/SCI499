@@ -1,13 +1,18 @@
 name = "SCI499"
 
 [deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
+ExponentialUtilities = "d4d017d3-3776-5f7e-afef-a10c40355c18"
+FastExpm = "7868e603-8603-432e-a1a1-694bd70b01f2"
+NamedArrays = "86f7a689-2022-50b4-a561-43c23ac3c673"
 ParameterizedFunctions = "65888b18-ceab-5e60-b2b9-181511a3b968"
 Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
 RandomNumbers = "e6cf234a-135c-5ec9-84dd-332b85af5143"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
 
 [compat]

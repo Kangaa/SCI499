@@ -206,7 +206,7 @@ function SIR_sim(X0::Vector{Int64}, tmax::Float64, p::Vector{Float64} )
         (β, γ) = p
         (t, S,I,R) = X
         infection = β/N*S*I
-        recovery = γ*I/N
+        recovery = γ*I
         [infection,recovery]
     end
 
@@ -256,9 +256,9 @@ Sims = DataFrame(
     R = Vector{Vector{Int64}}()) 
 
 for i in 1:100
-    sim = SIR_sim([99,1,0],
-     50.0,
-     [.5, 10])
+    sim = SIR_sim([999,1,0],
+     75.0,
+     [.5, .1])
     push!(Sims.t, sim.t)
     push!(Sims.S, sim.S)
     push!(Sims.I, sim.I)
@@ -269,7 +269,7 @@ plot()
 
 for i in 1:length(Sims.t)
    global Ploto = @df Sims plot!(:t[i], [:S[i] :I[i] :R[i]], 
-    vars = [:t, :S, :I, :R], linecolor = [:blue :red :green], linealpha = 0.1, legend = false, xlim = [0,50]) 
+    vars = [:t, :S, :I, :R], linecolor = [:blue :red :green], linealpha = 0.1, legend = false, xlim = [0,75]) 
 end
 
 Ploto
