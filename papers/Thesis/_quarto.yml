@@ -6,6 +6,7 @@ book:
   author: "J. Reuben Bender"
   chapters:
     - index.qmd
+    - WIP/Moss.qmd
 
   page-footer:
     left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023"
@@ -43,8 +44,7 @@ format:
     fontsize: 16px
     mainfont: "Merriweather, Georgia, serif"
     code-link: true
-  monashthesis-pdf:
-    keep-tex: false
+
 
 
 
