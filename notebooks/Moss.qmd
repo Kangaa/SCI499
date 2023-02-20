@@ -1,0 +1,23 @@
+```{julia}
+using DrWatson
+using CSV
+```
+
+#Population mixing characteristics and patch populations 
+```{julia}
+frac_self = 0.5
+frac_cbd = 0.2
+path = joinpath(datadir(), "Moss2018\\mixing\\pub_PR_Normed.csv")
+CSV.File(path)
+
+##there a are a few finctions "spatial_seir" which I cant use. eg. mixing::read_mat
+```
+
+
+Epidemiological parameters
+
+```{julia}
+r0 = 1.4
+σ = 2.0
+γ = 0.5
+```
