@@ -165,10 +165,10 @@ digraph {
 ```
 
 
-There are (N + 1)(N + 2)/2 ordered pairs of states (s, i) (WHY??)
+There are (N + 1)(N + 2)/2 ordered pairs of states (s, i)
 
 ```{julia}
-N = 100
+N = 30
 S = 0:N
 I = 0:N
 
@@ -188,6 +188,7 @@ end
 using NamedArrays
 
 names = repr.(b)
+
 p = NamedArray(fill(0, (n,n)), (names,names))
 
 
@@ -212,7 +213,7 @@ end
 
 ```{julia}
 p = [tf(x, y,  (.5,.1), N) for  x = b, y = b]
-
+Array(p)^  
 using FastExpm
 fastExpm(p*25)
 ```

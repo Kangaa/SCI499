@@ -1,0 +1,50 @@
+---
+title: "Maps and shapefiles in julia"
+format: html
+---
+
+```{julia}
+using DrWatson
+@quickactivate "SCI499"
+```
+
+
+```{julia}
+using Shapefile
+
+ASGSdir = joinpath(datadir(),"ASGS_GDA2020")
+
+(AUS_SHP,
+GCCSA_SHP,
+MB_SHP,
+SA1_SHP,
+SA2_SHP,
+SA3_SHP,
+SA4_SHP, 
+STE_SHP) = Shapefile.Table.(joinpath.(joinpath(ASGSdir),
+                readdir(ASGSdir),
+                string.(replace.(readdir(ASGSdir), r"_SHP" => ""),
+                 ".shp")))
+```
+
+
+Create an index of the SA3 regions in the Greater Melbourne GCC
+```{julia}
+using Tables
+
+GMelb_SA1_SHP,
+GMelb_SA2_SHP,
+GMelb_SA3_SHP,
+SGMelb_A4_SHP = (
+    SA1_SHP,
+    SA2_SHP,
+    SA3_SHP,
+    SA4_SHP) .|>
+     x -> Tables.subset(x, x.GCC_NAME21 .== "Greater Melbourne")
+```
+
+```{julia}
+using Plots
+GMelb_SA3_SHP.geometry |> plot
+```
+

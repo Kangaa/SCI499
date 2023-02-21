@@ -253,7 +253,16 @@ p_{i}(t + \Delta t) =
 </div>
 </div>
 </div>
-<p>Can be described by a Markov chain of random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t, respectively.</p>
+<p>Can be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t, respectively (a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, i.e.&nbsp;R = N - S - I).</p>
+<p><span id="eq-SIR_DTMC_Trans"><span class="math display">\[
+p _ {(s +k, i +j),(s,i)}(\Delta t) =
+     \begin{cases}
+        {\frac { \beta i s} { N}} \Delta t, &amp; {(k, j) = (-1, 1) } \\
+        { \gamma i \Delta t}, &amp; { (k, j) = (0, -1)  } \\
+        { 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, &amp; { (k, j) = (0, 0)} \\
+        0, &amp; {otherwise}
+    \end{cases}
+\tag{3}\]</span></span></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -555,7 +564,7 @@ S = N - 2 I = 1-&gt;S = N - 2 I = 0
 </div>
 <p>There are (N + 1)(N + 2)/2 ordered pairs of states (s, i) (WHY??)</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="fl">10</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="fl">100</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>N</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>N</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -577,83 +586,60 @@ S = N - 2 I = 1-&gt;S = N - 2 I = 0
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fu">NamedArray</span>(<span class="fu">fill</span>(<span class="fl">0</span>, (n,n)), (names,names))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> <span class="kw">function</span>(j, i, param, N)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> <span class="kw">function</span>(i, j,  param, N)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    β, γ <span class="op">=</span> param</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    β <span class="op">=</span> β<span class="op">/</span>N</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    iS, iI <span class="op">=</span> i</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    jS, jI <span class="op">=</span> j</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iS <span class="op">-</span> jS <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="op">-</span><span class="fl">1</span> <span class="co">## Infection condition</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> β<span class="op">*</span>iS<span class="op">*</span>iI</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span>  iS <span class="op">==</span> jS  <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="fl">1</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> γ<span class="op">*</span>iI</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    p</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    iS, iI <span class="op">=</span> i</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    jS, jI <span class="op">=</span> j</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iS <span class="op">-</span> jS <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="op">-</span><span class="fl">1</span> <span class="co">## Infection condition</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> β<span class="op">*</span>iS<span class="op">*</span>iI<span class="op">/</span>N</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span>  iS <span class="op">==</span> jS  <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="fl">1</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> γ<span class="op">*</span>iI</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span>  iS <span class="op">==</span> jS  <span class="op">&amp;&amp;</span> iI <span class="op">==</span> jI </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> (β<span class="op">*</span>iS<span class="op">*</span>iI<span class="op">/</span>N <span class="op">+</span> γ<span class="op">*</span>iI)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    pij</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>#11 (generic function with 1 method)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tf</span>(b[<span class="fl">1</span>], b[<span class="fl">12</span>], (<span class="fl">.5</span>,<span class="fl">.1</span>), N)</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> [<span class="fu">tf</span>(x, y,  (<span class="fl">.5</span>,<span class="fl">.1</span>), N) for  x <span class="op">=</span> b, y <span class="op">=</span> b]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="fu">tf</span>(x, y,  (<span class="fl">.5</span>,<span class="fl">.1</span>), N) for  x <span class="op">=</span> b, y <span class="op">=</span> b]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fu">NamedArray</span>([<span class="fu">tf</span>(x, y, (<span class="fl">.5</span>,<span class="fl">.1</span>), N) for  x <span class="op">=</span> b, y <span class="op">=</span> b], (names, names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">FastExpm</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fastExpm</span>(p<span class="op">*</span><span class="fl">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>66×66 Named Matrix{Real}
-  A ╲ B │  (0, 0)   (1, 0)   (2, 0)  …   (0, 9)   (1, 9)  (0, 10)
-────────┼────────────────────────────────────────────────────────
-(0, 0)  │       0        0        0  …        0        0        0
-(1, 0)  │       0        0        0           0        0        0
-(2, 0)  │       0        0        0           0        0        0
-(3, 0)  │       0        0        0           0        0        0
-(4, 0)  │       0        0        0           0        0        0
-(5, 0)  │       0        0        0           0        0        0
-(6, 0)  │       0        0        0           0        0        0
-(7, 0)  │       0        0        0           0        0        0
-(8, 0)  │       0        0        0           0        0        0
-(9, 0)  │       0        0        0           0        0        0
-(10, 0) │       0        0        0           0        0        0
-⋮               ⋮        ⋮        ⋮  ⋱        ⋮        ⋮        ⋮
-(4, 6)  │       0        0        0           0        0        0
-(0, 7)  │       0        0        0           0        0        0
-(1, 7)  │       0        0        0           0        0        0
-(2, 7)  │       0        0        0           0        0        0
-(3, 7)  │       0        0        0           0        0        0
-(0, 8)  │       0        0        0         0.9        0        0
-(1, 8)  │       0        0        0           0      0.9        0
-(2, 8)  │       0        0        0           0        0        0
-(0, 9)  │       0        0        0           0        0      1.0
-(1, 9)  │       0        0        0           0        0        0
-(0, 10) │       0        0        0  …        0     0.45        0</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> (<span class="fl">49</span>, <span class="fl">6</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> (<span class="fl">50</span>,<span class="fl">5</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> (<span class="fl">.5</span>,<span class="fl">.1</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="fl">100</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a> β, γ <span class="op">=</span> param</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    β <span class="op">=</span> β<span class="op">/</span>N</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    iS, iI <span class="op">=</span> i</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    jS, jI <span class="op">=</span> j</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iS <span class="op">-</span> jS <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="op">-</span><span class="fl">1</span> <span class="co">## Infection condition</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> β<span class="op">*</span>iS<span class="op">*</span>iI <span class="op">*</span> dt</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span>  iS <span class="op">==</span> jS  <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="fl">1</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> γ<span class="op">*</span>iI <span class="op">*</span> dt</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> </span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>0.125</code></pre>
+<pre><code>5151×5151 Matrix{ComplexF64}:
+ 7.20049e10+0.0im         0.0+0.0im         0.0+0.0im  …          0.0+0.0im
+        0.0+0.0im  7.20049e10+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im  7.20049e10+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im  …          0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im  …          0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+        0.0+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+           ⋮                                           ⋱             ⋮
+  1.26455e7+0.0im   1.01734e6+0.0im     32397.9+0.0im             0.0+0.0im
+  1.10245e7+0.0im   1.13531e6+0.0im     52084.0+0.0im  …  4.81423e-98+0.0im
+  1.77501e7+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+  1.53925e7+0.0im   4.30711e5+0.0im         0.0+0.0im             0.0+0.0im
+  1.33783e7+0.0im   7.18549e5+0.0im     11462.4+0.0im             0.0+0.0im
+  1.16528e7+0.0im   9.01197e5+0.0im     27610.4+0.0im     3.81148e-98+0.0im
+  1.62931e7+0.0im         0.0+0.0im         0.0+0.0im  …          0.0+0.0im
+  1.41478e7+0.0im   3.80486e5+0.0im         0.0+0.0im             0.0+0.0im
+   1.2312e7+0.0im    635633.0+0.0im     9754.21+0.0im     3.02577e-98+0.0im
+  1.49557e7+0.0im         0.0+0.0im         0.0+0.0im             0.0+0.0im
+  1.30033e7+0.0im   3.36118e5+0.0im         0.0+0.0im     2.40839e-98+0.0im
+   1.3728e7+0.0im         0.0+0.0im         0.0+0.0im  …  1.92195e-98+0.0im</code></pre>
 </div>
 </div>
 </section>

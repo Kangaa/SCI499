@@ -265,8 +265,6 @@ for i in 1:100
     push!(Sims.R, sim.R)
 end
 
-plot()
-
 for i in 1:length(Sims.t)
    global Ploto = @df Sims plot!(:t[i], [:S[i] :I[i] :R[i]], 
     vars = [:t, :S, :I, :R], linecolor = [:blue :red :green], linealpha = 0.1, legend = false, xlim = [0,75]) 
@@ -275,27 +273,54 @@ end
 Ploto
 ```
 
+To summarise our data, it will be useful to be able to produce the distribution of states (across a number of samples) at a particular time t. I'll write a function to do this
+
+```{julia}
+stateatt = function(t, Sims)
+
+    function lastindexbeoforet(t, V)
+        i = firstindex(V)
+        while V[i] <  t
+            i +=1
+        end
+        i-1
+    end
+
+    tis = lastindexbeoforet.(fill(t, lastindex(Sims.t)), Sims.t)
 
 
+    DataFrame(
+        S = getindex.(Sims.S, tis),
+        I = getindex.(Sims.I, tis),
+        R = getindex.(Sims.R, tis))
+end
+```
 
+```{julia}
+Sims_plot_df = stack(stateatt(25, Sims), 1:3)
 
+@df Sims_plot_df density(:value, group = :variable)
+```
+A nice snapshot, but maybe  we should animate the progression
+```{julia}
+tmax = 50
 
+anim = @animate for i in 1:0.5:tmax
+    Sims_plot_df = stateatt(i, Sims)
+    @df Sims_plot_df histogram([:S, :I, :R], alpha = 0.5, xlims = [0, 1000], bins = 50)
+end
 
+gif(anim)
+```
 
+```{julia}
+tmax = 50
 
+anim = @animate for i in 1:0.5:tmax
+    Sims_plot_df = stateatt(i, Sims)
+    @df Sims_plot_df histogram2d(:S, :I, xlims = [0, 1000], ylims = [0,1000], bins = (50,50), colour = :plasma)
+end
 
+gif(anim)
+```
 
-In continuous time, siple transition probabilities are not sufficient to describe the process. We need the Transition rates which are related to the trasition probabilities
-$$p _ { i j } = \frac { q _ { i j } } { \sum _ { k } q _ { i k } } = \frac { q _ { i j } } { q _ { i } }$$
------
-Gillespie algorithm
-
-1. Define event space (Susceptible -> infectious, Infectious -> Recovered) and the propensity function for each event 
-    $p\_{inf} = \beta \times S \times I$
-    $p\_{rec} = \gamma \times I$
-
-2. Determine the time until the next event ($\tau$) by sampling from an exponential distribution with parameter $\frac{1}{\sum{p}}$
-
-3. Determine which event occurs at time $t + \tau$ by weighting a random sample of $x\sim unif(0,1)$ according top each event's propensity and taking the large of the two. 
-
-4. Update time and state to be t + \tau and ___ 

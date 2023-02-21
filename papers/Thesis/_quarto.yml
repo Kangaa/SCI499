@@ -6,7 +6,7 @@ book:
   author: "J. Reuben Bender"
   chapters:
     - index.qmd
-    - WIP/Moss.qmd
+    - Notes/Moss.qmd
 
   page-footer:
     left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023"
