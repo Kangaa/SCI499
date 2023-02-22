@@ -3,3 +3,54 @@
 [@moss2019WhatCanUrban]
 
 
+```{julia}
+using DrWatson
+using CSV
+```
+
+
+get the mixing matrix from CSV
+```{julia}
+frac_self = 0.5
+frac_cbd = 0.2
+path = joinpath(datadir(), "Moss2018\\mixing\\abs_all.csv")
+mixmat =CSV.File(path) 
+CSV.ta
+```
+
+
+Epidemiological parameters
+
+```{julia}
+r0 = 1.4
+σ = 2.0
+γ = 0.5
+```
+
+Model Parameter type
+
+```{julia}
+struct Params
+    β::Float64
+    σ::Float64
+    γ::Float64
+    popn::Vector
+    mixmat::AbstractArray
+end
+
+```
+
+Model State type
+```{julia}
+struct Model
+    params::Params
+    numpatch::Int
+    t::Float64
+    s::Vector
+    e::Vector
+    i::Vector
+end
+```
+
+Event type
+

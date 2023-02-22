@@ -214,13 +214,3 @@ end
 Q = [tf(i, j, [.5,.1], 100) for i = b, j = b]
 ```
 
-
-```{julia}
-using CSV
-using Tables
-
-table(Q)
-
-CSV.write("test.csv", Q)
-```
-

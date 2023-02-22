@@ -1,12 +1,19 @@
 project:
   type: book
+  pre-render: envSetup.r
+
 
 book:
   title: "Thesis"
   author: "J. Reuben Bender"
   chapters:
     - index.qmd
-    - Notes/Moss.qmd
+    - part: notes.qmd
+      chapters:
+        - Notes/Moss.qmd
+        - Notes/Compartmental_Models_Markov_Chains.qmd
+        - Notes/CTMC_SIR_Sim.qmd
+        - Notes/shapefiles.qmd
 
   page-footer:
     left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023"
@@ -34,7 +41,7 @@ affiliation: Department of Econometrics & Business Statistics
 degrees: 'B.Sc. (Hons), University of Queensland'
 execute:
   freeze: auto
-  echo: false
+  echo: true
 
 format:
   html:
