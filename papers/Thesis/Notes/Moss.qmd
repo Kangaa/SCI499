@@ -2,9 +2,11 @@
 
 [@moss2019WhatCanUrban]
 
-
 ```{julia}
 using DrWatson
+@quickactivate "SCI499"
+```
+```{julia}
 using CSV
 ```
 
@@ -15,7 +17,6 @@ frac_self = 0.5
 frac_cbd = 0.2
 path = joinpath(datadir(), "Moss2018\\mixing\\abs_all.csv")
 mixmat =CSV.File(path) 
-CSV.ta
 ```
 
 
@@ -27,18 +28,18 @@ r0 = 1.4
 γ = 0.5
 ```
 
-Model Parameter type
+Model Parameters type
 
 ```{julia}
 struct Params
     β::Float64
     σ::Float64
     γ::Float64
-    popn::Vector
+    popn::Vector #Vector of patches
     mixmat::AbstractArray
 end
-
 ```
+The rust code includes and 'impl Params' block hich I'm not sure is necessary
 
 Model State type
 ```{julia}
@@ -53,4 +54,15 @@ end
 ```
 
 Event type
+is an 'enum' which I'm not sure about. I cant make out what it does, but I'll try and impliment it anyway
+
+```{julia}
+@enum Event begin
+    Exposure = 0
+    Infection = 6 #why 6?
+    Recovery = 2
+end
+```
+
+next there is another 'impl' this time of the 'Model' type. I think what this is doing is specifying a way to interact with the model type. the first block is a public function 'new' which I guess generates a new model with the supplied parameters.   AFAIK the way to do this is in julia just to define a function ~method~ for the model type
 

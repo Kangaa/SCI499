@@ -45,6 +45,6 @@ SGMelb_A4_SHP = (
 
 ```{julia}
 using Plots
-GMelb_SA3_SHP.geometry |> plot
+GMelb_SA1_SHP.geometry |> plot
 ```
 

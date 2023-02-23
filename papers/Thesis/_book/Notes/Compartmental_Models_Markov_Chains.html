@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Thesis - 3&nbsp; SIS DTMC</title>
+<title>Thesis - 4&nbsp; SIS DTMC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -89,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">SIS DTMC</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SIS DTMC</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -117,6 +180,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Untitled</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../notes.html" class="sidebar-item-text sidebar-link">Notes</a>
@@ -127,22 +195,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/Moss.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Replicating Moss et al.&nbsp;2019</span></a>
+  <a href="../Notes/Moss.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Replicating Moss et al.&nbsp;2019</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/Compartmental_Models_Markov_Chains.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">SIS DTMC</span></a>
+  <a href="../Notes/Compartmental_Models_Markov_Chains.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SIS DTMC</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/CTMC_SIR_Sim.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gillespie simulation</span></a>
+  <a href="../Notes/CTMC_SIR_Sim.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gillespie simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/shapefiles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Maps and shapefiles in julia</span></a>
+  <a href="../Notes/shapefiles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Maps and shapefiles in julia</span></a>
   </div>
 </li>
       </ul>
@@ -156,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title"><b>Sections</b></h2>
    
   <ul>
-  <li><a href="#sir-dtmc" id="toc-sir-dtmc" class="nav-link active" data-scroll-target="#sir-dtmc"><span class="toc-section-number">4</span>  SIR DTMC</a></li>
+  <li><a href="#sir-dtmc" id="toc-sir-dtmc" class="nav-link active" data-scroll-target="#sir-dtmc"><span class="toc-section-number">5</span>  SIR DTMC</a></li>
   </ul>
 </nav>
     </div>
@@ -165,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">SIS DTMC</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SIS DTMC</span></h1>
 </div>
 
 
@@ -181,6 +249,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p>The compartmental model</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    S --&gt; I</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    I --&gt; S</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p>
@@ -197,6 +268,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Can be described by a Markov chain of a random variable I(t) representing the number of individuals infected at time t.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"LR"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">0</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">1</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"..."</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"..."</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">2</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"..."</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">N</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">N</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"..."</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p>
@@ -269,7 +351,7 @@ p _ {ji} ( \Delta t ) =
         { 1 - \bigg[ \frac { \beta i (N - i) } { N } +  \gamma i }\bigg] \Delta t, &amp; { j = i } \\
         0, &amp; { j \neq i +1, i, i-1}
     \end{cases}
-\tag{3.1}</span></span></p>
+\tag{4.1}</span></span></p>
 <p>Which can be simplified to</p>
 <p><span id="eq-SIS_DTMC_Trans_BD"><span class="math display">
 p _ {ji} ( \Delta t ) =
@@ -279,7 +361,7 @@ p _ {ji} ( \Delta t ) =
         1 - [ b(i)  + d(i)] \Delta t, &amp; { j = i } \\
         0, &amp; { j \neq i +1, i, i-1}
     \end{cases}
-\tag{3.2}</span></span></p>
+\tag{4.2}</span></span></p>
 <p>The probability of being in state <span class="math inline">i</span> at time <span class="math inline">t + \Delta t</span> can be experessed in terms of probabilities at time <span class="math inline">t</span>. <span class="math display">
 p_{i}(t + \Delta t) =
     p_{i-1}(t)b(i-1)\Delta t +
@@ -299,10 +381,13 @@ p_{i}(t + \Delta t) =
     0 &amp; 0  &amp; 0 &amp;  \cdots &amp; b(N-1)\Delta t &amp; 1- d(N) \Delta t \\
 \end{pmatrix}
 </span></p>
-<section id="sir-dtmc" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> SIR DTMC</h1>
+<section id="sir-dtmc" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> SIR DTMC</h1>
 <p>The compartmental model</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    S --&gt; I</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    I --&gt; R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p>
@@ -326,8 +411,74 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
         { 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, &amp; { (k, j) = (0, 0)} \\
         0, &amp; {otherwise}
     \end{cases}
-\tag{4.1}</span></span></p>
+\tag{5.1}</span></span></p>
+<p><a href="#eq-SIS_DTMC_Trans">Equation&nbsp;<span>4.1</span></a></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"TB"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = N"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 2"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = N"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 1 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 1 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = N - 2 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 1 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = N - 1\n I = 0"</span><span class="co">   </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = N - 2 \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = N - 2 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p>
@@ -611,40 +762,63 @@ S = N - 2 I = 1-&gt;S = N - 2 I = 0
 </div>
 </div>
 <p>There are (N + 1)(N + 2)/2 ordered pairs of states (s, i)</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="fl">100</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>N</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>N</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="fu">Int64</span>((N<span class="op">+</span><span class="fl">1</span>)<span class="fu">*</span>(N<span class="op">+</span><span class="fl">2</span>)<span class="op">/</span><span class="fl">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">Base</span>.<span class="fu">product</span>(S, I) <span class="op">|&gt;</span>  collect <span class="op">|&gt;</span> vec</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> []</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> a</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">sum</span>(i) <span class="op">&lt;=</span> N</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">push!</span>(b, i)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>#25 (generic function with 1 method)</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">NamedArrays</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> <span class="fu">repr</span>.(b)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fu">NamedArray</span>(<span class="fu">fill</span>(<span class="fl">0</span>, (n,n)), (names,names))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> <span class="kw">function</span>(i, j,  param, N)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    β, γ <span class="op">=</span> param</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    iS, iI <span class="op">=</span> i</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    jS, jI <span class="op">=</span> j</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iS <span class="op">-</span> jS <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="op">-</span><span class="fl">1</span> <span class="co">## Infection condition</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> β<span class="op">*</span>iS<span class="op">*</span>iI<span class="op">/</span>N</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span>  iS <span class="op">==</span> jS  <span class="op">&amp;&amp;</span> iI <span class="op">-</span> jI <span class="op">==</span> <span class="fl">1</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> γ<span class="op">*</span>iI</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span>  iS <span class="op">==</span> jS  <span class="op">&amp;&amp;</span> iI <span class="op">==</span> jI </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> <span class="op">-</span> (β<span class="op">*</span>iS<span class="op">*</span>iI<span class="op">/</span>N <span class="op">+</span> γ<span class="op">*</span>iI)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        pij <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    pij<span class="op">::</span><span class="dt">Float64</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>#11 (generic function with 1 method)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>496×496 Matrix{Real}:
- 1.0  0    0    0    0    0    0    0    …   0       0      0       0
- 0    1.0  0    0    0    0    0    0        0       0      0       0
- 0    0    1.0  0    0    0    0    0        0       0      0       0
- 0    0    0    1.0  0    0    0    0        0       0      0       0
- 0    0    0    0    1.0  0    0    0        0       0      0       0
- 0    0    0    0    0    1.0  0    0    …   0       0      0       0
- 0    0    0    0    0    0    1.0  0        0       0      0       0
- 0    0    0    0    0    0    0    1.0      0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0    …   0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- ⋮                        ⋮              ⋱                          ⋮
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0    …   0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0        0       0      0       0
- 0    0    0    0    0    0    0    0        0.405   0      0       0
- 0    0    0    0    0    0    0    0    …   0       0      0       0
- 0    0    0    0    0    0    0    0        0       0.14   0       0
- 0    0    0    0    0    0    0    0       -2.08    0      0.28    0
- 0    0    0    0    0    0    0    0        0      -1.9    0       0
- 0    0    0    0    0    0    0    0        0       0     -2.045   0.145
- 0    0    0    0    0    0    0    0    …   0       3.0    0      -2.0</code></pre>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> [<span class="fu">tf</span>(i, j, [<span class="fl">.5</span>,<span class="fl">.1</span>], <span class="fl">100</span>) for i <span class="op">=</span> b, j <span class="op">=</span> b]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">25</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Qt <span class="op">=</span> Q<span class="op">*</span>t</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p0 <span class="op">=</span> <span class="fu">falses</span>(<span class="fu">lastindex</span>(b))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>p0[<span class="fl">201</span>] <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>pt <span class="op">=</span> <span class="fu">exp</span>(Qt)<span class="op">*</span>p0</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">ExponentialUtilities</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>pt2 <span class="op">=</span> <span class="fu">expv</span>(t, Q, p0)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>pt2[<span class="fl">201</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>3.4663274126619643e-7</code></pre>
 </div>
 </div>
 
@@ -753,12 +927,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../Notes/Moss.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Replicating Moss et al.&nbsp;2019</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Replicating Moss et al.&nbsp;2019</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Notes/CTMC_SIR_Sim.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gillespie simulation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gillespie simulation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

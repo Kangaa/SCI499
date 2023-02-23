@@ -94,7 +94,7 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
     \end{cases}
 $$ {#eq-SIR_DTMC_Trans} 
 
-
+@eq-SIS_DTMC_Trans
 ```{dot}
 digraph {
     rankdir = "TB"
@@ -167,7 +167,7 @@ digraph {
 There are (N + 1)(N + 2)/2 ordered pairs of states (s, i)
 
 ```{julia}
-N = 30
+N = 100
 S = 0:N
 I = 0:N
 
@@ -203,14 +203,23 @@ tf = function(i, j,  param, N)
     elseif  iS == jS  && iI - jI == 1
         pij = γ*iI
     elseif  iS == jS  && iI == jI 
-        pij = 1 - (β*iS*iI/N + γ*iI)
+        pij = - (β*iS*iI/N + γ*iI)
     else 
-        pij = 0
+        pij = 0.0
     end
-    pij
+    pij::Float64
 end
 ```
 ```{julia}
 Q = [tf(i, j, [.5,.1], 100) for i = b, j = b]
+t = 25
+Qt = Q*t
+
+p0 = falses(lastindex(b))
+p0[201] = 1
+pt = exp(Qt)*p0
+using ExponentialUtilities
+pt2 = expv(t, Q, p0)
+pt2[201]
 ```
 
