@@ -8,6 +8,60 @@ using DrWatson
 ```
 ```{julia}
 using CSV
+using DataFrames
+
+function read_popns(path::AbstractString, names::Vector{String})::Vector{Int}
+    reader = CSV.read(path,DataFrame)
+    popn_tbl = Dict{String, Int}()
+    for row in eachrow(reader)
+        name = row[2]
+        if haskey(popn_tbl, "$name")
+            error("Multiple populations for $name")
+        else
+            value = row[3]
+            popn_tbl["$name"] = value
+        end
+    end
+    popns = Vector{Int}()
+    for name in names
+        if haskey(popn_tbl, "$name")
+            push!(popns, popn_tbl["$name"])
+        else
+            error("No population defined for $name")
+        end
+    end
+    return popns
+end
+```
+odin the data file are found using the find_mm function
+
+```{julia}
+using Match
+
+function find_mm(path, subdir::Bool)::Vector{String}
+    files = []
+    for entry in readdir(path, join = true)
+        f = entry
+        if f|>isfile
+            ext = split(f, ".")[2]
+            @match ext begin
+                "csv" => push!(files, f)
+            end
+        elseif f|>isdir && subdir
+            for sub_entry in readdir(f, join = true)
+                sub_f = sub_entry
+                if sub_f|>isfile
+                    ext = split(sub_f, ".")[2]
+                    @match ext begin
+                        "csv" => push!(files, sub_f)
+                    end
+                end
+            end
+        end
+    end
+    files|>sort!
+    files
+end
 ```
 
 
@@ -20,12 +74,34 @@ mixmat =CSV.File(path)
 ```
 
 
-Epidemiological parameters
+        row = mat[rix, :]
+        cbd_mix = row[cbd_ix]
+        add_mix = [cbd_mix * (1.0 - frac_cbd) * v for v in mix_w_cbd]
+        row += add_mix
+        row[cbd_ix] = cbd_mix * frac_cbd
+        mat[rix, :] = row
+    end
+end
+```
+With these in place, we can define the constructor for the mixture matrix, taking an OD matrix with fractions of self and cbd mixing as input. 
 
 ```{julia}
-r0 = 1.4
-σ = 2.0
-γ = 0.5
+function new_MixMat(od::OdMat, frac_self::FracSelf, frac_cbd::Float64)::MixMat
+    mat = copy(od.m)
+    names = copy(od.names)
+    popns = copy(od.popns)
+    scale_diag!(mat, frac_self)
+    cbd_ix = findfirst(isequal("20604"), names)
+    redistribute!(mat, popns, frac_cbd, cbd_ix)
+    MixMat(mat, names, popns, frac_self, frac_cbd)
+end
+```
+Now we can create our final mixing matrix with OD and some values for frac_self and frac_cbd
+```{julia}
+frac_self = Uniform(0.5)
+frac_cbd = 0.2
+
+mixmat = new_MixMat(OD, frac_self, frac_cbd)
 ```
 
 Model Parameters type
@@ -52,9 +128,55 @@ struct Model
     i::Vector
 end
 ```
-
-Event type
-is an 'enum' which I'm not sure about. I cant make out what it does, but I'll try and impliment it anyway
+Make a new model object from parameter set and an initial exposure number
+```{julia}
+function new_model(params::Params, e0::Int)
+    #first block selects a random patch from those in the model
+    let 
+        n_patch = params.popn |> length
+        rand_choice = rand() |> nextfloat
+        ix = (rand_choice*n_patch) |> trunc
+        @assert ix < n_patch "Selected patch $ix of $n_patch, from $rand_choice"
+        s0 = params.popn
+        ##then creates a 'Model' object with the provided parameters
+        m = Model(
+            params = params,
+            n_patch = n_patch,
+            t = 0.0,
+            s = s0,
+            e = zeros(n_patch),
+            i = zeros(n_patch)
+            )
+            ##and sets the number of exposures to e0
+        m.s[ix] -= e0 
+        m.e[ix] += e0 
+        # and returns the model
+        m
+    end
+end
+```
+### Event rates
+```{julia}
+function event_rates(m::Model)::Array{Float64, 1}
+    let 
+        rates = zeros(3*(m.params.popn|> length))
+        s_frac = m.s ./ m.params.popn
+        inf_force = m.params.β*(transpose(m.params.mixmat)*m.i)
+        n1 = m.numpatch
+        n2 = 2*m.numpatch
+        exp_rate = s_frac.*inf_force      
+        inf_rate = m.params.σ*m.e
+        rec_rate = m.params.γ*m.i
+        ds = -exp_rate
+        de = exp_rate - inf_rate
+        di = inf_rate - rec_rate
+        rates[(n1+1):n2] = ds
+        rates[firstindex(rates):n1] = de
+        rates[(n2+1):lastindex(rates)] = di
+        rates
+    end
+end
+```
 
 ```{julia}
 @enum Event begin
