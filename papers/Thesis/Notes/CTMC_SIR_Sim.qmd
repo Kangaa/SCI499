@@ -345,7 +345,7 @@ Ploto
 
 We can also check the distribution of states at any given time. lets check t = 15
 ```{julia}
-t = 15
+t = 10
 S, I, R = stateatt(t, Sims)
 Sims_plot_df = DataFrame(S = S, I = I, R = R) |> 
     x -> stack(x, 1:3)

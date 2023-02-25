@@ -1,11 +1,30 @@
 # Replicating Moss et al. 2019
 
-[@moss2019WhatCanUrban]
-
 ```{julia}
 using DrWatson
 @quickactivate "SCI499"
+
+#include(readdir(scriptsdir("MossModel"), join = true))
 ```
+*todo
+
+[@moss2019WhatCanUrban]
+
+The simulation model is a Rust program comprising five files: Lib.rs, main.rs, mixing.rs, run.rs, seir.rs
+mixing.rs, run.rs, and seir.rs comprise modules for the 'spatial_seir' package defined in lib.rs, which is imported to the main.rs program. 
+
+## Mixture Matrix Construction
+
+The first task is to import the population data which will ultiamtely comprise a mixing matrix. The main components here are an population table (describing the number of individuals in a given SA 3 region) and an origin destination matrix, which specifies how much individuals travel between regions. These two files are composed to a dedictated type 'OdMat' which contains the matrix, population numbers and names of the regions
+
+```{julia}
+struct OdMat
+    m::Array{Float64, 2}
+    names::Vector{String}
+    popns::Array{Int, 1}
+end
+```
+The population data for a given set of names is imported by the the funciton "read_popn"
 ```{julia}
 using CSV
 using DataFrames
@@ -63,16 +82,120 @@ function find_mm(path, subdir::Bool)::Vector{String}
     files
 end
 ```
+And then imported and combined with population data via 'read_OdMat'
 
-
-get the mixing matrix from CSV
 ```{julia}
-frac_self = 0.5
-frac_cbd = 0.2
-path = joinpath(datadir(), "Moss2018\\mixing\\abs_all.csv")
-mixmat =CSV.File(path) 
+function read_OdMat(mm_path::AbstractString, popn_path::AbstractString)::OdMat
+    reader = CSV.read(ODdir, DataFrame)
+    names = Vector{String}()
+    values = Vector{Float64}()
+    for row in eachrow(reader)
+        push!(names, string(row[1]))
+        for val in row[2:end]
+            push!(values, val)
+        end
+    end
+    
+    n = length(names)
+    mat = reshape(values, (n, n))
+    popns = read_popns(popn_path, names)
+    
+     OdMat(mat, names, popns)
+end
 ```
 
+```{julia}
+ODdir = datadir("Moss2018\\mixing\\abs_public.csv")
+popdir = datadir("Moss2018\\mixing\\sa3-populations.ssv")
+
+OD = read_OdMat(ODdir, popdir)
+```
+A mixture matrix object (::MixMat)  stores this OD matrix in affition information about the fraction of trips that are taken within individual regions (this can either be a constant across all regions, or vary between regions) and a dedicatied fraction for trips to the cbd (which will be useful for modelling later on).
+
+The option between constant (::Uniform) or different (::Variable) fractions of self-trips is encoded in its own type hierarchy
+```{julia}
+abstract type FracSelf end
+struct Uniform{Float64} <: FracSelf 
+    a::Float64
+end
+struct Variable{Array} <: FracSelf end
+```
+Which is an attribute of the MixMat type
+
+```{julia}
+struct MixMat
+    m::Array{Real, 2}
+    names::Vector{String}
+    popns::Array{Int, 1}
+    frac_self::FracSelf
+    frac_cbd::Real
+end
+```
+
+Before actually instantiating this MixMat, there are some checks and scalings to make sure it comes out right (i'm not actually sure what this achieves yet, but I'll keep it in for now.)
+
+
+```{julia}
+using LinearAlgebra
+function scale_diag_var!(mat::Matrix{T}, frac_self::Vector{T}) where T<:AbstractFloat
+    @inbounds for i in 1:size(mat, 1)
+        mat[i, :] = mat[i, :] .* ((1.0 - frac_self[i]) ./ sum(mat[i, :]))
+    end
+    diag(mat) .= frac_self
+end
+
+function scale_diag_unif!(mat::Matrix{T}, frac_self) where T<:AbstractFloat
+    frac_mix = 1.0 - frac_self
+    @inbounds for i in 1:size(mat, 1)
+        mat[i, :] = mat[i, :] .* (frac_mix ./ sum(mat[i, :]))
+    end
+    diag(mat) .= frac_self
+end
+
+function scale_diag!(mat::Matrix{T}, frac_self) where T<:AbstractFloat
+    if isa(frac_self, Uniform)
+        scale_diag_unif!(mat, frac_self.a)
+    elseif isa(frac_self, Variable)
+        scale_diag_var!(mat, frac_self.x)
+    end
+end
+
+function test_scale_diag(mat::Matrix{T}, frac_self::T) where T<:AbstractFloat
+    m1 = copy(mat)
+    scale_diag_unif!(m1, frac_self)
+
+    m2 = copy(mat)
+    fs2 = fill(frac_self, size(mat, 1))
+    scale_diag_var!(m2, fs2)
+
+    m3 = copy(mat)
+    fs3 = fill(frac_self, size(mat, 1))
+    fs3[2] *= 0.9
+    scale_diag_var!(m3, fs3)
+
+    @assert all(abs.(1.0 .- sum(m1, dims=2)) .< 1e-8) "m1 rowsum"
+    @assert all(abs.(1.0 .- sum(m2, dims=2)) .< 1e-8) "m2 rowsum"
+    @assert all(abs.(1.0 .- sum(m3, dims=2)) .< 1e-8) "m3 rowsum"
+    @assert m1 == m2 "mixing matrices differ"
+    @assert m1 != m3 "mixing matrices do not differ"
+end
+
+function redistribute!(mat::Matrix{Float64}, popns::Vector{Int},
+    frac_cbd::Float64, cbd_ix::Int)
+    # Determine how much all other regions mix with the CBD.
+    mix_w_cbd = copy(mat[:, cbd_ix])
+    mix_w_cbd[cbd_ix] = 0.0
+
+    # Weight the mixing by each region's resident population.
+    mix_w_cbd .= mix_w_cbd .* Float64.(popns)
+
+    # Normalise these values to conserve the force of infection.
+    mix_w_cbd /= sum(mix_w_cbd)
+
+        for rix in 1:size(mat, 1)
+            if rix == cbd_ix
+                continue
+            end
 
         row = mat[rix, :]
         cbd_mix = row[cbd_ix]
@@ -104,22 +227,22 @@ frac_cbd = 0.2
 mixmat = new_MixMat(OD, frac_self, frac_cbd)
 ```
 
-Model Parameters type
+We have our mixing matrix (in the ::MixMat type) ready for input into a SEIR Model
+
+## SEIR Model
 
 ```{julia}
 struct Params
     β::Float64
     σ::Float64
     γ::Float64
-    popn::Vector #Vector of patches
+    popn::Vector #Vector of patch sizes
     mixmat::AbstractArray
 end
 ```
-The rust code includes and 'impl Params' block hich I'm not sure is necessary
 
-Model State type
 ```{julia}
-struct Model
+mutable struct Model
     params::Params
     numpatch::Int
     t::Float64
@@ -178,13 +301,28 @@ function event_rates(m::Model)::Array{Float64, 1}
 end
 ```
 
+### Event occurred
 ```{julia}
-@enum Event begin
-    Exposure = 0
-    Infection = 6 #why 6?
-    Recovery = 2
+function event_occurred(m::Model, event_ix::Int)
+    ev_type::Int = event_ix  / m.numpatch
+    ev_location::Int = event_ix  / m.numpatch
+    if ev_type == 0 ## exposure
+        m.s[ev_location] -= 1
+        m.e[ev_location] += 1
+    elseif ev_type == 1 ## Infection
+        m.e[ev_location] -= 1
+        m.i[ev_location] += 1
+    elseif ev_type == 2 ## Recovery
+        m.i[ev_location] -= 1
+    end     
 end
 ```
-
-next there is another 'impl' this time of the 'Model' type. I think what this is doing is specifying a way to interact with the model type. the first block is a public function 'new' which I guess generates a new model with the supplied parameters.   AFAIK the way to do this is in julia just to define a function ~method~ for the model type
+### Infection log (removed)
+### Accept Simulation?
+```{julia}
+function accept_simulation(m::Model)::Bool
+    cum_infs = m.params.popn - m.s + m.e
+    cum_infs >= 50000
+end
+```
 

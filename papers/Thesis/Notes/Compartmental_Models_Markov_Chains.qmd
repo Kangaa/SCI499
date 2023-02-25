@@ -173,7 +173,7 @@ I = 0:N
 
 n = Int64((N+1)*(N+2)/2)
 
-a = Base.product(S, I) |>  collect |> vec
+a = Base.product(S, I) |> collect |> vec
 b = []
 
 for i in a
@@ -187,39 +187,56 @@ end
 
 ```{julia}
 using NamedArrays
+using SparseArrays
+β = 0.5
+γ = 0.1
+Q = zeros(Float64, lastindex(b), lastindex(b))
 
-names = repr.(b)
-
-p = NamedArray(fill(0, (n,n)), (names,names))
-
-tf = function(i, j,  param, N)
-    β, γ = param
-
-    iS, iI = i
-    jS, jI = j
-
-    if iS - jS == 1 && iI - jI == -1 ## Infection condition
-        pij = β*iS*iI/N
-    elseif  iS == jS  && iI - jI == 1
-        pij = γ*iI
-    elseif  iS == jS  && iI == jI 
-        pij = - (β*iS*iI/N + γ*iI)
-    else 
-        pij = 0.0
+for i in eachindex(b)
+    iS, iI = b[i]
+    for j in eachindex(b)
+        jS, jI = b[j]
+        if iS - jS == 1 && iI - jI == -1 ## Infection condition
+            Q[i, j] = β*iS*iI/N
+        elseif  iS == jS && iI - jI == 1 ## recovery condition
+            Q[i, j] = γ*iI
+        elseif  iS == jS  && iI == jI 
+            Q[i, j] = -((β*iS*iI/N) + γ*iI)
+        end
     end
-    pij::Float64
 end
+
 ```
 ```{julia}
-Q = [tf(i, j, [.5,.1], 100) for i = b, j = b]
-t = 25
-Qt = Q*t
-
-p0 = falses(lastindex(b))
-p0[201] = 1
-pt = exp(Qt)*p0
 using ExponentialUtilities
-pt2 = expv(t, Q, p0)
-pt2[201]
+t = 10
+
+x0 = (25, 30)
+x0i = findfirst(x -> x == x0, b)
+
+p0 = zeros(lastindex(b))
+p0[x0i] = 1
+
+pt = expv(t, Q, p0)
 ```
 
+
+unpack the state vector 
+```{julia}
+SImat = zeros(N+1, N+1)
+pS = zeros(N+1)
+pI = zeros(N+1)
+
+for i in eachindex(pt)
+    S, I = b[i]
+    pS[S+1] += pt[i]
+    pI[I+1] += pt[i] 
+    SImat[S+1, I+1] = pt[i]
+end
+```
+
+```{julia}
+using StatsPlots
+plot(pS)
+heatmap(SImat)
+```
