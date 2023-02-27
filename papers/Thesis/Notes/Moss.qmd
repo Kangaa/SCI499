@@ -326,3 +326,16 @@ function accept_simulation(m::Model)::Bool
 end
 ```
 
+
+```{julia}
+    global Cumulative_infections = DataFrame(
+        Fraction_self = Vector{Real}(),
+        Fraction_CBD = Vector{Real}(),
+        sim = Vector{Int}(),
+        week = Vector{Real}(),
+        name = Vector{String}(),
+        Cumulative_infections = Vector{Int}(),
+        proportion_n = Vector{Int}(),
+        population_n = Vector{Int}()
+    )
+```
