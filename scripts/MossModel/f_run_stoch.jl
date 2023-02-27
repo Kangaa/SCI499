@@ -1,12 +1,12 @@
 function run_stoch(params::Params, mixmat::MixMat, sim::Int)
     let infs = 10;
         rng = rand()
-        m = Model(params, infs, rng)
+        m = new_model(params, infs)
         t = 0.0
         week = 0
 
         while true
-            rates = m.event_rates #Model should have event rates function
+            rates = m|>event_rates
             net_rate = sum(rates)
             if net_rate == 0.0 
                 break

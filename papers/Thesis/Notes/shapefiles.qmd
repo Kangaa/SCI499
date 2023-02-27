@@ -10,7 +10,7 @@ using DrWatson
 
 
 ```{julia}
-using Shapefile
+using GeoTables
 
 ASGSdir = joinpath(datadir(),"ASGS_GDA2020")
 
@@ -26,8 +26,6 @@ STE_SHP) = Shapefile.Table.(joinpath.(joinpath(ASGSdir),
                 string.(replace.(readdir(ASGSdir), r"_SHP" => ""),
                  ".shp")))
 ```
-
-
 Create an index of the SA3 regions in the Greater Melbourne GCC
 ```{julia}
 using Tables
@@ -45,6 +43,43 @@ SGMelb_A4_SHP = (
 
 ```{julia}
 using Plots
-GMelb_SA1_SHP.geometry |> plot
+GMelb_SA3_SHP.geometry |> plot
 ```
 
+```{julia}
+using Meshes
+using MeshViz
+using GLMakie
+
+
+
+function shape2mesh(geom::Shapefile.Polygon, simple::Bool)
+    g = geom
+    point_vec = Vector{Tuple}()
+    for i in g.points
+        x = i.x
+        y = i.y
+        push!(point_vec,(x,y))
+    end
+    poly = point_vec |> PolyArea 
+    if simple == true
+        poly = simplify(poly, DouglasPeucker(0.005))
+    else
+        poly
+    end
+end
+
+```
+
+
+```{julia}
+GMelb_SA3_mesh = Vector{}(undef, length(GMelb_SA3_SHP.geometry))
+GMelb_SA3_mesh[i] = shape2mesh(GMelb_SA3_SHP.geometry[i], true)
+
+for i in eachindex(GMelb_SA3_SHP.geometry)
+    GMelb_SA3_mesh[i] = shape2mesh(GMelb_SA3_SHP.geometry[i], true)
+end
+
+
+
+```

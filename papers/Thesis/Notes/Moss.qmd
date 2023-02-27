@@ -229,18 +229,27 @@ mixmat = new_MixMat(OD, frac_self, frac_cbd)
 
 We have our mixing matrix (in the ::MixMat type) ready for input into a SEIR Model
 
-## SEIR Model
-
+## Specifying SEIR Model
+### Parameters
 ```{julia}
 struct Params
     β::Float64
     σ::Float64
     γ::Float64
-    popn::Vector #Vector of patch sizes
-    mixmat::AbstractArray
+    popn::Vector{Int} #Vector of patch sizes
+    mixmat::Array{Real, 2}
 end
 ```
+```{julia}
+β = 0.7
+σ = 2.0
+γ = 0.5
+mm = mixmat.m
+popns = mixmat.popns
 
+params = Params(β, σ, γ, popns, mm)
+```
+### Model
 ```{julia}
 mutable struct Model
     params::Params
@@ -252,36 +261,33 @@ mutable struct Model
 end
 ```
 Make a new model object from parameter set and an initial exposure number
+
+### Initialise model
 ```{julia}
 function new_model(params::Params, e0::Int)
     #first block selects a random patch from those in the model
-    let 
-        n_patch = params.popn |> length
-        rand_choice = rand() |> nextfloat
-        ix = (rand_choice*n_patch) |> trunc
-        @assert ix < n_patch "Selected patch $ix of $n_patch, from $rand_choice"
-        s0 = params.popn
-        ##then creates a 'Model' object with the provided parameters
-        m = Model(
-            params = params,
-            n_patch = n_patch,
-            t = 0.0,
-            s = s0,
-            e = zeros(n_patch),
-            i = zeros(n_patch)
-            )
-            ##and sets the number of exposures to e0
-        m.s[ix] -= e0 
-        m.e[ix] += e0 
-        # and returns the model
-        m
-    end
+    n_patch = params.popn |> length
+    rand_choice = rand() |> nextfloat
+    ix = (rand_choice*n_patch) |> trunc |> Integer
+    @assert ix < n_patch "Selected patch $ix of $n_patch, from $rand_choice"
+    s0 = copy(params.popn)
+    ##then creates a 'Model' object with the provided parameters
+    m = Model(params, n_patch, 0.0, copy(s0), zeros(n_patch),zeros(n_patch))
+        ##and sets the number of exposures to e0
+    m.s[ix] -= e0 
+    m.e[ix] += e0 
+    # and returns the model
+    m
 end
+```
+
+Initialize a new model with 10 exposures
+```{julia}
+m = new_model(params, 10)
 ```
 ### Event rates
 ```{julia}
 function event_rates(m::Model)::Array{Float64, 1}
-    let 
         rates = zeros(3*(m.params.popn|> length))
         s_frac = m.s ./ m.params.popn
         inf_force = m.params.β*(transpose(m.params.mixmat)*m.i)
@@ -290,22 +296,67 @@ function event_rates(m::Model)::Array{Float64, 1}
         exp_rate = s_frac.*inf_force      
         inf_rate = m.params.σ*m.e
         rec_rate = m.params.γ*m.i
-        ds = -exp_rate
-        de = exp_rate - inf_rate
-        di = inf_rate - rec_rate
-        rates[(n1+1):n2] = ds
-        rates[firstindex(rates):n1] = de
-        rates[(n2+1):lastindex(rates)] = di
+        rates[firstindex(rates):n1] = exp_rate
+        rates[(n1+1):n2] = inf_rate
+        rates[(n2+1):lastindex(rates)] = rec_rate
         rates
-    end
 end
 ```
 
-### Event occurred
+### Infection log (removed)
+### Accept Simulation?
 ```{julia}
-function event_occurred(m::Model, event_ix::Int)
-    ev_type::Int = event_ix  / m.numpatch
-    ev_location::Int = event_ix  / m.numpatch
+function accept_simulation(m::Model)::Bool
+    cum_infs = m.params.popn - m.s + m.e
+    sum(cum_infs) >= 5000
+end
+```
+
+### Output 
+
+
+## Running the simulation
+
+### log container
+```{julia}
+Cumulative_infections = DataFrame(
+    name = Vector{String}(),
+    Cumulative_infections = Vector{Int}(),
+    proportion_n = Vector{Int}(),
+    population_n = Vector{Int}()
+)
+```
+The simulation runs via a gillespie (direct) type algorithm, whereby the waiting time ($\delta t$) is exponentially distributed with rate $\frac{1}{\sum rate_i}$ for all possible transitions. 
+
+```{julia}
+function exp_sample(net_rate)
+    -(rand() |> log)/net_rate
+end
+```
+Similarly, a random sample is taken from the possible states (according to their propensity function) to determine which event ocurrs after $\delta t$
+
+```{julia}
+function pick(w::AbstractArray{Float64,1})::Int
+    rnd = rand()
+    x, sum = nothing, 0.0
+    for (ix, pr) in enumerate(w)
+        if isnothing(x)
+            sum += pr
+            if sum > rnd
+                x = ix
+            end
+        end
+    end
+    return x != nothing ? x-1 : length(w)-1
+end
+```
+### Event occurred
+
+after the event is picked the 'event ocurred' function is called to update the state of the model accordingly
+```{julia}
+function event_occurred(m::Model, event_ix::Int)::Model
+    ev_type = (event_ix  / m.numpatch)|> floor
+    ev_location = (event_ix % m.numpatch)+1
     if ev_type == 0 ## exposure
         m.s[ev_location] -= 1
         m.e[ev_location] += 1
@@ -314,28 +365,45 @@ function event_occurred(m::Model, event_ix::Int)
         m.i[ev_location] += 1
     elseif ev_type == 2 ## Recovery
         m.i[ev_location] -= 1
-    end     
-end
-```
-### Infection log (removed)
-### Accept Simulation?
-```{julia}
-function accept_simulation(m::Model)::Bool
-    cum_infs = m.params.popn - m.s + m.e
-    cum_infs >= 50000
+    end
+    m
 end
 ```
 
-
 ```{julia}
-    global Cumulative_infections = DataFrame(
-        Fraction_self = Vector{Real}(),
-        Fraction_CBD = Vector{Real}(),
-        sim = Vector{Int}(),
-        week = Vector{Real}(),
-        name = Vector{String}(),
-        Cumulative_infections = Vector{Int}(),
-        proportion_n = Vector{Int}(),
-        population_n = Vector{Int}()
+
+    out = DataFrame(
+        t = Vector{Float64}(),
+        S = Vector{Int}(),
+        E = Vector{Int}(),
+        I = Vector{Int}(),
     )
+    infs = 100;
+    m = new_model(params, infs)
+    t = 0.0
+    week = 0
+   while true
+        rates = m |> event_rates
+        net_rate = sum(rates)
+        if net_rate == 0.0 
+            break
+        end
+        dt = exp_sample(net_rate) #Sample exponential time
+        t += dt
+
+        ix = pick(rates, net_rate)
+        m = event_occurred(m, ix)
+        week = (t/7)|>floor
+
+        push!(out, [t, sum(m.s), sum(m.e), sum(m.i)])
+        if t >= 500
+            break
+        end
+ end
+```
+
+```{julia}
+using StatsPlots
+
+@df out plot(:t, [:S :E :I])
 ```

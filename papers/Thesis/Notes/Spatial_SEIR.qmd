@@ -1,0 +1,155 @@
+---
+title: "Spatial SEIR"
+format: html
+---
+```{julia}
+using DrWatson
+@quickactivate "SCI499"
+```
+
+##Mixing matrix
+
+### Choose regions
+
+```{julia}
+using Shapefile
+
+ASGSdir = datadir("ASGS_GDA2020")
+
+(AUS_SHP,
+GCCSA_SHP,
+MB_SHP,
+SA1_SHP,
+SA2_SHP,
+SA3_SHP,
+SA4_SHP, 
+STE_SHP) = Shapefile.Table.(joinpath.(joinpath(ASGSdir),
+                readdir(ASGSdir),
+                string.(replace.(readdir(ASGSdir), r"_SHP" => ""),
+                 ".shp")))
+```
+Create an index of the SA regions in the Greater Melbourne GCC
+```{julia}
+using Tables
+
+GMelb_SA1_SHP,
+GMelb_SA2_SHP,
+GMelb_SA3_SHP,
+SGMelb_A4_SHP = (
+    SA1_SHP,
+    SA2_SHP,
+    SA3_SHP,
+    SA4_SHP) .|>
+     x -> Tables.subset(x, x.GCC_NAME21 .== "Greater Melbourne")
+```
+
+lets start with SA3
+
+```{julia}
+using Plots
+GMelb_SA3_SHP.geometry |> plot
+```
+List of names
+```{julia}
+GMelb_SA3_Names = GMelb_SA3_SHP.SA3_CODE21
+```
+for a simple model to start, I'll give each region the same population (say, 100)
+```{julia}
+using DataFrames
+pops = DataFrame(
+    Name = GMelb_SA3_Names,
+    pop = 10)
+```
+and generate a uniform mixing matrix (with rows summing to 0.5)
+```{julia}
+mat_dims = length(GMelb_SA3_Names)
+mixmat = fill(0.5/mat_dims, mat_dims, mat_dims)
+```
+## SEIR Model
+We can now create our parameters object
+
+```{julia}
+β = 0.7
+σ = 2.0
+γ = 0.5
+mm = mixmat
+popns = copy(pops.pop)
+
+params = Params(β, σ, γ, popns, mm)
+```
+and initialise our model
+
+For our output we will have a row for each time and a column for the number of infected  in each region.
+
+```{julia}
+Inf_log = DataFrame(fill(Vector{Int}(), 40), GMelb_SA3_Names)
+
+
+weekly_log = DataFrame(
+        week = Vector{Float64}(),
+        S = Vector{Int}(),
+        E = Vector{Int}(),
+        I = Vector{Int}(),
+    )
+
+```
+
+```{julia}
+tot_log =  DataFrame(
+        t = Vector{Float64}(),
+        S = Vector{Int}(),
+        E = Vector{Int}(),
+        I = Vector{Int}(),
+    )
+Inf_log = DataFrame(fill(Vector{Int}(), 40), GMelb_SA3_Names)
+
+    m = new_model(params, 1)
+
+    t = 0.0
+    week = 0
+while true
+    rates = m |> event_rates
+    net_rate = sum(rates)
+    if net_rate == 0.0
+        break
+    end
+    dt = exp_sample(net_rate) #Sample exponential time
+    t += dt
+    ix = pick(rates)
+    m = event_occurred(m, ix)
+    push!(tot_log, [t, sum(m.s), sum(m.e), sum(m.i)])
+    push!(Inf_log, m.i)
+
+    if t >= 100
+        break
+    end
+end
+
+tot_log
+```
+
+```{julia}
+using StatsPlots
+@df tot_log plot(:t, [:S :E :I])
+```
+
+```{julia}
+using ColorSchemes
+using StatsPlots
+frac_infs = Inf_log./10
+```
+
+
+
+```{julia}
+using ColorSchemes
+plot()
+
+anim = @animate for i in 1:25:nrow(Inf_log)
+    for j in eachindex(GMelb_SA3_SHP.geometry)
+        plot!(GMelb_SA3_SHP.geometry[j], color = get(ColorSchemes.viridis, frac_infs[i, j]))
+    end
+end
+
+gif(anim)
+```
