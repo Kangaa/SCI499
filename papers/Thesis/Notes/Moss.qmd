@@ -24,7 +24,7 @@ struct OdMat
     popns::Array{Int, 1}
 end
 ```
-The population data for a given set of names is imported by the the funciton "read_popn"
+The population data for a given set of names is imported by the the function "read_popn"
 ```{julia}
 using CSV
 using DataFrames
@@ -230,6 +230,7 @@ mixmat = new_MixMat(OD, frac_self, frac_cbd)
 We have our mixing matrix (in the ::MixMat type) ready for input into a SEIR Model
 
 ## Specifying SEIR Model
+
 ### Parameters
 ```{julia}
 struct Params

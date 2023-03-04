@@ -6,6 +6,7 @@ struct MixMat
     frac_cbd::Real
 end
 
+using LinearAlgebra
 function scale_diag_var!(mat::Matrix{T}, frac_self::Vector{T}) where T<:AbstractFloat
     @inbounds for i in 1:size(mat, 1)
         mat[i, :] = mat[i, :] .* ((1.0 - frac_self[i]) ./ sum(mat[i, :]))
@@ -23,24 +24,24 @@ end
 
 function scale_diag!(mat::Matrix{T}, frac_self) where T<:AbstractFloat
     if isa(frac_self, Uniform)
-        MixMat.scale_diag_unif!(mat, frac_self.a)
+        scale_diag_unif!(mat, frac_self.a)
     elseif isa(frac_self, Variable)
-        MixMat.scale_diag_var!(mat, frac_self.x)
+        scale_diag_var!(mat, frac_self.x)
     end
 end
 
 function test_scale_diag(mat::Matrix{T}, frac_self::T) where T<:AbstractFloat
     m1 = copy(mat)
-    MixMat.scale_diag_unif!(m1, frac_self)
+    scale_diag_unif!(m1, frac_self)
 
     m2 = copy(mat)
     fs2 = fill(frac_self, size(mat, 1))
-    MixMat.scale_diag_var!(m2, fs2)
+    scale_diag_var!(m2, fs2)
 
     m3 = copy(mat)
     fs3 = fill(frac_self, size(mat, 1))
     fs3[2] *= 0.9
-    MixMat.scale_diag_var!(m3, fs3)
+    scale_diag_var!(m3, fs3)
 
     @assert all(abs.(1.0 .- sum(m1, dims=2)) .< 1e-8) "m1 rowsum"
     @assert all(abs.(1.0 .- sum(m2, dims=2)) .< 1e-8) "m2 rowsum"
@@ -49,7 +50,7 @@ function test_scale_diag(mat::Matrix{T}, frac_self::T) where T<:AbstractFloat
     @assert m1 != m3 "mixing matrices do not differ"
 end
 
-function redistribute(mat::Matrix{Float64}, popns::Vector{Int},
+function redistribute!(mat::Matrix{Float64}, popns::Vector{Int},
     frac_cbd::Float64, cbd_ix::Int)
     # Determine how much all other regions mix with the CBD.
     mix_w_cbd = copy(mat[:, cbd_ix])
@@ -74,13 +75,12 @@ function redistribute(mat::Matrix{Float64}, popns::Vector{Int},
         mat[rix, :] = row
     end
 end
-
 function new_MixMat(od::OdMat, frac_self::FracSelf, frac_cbd::Float64)::MixMat
     mat = copy(od.m)
     names = copy(od.names)
     popns = copy(od.popns)
-    MixMat.scale_diag!(mat, frac_self)
+    scale_diag!(mat, frac_self)
     cbd_ix = findfirst(isequal("20604"), names)
-    MixMat.redistribute!(mat, popns, frac_cbd, cbd_ix)
+    redistribute!(mat, popns, frac_cbd, cbd_ix)
     MixMat(mat, names, popns, frac_self, frac_cbd)
 end

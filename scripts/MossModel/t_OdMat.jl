@@ -7,21 +7,21 @@ struct OdMat
 end
 
 function read_popns(path::AbstractString, names::Vector{String})::Vector{Int}
-    reader = CSV.read(path, delim=' ', header=false)
-    popn_tbl = Dict{String,Int}()
+    reader = CSV.read(path,DataFrame)
+    popn_tbl = Dict{String, Int}()
     for row in eachrow(reader)
         name = row[2]
-        if haskey(popn_tbl, name)
+        if haskey(popn_tbl, "$name")
             error("Multiple populations for $name")
         else
-            value = parse(Int, row[3])
-            popn_tbl[name] = value
+            value = row[3]
+            popn_tbl["$name"] = value
         end
     end
     popns = Vector{Int}()
     for name in names
-        if haskey(popn_tbl, name)
-            push!(popns, popn_tbl[name])
+        if haskey(popn_tbl, "$name")
+            push!(popns, popn_tbl["$name"])
         else
             error("No population defined for $name")
         end
@@ -30,11 +30,11 @@ function read_popns(path::AbstractString, names::Vector{String})::Vector{Int}
 end
 
 function read_OdMat(mm_path::AbstractString, popn_path::AbstractString)::OdMat
-    reader = CSV.read(mm_path, DataFrame)
+    reader = CSV.read(ODdir, DataFrame)
     names = Vector{String}()
     values = Vector{Float64}()
     for row in eachrow(reader)
-        push!(names, "$row[1]")
+        push!(names, string(row[1]))
         for val in row[2:end]
             push!(values, val)
         end
