@@ -1,6 +1,7 @@
 name = "SCI499"
 
 [deps]
+ArchGDAL = "c9ce4bd3-c3d5-55b8-8973-c0e20141b8c3"
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 CSVFiles = "5d742f6a-9f54-50ce-8119-2520741973ca"
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
@@ -14,6 +15,9 @@ FastExpm = "7868e603-8603-432e-a1a1-694bd70b01f2"
 FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
 Gadfly = "c91e804a-d5a3-530f-b6f0-dfbca275c004"
+GeoInterface = "cf35fbd7-0cd7-5166-be24-54bfbe79505f"
+GeoInterfaceMakie = "0edc0954-3250-4c18-859d-ec71c1660c08"
+GeoMakie = "db073c08-6b98-4ee5-b6a4-5efafb3259c6"
 GeoTables = "e502b557-6362-48c1-8219-d30d308dcdb0"
 Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
 Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"

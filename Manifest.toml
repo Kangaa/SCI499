@@ -2,7 +2,7 @@
 
 julia_version = "1.8.3"
 manifest_format = "2.0"
-project_hash = "4f76468c8561141d1143c3d0ebff1f280b6981e0"
+project_hash = "979e6f0ef0d1204ef512c7dcbb60190030112427"
 
 [[deps.AbstractAlgebra]]
 deps = ["GroupsCore", "InteractiveUtils", "LinearAlgebra", "MacroTools", "Markdown", "Random", "RandomExtensions", "SparseArrays", "Test"]
@@ -387,6 +387,12 @@ deps = ["StaticArrays"]
 git-tree-sha1 = "9f02045d934dc030edad45944ea80dbd1f0ebea7"
 uuid = "d38c429a-6771-53c6-b99e-75d170b6e991"
 version = "0.5.7"
+
+[[deps.CoordinateTransformations]]
+deps = ["LinearAlgebra", "StaticArrays"]
+git-tree-sha1 = "681ea870b918e7cff7111da58791d7f718067a19"
+uuid = "150eb455-5306-5404-9cee-2592286d6298"
+version = "0.6.2"
 
 [[deps.CoupledFields]]
 deps = ["LinearAlgebra", "Statistics", "StatsBase"]
@@ -846,6 +852,12 @@ git-tree-sha1 = "e07a1b98ed72e3cdd02c6ceaab94b8a606faca40"
 uuid = "cf35fbd7-0cd7-5166-be24-54bfbe79505f"
 version = "1.2.1"
 
+[[deps.GeoInterfaceMakie]]
+deps = ["GeoInterface", "GeometryBasics", "MakieCore"]
+git-tree-sha1 = "dbcccb369f2edfde1594034a395e803780841605"
+uuid = "0edc0954-3250-4c18-859d-ec71c1660c08"
+version = "0.1.2"
+
 [[deps.GeoInterfaceRecipes]]
 deps = ["GeoInterface", "RecipesBase"]
 git-tree-sha1 = "29e1ec25cfb6762f503a19495aec347acf867a9e"
@@ -857,6 +869,12 @@ deps = ["Extents", "GeoFormatTypes", "GeoInterface", "GeoInterfaceRecipes", "JSO
 git-tree-sha1 = "624eb2bb45428b1ca3f6b5428aa105028912c71c"
 uuid = "61d90e0f-e114-555e-ac52-39dfb47a3ef9"
 version = "0.6.4"
+
+[[deps.GeoMakie]]
+deps = ["Colors", "Downloads", "GeoInterface", "GeoJSON", "GeometryBasics", "ImageIO", "LinearAlgebra", "Makie", "Proj", "Reexport", "Statistics", "StructArrays"]
+git-tree-sha1 = "bd2f9bcf2a5cb949cf13993a3cf53cc8d1d99c23"
+uuid = "db073c08-6b98-4ee5-b6a4-5efafb3259c6"
+version = "0.5.0"
 
 [[deps.GeoTables]]
 deps = ["ArchGDAL", "GADM", "GeoInterface", "GeoJSON", "Meshes", "Shapefile", "Tables"]
@@ -1904,6 +1922,12 @@ deps = ["Distributed", "Printf"]
 git-tree-sha1 = "d7a7aef8f8f2d537104f170139553b14dfe39fe9"
 uuid = "92933f4c-e287-5a05-a399-4b506db050ca"
 version = "1.7.2"
+
+[[deps.Proj]]
+deps = ["CEnum", "CoordinateTransformations", "GeoFormatTypes", "NetworkOptions", "PROJ_jll"]
+git-tree-sha1 = "495a52a7c491d0570a170f6de48a74860a1c1ece"
+uuid = "c94c279d-25a6-4763-9509-64d165bea63e"
+version = "1.4.0"
 
 [[deps.QOI]]
 deps = ["ColorTypes", "FileIO", "FixedPointNumbers"]
