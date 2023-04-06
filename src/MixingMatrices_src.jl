@@ -4,54 +4,41 @@ module MixingMatrices
 
 using Shapefile
 using Tables
-using Meshes
+using DataFrames
 
-export Spatial_MixingMatrix
+export SpatialMixingMatrix
 
-function shape2mesh(geom::Shapefile.Polygon)
-
-    if length(geom.parts) > 1
-        ringstart = last(geom.parts) + 1
-    else
-        ringstart = 1
-    end
-
-    point_vec = Vector{Tuple}()
-
-    for i in ringstart:length(geom.points)
-        x = geom.points[i].x
-        y = geom.points[i].y
-        push!(point_vec,(x,y))
-    end
-    poly = point_vec |> PolyArea 
-end
-
-function Spatial_MixingMatrix(Shp, Mixing  = "none")
+function SpatialMixingMatrix(Shp, intra = 0.9) 
+    
     Codes = Shp |> getCodes
-    LLSA_length = Codes[1]|>length 
-
-    UL_Codes = Codes .|> getNextLevelUpCode
-    ULSA_length = UL_Codes[1]|>length
-
-    npatch = length(Codes)
+    npatch = nrow(Codes)
     
-    MM = Matrix(undef, npatch, npatch)
+    MM = fill(1.0, npatch, npatch)
     
-    intraregioncoefficient = 0.999
+    intraregioncoefficient = intra
     interregioncoefficient = 1.0-intraregioncoefficient
-
-    for (i, origin) in enumerate(Codes)
-        originUL = getfirst(origin, ULSA_length)
-        nLLinUL = (UL_Codes .== originUL )|> sum
-        nLLnotinUL= npatch - nLLinUL
-        for (j, destination) in enumerate(Codes)
-            if getfirst(origin, ULSA_length) == getfirst(destination, ULSA_length)
-                MM[i,j] = intraregioncoefficient/nLLinUL
-            else
-                MM[i,j] = interregioncoefficient/nLLnotinUL
+    
+    for i in eachindex(Codes[:,1])
+        for j in eachindex(Codes[:, 1])
+            for l in 1:(ncol(Codes)-1)
+                if Codes[i,l] == Codes[j,l]
+                    nLLinUL = (Codes[i,l] .== Codes[:, l])|> sum
+                    coef = (intraregioncoefficient/nLLinUL)
+                    MM[i,j] *= coef
+                    break
+                else
+                    if l == (ncol(Codes)-1) 
+                        nLLoutUL = (Codes[i,l] .!= Codes[:, l])|> sum
+                        MM[i,j] *= interregioncoefficient/nLLoutUL
+                    else
+                        coef = interregioncoefficient
+                        MM[i,j] *= coef
+                    end
+                end
             end
         end
     end
+    
     return MM
 end
 
@@ -59,11 +46,19 @@ function  getCodes(shapetable)
     shapefields = shapetable |>
     Tables.columnnames .|>
     String 
-    lowerCodeFieldIndex = findfirst(endswith.(shapefields, "CODE21"))
-    lowerCodeFieldName = shapefields[lowerCodeFieldIndex]
-    lowerCodes = Tables.getcolumn(shapetable, Symbol(lowerCodeFieldName))
+    lowerCodes = Tables.getcolumn(shapetable, findfirst(endswith.(shapefields, "CODE21")))
 
-    lowerCodes
+    Code_DF = DataFrame(ll = lowerCodes)
+
+    rename!(Code_DF, 1 => MixingMatrices.getSARegion(Code_DF[1,1]))
+    
+    while MixingMatrices.getSARegion(lowerCodes[1]) != "S/T"
+        upperCodes = DataFrame(new = MixingMatrices.getNextLevelUpCode.(lowerCodes))
+        rename!(upperCodes, 1 => MixingMatrices.getSARegion(upperCodes[1,1]))
+        Code_DF = hcat(Code_DF, upperCodes)
+        lowerCodes = upperCodes[:,1]
+    end
+    Code_DF
 end
 
 function getSARegion(SAcode)
@@ -76,24 +71,20 @@ function getSARegion(SAcode)
     "Invalid Code"
 end
 
-function getfirst(string::String, n::Int64)
+function getfirstn(string::String, n::Int64)
     string[1:n]
 end
 
 function getNextLevelUpCode(Code)
-    r = getSARegion(Code)
-    if r == "S/T"
-        throw(DomainError(r, "top level"))
-    elseif r == "SA2"
+    SA_level = getSARegion(Code)
+    if SA_level == "S/T"
+        throw(DomainError(SA_level, "State/Territory level (no higher level)"))
+    elseif SA_level== "SA2"
         upcode = Code[1:(length(Code)-4)]
     else
         upcode = Code[1:(length(Code)-2)]
     end
+
+    return upcode
 end
-
-
-function nregionsinSA4(SACode)
-    (SA4_Codes .== SACode[1:3] )|> sum
-end
-
 end

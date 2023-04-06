@@ -2,8 +2,12 @@
 This is the set of types and methods necessary to run a spatial SEIR Model equivalent to that in Moss et al. 2018
 """
 module SpatialSEIR
-using DataFrames
-
+    using DataFrames
+    export MixingMatrix
+    export Parameters
+    export new_model
+    export run_sim
+    
 struct MixingMatrix
     mm::Array{Real, 2}
     names::Vector{String}
@@ -72,7 +76,7 @@ function pick(rates::AbstractArray{Float64,1})::Int
 end
 
 
-function event_occurred(m::Model, event_ix::Int)::Model
+function event_occurred(m::Model, event_ix::Int)
     ev_type = (event_ix  / m.npatch)|> floor
     ev_location = (event_ix % m.npatch)+1
     if ev_type == 0 ## exposure
@@ -84,18 +88,21 @@ function event_occurred(m::Model, event_ix::Int)::Model
     elseif ev_type == 2 ## Recovery
         m.I[ev_location] -= 1
     end
-    m
+    Event_type = (x ->  x == 0 ? "Exposure" :
+                        x == 1 ? "Infection" :
+                        x == 2 ? "Recovery" : "error")(ev_type)
+    
+    return (m, Event_type, ev_location)
 end
 
 function run_sim(params::Parameters, e0::Integer)
     m = new_model(params, e0)
     t = 0.0
     week = 0
-    weekly_log = DataFrame(
-            week = Vector{Float64}(),
-            S = Vector{Int}(),
-            E = Vector{Int}(),
-            I = Vector{Int}(),
+    Event_log = DataFrame(
+            t = Vector{Float64}(),
+            Event = Vector{String}(),
+            location = Vector{Int64}()
         )
 
     tot_log =  DataFrame(
@@ -116,11 +123,10 @@ function run_sim(params::Parameters, e0::Integer)
         dt = exp_sample(net_rate) #Sample exponential time
         t += dt
         ix = pick(rates./net_rate)
-        m = event_occurred(m, ix)
-        push!(tot_log, [t, sum(m.S), sum(m.E), sum(m.I)])
-        push!(inf_log, [t; m.I])
+        (m, Event, Location) = event_occurred(m, ix)
+        push!(Event_log, [t, Event, Location])
     end
-    return tot_log, inf_log
+    return Event_log
  #  save(datadir(savename(params, "csv")), tot_log)
 end
 

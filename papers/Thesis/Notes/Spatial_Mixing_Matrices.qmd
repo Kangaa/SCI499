@@ -58,12 +58,6 @@ plot(GMelb_SA3_SHP.geometry; color = SA4_Colors')
 
 ```{julia}
 MM = Matrix(undef, 40, 40)
-
-(SA4_Codes .== SA3_Codes[3][1:3] )|> sum
-
-
-
-
 for (i, origin) in enumerate(SA3_Codes)
     originSA4 = origin[1:3]
     for (j, destination) in enumerate(SA3_Codes)
