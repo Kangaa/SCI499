@@ -2,7 +2,6 @@
 This is the set of types and methods necessary to run a spatial SEIR Model equivalent to that in Moss et al. 2018
 """
 
-
 module MixingMatrices
 
 using Shapefile
@@ -10,6 +9,7 @@ using Tables
 using DataFrames
 
 export SpatialMixingMatrix
+export MixingMatrix
 
 
 struct MixingMatrix
@@ -30,14 +30,14 @@ function SpatialMixingMatrix(Codes, intra = 0.9)
     
     for i in eachindex(Codes[:,1])
         for j in eachindex(Codes[:, 1])
-            for l in 1:(ncol(Codes)-1)
+            for l in 1:(ncol(Codes))
                 if Codes[i,l] == Codes[j,l]
                     nLLinUL = (Codes[i,l] .== Codes[:, l])|> sum
                     coef = (intraregioncoefficient/nLLinUL)
                     MM[i,j] *= coef
                     break
                 else
-                    if l == (ncol(Codes)-1) 
+                    if l == (ncol(Codes)) 
                         nLLoutUL = (Codes[i,l] .!= Codes[:, l])|> sum
                         MM[i,j] *= interregioncoefficient/nLLoutUL
                     else
@@ -118,9 +118,10 @@ function getNextLevelUpCode(Code)
     return upcode
 end
 end
+
 module SpatialSEIR
-include(srcdir)
     using DataFrames
+    import ..MixingMatrices: MixingMatrix, SpatialMixingMatrix, getCodes
     export Parameters
     export new_model
     export run_sim
