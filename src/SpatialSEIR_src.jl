@@ -136,7 +136,6 @@ end
 mutable struct Model
     params::Parameters
     npatch::Int64
-    t::Float64
     S::Vector
     E::Vector
     I::Vector

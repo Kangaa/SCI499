@@ -4,92 +4,61 @@ using CSV
 using Tables
 using StaticArrays
 using LinearAlgebra
+using ProfileView
 
-# Create an abstract type for the model compartments
-abstract type Compartment{P} end
-# Define compartments for SIR, SEIR, and SIS models
-struct Susceptible{P} <: Compartment{P}
-    population::MVector{P, Int}
-end
-
-struct Infected{P} <: Compartment{P}
-    population::MVector{P, Int}
-end
-
-struct Recovered{P} <: Compartment{P}
-    population::MVector{P, Int}
-end
-
-struct Exposed{P} <: Compartment{P}
-    population::MVector{P, Int}
-end
-
-# common compartmental types
-
-
-# Define transition parameters
-
-abstract type TransitionParameter{P} end
-
-struct β{P} <: TransitionParameter{P}
-    value::SVector{P, Float64}
-end
-
-struct γ{P} <: TransitionParameter{P}
-    value::SVector{P, Float64}
-end
-
-struct σ{P} <: TransitionParameter{P}
-    value::SVector{P, Float64}
-end
 
 # Create a CompartmentalModel type to hold the state and parameters of the model
-struct CompartmentalModel{C, P, S, T} ## C is the number of compartments, P is the number of patches
-    state::NamedTuple{S,  NTuple{C, Compartment{P}}}
-    transition_parameters::NamedTuple{T, NTuple{C, TransitionParameter{P}}}
-    total_population::Int
-    num_patches::Int
-    patch_names::SVector{P, String}
-    population_per_patch::SVector{P, Int}
-    mixing_matrix::SMatrix{P,P}
+struct CompartmentalModel## C is the symbols for the compartments, P is the symbols for the parameters
+    state::NamedTuple
+    transition_parameters::NamedTuple
+    total_population::Int64
+    num_patches::Int64
+    patch_names::Vector{String}
+    population_per_patch::Vector{Int64}
+    mixing_matrix::Matrix{Float64}
 end
 
+CompartmentalModel((S = 10, I = 10), (β = [0.5], γ = [0.5]), 20, 2, ["Patch1", "Patch2"], [10, 10], [0.5 0.5; 0.5 0.5])
 
-function SIR(patch_names::SVector{P, String}, population_per_patch::SVector{P, Int}, mixing_matrix::SMatrix{P, P}, beta::Float64, gamma::Float64) where {P}
+function SIR(patch_names::Vector{String}, population_per_patch::Vector{Int64}, mixing_matrix::Matrix{Float64}, β::Float64, γ::Float64)
+    num_patches = length(patch_names)
     state = (
-        S = Susceptible{P}(MVector{P, Int}(population_per_patch)),
-        I = Infected{P}(MVector{P, Int}(zeros(Int, P))))
+        S = Vector{Int}(population_per_patch),
+        I = Vector{Int}(zeros(Int, num_patches)))
     transition_parameters = (
-        β = β{P}(SVector{P, Float64}(fill(beta, P))),
-        γ = γ{P}(SVector{P, Float64}(fill(gamma, P))))
+        β = Vector{Float64}(fill(β, num_patches)),
+        γ = Vector{Float64}(fill(γ, num_patches)))
     total_population = sum(population_per_patch)
     num_patches = length(patch_names)
-    patch_names = SVector{P, String}(patch_names)
-    population_per_patch = SVector{P, Int}(population_per_patch)
-    mixing_matrix = SMatrix{P,P}(mixing_matrix)
-    return CompartmentalModel{2, P, (:S, :I), (:β, :γ)}(state, transition_parameters, total_population, num_patches, patch_names, population_per_patch, mixing_matrix)
+    patch_names = Vector{String}(patch_names)
+    population_per_patch = Vector{Int}(population_per_patch)
+    mixing_matrix = mixing_matrix
+    return CompartmentalModel(state, transition_parameters, total_population, num_patches, patch_names, population_per_patch, mixing_matrix)
 end
-
+model = SIR(["Patch1", "Patch2"], [1000, 1000], [0.5 0.5; 0.5 0.5], 0.5, 0.5)
 
 ## Function to seed the model with a number of infected individuals at a random patch
-function rand_infection!(model::CompartmentalModel{C, P, S, T}, num_infected::Int) where {C, P, S, T}
+function rand_infection!(model::CompartmentalModel, num_infected::Int)
     # Randomly select a patch to seed
-    patch = rand(1:P)
+    patch = rand(1:model.num_patches)
     # Set the number of infected individuals in the patch
-    model.state.I.population[patch] += num_infected
+    model.state.I[patch] += num_infected
     # Set the number of susceptible individuals in the patch
-    model.state.S.population[patch] -= num_infected
+    model.state.S[patch] -= num_infected
     return model
 end
+model|> x -> rand_infection!(x, 10)
 
 ## Add a type to hold the event rates
-struct EventRates{L}
-    rates::MVector{L, Float64} ## is this the best way to store rates (or as perEvent type)
+mutable struct EventRates
+    rates::Vector{Float64} ## is this the best way to store rates (or as perEvent type)
+    net::Float64
 
-    function EventRates(Model::CompartmentalModel{C, P, S, T}) where {C, P, S, T}
-        L = C*P
-        rates = MVector{L, Float64}(zeros(L))
-        return new{L}(rates)
+    function EventRates(model::CompartmentalModel)
+        L = length(model.state)*model.num_patches
+        rates = Vector{Float64}(zeros(L))
+        net = 0.0
+        return new(rates)
     end
 end
 
@@ -102,88 +71,111 @@ end
 
 ## Update the event rates based on state
 
-function update_rates!(model::CompartmentalModel{C, P, S, T}, rates::EventRates) where {C, P, S, T}
+function update_rates!(model::CompartmentalModel, rates::EventRates)
     ## fraction of susceptible in each patch
-    s_frac::Float64 = model.state.S.population./model.population_per_patch
+    @inbounds s_frac::Vector{Float64} =  model.state.S./model.population_per_patch
     ##force of infection
-    f = model.transition_parameters.β.value[1]*(transpose(model.mixing_matrix)*model.state.I.population)
+    @inbounds f::Vector{Float64} = view(model.transition_parameters.β[1])*(transpose(model.mixing_matrix)*model.state.I)
     ## Infection rate
-    rates.rates[1:P] = s_frac.*f
+    @inbounds rates.rates[1:model.num_patches]::Vector{Float64} = s_frac.*f
     ## Recovery rate
-    rates.rates[P+1:2P] = model.state.I.population.*model.transition_parameters.γ.value[1]
+    @inbounds rates.rates[model.num_patches+1:2model.num_patches]::Vector{Float64} = model.state.I.*(view(model.transition_parameters.γ[1]))
+    @inbounds rates.net = sum(rates.rates)
+
     return rates
 end
 
 
 ## update the model state based on the event rates
-function update_state!(model::CompartmentalModel{C, P, S, T}, event_ix) where {C, P, S, T}
+function update_state!(model::CompartmentalModel, event_ix, return_event = true)
     ###pick an event to occur using gillespie algorithm
     event_type = (event_ix/model.num_patches)|> floor
     event_location = (event_ix%model.num_patches) +1
     if event_type == 0
-        model.state.S.population[event_location] -= 1
-        model.state.I.population[event_location] += 1
+        @inbounds    model.state.S[event_location] -= 1
+        @inbounds    model.state.I[event_location] += 1
     elseif event_type == 1
-        model.state.I.population[event_location] -= 1
+        @inbounds   model.state.I[event_location] -= 1
     end
-    return model   
+    if return_event
+        return  event_type, event_location
+    end
 end
+
 function exp_sample(net_rate)::Float64
     -(rand() |> log)/net_rate
 end
 ## Define a function to simulate a new model
-function simulate(params, i0)
-    model = SIR(params.patch_names, params.population_per_patch, params.mixing_matrix, params.beta, params.gamma)
+using DataFrames
+
+function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::Int64, aggregation_time::Int64, include_log::Bool, sim_data)
+    while rates.net != 0.0
+        update_rates!(model, rates)
+        if rates.net != 0.0
+            t += exp_sample(rates.net)
+            event_ix = gillespie_pick(rates.rates./rates.net)
+            event_type, event_location = update_state!(model, event_ix)
+            if include_log
+                push!(sim_log, (time = t, event_type = event_type, event_location = event_location))
+            end
+            if t/aggregation_time > wk
+                wk += 1
+                push!(sim_data, (time=wk, TotalSusceptible=sum(model.state.S), TotalInfected=sum(model.state.I)), promote = true)
+            end
+        end
+    end
+end
+
+function simulate(params, i0, aggregation_time = 7, include_log = false)
+    model = SIR(params.patch_names, params.population_per_patch, params.mixing_matrix, params.β, params.γ)
     model|> x -> rand_infection!(x, i0)
     rates = EventRates(model)
     t = 0.0
+    wk::Int64 = 0
     update_rates!(model, rates)
-    w = CSV.open(datadir(savename(params, "csv")), "w") 
-    ## write header
-    CSV.write(w,[], header=[:time, :event_type, :event_location])
-    while true
-        update_rates!(model, rates)
-        net_rate = sum(rates.rates)
-        if net_rate == 0.0
-            break
-        end
-        dt = exp_sample(net_rate)
-        t += dt
-        event_ix = gillespie_pick(rates.rates./net_rate)
-        update_state!(model, event_ix)
-        write = Tables.table([t; model.state.I.population]')
-        CSV.write(w, write, append=true)
+    if include_log
+          sim_log = DataFrame(time = Float64[], event_type = Int[], event_location = Int[])
     end
+    sim_data = DataFrame(time = Int64, TotalSusceptible = Int64, TotalInfected = Int64)
+    sim_loop(model, rates, t, wk, aggregation_time, include_log, sim_data)
+    CSV.write(datadir("test.csv") , sim_data, append=true, header=[:time, :event_type, :event_location])
     return 
 end
 
 
-
-Gmelb_SA3_SHP = Shapefile.Table(datadir("ASGS_GDA2020/SA3_2021_AUST_SHP_GDA2020/SA3_2021_AUST_GDA2020.shp")) |> x ->
+Gmelb_SA2_SHP = Shapefile.Table(datadir("ASGS_GDA2020/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")) |> x ->
     Tables.subset(x, x.GCC_NAME21 .== "Greater Melbourne")|>
     DataFrame|> x-> 
     rename(x,
-        "SA3_NAME21" => "SA3_NAME", 
-        "SA3_CODE21" => "SA3_CODE" )
+        "SA2_NAME21" => "SA2_NAME", 
+        "SA2_CODE21" => "SA2_CODE" )
 
+Vic_pop = CSV.read(datadir("VicPop21.csv"), DataFrame) 
 
+Gmelb_pop = Vic_pop|> x -> 
+    transform(x, "SA2 code" => (y -> string.(y)) => "SA2_CODE") |> x->
+    rename(x, "2021" => "popn")
 
+Gmelb =leftjoin(Gmelb_SA2_SHP, Gmelb_pop[:,["SA2_CODE","popn" ]], on = "SA2_CODE")
 
-codes = Gmelb_SA3_SHP |>
+Gmelb.popn = ((Gmelb.popn) .|> floor) |> x -> convert(Vector{Int64}, x)
+
+##! Convert patches with population < 100 to 100 (to avoid zero population patches)
+Gmelb.popn = Gmelb.popn .|> x -> x < 100 ? 100 : x
+
+codes = Gmelb |>
     names |>
     (x-> contains.(x, "CODE")) |>
-    (x-> select(Gmelb_SA3_SHP, x))|>
-    (x -> select(x, 1:2))
+    (x-> select(Gmelb, x))|>
+    (x -> select(x, 1:3))
 
-##convert missing entries to 0
+mixmat = SpatialMixingMatrix(codes, 0.5)
 
-params =(
-    patch_names = SVector{40}(Gmelb_SA3_SHP.SA3_NAME),
-    population_per_patch = SVector{40}(fill(1000, 40)),
-    mixing_matrix = SMatrix{40,40}(SpatialMixingMatrix(codes, 0.5)),
-    beta = 0.5,
-    gamma = 0.1)
+params = (
+    patch_names = Gmelb.SA2_NAME,
+    population_per_patch = Gmelb.popn,
+    mixing_matrix = mixmat,
+    β = 0.5,
+    γ = 0.5)
 
-
-    using Cthulhu
-@descend simulate(params, 3)
+simulate(params, 10,7,false)

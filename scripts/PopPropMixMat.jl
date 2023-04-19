@@ -28,7 +28,7 @@ codes = Gmelb |>
 
 
 
-SMM = SpatialMixingMatrix(codes, 0.2)
+SMM = SpatialMixingMatrix(codes, 0.5)
 
 heatmap(SMM, title = "Spatial Mixing Matrix", c = :viridis)
 
@@ -40,13 +40,17 @@ for i in eachindex(Gmelb.popn)
         PPMM[i,j] = Gmelb.popn[j]/sum(Gmelb.popn)
     end
 end
-heatmap(PPMM, title = "Population Proportional Mixing Matrix", c = :viridis)
 
 using StatsPlots
 using Animations
 
 anim = @animate for μ in 0:0.01:1
-    MMM = ((μ*SMM) + ((1-μ)*MM))
-    heatmap(MMM, title = "Mixing Matrix", c = :viridis)
+    MMM = ((μ*SMM) + ((1-μ)*PPMM))
+    heatmap(log10.(MMM), title = "Mixing Matrix", c = :viridis, clims = (-6,1))
 end
-gif(anim, "plots\\MixedMixingMatrix.gif", fps = 10)
+gif(anim, "plots\\MixedMixingMatrix.gif", fps = 7)
+
+μ = 0.9
+
+MMM = ((μ*SMM) + ((1-μ)*PPMM))
+heatmap(log10.(MMM), title = "Mixing Matrix", c = :viridis, clims = (-5,1))

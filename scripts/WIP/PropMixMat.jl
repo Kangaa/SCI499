@@ -32,7 +32,7 @@ codes = Gmelb |>
 MixingMatrix(SpatialMixingMatrix(codes, 0.5), Gmelb.SA2_NAME, Gmelb.popn).mm
 
 
-broad
+
 
 colorder = [1:ncol(codes) fill(0,ncol(codes))]
 for i in colorder[:, 1]
