@@ -1,7 +1,6 @@
 using Distributions
 using Plots
 
-
 function Brancho(p = 0.8, gen_max = 10)
 
     branches = [[[0,0], [0.0,0.0]]]

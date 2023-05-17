@@ -75,11 +75,11 @@ function update_rates!(model::CompartmentalModel, rates::EventRates)
     ## fraction of susceptible in each patch
     @inbounds s_frac::Vector{Float64} =  model.state.S./model.population_per_patch
     ##force of infection
-    @inbounds f::Vector{Float64} = view(model.transition_parameters.β[1])*(transpose(model.mixing_matrix)*model.state.I)
+    @inbounds f::Vector{Float64} = model.transition_parameters.β[1]*(transpose(model.mixing_matrix)*model.state.I)
     ## Infection rate
     @inbounds rates.rates[1:model.num_patches]::Vector{Float64} = s_frac.*f
     ## Recovery rate
-    @inbounds rates.rates[model.num_patches+1:2model.num_patches]::Vector{Float64} = model.state.I.*(view(model.transition_parameters.γ[1]))
+    @inbounds rates.rates[model.num_patches+1:2model.num_patches]::Vector{Float64} = model.state.I.*(model.transition_parameters.γ[1])
     @inbounds rates.net = sum(rates.rates)
 
     return rates
@@ -108,7 +108,8 @@ end
 ## Define a function to simulate a new model
 using DataFrames
 
-function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::Int64, aggregation_time::Int64, include_log::Bool, sim_data)
+function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::Int64, aggregation_time::Int64, include_log::Bool, data...)
+    sim_data, sim_log = data
     while rates.net != 0.0
         update_rates!(model, rates)
         if rates.net != 0.0
@@ -127,21 +128,38 @@ function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::
 end
 
 function simulate(params, i0, aggregation_time = 7, include_log = false)
+    #setup 
     model = SIR(params.patch_names, params.population_per_patch, params.mixing_matrix, params.β, params.γ)
-    model|> x -> rand_infection!(x, i0)
+    model |> x -> rand_infection!(x, i0)
     rates = EventRates(model)
     t = 0.0
     wk::Int64 = 0
     update_rates!(model, rates)
+
+    ## Create log and data frames
     if include_log
           sim_log = DataFrame(time = Float64[], event_type = Int[], event_location = Int[])
     end
     sim_data = DataFrame(time = Int64, TotalSusceptible = Int64, TotalInfected = Int64)
-    sim_loop(model, rates, t, wk, aggregation_time, include_log, sim_data)
-    CSV.write(datadir("test.csv") , sim_data, append=true, header=[:time, :event_type, :event_location])
+
+    #run simulation loop
+    sim_loop(model, rates, t, wk, aggregation_time, include_log, sim_data, sim_log)
+
+    # Write to CSV
+    CSV.write(datadir("test.csv") , sim_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
+    include_log && CSV.write(datadir("test_log.csv") , sim_log, append=false, header=[:time, :event_type, :event_location])
     return 
 end
 
+## test params
+params = (
+    patch_names = ["Patch 1", "Patch 2", "Patch 3"],
+    population_per_patch = [1000000, 1000000, 1000000],
+    mixing_matrix = [0.0 0.5 0.5; 0.5 0.0 0.5; 0.5 0.5 0.0],
+    β = 0.1,
+    γ = 0.1)
+
+@time simulate(params, 10, 7, true)
 
 Gmelb_SA2_SHP = Shapefile.Table(datadir("ASGS_GDA2020/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")) |> x ->
     Tables.subset(x, x.GCC_NAME21 .== "Greater Melbourne")|>
