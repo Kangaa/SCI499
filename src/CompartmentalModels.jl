@@ -137,5 +137,5 @@ function simulate(params, i0, aggregation_time = 7, include_log = false)
     # Write to CSV
     CSV.write(datadir("test.csv") , sim_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
     include_log && CSV.write(datadir("test_log.csv") , sim_log, append=false, header=[:time, :event_type, :event_location])
-    return 
+    return sim_data
 end
