@@ -1,4 +1,3 @@
-# New source functions
 module SpatialCompartmentalModels
 using DrWatson
 using Reexport
@@ -14,7 +13,7 @@ end
     using DrWatson
     using DataFrames
     include(srcdir("CompartmentalModels.jl"))
-    export simulate!
+    export simulate
 end
 
 end

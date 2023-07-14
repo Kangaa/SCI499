@@ -56,7 +56,7 @@ function gillespie_pick(rates)::Int
     crates = cumsum(rates)
     r = rand()
     ix = findfirst(x -> x > r, crates)
-    ix - 1
+    ix -1
 end
 
 ## Update the event rates based on state
@@ -70,7 +70,7 @@ function update_rates!(model::CompartmentalModel, rates::EventRates)
     @inbounds rates.rates[1:model.num_patches]::Vector{Float64} = s_frac.*f
     ## Recovery rate
     @inbounds rates.rates[model.num_patches+1:2model.num_patches]::Vector{Float64} = model.state.I.*(model.transition_parameters.γ[1])
-    @inbounds rates.net = sum(skipmissing(rates.rates))
+    @inbounds rates.net = sum(rates.rates)
 
     return rates
 end
@@ -97,26 +97,46 @@ function exp_sample(net_rate)::Float64
 end
 ## Define a function to simulate a new model
 
-function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::Int64, aggregation_time::Int64, include_log::Bool, data...)
-    sim_data, sim_log = data
-    update_rates!(model, rates)
-    if rates.net != 0.0
-        t += exp_sample(rates.net)
-        event_ix = gillespie_pick(rates.rates./rates.net)
-        event_type, event_location = update_state!(model, event_ix)
-        if include_log
-            push!(sim_log, (time = t, event_type = event_type, event_location = event_location))
+function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::Int64, aggregation_time::Int64, include_log::Bool, tot_data, patch_inf, patch_sus, summary_stats)
+
+    while rates.net != 0.0
+        update_rates!(model, rates)
+        if rates.net != 0.0
+            t += exp_sample(rates.net)
+            event_ix = gillespie_pick(rates.rates./rates.net)
+            event_type, event_location = update_state!(model, event_ix)
+
+            if event_type == 0
+                summary_stats[1,1] += 1
+            end 
+            if sum(model.state.I) > summary_stats[1, 2]
+               summary_stats[1, 2] = sum(model.state.I) 
+            end
+
+            if include_log
+                push!(sim_log, (time = t, event_type = event_type, event_location = event_location))
+            end
+
+            if t/aggregation_time > wk
+                wk += 1
+                push!(tot_data, (time=wk, TotalSusceptible=sum(model.state.S), TotalInfected=sum(model.state.I)), promote = true)
+                push!(patch_sus, model.state.S)
+                push!(patch_inf, model.state.I)
+            end
         end
-        if t/aggregation_time > wk
-            wk += 1
-            push!(sim_data, (time=wk, TotalSusceptible=sum(model.state.S), TotalInfected=sum(model.state.I)), promote = true)
-        end
+
     end
 end
 
-function simulate(params, i0, aggregation_time = 7, include_log = false)
+function simulate(params, i0, aggregation_time = 7, include_log = false, sim = 0)
     #setup 
-    model = SIR(params.patch_names, params.population_per_patch, params.mixing_matrix, params.β, params.γ)
+    patch_names, population_per_patch, mixing_matrix, β, γ = params
+    model = SIR(
+        patch_names,
+        population_per_patch,
+        mixing_matrix, 
+        β,
+        γ)
     model |> x -> rand_infection!(x, i0)
     rates = EventRates(model)
     t = 0.0
@@ -127,15 +147,34 @@ function simulate(params, i0, aggregation_time = 7, include_log = false)
     if include_log
         sim_log = DataFrame(time = Float64[], event_type = Int[], event_location = Int[])
     end
-    sim_data = DataFrame(time = Int64, TotalSusceptible = Int64, TotalInfected = Int64)
 
+    tot_data = DataFrame(
+        time = Int64,
+        TotalSusceptible = Int64,
+        TotalInfected = Int64)
+    
+    patch_inf =  DataFrame(Dict(name => Vector{Int}() for name in params[:patch_names]))
+    patch_sus =  DataFrame(Dict(name => Vector{Int}() for name in params[:patch_names]))
+        
+    summary_stats = DataFrame(
+        total_infections = 0,
+        peak_infections = 0,
+        duration = 0)
     #run simulation loop
-    if rates.net != 0.0 
-        sim_loop(model, rates, t, wk, aggregation_time, include_log, sim_data, sim_log)
-    end
+    sim_loop(model, rates, t, wk, aggregation_time, include_log, tot_data, patch_inf, patch_sus, summary_stats)
 
-    # Write to CSV
-    CSV.write(datadir("test.csv") , sim_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
-    include_log && CSV.write(datadir("test_log.csv") , sim_log, append=false, header=[:time, :event_type, :event_location])
-    return sim_data
+    #TODO 
+
+    summary_stats[1, 3] = wk
+
+    include_log && CSV.write(datadir("$sim log.csv") , sim_log, append=false, header=[:time, :event_type, :event_location])
+    return (tot_data,
+     summary_stats,
+     patch_sus,
+     patch_inf)
+end
+
+
+function batch_sim(params,nsims)
+    
 end

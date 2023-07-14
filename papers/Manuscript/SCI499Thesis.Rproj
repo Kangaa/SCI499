@@ -16,4 +16,6 @@ AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
 LineEndingConversion: Posix
 
+ZoteroLibraries: "My Library"
+
 SpellingDictionary: en_AU

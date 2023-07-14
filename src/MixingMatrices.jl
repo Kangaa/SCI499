@@ -1,14 +1,12 @@
 #Functions for constructing mixing matrices
 
-
-
 struct MixingMatrix
     mm::Array{Real, 2}
     names::Vector{String}
     popns::Array{Int, 1}
 end
 
-function SpatialMixingMatrix(codes, intra = 0.9)
+function SpatialMixingMatrix(codes, popn, intra = 0.9, μ = 0.5)
     npatch = length(codes)
     MM = fill(1.0, npatch, npatch)
     ##get codes
@@ -36,7 +34,16 @@ function SpatialMixingMatrix(codes, intra = 0.9)
             end
         end
     end
-    return MM
+
+    PPMM = fill(1.0, length(popn), length(popn))
+    for i in eachindex(popn)
+        for j in eachindex(popn)
+            PPMM[i,j] = popn[j]/sum(popn)
+        end
+    end
+
+    MMM = ((μ*MM) + ((1-μ)*PPMM))
+    return MMM
 end
 
 function  expandCodes(shapetable)
