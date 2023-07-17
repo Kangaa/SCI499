@@ -1,0 +1,52 @@
+project:
+  type: book
+
+book:
+  title: "Hierarchical Spatial Structure in Compartmental Epidemiological models"
+  author: "James Bender"
+  description: "A thesis submitted for the degree of Graduate Diploma in Applied Statistics at The University of New England in 2023. School of Science and Technology."
+  chapters:
+    - index.qmd
+    - abstract.qmd
+    - declaration.qmd
+    - acknowledgements.qmd
+    - "01-Intro&Background.qmd"
+    - "02-chap2.qmd"
+  appendices:
+    - "A-appA.qmd"
+  references: refs.qmd
+  page-footer:
+    left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023"
+    border: false
+    background: light
+  sidebar:
+    background: "#cccccc"
+    style: "docked"
+
+toc-title: "<b>Sections</b>"
+html-math-method: katex
+published-title: "Last updated"
+date-format: "DD MMMM YYYY"
+number-depth: 2
+bibliography: thesisrefs.bib
+csl: apa-single-spaced.csl
+fig-height: 3.8
+fig-width: 6.3
+degreetype: Graduate Diploma of Applied Statistics
+submitted: 2023
+affiliation: School of Science and Technology
+degrees: 'B.Sc. (Hons), University of Queensland'
+execute:
+  freeze: auto
+  echo: false
+
+format:
+  html:
+    theme:
+      - cosmo
+      - thesis.scss
+    fontsize: 16px
+    mainfont: "Merriweather, Georgia, serif"
+    code-link: true
+  monashthesis-pdf:
+    keep-tex: false

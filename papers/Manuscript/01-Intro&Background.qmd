@@ -1,0 +1,13 @@
+# Introduction & Background {#sec-intro}
+
+## Disease Spread
+
+## Compartmental Models
+
+### The SIR compartmental model
+
+```{mermaid}
+flowchart LR
+    S --> I
+    I --> R
+```
