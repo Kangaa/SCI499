@@ -1,20 +1,14 @@
-# Compartmental models in epidemiology
+## Compartmental models in epidemiology
 
-@bjornstad2020ModelingInfectiousEpidemics
+@allen2015StochasticPopulationEpidemic
 
 ## Refresher on Markov Chains
 
-Examples of
+## Examples of Markov chain representations of Compartmental Models
 
-# SIS DTMC
+### SIS DTMC
 
 The compartmental model
-
-```{mermaid}
-flowchart LR
-    S --> I
-    I --> S
-```
 
 Can be described by a Markov chain of a random variable I(t) representing the number of individuals infected at time t.
 
@@ -80,15 +74,9 @@ The transition matrix $P(\Delta t)$ is given by $$
 \end{pmatrix}
 $$
 
-# SIR DTMC
+### SIR DTMC
 
 The compartmental model
-
-```{mermaid}
-flowchart LR
-    S --> I
-    I --> R
-```
 
 Can be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t, respectively (a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, i.e. R = N - S - I).
 
@@ -247,3 +235,5 @@ using StatsPlots
 plot(pS)
 heatmap(SImat)
 ```
+
+### SIR CTMC

@@ -8,12 +8,9 @@ book:
   chapters:
     - index.qmd
     - test.qmd
+    - Chapters/intro.qmd
     - part: notes.qmd
-      chapters:
-        - Notes/Moss.qmd
-        - Notes/Compartmental_Models_Markov_Chains.qmd
-        - Notes/CTMC_SIR_Sim.qmd
-        - Notes/shapefiles.qmd
+
         
 
   page-footer:
@@ -45,6 +42,8 @@ execute:
   echo: true
 
 format:
+  pdf:
+    documentclass: report
   html:
     theme:
       - cosmo
