@@ -27,7 +27,7 @@
   abstract = {In recent years large-scale computational models for the realistic simulation of epidemic outbreaks have been used with increased frequency. Methodologies adapt to the scale of interest and range from very detailed agent-based models to spatially-structured metapopulation models. One major issue thus concerns to what extent the geotemporal spreading pattern found by different modeling approaches may differ and depend on the different approximations and assumptions used.},
   keywords = {Attack Rate,Basic Reproduction Number,Census Area,Infectious Individual,Reproductive Number},
   annotation = {QID: Q30390849},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\TUSYS6BA\\Ajelli et al. - 2010 - Comparing large-scale computational approaches to epidemic modeling Agent-based versus structured metapopulation models.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\TUSYS6BA\\Ajelli et al. (2010) Comparing large-scale computational approaches to epidemic modeling.pdf}
 }
 
 @book{allen2015StochasticPopulationEpidemic,
@@ -42,7 +42,7 @@
   urldate = {2023-02-10},
   isbn = {978-3-319-21553-2 978-3-319-21554-9},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\DCH24BFJ\\Allen (2015) Stochastic Population and Epidemic Models - Persistence and Extinction.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\DCH24BFJ\\Allen (2015) Stochastic Population and Epidemic Models.pdf}
 }
 
 @article{allen2017PrimerStochasticEpidemic,
@@ -63,15 +63,44 @@
   langid = {english},
   keywords = {Branching process,Continuous-time Markov chain,Minor outbreak,Stochastic differential equation},
   annotation = {QID: Q56441611},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\N5KBBZHL\\Allen (2017) A primer on stochastic epidemic models - Formulation, numerical simulation, and analysis.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\N5KBBZHL\\Allen (2017) A primer on stochastic epidemic models.pdf}
 }
 
-@article{amestoyBRIDGINGGAPFLAT,
-  title = {{{BRIDGING THE GAP BETWEEN FLAT AND HIERARCHICAL LOW-RANK MATRIX FORMATS}}: {{THE MULTILEVEL BLR FORMAT}}},
-  author = {Amestoy, Patrick R and Buttari, Alfredo and L’Excellent, Jean-Yves and Mary, Theo},
-  abstract = {Matrices possessing a low-rank property arise in numerous scientific applications. This property can be exploited to provide a substantial reduction of the complexity of their LU or LDLT factorization. Among the possible lowrank formats, the flat Block Low-Rank (BLR) format is easy to use but achieves superlinear complexity. Alternatively, the hierarchical formats achieve linear complexity at the price of a much more complex, hierarchical matrix representation. In this paper, we propose a new format based on multilevel BLR approximations: the matrix is recursively defined as a BLR matrix whose full-rank blocks are themselves represented by BLR matrices. We call this format multilevel BLR (MBLR). Contrarily to hierarchical matrices, the number of levels in the block hierarchy is fixed to a given constant; while this format can still be represented within the H formalism, we show that applying the H theory to it leads to very pessimistic complexity bounds. We therefore extend the theory to prove better bounds, and show that the MBLR format provides a simple way to finely control the desired complexity of dense factorizations. By striking a balance between the simplicity of the BLR format and the low complexity of the hierarchical ones, the MBLR format bridges the gap between flat and hierarchical low-rank matrix formats. The MBLR format is of particular relevance in the context of sparse direct solvers, for which it is able to trade off the optimal dense complexity of the hierarchical formats to benefit from the simplicity and flexibility of the BLR format while still achieving O(n) sparse complexity. We finally compare our MBLR format with the related BLR-H (or Lattice-H ) format; our theoretical analysis shows that both formats achieve the same asymptotic complexity for a given top level block size.},
+@article{amestoy2019BridgingGapFlat,
+  title = {Bridging the {{Gap Between Flat}} and {{Hierarchical Low-Rank Matrix Formats}}: {{The Multilevel Block Low-Rank Format}}},
+  shorttitle = {Bridging the {{Gap Between Flat}} and {{Hierarchical Low-Rank Matrix Formats}}},
+  author = {Amestoy, Patrick R. and Buttari, Alfredo and L'Excellent, Jean-Yves and Mary, Theo A.},
+  date = {2019-01},
+  journaltitle = {SIAM Journal on Scientific Computing},
+  shortjournal = {SIAM J. Sci. Comput.},
+  volume = {41},
+  number = {3},
+  pages = {A1414-A1442},
+  publisher = {{Society for Industrial and Applied Mathematics}},
+  issn = {1064-8275},
+  doi = {10.1137/18M1182760},
+  url = {https://epubs.siam.org/doi/10.1137/18M1182760},
+  urldate = {2023-07-15},
+  abstract = {We investigate a special class of data sparse rank-structured matrices that combine a flat block low-rank (BLR) partitioning with the use of shared (called nested in the hierarchical case) bases.  This format is to \$\textbackslash mathcal\{H\}\^2\$ matrices what BLR is to \$\textbackslash mathcal\{H\}\$ matrices: we therefore call it the BLR\$\^2\$ matrix format. We present algorithms for the construction and LU factorization of BLR\$\^2\$ matrices, and perform their cost analysis---both asymptotically and for a fixed problem size. With weak admissibility, BLR\$\^2\$ matrices reduce to block separable matrices (the flat version of HBS/HSS). Our analysis and numerical experiments reveal some limitations of BLR\$\^2\$ matrices with weak admissibility, which we propose to overcome with two approaches: strong admissibility, and the use of multiple shared bases per row and column.},
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\L5DF86WD\\Amestoy et al. (2019) Bridging the Gap Between Flat and Hierarchical Low-Rank Matrix Formats.pdf}
+}
+
+@article{andreasen2011FinalSizeEpidemic,
+  title = {The {{Final Size}} of an {{Epidemic}} and {{Its Relation}} to the {{Basic Reproduction Number}}},
+  author = {Andreasen, Viggo},
+  date = {2011-10},
+  journaltitle = {Bulletin of Mathematical Biology},
+  shortjournal = {Bull Math Biol},
+  volume = {73},
+  number = {10},
+  pages = {2305--2321},
+  issn = {0092-8240, 1522-9602},
+  doi = {10.1007/s11538-010-9623-3},
+  url = {http://link.springer.com/10.1007/s11538-010-9623-3},
+  urldate = {2023-07-15},
+  abstract = {We study the final size equation for an epidemic in a subdivided population with general mixing patterns among subgroups. The equation is determined by a matrix with the same spectrum as the next generation matrix and it exhibits a threshold controlled by the common dominant eigenvalue, the basic reproduction number R0: There is a unique positive solution giving the size of the epidemic if and only if R0 exceeds unity. When mixing heterogeneities arise only from variation in contact rates and proportionate mixing, the final size of the epidemic in a heterogeneously mixing population is always smaller than that in a homogeneously mixing population with the same basic reproduction number R0. For other mixing patterns, the relation may be reversed.},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\G3Q68D93\\Amestoy et. al. BRIDGING THE GAP BETWEEN FLAT AND HIERARCHICAL LOW-RANK MATRIX FORMATS - THE MULTILEVEL BLR FORMAT.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\AZ96ZI82\\Andreasen (2011) The Final Size of an Epidemic and Its Relation to the Basic Reproduction Number.pdf}
 }
 
 @article{arino2017SpatiotemporalSpreadInfectious,
@@ -91,6 +120,25 @@
   langid = {english}
 }
 
+@article{ashcraft2021BlockLowRankMatrices,
+  title = {Block {{Low-Rank Matrices}} with {{Shared Bases}}: {{Potential}} and {{Limitations}} of the {{BLR}}\$\^2\$ {{Format}}},
+  shorttitle = {Block {{Low-Rank Matrices}} with {{Shared Bases}}},
+  author = {Ashcraft, Cleve and Buttari, Alfredo and Mary, Theo},
+  date = {2021-01},
+  journaltitle = {SIAM Journal on Matrix Analysis and Applications},
+  shortjournal = {SIAM J. Matrix Anal. Appl.},
+  volume = {42},
+  number = {2},
+  pages = {990--1010},
+  publisher = {{Society for Industrial and Applied Mathematics}},
+  issn = {0895-4798},
+  doi = {10.1137/20M1386451},
+  url = {https://epubs.siam.org/doi/abs/10.1137/20M1386451},
+  urldate = {2023-07-15},
+  abstract = {Matrices possessing a low-rank property arise in numerous scientific applications.  This property can be exploited to provide a substantial reduction of the complexity of their \$LU\$ or \$LDL\^T\$ factorization.  Among the possible low-rank formats, the flat block low-rank (BLR) format is easy to use but achieves superlinear complexity. Alternatively, the hierarchical formats achieve linear complexity at the price of a much more complex, hierarchical matrix representation.  In this paper, we propose a new format based on multilevel BLR approximations: the matrix is recursively defined as a BLR matrix whose full-rank blocks are themselves represented by BLR matrices.  We call this format multilevel BLR (MBLR).  Contrarily to hierarchical matrices, the number of levels in the block hierarchy is fixed to a given constant; while this format can still be represented within the \$\textbackslash mathcal\{H\}\$ formalism, we show that applying the \$\textbackslash mathcal\{H\}\$ theory to it leads to very pessimistic complexity bounds. We therefore extend the theory to prove better bounds and show that the MBLR format provides a simple way to finely control the desired complexity of dense factorizations. By striking a balance between the simplicity of the BLR format and the low complexity of the hierarchical ones, the MBLR format bridges the gap between flat and hierarchical low-rank matrix formats.  The MBLR format is of particular relevance in the context of sparse direct solvers, for which it is able to trade off the optimal dense complexity of the hierarchical formats to benefit from the simplicity and flexibility of the BLR format while still achieving \$O(n)\$ sparse complexity. We finally compare our MBLR format with the related BLR-\$\textbackslash mathcal\{H\}\$ (or Lattice-\$\textbackslash mathcal\{H\}\$) format; our theoretical analysis shows that both formats achieve the same asymptotic complexity for a given top level block size.},
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\NB8BAGAS\\Ashcraft et al. (2021) Block Low-Rank Matrices with Shared Bases.pdf}
+}
+
 @article{balcan2009MultiscaleMobilityNetworks,
   title = {Multiscale Mobility Networks and the Spatial Spreading of Infectious Diseases},
   author = {Balcan, Duygu and Colizza, Vittoria and Gonçalves, Bruno and Hu, Hao and Ramasco, José J. and Vespignani, Alessandro},
@@ -105,7 +153,7 @@
   urldate = {2023-02-07},
   abstract = {Among the realistic ingredients to be considered in the computational modeling of infectious diseases, human mobility represents a crucial challenge both on the theoretical side and in view of the limited availability of empirical data. To study the interplay between short-scale commuting flows and long-range airline traffic in shaping the spatiotemporal pattern of a global epidemic we (i) analyze mobility data from 29 countries around the world and find a gravity model able to provide a global description of commuting patterns up to 300 kms and (ii) integrate in a worldwide-structured metapopulation epidemic model a timescale-separation technique for evaluating the force of infection due to multiscale mobility processes in the disease dynamics. Commuting flows are found, on average, to be one order of magnitude larger than airline flows. However, their introduction into the worldwide model shows that the large-scale pattern of the simulated epidemic exhibits only small variations with respect to the baseline case where only airline traffic is considered. The presence of short-range mobility increases, however, the synchronization of subpopulations in close proximity and affects the epidemic behavior at the periphery of the airline transportation infrastructure. The present approach outlines the possibility for the definition of layered computational approaches where different modeling assumptions and granularities can be used consistently in a unifying multiscale framework.},
   annotation = {QID: Q27230870},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\WD4J2MVL\\Balcan et. al. (2009) Multiscale mobility networks and the spatial spreading of infectious diseases.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\WD4J2MVL\\Balcan et al. (2009) Multiscale mobility networks and the spatial spreading of infectious diseases.pdf}
 }
 
 @article{balcan2009MultiscaleMobilityNetworksa,
@@ -120,7 +168,7 @@
   url = {https://www.pnas.org/doi/full/10.1073/pnas.0906910106},
   urldate = {2023-07-11},
   abstract = {Among the realistic ingredients to be considered in the computational modeling of infectious diseases, human mobility represents a crucial challenge both on the theoretical side and in view of the limited availability of empirical data. To study the interplay between short-scale commuting flows and long-range airline traffic in shaping the spatiotemporal pattern of a global epidemic we (i) analyze mobility data from 29 countries around the world and find a gravity model able to provide a global description of commuting patterns up to 300 kms and (ii) integrate in a worldwide-structured metapopulation epidemic model a timescale-separation technique for evaluating the force of infection due to multiscale mobility processes in the disease dynamics. Commuting flows are found, on average, to be one order of magnitude larger than airline flows. However, their introduction into the worldwide model shows that the large-scale pattern of the simulated epidemic exhibits only small variations with respect to the baseline case where only airline traffic is considered. The presence of short-range mobility increases, however, the synchronization of subpopulations in close proximity and affects the epidemic behavior at the periphery of the airline transportation infrastructure. The present approach outlines the possibility for the definition of layered computational approaches where different modeling assumptions and granularities can be used consistently in a unifying multiscale framework.},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\UVEWLSM2\\Balcan et al. - 2009 - Multiscale mobility networks and the spatial spreading of infectious diseases.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\UVEWLSM2\\Balcan et al. (2009) Multiscale mobility networks and the spatial spreading of infectious diseases.pdf}
 }
 
 @article{balcan2010ModelingSpatialSpread,
@@ -160,7 +208,26 @@
   langid = {english},
   keywords = {Households,Large sub-populations,Metapopulations},
   annotation = {QID: Q39021565},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\AP3297YE\\Ball et al. - 2015 - Seven challenges for metapopulation models of epidemics, including households models.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\AP3297YE\\Ball et al. (2015) Seven challenges for metapopulation models of epidemics, including households.pdf}
+}
+
+@article{barbour1975DurationClosedStochastic,
+  title = {The {{Duration}} of the {{Closed Stochastic Epidemic}}},
+  author = {Barbour, Andrew D.},
+  date = {1975},
+  journaltitle = {Biometrika},
+  volume = {62},
+  number = {2},
+  eprint = {2335390},
+  eprinttype = {jstor},
+  pages = {477--482},
+  publisher = {{[Oxford University Press, Biometrika Trust]}},
+  issn = {0006-3444},
+  doi = {10.2307/2335390},
+  url = {https://www.jstor.org/stable/2335390},
+  urldate = {2023-07-16},
+  abstract = {The paper discusses the time between the first infection and the last removal in the closed stochastic epidemic. The method is to prove limit theorems for the distribution of this time, as the population size becomes large, and then to use the limits to provide an approximate distribution: the epidemic is allowed to start either with a large number of immigrant infectives, or with a single case. The accuracy of the approximation in finite populations is illustrated by some examples, and the method of proof also gives a theoretical estimate of the rate of convergence to the limit. The problem is typical of a much wider class of boundary problems, and the method used can be adapted to them without difficulty.},
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\MF9YFKKI\\Barbour (1975) The Duration of the Closed Stochastic Epidemic.pdf}
 }
 
 @article{berchtold2002MixtureTransitionDistribution,
@@ -177,7 +244,7 @@
   urldate = {2023-03-04},
   abstract = {The mixture transition distribution model (MTD) was introduced in 1985 by Raftery for the modeling of high-order Markov chains with a finite state space. Since then it has been generalized and successfully applied to a range of situations, including the analysis of wind directions, DNA sequences and social behavior. Here we review the MTD model and the developments since 1985. We first introduce the basic principle and then we present several extensions, including general state spaces and spatial statistics. Following that, we review methods for estimating the model parameters. Finally, a review of different types of applications shows the practical interest of the MTD model.},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\4G9FB7EL\\1042727943.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\4G9FB7EL\\Berchtold & Raftery (2002) The Mixture Transition Distribution Model for High-Order Markov Chains and.pdf}
 }
 
 @article{bichara2018MultipatchMultigroupEpidemic,
@@ -198,7 +265,7 @@
   langid = {english},
   keywords = {92D25,92D30,Global stability,Heterogeneity,Mobility,Multi-group,Multi-patch,Residence times,TO READ},
   annotation = {QID: Q46504536},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\SM7QRXI3\\Bichara & Iggidr (2018) Multi-patch and multi-group epidemic models - a new framework.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\SM7QRXI3\\Bichara & Iggidr (2018) Multi-patch and multi-group epidemic models.pdf}
 }
 
 @book{bjornstad2018EpidemicsModelsData,
@@ -214,7 +281,7 @@
   urldate = {2023-01-25},
   isbn = {978-3-319-97486-6 978-3-319-97487-3},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\2GCFQV5J\\Bjørnstad (2018) Epidemics - Models and Data using R.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\2GCFQV5J\\Bjørnstad (2018) Epidemics.pdf}
 }
 
 @article{bjornstad2020ModelingInfectiousEpidemics,
@@ -231,7 +298,7 @@
   urldate = {2023-02-27},
   abstract = {“Every day sadder and sadder news of its increase. In the City died this week 7496; and of them, 6102 of the plague. But it is feared that the true number of the dead this week is near 10,000 ....” —Samuel Pepys, 1665},
   annotation = {QID: Q92095436},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\LVQU2V74\\Bjørnstad et al. - 2020 - Modeling infectious epidemics  Nature Methods.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\LVQU2V74\\Bjørnstad et al. (2020) Modeling infectious epidemics Nature Methods.pdf}
 }
 
 @article{bjornstad2020SEIRSModelInfectious,
@@ -252,7 +319,7 @@
   langid = {english},
   keywords = {Bioinformatics,Biological Microscopy,Biological Techniques,Biomedical Engineering/Biotechnology,general,Life Sciences,Proteomics},
   annotation = {QID: Q96136530},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8GQSLFHN\\Bjørnstad et. al. (2020) The SEIRS model for infectious disease dynamics.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\37RYH4AD\\s41592-020-0856-2.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8GQSLFHN\\Bjørnstad et al. (2020) The SEIRS model for infectious disease dynamics.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\37RYH4AD\\s41592-020-0856-2.html}
 }
 
 @article{black2015ComputationEpidemicFinal,
@@ -274,6 +341,16 @@
   file = {C\:\\Users\\Reubender\\Zotero\\storage\\MUM4YQTH\\Black & Ross (2015) Computation of epidemic final size distributions.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\2KFI7JWA\\S0022519314006882.html}
 }
 
+@article{borm2005HierarchicalMatrices,
+  title = {Hierarchical {{Matrices}}},
+  author = {Borm, Steffen and Grasedyck, Lars and Hackbusch, Wolfgang},
+  date = {2005},
+  url = {https://www.mis.mpg.de/scicomp/Fulltext/WS_HMatrices.pdf},
+  urldate = {2023-03-31},
+  keywords = {⛔ No DOI found},
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\AC5XQXFE\\Borm et al. (2005) Hierarchical Matrices.pdf}
+}
+
 @article{borri2022StochasticApproachSIR,
   title = {The {{Stochastic Approach}} for {{SIR Epidemic Models}}: {{Do They Help}} to {{Increase Information}} from {{Raw Data}}?},
   shorttitle = {The {{Stochastic Approach}} for {{SIR Epidemic Models}}},
@@ -291,7 +368,7 @@
   abstract = {The recent outbreak of COVID-19 underlined the need for a fast and trustworthy methodology to identify the features of a pandemic, whose early identification is of help for designing non-pharmaceutical interventions (including lockdown and social distancing) to limit the progression of the disease. A common approach in this context is the parameter identification from deterministic epidemic models, which, unfortunately, cannot take into account the inherent randomness of the epidemic phenomenon, especially in the initial stage; on the other hand, the use of raw data within the framework of a stochastic model is not straightforward. This note investigates the stochastic approach applied to a basic SIR (Susceptible, Infected, Recovered) epidemic model to enhance information from raw data generated in silico. The stochastic model consists of a Continuous-Time Markov Model, describing the epidemic outbreak in terms of stochastic discrete infection and recovery events in a given region, and where independent random paths are associated to different provinces of the same region, which are assumed to share the same set of model parameters. The estimation procedure is based on the building of a loss function that symmetrically weighs first-order and second-order moments, differently from the standard approach that considers a highly asymmetrical choice, exploiting only first-order moments. Instead, we opt for an innovative symmetrical identification approach which exploits both moments. The new approach is specifically proposed to enhance the statistical information content of the raw epidemiological data.},
   langid = {english},
   keywords = {Markov chain,toread},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\WSUSMSJS\\Borri et. al. (2022) The Stochastic Approach for SIR Epidemic Models - Do They Help to Increase Information from Raw Data.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\WSUSMSJS\\Borri et al. (2022) The Stochastic Approach for SIR Epidemic Models.pdf}
 }
 
 @book{brauer2008MathematicalEpidemiology,
@@ -309,7 +386,7 @@
   urldate = {2023-02-10},
   isbn = {978-3-540-78910-9 978-3-540-78911-6},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\24KF8C7G\\Brauer et. al. (2008) Mathematical Epidemiology.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\24KF8C7G\\Brauer et al. (2008) Mathematical Epidemiology.pdf}
 }
 
 @book{brauer2019MathematicalModelsEpidemiology,
@@ -325,7 +402,7 @@
   urldate = {2023-02-10},
   isbn = {978-1-4939-9826-5 978-1-4939-9828-9},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\BLCK96T9\\Brauer et. al. (2019) Mathematical Models in Epidemiology.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\BLCK96T9\\Brauer et al. (2019) Mathematical Models in Epidemiology.pdf}
 }
 
 @book{brauer2019MathematicalModelsEpidemiologya,
@@ -341,7 +418,7 @@
   urldate = {2023-03-27},
   isbn = {978-1-4939-9826-5 978-1-4939-9828-9},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\KDTB6AG4\\978-1-4939-9828-9.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\KDTB6AG4\\Brauer et al. (2019) Mathematical Models in Epidemiology.pdf}
 }
 
 @article{charaudeau2014CommuterMobilitySpread,
@@ -363,7 +440,7 @@
   langid = {english},
   keywords = {Cities,Epidemiology,France,Human mobility,Infectious disease epidemiology,Influenza,Schools,Spatial epidemiology},
   annotation = {QID: Q37458517},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\NG5MT4KX\\Charaudeau et. al. (2014) Commuter Mobility and the Spread of Infectious Diseases - Application to Influenza in France.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\NG5MT4KX\\Charaudeau et al. (2014) Commuter Mobility and the Spread of Infectious Diseases.pdf}
 }
 
 @article{charu2017HumanMobilitySpatial,
@@ -384,7 +461,7 @@
   langid = {english},
   keywords = {Cities,Human mobility,Infectious disease epidemiology,Influenza,Influenza viruses,Medical risk factors,Pandemics,Spatial epidemiology},
   annotation = {QID: Q36276859},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\H95ZZKEY\\Charu et. al. (2017) Human mobility and the spatial transmission of influenza in the United States.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\H95ZZKEY\\Charu et al. (2017) Human mobility and the spatial transmission of influenza in the United States.pdf}
 }
 
 @article{chen2019MetapopulationModelPathogen,
@@ -407,7 +484,7 @@
   langid = {english},
   keywords = {Ecological modelling,Infectious diseases,Population dynamics},
   annotation = {QID: Q61797679},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\SQBPXNQU\\Chen et al. - 2019 - Metapopulation Model from Pathogen’s Perspective .pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\SQBPXNQU\\Chen et al. (2019) Metapopulation Model from Pathogen’s Perspective.pdf}
 }
 
 @article{cole2014MaximumLikelihoodProfile,
@@ -426,7 +503,7 @@
   urldate = {2023-02-10},
   abstract = {The method of maximum likelihood is widely used in epidemiology, yet many epidemiologists receive little or no education in the conceptual underpinnings of the approach. Here we provide a primer on maximum likelihood and some important extensions which have proven useful in epidemiologic research, and which reveal connections between maximum likelihood and Bayesian methods. For a given data set and probability model, maximum likelihood finds values of the model parameters that give the observed data the highest probability. As with all inferential statistical methods, maximum likelihood is based on an assumed model and cannot account for bias sources that are not controlled by the model or the study design. Maximum likelihood is nonetheless popular, because it is computationally straightforward and intuitive and because maximum likelihood estimators have desirable large-sample properties in the (largely fictitious) case in which the model has been correctly specified. Here, we work through an example to illustrate the mechanics of maximum likelihood estimation and indicate how improvements can be made easily with commercial software. We then describe recent extensions and generalizations which are better suited to observational health research and which should arguably replace standard maximum likelihood as the default method.},
   annotation = {QID: Q28393337},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\7EGBTR76\\Cole et. al. (2014) Maximum Likelihood, Profile Likelihood, and Penalized Likelihood - A Primer.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\DA6SP5CR\\123902.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\7EGBTR76\\Cole et al. (2014) Maximum Likelihood, Profile Likelihood, and Penalized Likelihood.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\DA6SP5CR\\123902.html}
 }
 
 @article{delmas2023OptimalVaccinationVarious,
@@ -446,7 +523,7 @@
   abstract = {In previous articles, we formalized the problem of optimal allocation strategies for a (perfect) vaccine in an infinite-dimensional metapopulation model. The aim of the current paper is to illustrate this theoretical framework with multiple examples where one can derive the analytic expression of the optimal strategies. We discuss in particular the following points: whether or not it is possible to vaccinate optimally when the vaccine doses are given one at a time (greedy vaccination strategies); the effect of assortativity (that is, the tendency to have more contacts with similar individuals) on the shape of optimal vaccination strategies; the particular case where everybody has the same number of neighbors.},
   langid = {english},
   keywords = {34D20,47A10,47B34,58E17,92D30,Effective reproduction number,Kernel operator,Multi-objective optimization,Pareto frontier,Vaccination strategy},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\P4GKYDEV\\Delmas et al. - 2023 - Optimal vaccination various (counter) intuitive e.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\P4GKYDEV\\Delmas et al. (2023) Optimal vaccination.pdf}
 }
 
 @article{diekmann2010ConstructionNextgenerationMatrices,
@@ -456,7 +533,7 @@
   journaltitle = {J. R. Soc. Interface},
   langid = {english},
   annotation = {QID: Q33856584},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8N3RZTIK\\Diekmann et. al. (2010) The construction of next-generation matrices for compartmental epidemic models.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8N3RZTIK\\Diekmann et al. (2010) The construction of next-generation matrices for compartmental epidemic models.pdf}
 }
 
 @book{diekmann2013MathematicalToolsUnderstanding,
@@ -470,7 +547,7 @@
   langid = {english},
   pagetotal = {502},
   keywords = {Communicable diseases,Congresses,Epidemiology,Mathematical models,MATHEMATICS / Applied,MEDICAL / Infectious Diseases,SCIENCE / Life Sciences / Biology / General},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\F75KBU7T\\(Princeton Series in Theoretical and Computational Biology) Odo Diekmann_ Hans Heesterbeek_ Tom Britton - Mathematical Tools for Understanding Infectious Disease Dynamics-Princeton University Press (2.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\F75KBU7T\\Diekmann et al. (2013) Mathematical tools for understanding infectious diseases dynamics.pdf}
 }
 
 @book{dobrowIntroductionStochasticProcesses,
@@ -539,7 +616,7 @@
   urldate = {2023-07-03},
   isbn = {978-3-540-70529-1},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\RNS5WZ9H\\Hackbusch - 2015 - Hierarchical Matrices.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\RNS5WZ9H\\Hackbusch (2015) Hierarchical Matrices.pdf}
 }
 
 @article{hanski1989MetapopulationDynamicsDoes,
@@ -559,7 +636,7 @@
   abstract = {With the interest in conservation biology shifting towards processes from patterns, and to populations from communities, the theory of metapopulation dynamics is replacing the equilibrium theory of island biogeography as the population ecology paradigm in conservation biology. The simplest models of metapopulation dynamics make predictions about the effects of habitat fragmentation - size and isolation of habitat patches - on metapopulation persistence. The simple models may be enriched by considerations of the effects of demographic and environmental stochasticity on the size and extinction probability of local populations. Environmental stochasticity affects populations at two levels: it makes local extinctions more probable, and it also decreases metapopulation persistence time by increasing the correlation of extinction events across populations. Some controversy has arisen over the significance of correlated extinctions, and how they may affect the optimal subdivision of metapopulations to maximize their persistence time.},
   langid = {english},
   annotation = {QID: Q83177452},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\YYMN66XC\\Hanski - 1989 - Metapopulation dynamics Does it help to have more.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\DK3ZDXVF\\016953478990061X.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\YYMN66XC\\Hanski (1989) Metapopulation dynamics.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\DK3ZDXVF\\016953478990061X.html}
 }
 
 @article{hernandez2021NewFormulationCompartmental,
@@ -579,7 +656,7 @@
   abstract = {The paradigm for compartment models in epidemiology assumes exponentially distributed incubation and removal times, which is not realistic in actual populations. Commonly used variations with multiple exponentially distributed variables are more flexible, yet do not allow for arbitrary distributions. We present a new formulation, focussing on the SEIR concept that allows to include general distributions of incubation and removal times. We compare the solution to two types of agent-based model simulations, a spatially homogeneous one where infection occurs by proximity, and a model on a scale-free network with varying clustering properties, where the infection between any two agents occurs via their link if it exists. We find good agreement in both cases. Furthermore a family of asymptotic solutions of the equations is found in terms of a logistic curve, which after a non-universal time shift, fits extremely well all the microdynamical simulations. The formulation allows for a simple numerical approach; software in Julia and Python is provided.},
   langid = {english},
   keywords = {Agent-based modeling,COVID 19,Differential equations,Infectious disease epidemiology,Scale-free networks,Stochastic processes,Ticks,Turtles},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\TSYDSZYU\\Hernández et al. - 2021 - A new formulation of compartmental epidemic modell.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\TSYDSZYU\\Hernández et al. (2021) A new formulation of compartmental epidemic modelling for arbitrary.pdf}
 }
 
 @article{house2012ModellingEpidemicsNetworks,
@@ -622,7 +699,7 @@
   abstract = {To understand and model public health emergencies, epidemiologists need data that describes how humans are moving and interacting across physical space. Such data has traditionally been difficult for researchers to obtain with the temporal resolution and geographic breadth that is needed to study, for example, a global pandemic. This paper describes Colocation Maps, which are spatial network datasets that have been developed within Meta’s Data For Good program. These Maps estimate how often people from different regions are colocated: in particular, for a pair of geographic regions x and y, these Maps estimate the rate at which a randomly chosen person from x and a randomly chosen person from y are simultaneously located in the same place during a randomly chosen minute in a given week. These datasets are well suited to parametrize metapopulation models of disease spread or to measure temporal changes in interactions between people from different regions; indeed, they have already been used for both of these purposes during the COVID-19 pandemic. In this paper, we show how Colocation Maps differ from existing data sources, describe how the datasets are built, provide examples of their use in compartmental modeling, and summarize ideas for further development of these and related datasets. Among the findings of this study, we observe that a pair of regions can exhibit high colocation despite few people moving between those regions. Additionally, for the purposes of clarifying how to interpret and utilize Colocation Maps, we scrutinize the Maps’ built-in assumptions about representativeness and contact heterogeneity.},
   langid = {english},
   keywords = {Dataset release,Epidemiology,Human mobility},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\ESW9DUY7\\Iyer et. al. (2023) Large-scale measurement of aggregate human colocation patterns for epidemiological modeling.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\WUH2B7FT\\S1755436522001037.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\ESW9DUY7\\Iyer et al. (2023) Large-scale measurement of aggregate human colocation patterns for.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\WUH2B7FT\\S1755436522001037.html}
 }
 
 @article{jackson2003MultistateMarkovModels,
@@ -639,7 +716,7 @@
   urldate = {2023-02-10},
   abstract = {Many chronic diseases have a natural interpretation in terms of staged progression. Multistate models based on Markov processes are a well-established method of estimating rates of transition between stages of disease. However, diagnoses of disease stages are sometimes subject to error. The paper presents a general hidden Markov model for simultaneously estimating transition rates and probabilities of stage misclassification. Covariates can be fitted to both the transition rates and the misclassification probabilities. For example, in the study of abdominal aortic aneurysms by ultrasonography, the disease is staged by severity, according to successive ranges of aortic diameter. The model is illustrated on data from a trial of aortic aneurysm screening, in which the screening measurements are subject to error. General purpose software for model implementation has been developed in the form of an R package and is made freely available.},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\N2J748I5\\Jackson et. al. (2003) Multistate Markov models for disease progression with classification error.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\N2J748I5\\Jackson et al. (2003) Multistate Markov models for disease progression with classification error.pdf}
 }
 
 @article{kermack1997ContributionMathematicalTheory,
@@ -656,7 +733,7 @@
   urldate = {2023-06-29},
   abstract = {(1) One of the most striking features in the study of epidemics is the difficulty of finding a causal factor which appears to be adequate to account for the magnitude of the frequent epidemics of disease which visit almost every population. It was with a view to obtaining more insight regarding the effects of the various factors which govern the spread of contagious epidemics that the present investigation was undertaken. Reference may here be made to the work of Ross and Hudson (1915-17) in which the same problem is attacked. The problem is here carried to a further stage, and it is considered from a point of view which is in one sense more general. The problem may be summarised as follows: One (or more) infected person is introduced into a community of individuals, more or less susceptible to the disease in question. The disease spreads from the affected to the unaffected by contact infection. Each infected person runs through the course of his sickness, and finally is removed from the number of those who are sick, by recovery or by death. The chances of recovery or death vary from day to day during the course of his illness. The chances that the affected may convey infection to the unaffected are likewise dependent upon the stage of the sickness. As the epidemic spreads, the number of unaffected members of the community becomes reduced. Since the course of an epidemic is short compared with the life of an individual, the population may be considered as remaining constant, except in as far as it is modified by deaths due to the epidemic disease itself. In the course of time the epidemic may come to an end. One of the most important probems in epidemiology is to ascertain whether this termination occurs only when no susceptible individuals are left, or whether the interplay of the various factors of infectivity, recovery and mortality, may result in termination, whilst many susceptible individuals are still present in the unaffected population. It is difficult to treat this problem in its most general aspect. In the present communication discussion will be limited to the case in which all members of the community are initially equally susceptible to the disease, and it will be further assumed that complete immunity is conferred by a single infection.},
   annotation = {QID: Q55954014},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\GC262TML\\Kermack et al. - 1997 - A contribution to the mathematical theory of epide.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\GC262TML\\Kermack et al. (1997) A contribution to the mathematical theory of epidemics.pdf}
 }
 
 @article{klein2023ForecastingHospitallevelCOVID19,
@@ -673,7 +750,7 @@
   urldate = {2023-02-15},
   abstract = {For each of the COVID-19 pandemic waves, hospitals have had to plan for deploying surge capacity and resources to manage large but transient increases in COVID-19 admissions. While a lot of effort has gone into predicting regional trends in COVID-19 cases and hospitalizations, there are far fewer successful tools for creating accurate hospital-level forecasts.},
   keywords = {⚠️ Invalid DOI},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\4PMS653Z\\Klein et al. - 2023 - Forecasting hospital-level COVID-19 admissions using real-time mobility data  Communications Medicine.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\4PMS653Z\\Klein et al. (2023) Forecasting hospital-level COVID-19 admissions using real-time mobility data.pdf}
 }
 
 @article{kumar2023MultiscaleModelingFramework,
@@ -692,7 +769,7 @@
   abstract = {A major constraint of the behavioral epidemiological models is the assumption that human behavior is static; however, it is highly dynamic, especially in uncertain circumstances during a pandemic. To incorporate the dynamicity of human nature in the existing epidemiological models, we propose a population-wide multi-time-scale theoretical framework that assimilates neuronal plasticity as the basis of altering human emotions and behavior. For that, variable connection weights between different brain regions and their firing frequencies are coupled with a compartmental susceptible–infected–recovered model to incorporate the intrinsic dynamicity in the contact transmission rate (\$\$\textbackslash beta \$\$). As an illustration, a model of fear conditioning in conjunction with awareness campaigns is developed and simulated. Results indicate that in the presence of fear conditioning, there exists an optimum duration of daily broadcast time during which awareness campaigns are most effective in mitigating the pandemic. Further, global sensitivity analysis using the Morris method highlighted that the learning rate and firing frequency of the unconditioned circuit are crucial regulators in modulating the emergent pandemic waves. The present study makes a case for incorporating neuronal dynamics as a basis of behavioral immune response and has further implications in designing awareness campaigns.},
   langid = {english},
   keywords = {Behavioral epidemiological model,Dynamic human behavior,Fear conditioning,Multiscale modeling,Pandemic waves},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8EHMUAMX\\Kumar et. al. (2023) A multiscale modeling framework to study the interdependence of brain, behavior, and pandemic.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8EHMUAMX\\Kumar et al. (2023) A multiscale modeling framework to study the interdependence of brain,.pdf}
 }
 
 @article{lipshtat2021CommutingMetapopulationEpidemic,
@@ -708,7 +785,7 @@
   url = {https://www.nature.com/articles/s41598-021-94672-w},
   urldate = {2023-03-20},
   abstract = {The COVID-19 pandemic led authorities all over the world to imposing travel restrictions both on a national and on an international scale. Understanding the effect of such restrictions requires analysis of the role of commuting and calls for a metapopulation modeling that incorporates both local, intra-community infection and population exchange between different locations. Standard metapopulation models are formulated as markovian processes, and as such they do not label individuals according to their original location. However, commuting from home to work and backwards (reverse commuting) is the main pattern of transportation. Thus, it is important to be able to accurately model the effect of commuting on epidemic spreading. In this study we develop a methodology for modeling bidirectional commuting of individuals, without keeping track of each individual separately and with no need of proliferation of number of compartments beyond those defined by the epidemiologic model. We demonstrate the method using a city map of the state of Israel. The presented algorithm does not require any special computation resources and it may serve as a basis for intervention strategy examination in various levels of complication and resolution. We show how to incorporate an epidemiological model into a metapopulation commuting scheme while preserving the internal logic of the epidemiological modeling. The method is general and independent on the details of the epidemiological model under consideration.},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\IQHNKJSV\\Lipshtat et al. - 2021 - Commuting in metapopulation epidemic modeling  Scientific Reports.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\IQHNKJSV\\Lipshtat et al. (2021) Commuting in metapopulation epidemic modeling Scientific Reports.pdf}
 }
 
 @article{liu2020ElucidatingUserBehaviours,
@@ -763,7 +840,7 @@
   abstract = {Final size relations are known for many epidemic models. The derivations are often tedious and difficult, involving indirect methods to solve a system of integro-differential equations. Often when the details of the disease or population change, the final size relation does not. An alternate approach to deriving final sizes has been suggested. This approach directly considers the underlying stochastic process of the epidemic rather than the approximating deterministic equations and gives insight into why the relations hold. It has not been widely used. We suspect that this is because it appears to be less rigorous. In this article, we investigate this approach more fully and show that under very weak assumptions (which are satisfied in all conditions we are aware of for which final size relations exist) it can be made rigorous. In particular, the assumptions must hold whenever integro-differential equations exist, but they may also hold in cases without such equations. Thus, the use of integro-differential equations to find a final size relation is unnecessary and a simpler, more general method can be applied.},
   langid = {english},
   keywords = {Epidemics,Final size relation,SIR},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\5ECPGVWK\\miller2012.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\5ECPGVWK\\Miller (2012) A Note on the Derivation of Epidemic Final Sizes.pdf}
 }
 
 @book{mishra2020MathematicalModelingSoft,
@@ -777,8 +854,7 @@
   url = {https://www.taylorfrancis.com/books/9781000226942},
   urldate = {2023-02-10},
   isbn = {978-1-00-303839-9},
-  langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\FNQAWPYI\\Mishra et. al. (2020) Mathematical Modeling and Soft Computing in Epidemiology.pdf}
+  langid = {english}
 }
 
 @article{morris2019BayesianHierarchicalSpatial,
@@ -798,7 +874,7 @@
   langid = {english},
   keywords = {Bayesian inference,Besag-York-Mollié model,Intrinsic conditional auto-regressive model,Pedestrian injuries,Probabilistic programming,Stan},
   annotation = {QID: Q91067996},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\NELI6442\\Morris et. al. (2019) Bayesian hierarchical spatial models - Implementing the Besag York Mollié model in stan.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\NELI6442\\Morris et al. (2019) Bayesian hierarchical spatial models.pdf}
 }
 
 @article{moss2019WhatCanUrban,
@@ -817,7 +893,7 @@
   abstract = {Infectious diseases spread through inherently spatial processes. Road and air traffic data have been used to model these processes at national and global scales. At metropolitan scales, however, mobility patterns are fundamentally different and less directly observable. Estimating the spatial distribution of infection has public health utility, but few studies have investigated this at an urban scale. In this study we address the question of whether the use of urban-scale mobility data can improve the prediction of spatial patterns of influenza infection. We compare the use of different sources of urban-scale mobility data, and investigate the impact of other factors relevant to modelling mobility, including mixing within and between regions, and the influence of hub and spoke commuting patterns.},
   keywords = {Influenza,Spatial epidemiology,Urban mobility},
   annotation = {QID: Q92379108},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\EEW2YAVT\\Moss et. al. (2019) What can urban mobility data reveal about the spatial distribution of infection in a single city.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\FWUS84B2\\Moss et. al. (2019) What can urban mobility data reveal about the spatial distribution of infection in a single city.md}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\EEW2YAVT\\Moss et al. (2019) What can urban mobility data reveal about the spatial distribution of infection.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\FWUS84B2\\Moss et. al. (2019) What can urban mobility data reveal about the spatial distribution of infection in a single city.md}
 }
 
 @article{moss2022CommentaryTransparentModeling,
@@ -835,7 +911,7 @@
   url = {https://www.sciencedirect.com/science/article/pii/S0169207021000285},
   urldate = {2023-07-04},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\B9XRN2K4\\Moss - 2022 - Commentary on “Transparent modeling of influenza i.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\I6KM7VKB\\S0169207021000285.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\B9XRN2K4\\Moss (2022) Commentary on “Transparent modeling of influenza incidence”.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\I6KM7VKB\\S0169207021000285.html}
 }
 
 @article{mummert2019ParameterIdentificationStochastic,
@@ -856,7 +932,7 @@
   langid = {english},
   keywords = {60H10,60P10,92D30,Compartment disease model,Local lagged adapted generalized method of moments,Stochastic disease model,Time-dependent transmission rate},
   annotation = {QID: Q91810371},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\PDLM2UP8\\Mummert & Otunuga (2019) Parameter identification for a stochastic SEIRS epidemic model - case study influenza.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\PDLM2UP8\\Mummert & Otunuga (2019) Parameter identification for a stochastic SEIRS epidemic model.pdf}
 }
 
 @article{pearson1905ProblemRandomWalk,
@@ -890,7 +966,7 @@
   urldate = {2023-02-08},
   abstract = {The deterministic dynamics of populations in continuous time are traditionally described using coupled, first-order ordinary differential equations. While this approach is accurate for large systems, it is often inadequate for small systems where key species may be present in small numbers or where key reactions occur at a low rate. The Gillespie stochastic simulation algorithm (SSA) is a procedure for generating time-evolution trajectories of finite populations in continuous time and has become the standard algorithm for these types of stochastic models. This article presents a simple-to-use and flexible framework for implementing the SSA using the high-level statistical computing language R and the package GillespieSSA. Using three ecological models as examples (logistic growth, Rosenzweig-MacArthur predator-prey model, and Kermack-McKendrick SIRS metapopulation model), this paper shows how a deterministic model can be formulated as a finite-population stochastic model within the framework of SSA theory and how it can be implemented in R. Simulations of the stochastic models are performed using four different SSA Monte Carlo methods: one exact method (Gillespie's direct method); and three approximate methods (explicit, binomial, and optimized tau-leap methods). Comparison of simulation results confirms that while the time-evolution trajectories obtained from the different SSA methods are indistinguishable, the approximate methods are up to four orders of magnitude faster than the exact methods.},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\GQPEYUZB\\Pineda-Krch (2008) GillespieSSA - Implementing the Gillespie Stochastic Simulation Algorithm in R.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\GQPEYUZB\\Pineda-Krch (2008) GillespieSSA.pdf}
 }
 
 @online{sahneh2016GEMFsimStochasticSimulator,
@@ -907,7 +983,7 @@
   langid = {english},
   pubstate = {preprint},
   keywords = {Computer Science - Social and Information Networks,Mathematics - Dynamical Systems,Physics - Physics and Society},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8WG9INMZ\\Sahneh et. al. (2016) GEMFsim - A Stochastic Simulator for the Generalized Epidemic Modeling Framework.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\8WG9INMZ\\Sahneh et al. (2016) GEMFsim.pdf}
 }
 
 @article{sani2021ConnectionCTMCProcess,
@@ -925,7 +1001,7 @@
   urldate = {2023-01-23},
   abstract = {Mathematical modeling has been used in many fields of study including in epidemiology. The main objective of this study is to show the connection of three mathematical models often used to study the dynamics of disease spread in the natural world; i.e., a stochastic process (CTMC), deterministic model (ODEs) and stochastic differential equation (SDEs). We show that, by proper scaling technique, it is possible to derive the deterministic analogue of a CTMC. Its stochastic differential equation (SDE) version can be obtained by adding a white noise or Weinner process in the deterministic model with proper means and covariance. We demonstrate all three models with the dynamics of SIR epidemics followed by several numerical experiments to show how accurate the trajectories of ODEs follow the sample paths of both CTMC and SDEs.},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\9KYDMF2W\\Sani et. al. (2021) Connection of CTMC process, deterministic and stochastic differential equations in modeling of epidemics.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\9KYDMF2W\\Sani et al. (2021) Connection of CTMC process, deterministic and stochastic differential equations.pdf}
 }
 
 @article{sartorius2021ModellingPredictingSpatiotemporal,
@@ -947,7 +1023,7 @@
   langid = {english},
   keywords = {Epidemiology,Statistics,Viral infection},
   annotation = {QID: Q112068629},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\7ZEZVNX9\\Sartorius et. al. (2021) Modelling and predicting the spatio-temporal spread of COVID-19, associated deaths and impact of key risk factors in England.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\7ZEZVNX9\\Sartorius et al. (2021) Modelling and predicting the spatio-temporal spread of COVID-19, associated.pdf}
 }
 
 @article{sattenspiel1995StructuredEpidemicModel,
@@ -984,7 +1060,7 @@
   isbn = {978-3-030-14160-8},
   langid = {english},
   keywords = {Hierarchical block matrices,Multi-view clustering,Patient sub-typing},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\BFRXVWBW\\Serra et. al. (2019) Hierarchical Block Matrix Approach for Multi-view Clustering.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\BFRXVWBW\\Serra et al. (2019) Hierarchical Block Matrix Approach for Multi-view Clustering.pdf}
 }
 
 @article{simoni2019StochasticSimulationAlgorithms,
@@ -1004,7 +1080,7 @@
   langid = {english},
   keywords = {computational,hybrid stochastic simulation,stochastic simulation,systems biology},
   annotation = {QID: Q91506994},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\JWFARH8V\\Simoni et. al. (2019) Stochastic simulation algorithms for computational systems biology - Exact, approximate, and hybrid methods.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\5X8U5EJX\\wsbm.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\JWFARH8V\\Simoni et al. (2019) Stochastic simulation algorithms for computational systems biology.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\5X8U5EJX\\wsbm.html}
 }
 
 @inbook{smith2022DistributedProcessingJulia,
@@ -1022,7 +1098,7 @@
   bookauthor = {Smith, Einar},
   isbn = {978-3-031-16971-7 978-3-031-16972-4},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\R3VF6HX4\\978-3-031-16972-4_14.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\R3VF6HX4\\Smith (2022) Distributed Processing in Julia.pdf}
 }
 
 @online{SpatiallyExplicitMarkov,
@@ -1048,16 +1124,16 @@
   abstract = {Existing compartmental mathematical modelling methods for epidemics, such as SEIR models, cannot accurately represent effects of contact tracing. This makes them inappropriate for evaluating testing and contact tracing strategies to contain an outbreak. An alternative used in practice is the application of agent- or individual-based models (ABM). However ABMs are complex, less well-understood and much more computationally expensive. This paper presents a new method for accurately including the effects of Testing, contact-Tracing and Isolation (TTI) strategies in standard compartmental models. We derive our method using a careful probabilistic argument to show how contact tracing at the individual level is reflected in aggregate on the population level. We show that the resultant SEIR-TTI model accurately approximates the behaviour of a mechanistic agent-based model at far less computational cost. The computational efficiency is such that it can be easily and cheaply used for exploratory modelling to quantify the required levels of testing and tracing, alone and with other interventions, to assist adaptive planning for managing disease outbreaks.},
   keywords = {Agent-based modeling,COVID 19,Decision making,Differential equations,Epidemiology,Infectious diseases,Pandemics,Virus testing},
   annotation = {QID: Q112563787},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\FAHBNPUV\\Sturniolo et. al. (2021) Testing, tracing and isolation in compartmental models.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\FAHBNPUV\\Sturniolo et al. (2021) Testing, tracing and isolation in compartmental models.pdf}
 }
 
-@article{teo2017OptimalAllocationVaccines,
+@thesis{teo2017OptimalAllocationVaccines,
   title = {Optimal Allocation of Vaccines in Metapopulations},
   author = {Teo, Mingmei},
   date = {2017},
   langid = {english},
   keywords = {⛔ No DOI found},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\MIE5BNCT\\Teo - 2017 - Optimal allocation of vaccines in metapopulations.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\MIE5BNCT\\Teo (2017) Optimal allocation of vaccines in metapopulations.pdf}
 }
 
 @article{teo2021OptimisedProphylacticVaccination,
@@ -1076,7 +1152,7 @@
   langid = {english},
   keywords = {Final epidemic size,Importation,Stochastic model},
   annotation = {QID: Q104571690},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\UGIZXCAP\\Teo et. al. (2021) Optimised prophylactic vaccination in metapopulations.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\BRBBW6G9\\S1755436520300414.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\UGIZXCAP\\Teo et al. (2021) Optimised prophylactic vaccination in metapopulations.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\BRBBW6G9\\S1755436520300414.html}
 }
 
 @article{wacker2020TimecontinuousTimediscreteSIR,
@@ -1097,7 +1173,7 @@
   langid = {english},
   keywords = {COVID-19,Difference equations,Existence and uniqueness,Mathematical epidemiology,Nonlinear ordinary differential equations,Numerical analysis,SIR model,Well-posedness},
   annotation = {QID: Q100518641},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\E66DSAZJ\\⁨Wacker⁩ and ⁨Schlüter⁩ - 2020 - Time-continuous and time-discrete SIR models revis.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\E66DSAZJ\\Wacker & Schlüter (2020) Time-continuous and time-discrete SIR models revisited.pdf}
 }
 
 @article{walker2019BayesianModelDiscrimination,
@@ -1123,7 +1199,7 @@
   author = {Walker, James Nicholas},
   langid = {english},
   keywords = {⛔ No DOI found},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\VI58V9NU\\Walker2019_PhD.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\VI58V9NU\\Walker Bayesian Inference and Model Selection for Partially-Observed, Continuous-Time,.pdf}
 }
 
 @article{ward2019ExactAnalysisSummary,
@@ -1155,7 +1231,7 @@
   langid = {english},
   pagetotal = {380},
   keywords = {R (Computer program language),Spatial analysis (Statistics),Statistics},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\PLKWQI7K\\Wikle et. al. (2019) Spatio-temporal statistics with R.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\PLKWQI7K\\Wikle et al. (2019) Spatio-temporal statistics with R.pdf}
 }
 
 @article{xi2016StabilityHierarchicalRank,
@@ -1173,7 +1249,7 @@
   urldate = {2023-07-04},
   abstract = {In this paper, we investigate the numerical error propagation and provide systematic backward stability analysis for some hierarchical rank structured matrix algorithms. We prove the backward stability of various important hierarchically semiseparable (HSS) methods, such as HSS matrix-vector multiplications, HSS ULV linear system solutions, HSS linear least squares solutions, HSS inversions, and some variations. Concrete backward error bounds are given, including a structured backward error for the solution in terms of the structured factors. The error propagation factors only involve low-degree powers of the maximum off-diagonal numerical rank and the logarithm of the matrix size. Thus, as compared with the corresponding standard dense matrix algorithms, the HSS algorithms are not only faster, but also have much better stability. We also show that factorization-based HSS solutions are usually preferred, while inversion-based ones may suffer from numerical instability. The analysis builds a comprehensive framework for understanding the backward stability of hierarchical rank structured methods. The error propagation patterns also provide insights into the improvement of other types of structured solvers and the design of new stable hierarchical structured algorithms. Some numerical examples are included to support the studies.},
   langid = {english},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\YJ4QCA9D\\stability.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\YJ4QCA9D\\Xi & Xia (2016) On the Stability of Some Hierarchical Rank Structured Matrix Algorithms.pdf}
 }
 
 @article{xu2022ContinuousMarkovChainModel,
@@ -1191,7 +1267,7 @@
   abstract = {To address the urgent need to accurately predict the spreading trend of the COVID-19 epidemic, a continuous Markov-chain model was, for the first time, developed in this work to predict the spread of COVID-19 infection. A probability matrix of infection was first developed in this model based upon the contact frequency of individuals within the population, the individual’s characteristics, and other factors that can effectively reflect the epidemic’s temporal and spatial variation characteristics. The Markov-chain model was then extended to incorporate both the mutation effect of COVID-19 and the decaying effect of antibodies. The developed comprehensive Markov-chain model that integrates the aforementioned factors was finally tested by real data to predict the trend of the COVID-19 epidemic. The result shows that our model can effectively avoid the prediction dilemma that may exist with traditional ordinary differential equations model, such as the susceptible–infectious–recovered (SIR) model. Meanwhile, it can forecast the epidemic distribution and predict the epidemic hotspots geographically at different times. It is also demonstrated in our result that the influence of the population’s spatial and geographic distribution in a herd infection event is needed in the model for a better prediction of the epidemic trend. At the same time, our result indicates that no simple derivative relationship exists between the threshold of herd immunity and the virus basic reproduction number R0. The threshold of herd immunity achieved through natural immunity is significantly higher than 1 − 1/R0. These not only explain the theoretical misconceptions of herd immunity thresholds in herd immunity theory but also provide a guidance for predicting the optimal vaccination coverage. In addition, our model can predict the temporal and spatial distribution of infections in different epidemic waves. It is implied from our model that it is challenging to eradicate COVID-19 in the short term for a large population size and a wide spatial distribution. It is predicted that COVID-19 is likely to coexist with humans for a long time and that it will exhibit multipoint epidemic effects at a later stage. The statistical evidence is consistent with our prediction and strongly supports our modeling results.},
   langid = {english},
   keywords = {COVID-19,herd immunity threshold,Markov-chain model,mutation,reproduction number},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\A7FTBKTZ\\Xu et. al. (2022) A Continuous Markov-Chain Model for the Simulation of COVID-19 Epidemic Dynamics.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\A7FTBKTZ\\Xu et al. (2022) A Continuous Markov-Chain Model for the Simulation of COVID-19 Epidemic Dynamics.pdf}
 }
 
 @article{yaesoubi2011GeneralizedMarkovModels,
@@ -1212,7 +1288,7 @@
   langid = {english},
   keywords = {Discrete-time Markov chain,Dynamic health policy,Dynamic programming,Epidemiological model,Epidemiology,Infectious disease models,Markov chain,Spatial epidemiology},
   annotation = {QID: Q35238492},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\2W4WA6NG\\Yaesoubi & Cohen (2011) Generalized Markov models of infectious disease spread - A novel framework for developing dynamic health policies.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\2W4WA6NG\\Yaesoubi & Cohen (2011) Generalized Markov models of infectious disease spread.pdf}
 }
 
 @article{yaesoubi2011GeneralizedMarkovModelsa,
@@ -1235,7 +1311,7 @@
   pmcid = {PMC3182455},
   keywords = {Epidemiological model,Epidemiology,Markov chain,Markov process,Spatial epidemiology},
   annotation = {QID: Q35238492},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\F9EUCJNA\\Yaesoubi & Cohen (2011) Generalized Markov Models of Infectious Disease Spread - A Novel Framework for Developing Dynamic Health Policies.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\GV22MAIS\\Yaesoubi & Cohen (2011) Generalized Markov Models of Infectious Disease Spread - A Novel Framework for Developing Dynamic Health Policies.pdf}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\F9EUCJNA\\Yaesoubi & Cohen (2011) Generalized Markov Models of Infectious Disease Spread.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\GV22MAIS\\Yaesoubi & Cohen (2011) Generalized Markov Models of Infectious Disease Spread.pdf}
 }
 
 @article{zheng2022MultiregionalHierarchicaltierMathematical,
@@ -1254,5 +1330,5 @@
   langid = {english},
   keywords = {COVID-19,epicentre,local epidemic control,mathematical modelling,population movement},
   annotation = {QID: Q112273459},
-  file = {C\:\\Users\\Reubender\\Zotero\\storage\\LIVNQ4PG\\Zheng et al. - 2022 - A multi-regional, hierarchical-tier mathematical m.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\2FY3R553\\tbed.html}
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\LIVNQ4PG\\Zheng et al. (2022) A multi-regional, hierarchical-tier mathematical model of the spread and.pdf;C\:\\Users\\Reubender\\Zotero\\storage\\2FY3R553\\tbed.html}
 }

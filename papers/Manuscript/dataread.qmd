@@ -9,7 +9,6 @@ library(tidyverse)
 
 # SA2 files
 ```{r}
-
 SA2_files <- list.files("C:/Users/reubender/Downloads/SA2_julia", full.names = TRUE)
 
 SA2_tot_files <- SA2_files[!str_detect(SA2_files, "patchinf|patchsus|summary")]
