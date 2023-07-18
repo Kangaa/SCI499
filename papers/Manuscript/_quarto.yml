@@ -10,7 +10,7 @@ book:
     - abstract.qmd
     - declaration.qmd
     - acknowledgements.qmd
-    - "01-Intro&Background.qmd"
+    - "01-IntroBackground.qmd"
     - "02-chap2.qmd"
   appendices:
     - "A-appA.qmd"
