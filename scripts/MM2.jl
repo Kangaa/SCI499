@@ -3,19 +3,14 @@ Pkg.activate(".")
 
 using CSV
 using DataFrames
-SA2_Pop = CSV.read("data/GmelbSA2Pop21.csv", DataFrame)
-transform!(SA2_Pop, :("SA2 code") => ByRow(string) => :("SA2 code"))
-
 include("../src/MixingMatrices.jl")
+
+
+SA2_Pop = CSV.read("data/GmelbSA2Pop21.csv", DataFrame) |> x -> 
+    transform(x, :("SA2 code") => ByRow(string) => :("SA2 code"))
 
 Melb_codes = expandCodes(SA2_Pop[:,1])|> x -> 
     leftjoin(x, SA2_Pop, on = (:SA2 => Symbol("SA2 code")))
-
-
-SA2_Codes = Melb_codes[:,1]
-SA3_Codes = Melb_codes[:,2]|> x -> unique(x)
-SA4_Codes = Melb_codes[:,3]|> x -> unique(x)
-ST_Codes = Melb_codes[:,4]|> x -> unique(x)
 
 SA2_pops = Pair.(Melb_codes.SA2, Melb_codes.Pop)|> x -> Dict(x)
 
