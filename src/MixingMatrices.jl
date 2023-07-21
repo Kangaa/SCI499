@@ -6,47 +6,32 @@ struct MixingMatrix
     popns::Array{Int, 1}
 end
 
-function SpatialMixingMatrix(codes, popn, intra = 0.9, μ = 0.5)
-    npatch = length(codes)
-    MM = fill(1.0, npatch, npatch)
-    ##get codes
+function SpatialMixingMatrix(codes, popn, ξ, μ = 0.5)
     Codes = expandCodes(codes)
-    intraregioncoefficient = intra
-    interregioncoefficient = 1.0-intraregioncoefficient
     
-    for i in eachindex(Codes[:,1])
-        for j in eachindex(Codes[:, 1])
-            for l in 1:(ncol(Codes))
-                if Codes[i,l] == Codes[j,l]
-                    nLLinUL = (Codes[i,l] .== Codes[:, l])|> sum
-                    coef = (intraregioncoefficient/nLLinUL)
-                    MM[i,j] *= coef
-                    break
-                else
-                    if l == (ncol(Codes)) 
-                        nLLoutUL = (Codes[i,l] .!= Codes[:, l])|> sum
-                        MM[i,j] *= interregioncoefficient/nLLoutUL
-                    else
-                        coef = interregioncoefficient
-                        MM[i,j] *= coef
-                    end
-                end
-            end
-        end
-    end
+    SAMM = [SAMMij(i, j, ξ, Codes, popn) for i in eachindex(codes), j in eachindex(codes)]
 
-    PPMM = fill(1.0, length(popn), length(popn))
-    for i in eachindex(popn)
-        for j in eachindex(popn)
-            PPMM[i,j] = popn[j]/sum(popn)
-        end
-    end
+    PPMM = [PPMMij(i, j, popn) for i in eachindex(codes), j in eachindex(codes)]
 
     MMM = ((μ*MM) + ((1-μ)*PPMM))
+
     return MMM
 end
 
-function  expandCodes(shapetable)
+function SAMMij(i, j, ξ, codes, popns)
+    for l in eachindex(ξ)
+        if codes[i, l] == codes[j, l]
+            l == 1 && return ξ[l] 
+            ll_pop = popns[1]|> x -> get(x, codes[j, 1], false) 
+            ul_pop = get(popns[l], codes[i, l], false) - get(popns[l-1], codes[i, l-1], false)
+            return ξ[l] * (ll_pop/ul_pop)
+        end
+    end
+end
+
+PPMMij(i, j, popns) = popns[j]/sum(popns)
+
+function  expandCodes(shapetable::Shapefile.Table)
     shapefields = shapetable |>
     Tables.columnnames .|>
     String 
@@ -54,11 +39,11 @@ function  expandCodes(shapetable)
 
     Code_DF = DataFrame(ll = lowerCodes)
 
-    rename!(Code_DF, 1 => MixingMatrices.getSARegion(Code_DF[1,1]))
+    rename!(Code_DF, 1 => getSARegion(Code_DF[1,1]))
     
-    while MixingMatrices.getSARegion(lowerCodes[1]) != "S/T"
-        upperCodes = DataFrame(new = MixingMatrices.getNextLevelUpCode.(lowerCodes))
-        rename!(upperCodes, 1 => MixingMatrices.getSARegion(upperCodes[1,1]))
+    while getSARegion(lowerCodes[1]) != "S/T"
+        upperCodes = DataFrame(new = getNextLevelUpCode.(lowerCodes))
+        rename!(upperCodes, 1 => getSARegion(upperCodes[1,1]))
         Code_DF = hcat(Code_DF, upperCodes)
         lowerCodes = upperCodes[:,1]
     end
@@ -68,11 +53,11 @@ end
 function  expandCodes(codes::Vector)
     lowerCodes = string.(codes)
 
-    Code_DF = DataFrame(MixingMatrices.getSARegion(lowerCodes[1])  => lowerCodes)
+    Code_DF = DataFrame(getSARegion(lowerCodes[1])  => lowerCodes)
         
-    while MixingMatrices.getSARegion(lowerCodes[1]) != "S/T"
-        upperCodes = DataFrame(new = MixingMatrices.getNextLevelUpCode.(lowerCodes))
-        rename!(upperCodes, 1 => MixingMatrices.getSARegion(upperCodes[1,1]))
+    while getSARegion(lowerCodes[1]) != "S/T"
+        upperCodes = DataFrame(new = getNextLevelUpCode.(lowerCodes))
+        rename!(upperCodes, 1 => getSARegion(upperCodes[1,1]))
         Code_DF = hcat(Code_DF, upperCodes)
         lowerCodes = upperCodes[:,1]
     end
