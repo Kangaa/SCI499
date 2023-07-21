@@ -1,12 +1,8 @@
 using DrWatson
 @quickactivate :SCI499
-using CSV
-using DataFrames
 using Shapefile
-
 using CSV
 using DataFrames
-## Batch sims function (move to src)
 using Tables
 shps = Shapefile.Table("data\\ASGS_GDA2020\\SA3_2021_AUST_SHP_GDA2020\\SA3_2021_AUST_GDA2020.shp")
 SA3_melb = Tables.subset(shps, shps.GCC_NAME21 .== "Greater Melbourne")
