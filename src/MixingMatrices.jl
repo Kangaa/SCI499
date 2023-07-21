@@ -6,12 +6,22 @@ struct MixingMatrix
     popns::Array{Int, 1}
 end
 
-function SpatialMixingMatrix(codes, popn, ξ, μ = 0.5)
-    Codes = expandCodes(codes)
+function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
+    Codes = expandCodes(llCodepop[:,1])
     
-    SAMM = [SAMMij(i, j, ξ, Codes, popn) for i in eachindex(codes), j in eachindex(codes)]
+    Popns = Vector{Dict{String, Int}}()
 
-    PPMM = [PPMMij(i, j, popn) for i in eachindex(codes), j in eachindex(codes)]
+    for i in 1:ncol(Codes)-1
+        Popns[i] = Codes |> x -> 
+            leftjoin(x, llCodepop, on = (:SA2 => Symbol("SA2 code"))) |> x ->
+            groupby(x, i) |> x ->
+            combine(x, :Pop => sum => :Pop) |> x ->
+            Pair.(x[:,i], x.Pop) 
+    end
+    
+    SAMM = [SAMMij(i, j, ξ, Codes, Popns) for i in eachindex(Codes[:,1]), j in eachindex(Codes[:,1])]
+
+    PPMM = [PPMMij(i, j, Popns) for i in eachindex(Codes[:,1]), j in eachindex(Codes[:,1])]
 
     MMM = ((μ*MM) + ((1-μ)*PPMM))
 
