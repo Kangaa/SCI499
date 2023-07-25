@@ -101,7 +101,7 @@ rbind(SA2_sims,
 rbind(SA2_sims,
       SA3_sims
       ) |> 
-  filter(R0 <= 2, R0 > 1) |> 
+  filter(R0 >= 1) |> 
   group_by(sim, SA, R0, mm) |> 
   summarise(fin = min(S)) |> 
     ggplot() +
@@ -118,9 +118,30 @@ rbind(SA2_sims,
   group_by(sim, SA, R0, mm) |> 
   summarise(duration = max(t)) |> 
     ggplot() +
-  aes(x = mm, y = duration, col = factor(SA)) +
+  aes(x = mm, y = duration, col = factor(SA), alpha = 0.5) +
+  geom_point() +
+  facet_grid(~ R0, scales = "free")
+
+rbind(SA2_sims,
+      SA3_sims
+      ) |> 
+  filter(R0 <= 2, R0 > 1) |> 
+  group_by(sim, SA, R0, mm) |> 
+  summarise(duration = max(t)) |> 
+    ggplot() +
+  aes(x = factor(mm), y = duration, col = factor(SA), alpha = 0.5) +
   geom_boxplot() +
   facet_grid(~ R0, scales = "free")
 ```
-
-
+```{r}
+rbind(SA2_sims,
+      SA3_sims
+      ) |> 
+  filter(R0 == 1.4) |> 
+  group_by(sim, SA, R0, mm) |> 
+  summarise(fin = min(S)) |> 
+    ggplot() +
+  aes(x = fin, col = SA, group = sim) +
+  geom_histogram(bins = 100) +
+  facet_grid(mm ~ SA)
+```

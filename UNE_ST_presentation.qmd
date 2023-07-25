@@ -1,0 +1,68 @@
+---
+title: "UNE S&T presentation"
+author: "James Bender"
+format: revealjs
+---
+
+## Title Schreen
+
+## Epidemic modelling
+### SIR Compartment model
+
+## Metapopulation models
+
+## Moss et. al. 2019
+
+## SA classification
+
+
+```{r}
+library(tidyverse)
+library(sf)
+
+SA2_shapefile <- read_sf("data/ASGS_GDA2020/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")
+
+
+melb_shp_SA2 <- SA2_shapefile |>
+  filter(GCC_CODE21 == "2GMEL")
+
+ggplot() +
+  geom_sf(data = melb_shp_SA2|> 
+    group_by(SA4_CODE21) |> 
+    summarise(geom = st_union(geometry)))
+
+```
+```{r}
+library(osmdata)
+
+
+melb_bb <- sf::st_bbox(melb_shp_SA2)
+
+melb_osm_coast <- opq(melb_bb) |>
+              add_osm_feature(key = "natural",
+                            value = c("coastline")) |> 
+            osmdata_sf()
+melb_osm_bay <- opq(melb_bb) |>
+              add_osm_feature(key = "natural",
+                              value = c("bay")) |> 
+              osmdata_sf()
+melb_osm_roads <- opq(melb_bb) |>
+              add_osm_feature(key = "highway",
+                              value = c("primary", "secondary", "tertiary")) |> 
+              osmdata_sf()
+
+
+
+ggplot()  +
+  geom_sf(data =  melb_osm_coast$osm_lines) +
+  geom_sf(data = melb_osm_bay$osm_multipolygons,
+            fill = "lightblue") +
+  geom_sf(data =  melb_osm_roads$osm_lines) +
+  theme_minimal()
+```
+```{r}
+library(OpenStreetMap)
+
+melb_map <- OpenStreetMap::
+```
+
