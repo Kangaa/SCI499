@@ -17,6 +17,9 @@ mm_parameter = 0.5
 CodePops = DataFrame(Codes = codes, Pop = popns)
 mixmat = SCI499.MixingMatrices.SpatialMixingMatrix(CodePops, [1/4,1/4,1/4,1/4], 0.5)
 
+using StatsPlots
+heatmap(mixmat)
+
 using HssMatrices
 mixmat_hss = hss(mixmat)
 plotranks(mixmat_hss)
