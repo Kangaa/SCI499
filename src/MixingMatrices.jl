@@ -11,19 +11,21 @@ function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
     
     Popns = Vector{Dict{String, Int}}()
 
-    for i in 1:ncol(Codes)-1
-        Popns[i] = Codes |> x -> 
-            leftjoin(x, llCodepop, on = (:SA2 => Symbol("SA2 code"))) |> x ->
+    for i in 1:ncol(Codes)
+        Codes |> x -> 
+            leftjoin(x, llCodepop, on = (Symbol(names(Codes)[1]) => Symbol(names(llCodepop)[1]))) |> x ->
             groupby(x, i) |> x ->
-            combine(x, :Pop => sum => :Pop) |> x ->
-            Pair.(x[:,i], x.Pop) 
+            combine(x, Symbol(names(llCodepop)[2]) => sum => :Pop) |> x ->
+            Pair.(x[:,1], x.Pop) |> x ->
+            Dict(x) |> x ->
+            push!(Popns, x)
     end
     
     SAMM = [SAMMij(i, j, ξ, Codes, Popns) for i in eachindex(Codes[:,1]), j in eachindex(Codes[:,1])]
 
-    PPMM = [PPMMij(i, j, Popns) for i in eachindex(Codes[:,1]), j in eachindex(Codes[:,1])]
+    PPMM = [PPMMij(i, j, llCodepop[:,2]) for i in eachindex(Codes[:,1]), j in eachindex(Codes[:,1])]
 
-    MMM = ((μ*MM) + ((1-μ)*PPMM))
+    MMM = ((μ*SAMM) + ((1-μ)*PPMM))
 
     return MMM
 end
@@ -41,24 +43,6 @@ end
 
 PPMMij(i, j, popns) = popns[j]/sum(popns)
 
-function  expandCodes(shapetable::Shapefile.Table)
-    shapefields = shapetable |>
-    Tables.columnnames .|>
-    String 
-    lowerCodes = Tables.getcolumn(shapetable, findfirst(endswith.(shapefields, "CODE21")))
-
-    Code_DF = DataFrame(ll = lowerCodes)
-
-    rename!(Code_DF, 1 => getSARegion(Code_DF[1,1]))
-    
-    while getSARegion(lowerCodes[1]) != "S/T"
-        upperCodes = DataFrame(new = getNextLevelUpCode.(lowerCodes))
-        rename!(upperCodes, 1 => getSARegion(upperCodes[1,1]))
-        Code_DF = hcat(Code_DF, upperCodes)
-        lowerCodes = upperCodes[:,1]
-    end
-    Code_DF
-end
 
 function  expandCodes(codes::Vector)
     lowerCodes = string.(codes)

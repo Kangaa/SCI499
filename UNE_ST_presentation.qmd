@@ -21,17 +21,148 @@ library(tidyverse)
 library(sf)
 
 SA2_shapefile <- read_sf("data/ASGS_GDA2020/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")
+SA1_shapefile <- read_sf("data/ASGS_GDA2020/SA1_2021_AUST_SHP_GDA2020/SA1_2021_AUST_GDA2020.shp")
+```
+
+## Armidale
+```{r}
+NSW <- SA2_shapefile |> 
+  filter(STE_NAME21 == "New South Wales") |> 
+  summarise(geom = st_union(geometry)) 
+
+NE <- SA2_shapefile |> 
+  filter(SA4_NAME21 == "New England and North West") |> 
+  summarise(geom = st_union(geometry)) 
+
+Armidale <- SA2_shapefile |> 
+  filter(SA3_NAME21 == "Armidale") |> 
+  summarise(geom = st_union(geometry))
+
+Armidale_SA2 <- SA2_shapefile |> 
+  filter(SA2_NAME21 == "Armidale") 
+
+Armidale_SA1 <- SA1_shapefile |> 
+  filter(SA2_NAME21 == "Armidale")
+```
 
 
+```{r}
+ggplot() +
+  geom_sf(data = NSW, fill = "lightblue") 
+
+SA2_shapefile |> 
+  filter(STE_NAME21 == "New South Wales") |>
+  group_by(SA4_NAME21) |> 
+  summarise(geom = st_union(geometry))
+
+NSW_SA4 <- ggplot() +
+  geom_sf(data = SA2_shapefile |> 
+    filter(STE_NAME21 == "New South Wales") |>
+    group_by(SA4_NAME21) |> 
+    summarise(geom = st_union(geometry)))
+
+NSW_SA3 <- ggplot() +
+  geom_sf(data = SA2_shapefile |> 
+    filter(STE_NAME21 == "New South Wales") |>
+    group_by(SA3_NAME21) |> 
+    summarise(geom = st_union(geometry)))
+
+NSW_SA2 <- ggplot() +
+  geom_sf(data = SA2_shapefile |> 
+    filter(STE_NAME21 == "New South Wales"))
+
+A1 <- ggplot() +
+  geom_sf(data = NSW, fill = "lightblue") 
+
+ggsave("plots/Armidale_NSW.svg", A1)
+
+A2 <- NSW_SA4 + 
+  geom_sf(data = NE, fill = "lightblue")+
+  labs(title = "SA4")
+ggsave("plots/Armidale_SA4.svg", A2)
+
+A3 <- NSW_SA3 + 
+  geom_sf(data = Armidale, fill = "lightblue")+
+  labs(title = "SA3")
+ggsave("plots/Armidale_SA3.svg", A3)
+
+A4 <- NSW_SA2 + 
+  geom_sf(data = Armidale_SA2, fill = "lightblue")+
+  labs(title = "SA2")
+  ggsave("plots/Armidale_SA2.svg", A4)
+
+```
+
+
+```{r}
+geom_sf(data = NE) +
+  geom_sf(data = Armidale) + 
+  geom_sf(data = Armidale_SA2)
+
+
+
+ggplot() +
+  geom_sf(data = NSW) + 
+  geom_sf(data = NE) +
+  geom_sf(data = SA2_shapefile |> 
+    filter(SA3_NAME21 == "Armidale")) + 
+  geom_sf(data = SA2_shapefile |> 
+    filter(SA2_NAME21 == "Armidale"))
+
+ggplot() +
+  geom_sf(data = NSW) + 
+  geom_sf(data = SA2_shapefile |> 
+  filter(SA4_NAME21 == "New England and North West")) +
+  geom_sf(data = SA2_shapefile |> 
+    filter(SA3_NAME21 == "Armidale")) + 
+  geom_sf(data = SA2_shapefile |> 
+    filter(SA2_NAME21 == "Armidale"))
+
+ggplot() +
+  geom_sf(data = SA2_shapefile |> 
+  filter(STE_NAME21 == "New South Wales")) + 
+  geom_sf(data = SA2_shapefile |> 
+  filter(SA4_NAME21 == "New England and North West")) +
+  geom_sf(data = SA2_shapefile |> 
+    filter(SA3_NAME21 == "Armidale")) + 
+  geom_sf(data = SA2_shapefile |> 
+    filter(SA2_NAME21 == "Armidale"))
+```
+
+
+```{r}
 melb_shp_SA2 <- SA2_shapefile |>
   filter(GCC_CODE21 == "2GMEL")
 
-ggplot() +
+Gmelb_area <- ggplot() +
   geom_sf(data = melb_shp_SA2|> 
-    group_by(SA4_CODE21) |> 
-    summarise(geom = st_union(geometry)))
+    summarise(geom = st_union(geometry))) +
+  theme_bw()
 
+ggsave("Gmelb.svg", Gmelb_area)
+
+
+Gmelb_SA4 <- ggplot() +
+  geom_sf(data = melb_shp_SA2|> 
+    group_by(SA4_NAME21) |> 
+    summarise(geom = st_union(geometry))) +
+  theme_bw()
+ggsave("Gmelb_SA4.svg", Gmelb_SA4)
+
+
+Gmelb_SA3 <- ggplot() +
+  geom_sf(data = melb_shp_SA2|> 
+    group_by(SA3_CODE21) |> 
+    summarise(geom = st_union(geometry))) +
+  theme_bw()
+ggsave("Gmelb_SA3.svg", Gmelb_SA3)
+
+Gmelb_SA2 <- ggplot() +
+  geom_sf(data = melb_shp_SA2)+
+  theme_bw()
+ggsave("Gmelb_SA2.svg", Gmelb_SA2)
 ```
+
 ```{r}
 library(osmdata)
 
@@ -51,18 +182,19 @@ melb_osm_roads <- opq(melb_bb) |>
                               value = c("primary", "secondary", "tertiary")) |> 
               osmdata_sf()
 
+ggplot() +
+  geom_sf(data = melb_osm_roads$osm_lines |> 
+    select(highway), 
+    aes(linewidth = highway)) + 
+  scale_discrete_manual(aesthetic = "linewidth",
+                        values = c(primary = 0.5, secondary = 0.1, tertiary = 0.01))
 
-
-ggplot()  +
-  geom_sf(data =  melb_osm_coast$osm_lines) +
-  geom_sf(data = melb_osm_bay$osm_multipolygons,
-            fill = "lightblue") +
-  geom_sf(data =  melb_osm_roads$osm_lines) +
-  theme_minimal()
 ```
-```{r}
-library(OpenStreetMap)
 
-melb_map <- OpenStreetMap::
+## Moss MM
+```{r}
+
+
+heatmap(moss_mm)
 ```
 
