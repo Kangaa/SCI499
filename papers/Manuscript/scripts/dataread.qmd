@@ -37,28 +37,6 @@ SA2_sims |>
   theme(legend.position = "none") +
   scale_x_continuous(breaks = c(0, 50, 100))
 ```
-
-
-```{r}
-  ggplot() +
-  aes(x = t, y = pop)+
-  geom_line(data = SA2_sims |> 
-        filter(R0 == 1.8, mm == 0.1) |> 
-        pivot_longer(c(S,I), names_to = "compartment", values_to = "pop") |> 
-        filter(compartment == "S"),
-    aes(group = sim, col = compartment),  alpha = 0.1) +
-  geom_line(data = SA2_sims |> 
-        filter(R0 == 1.8, mm == 0.1) |> 
-        pivot_longer(c(S,I), names_to = "compartment", values_to = "pop") |> 
-        filter(compartment == "I"),
-    aes(group = sim, col = compartment), alpha = 0.1) 
-
-ggsave("../../plots/exampleSSA.svg", width = 14)
-```
-
-
-
-
 # SA3
 
 ```{r}
@@ -85,10 +63,35 @@ SA3_sims |>
   facet_wrap(~R0, scales = "free")
 ```
 
+# SA4
+```{r}
+
+SA4_files <- list.files("../../data/sims/SA4", full.names = TRUE)
+
+SA4_tot_files <- SA4_files[!str_detect(SA4_files, "patchinf|patchsus|summary")]
+
+SA4_sims <- read_csv(SA4_tot_files, col_names = c("t", "S", "I"), skip = 2, id = "sim")
+
+SA4_sims <- SA4_sims |>
+  mutate(
+    beta = as.numeric(str_extract(sim, "(...)_.{3}_.{3}_.{1,3}.csv", group = 1)),
+    gamma = as.numeric(str_extract(sim, "(...)_.{3}_.{1,3}.csv", group = 1)),
+    mu = as.numeric(str_extract(sim, "(...)_.{1,3}.csv", group = 1)),
+    R0 = beta/gamma,
+    SA = 4)
+
+
+SA4_sims |>
+  ggplot() +
+  aes(x = t, y = I, col = mu, group = sim) +
+  geom_line() +
+  facet_wrap(~R0, scales = "free")
+```
+
 # Moss
 
 ```{r}
-Moss_files <- list.files("C:/Users/reubender/Downloads/Moss", full.names = TRUE)
+Moss_files <- list.files("../../data/sims/Moss", full.names = TRUE)
 
 Moss_tot_files <- Moss_files[!str_detect(Moss_files, "patchinf|patchsus|summary")]
 
@@ -100,7 +103,7 @@ Moss_sims <- Moss_sims |>
     gamma = as.numeric(str_extract(sim, "(...)_Moss_.{1,3}.csv", group = 1)),
     R0 = beta/gamma,
     SA = 3, 
-    mm = "Moss")
+    mu = "Moss")
 
 
 Moss_sims |>
@@ -114,7 +117,8 @@ Moss_sims |>
 
 ```{r}
 rbind(SA2_sims,
-      SA3_sims
+      SA3_sims,
+      SA4_sims
       ) |> 
   filter(R0 <= 2) |>
   ggplot() +
@@ -125,15 +129,16 @@ rbind(SA2_sims,
 
 ```{r size}
 rbind(SA2_sims,
-      SA3_sims
+      SA3_sims,
+      SA4_sims,
+      Moss_sims
       ) |> 
-  filter(R0 >= 1) |> 
   group_by(sim, SA, R0, mu) |> 
   summarise(fin = min(S)) |> 
     ggplot() +
-  aes(x = mu, y = fin, col = SA) +
-  geom_point() +
-  facet_grid(~ R0, scales = "free")
+  aes(x = SA, y = fin, col = mu) +
+  geom_point(size = 0.5) +
+  facet_grid(mu ~ R0, scales = "free")
 ```
 
 ```{r duration}
@@ -141,10 +146,10 @@ rbind(SA2_sims,
       SA3_sims
       ) |> 
   filter(R0 <= 2, R0 > 1) |> 
-  group_by(sim, SA, R0, mm) |> 
+  group_by(sim, SA, R0, mu) |> 
   summarise(duration = max(t)) |> 
     ggplot() +
-  aes(x = mm, y = duration, col = factor(SA), alpha = 0.5) +
+  aes(x = mu, y = duration, col = factor(SA), alpha = 0.5) +
   geom_point() +
   facet_grid(~ R0, scales = "free")
 
@@ -152,17 +157,18 @@ rbind(SA2_sims,
       SA3_sims
       ) |> 
   filter(R0 <= 2, R0 > 1) |> 
-  group_by(sim, SA, R0, mm) |> 
+  group_by(sim, SA, R0, mu) |> 
   summarise(duration = max(t)) |> 
     ggplot() +
-  aes(x = factor(mm), y = duration, col = factor(SA), alpha = 0.5) +
+  aes(x = factor(mu), y = duration, col = factor(SA), alpha = 0.5) +
   geom_boxplot() +
   facet_grid(~ R0, scales = "free")
 ```
 
 ```{r}
 rbind(SA2_sims,
-      SA3_sims
+      SA3_sims,
+      SA4_sims
       ) |> 
   filter(R0 == 1) |> 
   group_by(sim, SA, R0, mu) |> 

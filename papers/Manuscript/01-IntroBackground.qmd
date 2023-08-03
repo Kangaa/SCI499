@@ -25,18 +25,7 @@ At each time unit an infected individual can come into contact with, on average,
 | $\beta$   | Transmission rate |
 | $\gamma$  | Recovery rate     |
 
-Thus, an SIR model can be represented by the schematic in @fig-SIR
-
-```{dot}
-//| label: fig-SIR
-//| fig-cap: "Graphical representation of SIR model"
-
-digraph G {
-    S -> I [label = "β"]
-    I -> R [label = "γ"]
-    rankdir = "LR"
-}
-```
+Thus, an SIR model can be represented by the schematic 
 
 ## SIR Dynamics
 
@@ -99,11 +88,6 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 \end{cases}
 $$ {#eq-SIR_DTMC_Trans}
 
-| Event     | Change $(\Delta S, \Delta I)$ | Probability                                |
-|:----------|:------------------------------|:-------------------------------------------|
-| Infection | $(-1,+1)$                     | $\beta i \frac{s}{N} \Delta t+o(\Delta t)$ |
-| Recovery  | $(0,-1)$                      | $\gamma i \Delta t+o(\Delta t)$            |
-: Possible events in a SIR Markov Chain {#tbl-SIR_Events}
 
 ##### Transition Matrix
 

@@ -2,7 +2,7 @@
 
 julia_version = "1.10.0-beta1"
 manifest_format = "2.0"
-project_hash = "6609e49441ce687f45d7f8380cf7e59ba8ab3730"
+project_hash = "66013ff18b616badd9c13de68ef2842edd21e96e"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "f5c25e8a5b29b5e941b7408bc8cc79fea4d9ef9a"
@@ -1095,6 +1095,12 @@ git-tree-sha1 = "1cf1d7dcb4bc32d7b4a5add4232db3750c27ecb4"
 uuid = "86223c79-3864-5bf0-83f7-82e725a168b6"
 version = "1.8.0"
 
+[[deps.Graphviz_jll]]
+deps = ["Artifacts", "Cairo_jll", "Expat_jll", "JLLWrappers", "Libdl", "Pango_jll", "Pkg"]
+git-tree-sha1 = "a5d45833dda71048117e8a9828bef75c03b18b1c"
+uuid = "3c863552-8265-54e4-a6dc-903eb78fde85"
+version = "2.50.0+1"
+
 [[deps.GridLayoutBase]]
 deps = ["GeometryBasics", "InteractiveUtils", "Observables"]
 git-tree-sha1 = "678d136003ed5bceaab05cf64519e3f956ffa4ba"
@@ -2065,6 +2071,12 @@ git-tree-sha1 = "9b02b27ac477cad98114584ff964e3052f656a0f"
 uuid = "f57f5aa1-a3ce-4bc8-8ab9-96f992907883"
 version = "0.4.0"
 
+[[deps.PProf]]
+deps = ["AbstractTrees", "EnumX", "FlameGraphs", "Libdl", "OrderedCollections", "Profile", "ProgressMeter", "ProtoBuf", "pprof_jll"]
+git-tree-sha1 = "1c650abb80d2a417318a9d303443487b226901cd"
+uuid = "e4faabce-9ead-11e9-39d9-4379958e3056"
+version = "2.3.0"
+
 [[deps.PROJ_jll]]
 deps = ["Artifacts", "JLLWrappers", "LibCURL_jll", "Libdl", "Libtiff_jll", "Pkg", "SQLite_jll"]
 git-tree-sha1 = "fcb3f39ae1184a056ecc415863d46d2109aa6947"
@@ -2298,6 +2310,12 @@ deps = ["CEnum", "CoordinateTransformations", "GeoFormatTypes", "NetworkOptions"
 git-tree-sha1 = "495a52a7c491d0570a170f6de48a74860a1c1ece"
 uuid = "c94c279d-25a6-4763-9509-64d165bea63e"
 version = "1.4.0"
+
+[[deps.ProtoBuf]]
+deps = ["BufferedStreams", "Dates", "EnumX", "TOML", "TranscodingStreams"]
+git-tree-sha1 = "e957b28fc98ecd13da4f2bdc7e121832e5d18e3e"
+uuid = "3349acd9-ac6a-5e09-bcdb-63829b23a429"
+version = "1.0.11"
 
 [[deps.QOI]]
 deps = ["ColorTypes", "FileIO", "FixedPointNumbers"]
@@ -3399,6 +3417,12 @@ version = "1.52.0+0"
 deps = ["Artifacts", "Libdl"]
 uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 version = "17.4.0+0"
+
+[[deps.pprof_jll]]
+deps = ["Artifacts", "Graphviz_jll", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "b004c9fd6294afe24efccc7e2f055436b63cb809"
+uuid = "cf2c5f97-e748-59fa-a03f-dda3c62118cb"
+version = "1.0.1+0"
 
 [[deps.snappy_jll]]
 deps = ["Artifacts", "JLLWrappers", "LZO_jll", "Libdl", "Pkg", "Zlib_jll"]
