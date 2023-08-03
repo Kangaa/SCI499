@@ -1,6 +1,6 @@
-project:
+project: 
   type: book
-  
+
 book:
   title: "Hierarchical Spatial Structure in Compartmental Epidemiological models"
   author: "James Bender"
@@ -10,10 +10,10 @@ book:
     - abstract.qmd
     - declaration.qmd
     - acknowledgements.qmd
-    - "01-IntroBackground.qmd"
-    - "02-chap2.qmd"
+    - 01-IntroBackground.qmd
+    - 02-chap2.qmd
   appendices:
-    - "A-appA.qmd"
+    - A-appA.qmd
   references: refs.qmd
   page-footer:
     left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023"
@@ -38,7 +38,7 @@ affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
 
 execute:
-  freeze: true
+  freeze: auto
   echo: false
 
 format:
@@ -48,6 +48,6 @@ format:
       - thesis.scss
     fontsize: 16px
     mainfont: "Merriweather, Georgia, serif"
-    code-link: true
+
   monashthesis-pdf:
     keep-tex: false
