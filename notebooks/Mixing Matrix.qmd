@@ -1,0 +1,22 @@
+---
+title: "Hierarchical mixing matrix construction"
+format: html
+---
+
+The SA Classification standard gives a numerical code to each region in an area
+
+The SA2 level codes for Greater Melbourne are given in the file `data/GmelbSA2Pop21.csv`
+
+We construct the mixing matrix under the assumption that some proportion, $\delta$ of infections $\xi^{L}_i(\delta)$ arising from a patch $i$ in level $L$ occur between patches in the same level $L$ region, and the remaining proportion occur outside this region.
+
+$i, j$ are patches
+
+$S^{L}$ is the set of patches in level $L$
+
+$N_i$ is the population of $i$
+
+$N_{i}^{L}$ is the population of $S_{i}^{L}$
+
+$\xi^{L}(\delta)$ is the proportion of mixing that occurs within $S_{i}^{L}$ but not$S_{i}^{L-1}$
+
+$M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}$ if $j \in S_{i}^{L}$ & $j \in S_{i}^{L-1}$
