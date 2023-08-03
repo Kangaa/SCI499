@@ -39,7 +39,7 @@ affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
 
 execute:
-  freeze: auto
+  freeze: true
   echo: false
 
 format:
