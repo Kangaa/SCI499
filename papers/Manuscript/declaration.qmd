@@ -16,9 +16,9 @@ Date:
 
 > Remove this section if you do not have publications.
 
-The material in @sec-intro has been submitted to the journal *Journal of Impossible Results* for possible publication.
+The material in sec-intro has been submitted to the journal *Journal of Impossible Results* for possible publication.
 
-The contribution in @sec-litreview of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
+The contribution in sec-litreview of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
 
 ### Reproducibility statement
 

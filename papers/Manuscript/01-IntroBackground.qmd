@@ -76,7 +76,7 @@ $$ i.e. the probabilities in @eq-Markov-Property do not vary with $t$
 
 An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).
 
-There are two potential events (@tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
+There are two potential events (tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
 
 $$
 p _ {(s +k, i +j),(s,i)}(\Delta t) =
