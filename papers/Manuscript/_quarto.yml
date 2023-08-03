@@ -37,6 +37,7 @@ degreetype: Graduate Diploma of Applied Statistics
 submitted: 2023
 affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
+
 execute:
   freeze: auto
   echo: false
