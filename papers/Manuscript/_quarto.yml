@@ -1,4 +1,4 @@
-project: 
+project:
   type: book
 
 book:
@@ -12,6 +12,7 @@ book:
     - acknowledgements.qmd
     - 01-IntroBackground.qmd
     - 02-chap2.qmd
+    - 03-CurrentStudy.qmd
   appendices:
     - A-appA.qmd
   references: refs.qmd
