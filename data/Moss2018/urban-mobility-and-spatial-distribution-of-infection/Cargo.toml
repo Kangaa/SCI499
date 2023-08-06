@@ -1,0 +1,22 @@
+[package]
+name = "spatial_seir"
+version = "1.0.0"
+authors = ["Rob Moss <robm.dev@gmail.com>"]
+
+[dependencies]
+rand = "0.4"
+statrs = "0.9"
+csv = "1.0.0-beta.5"
+ndarray = "0.11.0"
+rayon = "0.9"
+# Used for parsing simulation definitions.
+serde = "1"
+serde_derive = "1"
+serde_json = "1.0"
+# Used for parsing command-line arguments.
+structopt = "0.1.0"
+structopt-derive = "0.1.0"
+
+[[bin]]
+name = "spatial_seir"
+doc = false

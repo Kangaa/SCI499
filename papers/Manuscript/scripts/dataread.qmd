@@ -10,7 +10,7 @@ library(tidyverse)
 # SA2 files
 
 ```{r}
-SA2_files <- list.files("../../data/sims/SA2", full.names = TRUE)
+SA2_files <- list.files("../../../data/sims/SA2", full.names = TRUE)
 
 SA2_tot_files <- SA2_files[!str_detect(SA2_files, "patchinf|patchsus|summary")]
 
@@ -41,7 +41,7 @@ SA2_sims |>
 
 ```{r}
 
-SA3_files <- list.files("../../data/sims/SA3", full.names = TRUE)
+SA3_files <- list.files("../../../data/sims/SA3", full.names = TRUE)
 
 SA3_tot_files <- SA3_files[!str_detect(SA3_files, "patchinf|patchsus|summary")]
 
@@ -66,7 +66,7 @@ SA3_sims |>
 # SA4
 ```{r}
 
-SA4_files <- list.files("../../data/sims/SA4", full.names = TRUE)
+SA4_files <- list.files("../../../data/sims/SA4", full.names = TRUE)
 
 SA4_tot_files <- SA4_files[!str_detect(SA4_files, "patchinf|patchsus|summary")]
 
@@ -91,7 +91,7 @@ SA4_sims |>
 # Moss
 
 ```{r}
-Moss_files <- list.files("../../data/sims/Moss", full.names = TRUE)
+Moss_files <- list.files("../../../data/sims/Moss", full.names = TRUE)
 
 Moss_tot_files <- Moss_files[!str_detect(Moss_files, "patchinf|patchsus|summary")]
 
@@ -104,13 +104,6 @@ Moss_sims <- Moss_sims |>
     R0 = beta/gamma,
     SA = 3, 
     mu = "Moss")
-
-
-Moss_sims |>
-  ggplot() +
-  aes(x = t, y = I, col = mm, group = sim) +
-  geom_line() +
-  facet_wrap(~R0, scales = "free")
 ```
 
 # All
@@ -136,9 +129,9 @@ rbind(SA2_sims,
   group_by(sim, SA, R0, mu) |> 
   summarise(fin = min(S)) |> 
     ggplot() +
-  aes(x = SA, y = fin, col = mu) +
+  aes(x = mu, y = fin, col = factor(SA)) +
   geom_point(size = 0.5) +
-  facet_grid(mu ~ R0, scales = "free")
+  facet_grid( ~ R0, scales = "free")
 ```
 
 ```{r duration}
@@ -178,7 +171,6 @@ rbind(SA2_sims,
   geom_histogram(bins = 100) +
   facet_grid(mu ~ SA)
 ```
-
 
 ### Patch data animation
 ```{r}

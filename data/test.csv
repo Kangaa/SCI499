@@ -1,0 +1,3 @@
+time,TotalSusceptible,TotalInfected
+Int64,Int64,Int64
+1,4976507,11

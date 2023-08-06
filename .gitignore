@@ -3,7 +3,10 @@
 ################################################################################
 
 # Folders to ignore - files may be too large, too many, etc. NOTE: EDIT IF NEEDED.
-/data
+/data/Old mm sims
+/data/sims
+/data/ASGS_GDA2020
+
 /videos
 /plots
 /_research
