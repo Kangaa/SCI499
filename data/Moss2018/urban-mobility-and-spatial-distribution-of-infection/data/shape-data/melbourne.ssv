@@ -1,0 +1,1055 @@
+"long" "lat" "order" "hole" "piece" "id" "group" "ogc_fid" "sa3_code11" "sa3_name11" "sa4_code11" "sa4_name11" "gcc_code11" "gcc_name11" "ste_code11" "ste_name11" "albers_sqm" "SA3_CODE"
+-18597.22826026 9756.99462121 54 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-19270.85040415 10390.00322293 55 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-20211.9588061 9300.10587686 56 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-19908.80819386 8694.6990868 57 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-21075.48075732 8172.33365915 58 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-21907.01396092 8824.47896214 59 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-22373.84282094 11362.77420304 60 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-24015.68933238 12811.73825298 61 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-23766.57501211 13884.58803265 62 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-24579.58250632 14908.14472457 63 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-26305.74771999 16113.89488853 64 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-25412.19647766 16708.64783301 65 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-24283.02005277 16806.83235834 66 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-23092.81759793 15580.64122367 67 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-22263.32129518 15466.64753163 68 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-21889.50596122 16419.16765641 69 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-18850.4960788 15767.2507844 70 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-17793.08151829 15608.847952 71 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-15111.96884149 12718.56260531 72 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-14644.55285193 11697.05753822 73 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-18251.33878036 12790.40614126 74 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-18597.22826026 9756.99462121 75 FALSE "1" "1" "1.1" "2" "21001" "Keilor" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 42426554.5766135 21001
+-9866.130846 2255.89424124 3784 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-10191.43321498 -80.39409223 3785 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-11328.21647581 2223.71882879 3786 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-17118.92379353 2991.43609519 3787 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-17045.12660098 4549.72446949 3788 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-16162.33097646 5754.47609696 3789 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-17377.66406286 6682.7914662 3790 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-16422.16174966 7820.81826363 3791 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-14251.94486717 6760.47246433 3792 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-14353.25586381 8004.05195711 3793 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-12312.92301036 7977.38474003 3794 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-12440.93858428 6663.60318736 3795 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-10946.81686289 6314.10815293 3796 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-11167.20069988 4662.69121029 3797 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-9567.50726521 4463.99937826 3798 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-9866.130846 2255.89424124 3799 FALSE "1" "117" "117.1" "101" "20604" "Melbourne City" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 31548794.2970593 20604
+-689.65634577 -2428.89216018 4146 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-1035.63064196 -4770.19365526 4147 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-4235.56088071 -3641.22926039 4148 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-6363.16590111 -1813.87810057 4149 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-5925.46264331 1400.48258765 4150 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-3543.8967071 -524.27732859 4151 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-2713.11144968 -2705.19676238 4152 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-689.65634577 -2428.89216018 4153 FALSE "1" "120" "120.1" "92" "20804" "Stonnington - East" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 13724692.3879034 20804
+-11284.20128771 17640.15585951 8976 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-3684.60192225 16649.94909439 8977 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-4292.13390162 15717.13915638 8978 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-2208.99220817 15673.02377449 8979 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-2246.07075935 14857.76195549 8980 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-3457.8410313 13373.57649871 8981 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-5435.52242404 13590.56560768 8982 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-6049.30865212 10463.02825455 8983 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-8440.24872834 10807.8907075 8984 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-10501.43094221 11062.50481865 8985 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-10527.90915526 11373.91314797 8986 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-10321.34160626 12651.63026007 8987 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-10707.9670203 17156.98492984 8988 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+-11284.20128771 17640.15585951 8989 FALSE "1" "135" "135.1" "115" "20902" "Darebin - North" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 39443777.1281618 20902
+24255.83645897 -25519.68831162 9848 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+19475.93099243 -24752.55943511 9849 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+20173.43752493 -23203.84128485 9850 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+19410.32789421 -22969.7667804 9851 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+19389.74059321 -21585.00903619 9852 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+17726.60319581 -21449.81158756 9853 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+16398.32493494 -19067.07171214 9854 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+13083.0135175 -18547.88844892 9855 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+13337.01796838 -17063.65182126 9856 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+11183.69129565 -16739.04168974 9857 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+11859.92450499 -14109.93888176 9858 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+11394.36424118 -11367.27764362 9859 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+11712.9057491 -10207.69160507 9860 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+15787.76885245 -10847.88038269 9861 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+16975.65561071 -12767.36047987 9862 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+24532.16970625 -13914.21899115 9863 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+24404.80055616 -16836.015246 9864 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+25050.26078556 -17678.31037375 9865 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+23172.49501774 -22427.83389852 9866 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+24644.05701125 -24115.8747276 9867 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+24255.83645897 -25519.68831162 9868 FALSE "1" "149" "149.1" "310" "21202" "Casey - North" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 116471799.456289 21202
+-5769.37957722 -9215.25630257 10283 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-3930.70771809 -13061.93664254 10284 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-4243.84583447 -15187.41112437 10285 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-5453.29602833 -16256.68344076 10286 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-7208.91086398 -14632.73842411 10287 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-9394.22099926 -10456.60316898 10288 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-8861.20727969 -10049.9108767 10289 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-10064.5931368 -8468.14635263 10290 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-9994.28755138 -7450.5497673 10291 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-10116.55025579 -4557.27288755 10292 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-9060.18841173 -3758.16380863 10293 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-8239.2138798 -5533.89600361 10294 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-6509.30296058 -5792.62402097 10295 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-6818.04497025 -7840.36261121 10296 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+-5769.37957722 -9215.25630257 10297 FALSE "1" "155" "155.1" "152" "20801" "Bayside" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 37210899.1318297 20801
+12247.00717984 -25280.38872902 11352 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+4936.37273171 -24131.44941514 11353 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+4411.27878466 -24120.50125802 11354 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+2942.76392719 -19466.86399002 11355 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+3925.88881887 -15638.0934664 11356 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+1657.25300364 -15294.3836108 11357 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+1080.69294257 -11928.47458532 11358 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+-1799.13927262 -9851.18177522 11359 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+-1540.7660072 -8213.49695358 11360 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+3658.33837774 -9032.89394991 11361 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+3813.07325719 -8276.7756532 11362 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+4987.07713472 -9230.22348748 11363 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+10477.11070552 -10012.61030039 11364 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+11394.36424118 -11367.27764362 11365 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+11859.92450499 -14109.93888176 11366 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+11183.69129565 -16739.04168974 11367 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+13337.01796838 -17063.65182126 11368 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+13083.0135175 -18547.88844892 11369 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+12247.00717984 -25280.38872902 11370 FALSE "1" "160" "160.1" "145" "21204" "Dandenong" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 151100375.480647 21204
+-30734.9686041 4330.95475076 13216 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-45029.20939432 6189.04887262 13217 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-46020.39097 4654.01358567 13218 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-49972.64718894 6810.74607637 13219 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-54822.49416276 7474.70073378 13220 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-53740.07214007 15841.60853028 13221 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-54158.62360744 17111.12377739 13222 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-56031.56098631 17351.46884736 13223 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-56200.31104208 15789.16190907 13224 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-61469.10554307 13336.62262194 13225 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-61306.01153341 14548.61809719 13226 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-62128.98124768 14505.28030944 13227 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-62002.72123476 15434.18484794 13228 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-62624.37068367 15519.51588283 13229 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-62386.39012719 16832.22012547 13230 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-64550.29238171 17779.63174645 13231 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-64358.98807861 19177.2093797 13232 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-66557.05543356 21029.89131197 13233 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-65599.76097799 22142.94218583 13234 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-67644.26394702 23302.70824694 13235 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-67317.64015252 25412.58865571 13236 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-65845.72041727 23761.9437659 13237 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-61596.32388224 23116.33053687 13238 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-63150.77115957 26761.3409347 13239 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-59759.63783371 26024.92968102 13240 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-59311.78293742 27862.58796533 13241 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-59991.02850689 28326.55342654 13242 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-57149.17157936 28977.40998703 13243 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-57684.42367883 31059.20301515 13244 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-56620.88635633 33504.20470036 13245 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-41860.27645112 31759.22110437 13246 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-41263.84906524 28742.75984916 13247 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-39129.15250871 28331.31013186 13248 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-39140.9728134 23214.63001687 13249 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-36653.70764294 21414.83392729 13250 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-31374.50172419 20687.43542368 13251 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-30137.42560556 18709.70704139 13252 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-30688.88872192 15964.84421601 13253 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-29318.70807599 15247.66978657 13254 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+-30734.9686041 4330.95475076 13255 FALSE "1" "163" "163.1" "148" "21304" "Melton - Bacchus Marsh" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 671974698.796907 21304
+28896.80993142 -40584.43213767 17684 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+27223.83572496 -42008.03345942 17685 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+21561.52345497 -40407.17836001 17686 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+21130.95995245 -42158.2121938 17687 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+18615.97541899 -44204.1318609 17688 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+15521.09262416 -43962.04682681 17689 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+15024.12502516 -41411.97554734 17690 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+13504.29242621 -41480.90007348 17691 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+11081.30491855 -40960.0422995 17692 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+10140.31858751 -38927.66136932 17693 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+12247.00717984 -25280.38872902 17694 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+13083.0135175 -18547.88844892 17695 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+16398.32493494 -19067.07171214 17696 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+17726.60319581 -21449.81158756 17697 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+19389.74059321 -21585.00903619 17698 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+19410.32789421 -22969.7667804 17699 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+20173.43752493 -23203.84128485 17700 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+19475.93099243 -24752.55943511 17701 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+24255.83645897 -25519.68831162 17702 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+24310.2480194 -25518.85858486 17703 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+24991.15435589 -27049.6204662 17704 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+26202.34308691 -27932.77447236 17705 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+26476.32090703 -29820.31330715 17706 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+24847.8673529 -30632.73185395 17707 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+26252.82559958 -32564.04418416 17708 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+25304.82659428 -38057.69940957 17709 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+27882.96333202 -38729.35315225 17710 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+28896.80993142 -40584.43213767 17711 FALSE "1" "192" "192.1" "273" "21203" "Casey - South" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 292945734.60084 21203
+16975.65561071 -12767.36047987 18150 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+15787.76885245 -10847.88038269 18151 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+11712.9057491 -10207.69160507 18152 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+11394.36424118 -11367.27764362 18153 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+10477.11070552 -10012.61030039 18154 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+9362.50169607 -9023.74820693 18155 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+9527.3284101 -5458.97817635 18156 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+8514.18559014 -4298.16299854 18157 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+7992.07453603 -3416.83942616 18158 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+8421.81744354 -1688.51112413 18159 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+10264.85560434 1304.88798022 18160 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+16485.93139751 1834.02811302 18161 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+19185.66398377 652.58425754 18162 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+21790.48717601 -1073.32859825 18163 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+20823.43268214 -713.00277204 18164 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+19728.56321468 -1917.88822535 18165 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+17787.41091995 -1597.16747268 18166 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+18344.7340907 -2358.69210266 18167 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+17992.10269978 -4235.80695616 18168 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+19722.53246953 -5513.37775586 18169 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+18029.62996838 -6203.68009649 18170 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+19804.41236619 -7887.84311217 18171 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+18847.34729003 -9092.20503635 18172 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+17572.05407974 -9060.69899688 18173 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+16975.65561071 -12767.36047987 18174 FALSE "1" "195" "195.1" "195" "21101" "Knox" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 118215927.422823 21101
+55610.90055778 -45149.11247727 21161 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+55351.0434732 -48958.98926758 21162 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+51585.03204654 -49016.73370742 21163 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+51703.17203142 -48237.05980929 21164 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+50877.70402721 -48136.73126867 21165 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+50766.12288654 -48953.59913754 21166 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+44834.60601047 -48471.86078407 21167 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+44214.29982744 -53672.83775627 21168 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+43160.69784544 -53405.39178546 21169 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+42165.79570827 -51466.39264821 21170 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+39687.39360101 -49332.77671817 21171 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+38998.75687487 -49081.41380018 21172 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+38641.35800217 -51083.13245335 21173 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+36794.07360518 -50773.40638739 21174 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+36564.17945661 -49020.91024581 21175 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+34823.72947284 -47146.46332042 21176 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+34057.26864269 -42629.45240044 21177 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+28896.80993142 -40584.43213767 21178 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+27882.96333202 -38729.35315225 21179 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+25304.82659428 -38057.69940957 21180 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+26252.82559958 -32564.04418416 21181 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24847.8673529 -30632.73185395 21182 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+26476.32090703 -29820.31330715 21183 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+26202.34308691 -27932.77447236 21184 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24991.15435589 -27049.6204662 21185 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24310.2480194 -25518.85858486 21186 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24255.83645897 -25519.68831162 21187 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24644.05701125 -24115.8747276 21188 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+23172.49501774 -22427.83389852 21189 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+25050.26078556 -17678.31037375 21190 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24404.80055616 -16836.015246 21191 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24532.16970625 -13914.21899115 21192 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+25308.60181847 -13467.44081058 21193 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+24922.88697043 -9835.75939981 21194 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+26484.07878139 -9971.733085 21195 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+28886.94226079 -7098.10968173 21196 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+29784.23023297 -7221.82614725 21197 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+29934.31377818 -4968.86652973 21198 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+30826.39675346 -3612.57438978 21199 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+32244.1255464 -6947.42278116 21200 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+32586.67505391 -5740.34088486 21201 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+35858.6728004 -5609.97475291 21202 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+37441.07275873 -4230.88463047 21203 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+37553.35630988 -1597.85420047 21204 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+36884.62617456 -943.44996574 21205 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+39884.34883707 -2715.40474298 21206 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+41254.29044494 -5430.63463458 21207 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+46429.46930984 -6128.20239831 21208 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+46241.08017557 -7628.41615739 21209 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+50189.3841066 -6495.99587028 21210 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+50183.62626702 -5071.58581716 21211 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+51575.13082414 -4470.73245238 21212 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+51628.31625799 -3582.61490406 21213 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+54676.741294 -4093.41883274 21214 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+55339.43367984 -6055.1500353 21215 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+56976.33008406 -6574.07072169 21216 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+57226.07219506 -7651.5364527 21217 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+56367.0175778 -8830.88209956 21218 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+56880.53302959 -9978.64370538 21219 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+55455.37495512 -12339.35334269 21220 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+58130.7495645 -15637.69187004 21221 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+58381.40830462 -18958.49807629 21222 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+57534.73354194 -20362.66208662 21223 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+57419.7264435 -25642.318333 21224 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+56067.01891231 -28000.82249725 21225 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+58128.25687751 -28949.458179 21226 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+56847.03317546 -32701.32866833 21227 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+55194.72884463 -33928.09067338 21228 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+52622.27711519 -39677.34626401 21229 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+54076.49155384 -39775.77479239 21230 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+53642.12979936 -44776.49591933 21231 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+55703.57199156 -44476.79690582 21232 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+55610.90055778 -45149.11247727 21233 FALSE "1" "206" "206.1" "198" "21201" "Cardinia" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1281437612.68554 21201
+10477.11070552 -10012.61030039 21370 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+4987.07713472 -9230.22348748 21371 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+3813.07325719 -8276.7756532 21372 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+3658.33837774 -9032.89394991 21373 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+-1540.7660072 -8213.49695358 21374 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+-1035.63064196 -4770.19365526 21375 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+-689.65634577 -2428.89216018 21376 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+-430.26591535 -371.79161623 21377 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+6091.75687952 -1335.88775695 21378 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+8421.81744354 -1688.51112413 21379 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+7992.07453603 -3416.83942616 21380 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+8514.18559014 -4298.16299854 21381 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+9527.3284101 -5458.97817635 21382 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+9362.50169607 -9023.74820693 21383 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+10477.11070552 -10012.61030039 21384 FALSE "1" "210" "210.1" "202" "21205" "Monash" "212" "Melbourne - South East" "2GMEL" "Greater Melbourne" "2" "Victoria" 79487630.5219873 21205
+-18850.4960788 15767.2507844 22552 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-21889.50596122 16419.16765641 22553 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-22263.32129518 15466.64753163 22554 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-23092.81759793 15580.64122367 22555 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-24283.02005277 16806.83235834 22556 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25412.19647766 16708.64783301 22557 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-24655.72343656 18350.62100077 22558 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25905.34833604 18480.99449833 22559 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-26045.85381458 19989.0417962 22560 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-28495.6130952 19174.49021264 22561 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-29252.84840876 20106.07544417 22562 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-28920.15600092 20582.28616923 22563 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-29683.99141079 20550.71275656 22564 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-29576.4624329 23558.43339221 22565 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-28208.70367001 26019.99747853 22566 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-30027.9401887 27847.39713366 22567 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-30020.49713322 29621.83211244 22568 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-28004.53421762 28882.69352224 22569 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-27173.86372775 26373.85161288 22570 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25771.41757403 26721.84380918 22571 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-24907.24628303 27631.05762469 22572 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25950.76325165 27910.99013474 22573 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25072.80552915 28269.97266371 22574 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25851.50372857 28735.74302347 22575 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25319.34551471 29098.65114359 22576 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-25703.82518166 29723.785728 22577 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-24552.72818212 30063.46451077 22578 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-24812.16135336 30799.54622212 22579 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-23640.3252161 31705.53816325 22580 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-23998.66481615 32678.00220235 22581 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-22270.27155872 32501.3457093 22582 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-21381.0975331 34240.10110964 22583 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-21949.36248671 35204.44519801 22584 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-20288.9872189 37097.59752975 22585 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-20538.55494293 38443.1403026 22586 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-19146.9498585 38441.97223147 22587 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-10856.19439773 37315.83131013 22588 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-10933.66330377 35499.63896577 22589 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-12978.5500107 33569.81346143 22590 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-11880.46673917 32152.50516647 22591 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-12021.72602534 31033.21844749 22592 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-13037.51604515 26980.42998059 22593 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-13557.32744243 26912.57020087 22594 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-12485.54525118 23918.14168002 22595 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-10918.31565218 22181.93365071 22596 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-11284.20128771 17640.15585951 22597 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-17301.39903023 17288.89837835 22598 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-18850.4960788 15767.2507844 22599 FALSE "1" "214" "214.1" "207" "21005" "Tullamarine - Broadmeadows" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 294088001.47066 21005
+-21496.0859129 3869.75071997 24756 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-23999.36838844 2980.507232 24757 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-24074.28017763 3641.7937259 24758 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-30734.9686041 4330.95475076 24759 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-29318.70807599 15247.66978657 24760 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-30688.88872192 15964.84421601 24761 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-30137.42560556 18709.70704139 24762 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-31374.50172419 20687.43542368 24763 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-29683.99141079 20550.71275656 24764 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-28920.15600092 20582.28616923 24765 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-29252.84840876 20106.07544417 24766 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-28495.6130952 19174.49021264 24767 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-26045.85381458 19989.0417962 24768 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-25905.34833604 18480.99449833 24769 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-24655.72343656 18350.62100077 24770 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-25412.19647766 16708.64783301 24771 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-26305.74771999 16113.89488853 24772 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-24579.58250632 14908.14472457 24773 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-23766.57501211 13884.58803265 24774 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-24015.68933238 12811.73825298 24775 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-22373.84282094 11362.77420304 24776 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-21907.01396092 8824.47896214 24777 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-22967.63601745 5858.34178998 24778 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-21496.0859129 3869.75071997 24779 FALSE "1" "223" "223.1" "275" "21301" "Brimbank" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 106849303.598661 21301
+-41860.27645112 31759.22110437 32405 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-56620.88635633 33504.20470036 32406 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-55770.99478685 36301.82959458 32407 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-55712.47964357 37818.1983972 32408 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-56655.36811172 38975.54457082 32409 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-55545.03235041 46257.84615866 32410 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-55046.11469936 48184.85669288 32411 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-51974.91102586 48108.03609878 32412 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-51163.27014564 49504.31880915 32413 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-49913.49732867 49804.08012113 32414 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-49108.68499576 51713.95905466 32415 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-47678.09885671 51414.17215881 32416 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-46429.30476394 54373.85171583 32417 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-44270.54065031 54317.05162658 32418 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-43919.85410352 56991.08124574 32419 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-41270.18873914 56910.66628014 32420 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-40872.36840234 59689.74173105 32421 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-38999.74112137 61732.94057729 32422 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-42159.15919124 62798.5524909 32423 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-41966.80609479 64784.73238012 32424 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-42747.11855398 65686.55689846 32425 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-45072.50408371 65935.43565593 32426 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-45080.85228869 66687.23724893 32427 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-40040.56789309 69675.8048139 32428 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-41920.51313555 70334.58141459 32429 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-39972.45106496 71253.71363735 32430 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-39182.79898459 74185.20276231 32431 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-37752.27175368 74561.64866421 32432 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-36386.53871108 73704.54048025 32433 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-36082.07114085 74828.12031478 32434 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-34473.73756151 74685.95656709 32435 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-34078.16812372 71096.68730716 32436 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-35166.88981486 70630.2170329 32437 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-29391.73850701 69788.49301756 32438 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-29329.13652372 70412.44804025 32439 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-28602.08202887 69892.02040096 32440 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-26322.58589126 70761.16323801 32441 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-24845.39162961 69973.74147609 32442 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-25142.82962177 68753.62193734 32443 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-24043.72807718 68148.93798632 32444 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-24368.12465711 62776.72683516 32445 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-22551.70735671 62112.16843979 32446 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-21655.7057555 62627.80062914 32447 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-22227.94365321 58537.40450325 32448 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-19041.01845092 57175.74887715 32449 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-18416.4012339 56008.46883364 32450 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-16144.60007316 55702.19784766 32451 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-16381.37359742 54100.15591469 32452 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-15836.54210896 54005.57232424 32453 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-17839.55379329 49091.08728645 32454 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-17452.55443797 47346.62605798 32455 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-18135.24811072 47216.82815729 32456 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-17573.08128194 45906.43848121 32457 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-17876.83884387 43382.04525845 32458 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-18422.7492323 43166.5721318 32459 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-17239.77408244 42346.82188721 32460 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-19146.9498585 38441.97223147 32461 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-20538.55494293 38443.1403026 32462 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-20288.9872189 37097.59752975 32463 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-29453.46818269 38236.93005259 32464 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-30285.16090807 39364.40154476 32465 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-35307.61204506 40775.96244434 32466 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-37185.04370722 38829.41484307 32467 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-40848.34976344 38801.64987235 32468 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-41330.41917849 35400.7722832 32469 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-37843.29055036 31244.09378973 32470 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-41860.27645112 31759.22110437 32471 FALSE "1" "236" "236.1" "239" "21002" "Macedon Ranges" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 992099245.346603 21002
+-25991.47817546 -4963.78265414 33756 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-27910.86318428 -5582.01569013 33757 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-28785.27159471 -3930.95163414 33758 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-30638.2364565 -4126.58740706 33759 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-30373.51841948 -2227.98815735 33760 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-28928.26123443 -2026.52029595 33761 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-27997.33341857 599.23668766 33762 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-23999.36838844 2980.507232 33763 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-21496.0859129 3869.75071997 33764 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-21324.62449483 2808.56541028 33765 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-17118.92379353 2991.43609519 33766 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-17748.49040547 957.1340009 33767 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-17292.23361971 -1270.54574607 33768 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-16232.52129898 -1741.2151873 33769 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-16889.41973563 -2314.9414259 33770 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-20973.29055289 -1119.09734652 33771 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-25128.35644084 -2829.27219638 33772 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-25991.47817546 -4963.78265414 33773 FALSE "1" "247" "247.1" "236" "21302" "Hobsons Bay" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 62216149.5969215 21302
+-430.26591535 -371.79161623 33774 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-689.65634577 -2428.89216018 33775 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-2713.11144968 -2705.19676238 33776 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-3543.8967071 -524.27732859 33777 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-5925.46264331 1400.48258765 33778 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-6655.90147883 1723.15025 33779 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-7419.86431164 4366.67249775 33780 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-8776.98503006 4770.56777386 33781 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-8129.24341163 5161.04669351 33782 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-8871.59058723 5853.1009314 33783 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-7046.91324763 5153.72411783 33784 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-7647.96757048 7137.66874139 33785 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-5247.39275956 6683.69738291 33786 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-4820.03902249 7301.52955878 33787 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-5268.03274922 7299.23268655 33788 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-2897.15493699 7665.1684608 33789 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-382.76804052 7757.28980398 33790 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+591.92142801 6419.91788161 33791 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-430.26591535 -371.79161623 33792 FALSE "1" "248" "248.1" "237" "20701" "Boroondara" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 60019171.5853174 20701
+-3684.60192225 16649.94909439 33793 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-11284.20128771 17640.15585951 33794 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-10918.31565218 22181.93365071 33795 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-12485.54525118 23918.14168002 33796 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-13557.32744243 26912.57020087 33797 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-13037.51604515 26980.42998059 33798 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-12021.72602534 31033.21844749 33799 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-11880.46673917 32152.50516647 33800 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-12978.5500107 33569.81346143 33801 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-10933.66330377 35499.63896577 33802 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-10856.19439773 37315.83131013 33803 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-19146.9498585 38441.97223147 33804 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-17239.77408244 42346.82188721 33805 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-18422.7492323 43166.5721318 33806 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-17876.83884387 43382.04525845 33807 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-17573.08128194 45906.43848121 33808 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-18135.24811072 47216.82815729 33809 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-17452.55443797 47346.62605798 33810 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-17839.55379329 49091.08728645 33811 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-15836.54210896 54005.57232424 33812 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-16381.37359742 54100.15591469 33813 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-16144.60007316 55702.19784766 33814 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-15854.19880877 57403.69355194 33815 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-9651.33855637 56454.61369256 33816 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-8888.08150765 57590.26813751 33817 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-6165.5521917 57758.70041604 33818 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-4574.56766711 59305.06522517 33819 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-3891.42516238 65095.06661091 33820 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+1561.36756442 65125.67663779 33821 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+2222.39417513 64480.16422368 33822 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+2240.40973481 61720.67561241 33823 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11288.63007844 61672.89087451 33824 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11229.54637619 58031.0792127 33825 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11910.43081645 58030.75654671 33826 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+12129.42238598 56082.81959998 33827 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+13160.80374262 55628.20736809 33828 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+13982.87914142 53100.63825476 33829 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+14687.61018379 52961.79621044 33830 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+14675.98820331 48844.25090729 33831 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+14660.72651779 47784.35261499 33832 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+12059.6129433 45955.73176064 33833 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11038.46745256 43483.21127891 33834 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+10815.93875459 41880.70718106 33835 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+12474.85281855 41309.75283852 33836 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+12002.27399979 38469.92261058 33837 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11170.69345755 37873.44417634 33838 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11977.74809929 37717.28113221 33839 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+11883.72996943 36923.43880263 33840 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+8551.57719242 36209.29220213 33841 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+8309.27943693 35461.4013642 33842 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+9438.7568432 35298.67896803 33843 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+9325.16995276 34488.9211642 33844 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+7063.35117501 34799.36229639 33845 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+5742.25223555 32406.66034387 33846 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+3925.66287078 31043.45475638 33847 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+3157.36579694 25535.10546967 33848 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+771.87381576 24283.47797113 33849 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+852.47148668 23422.62508429 33850 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+137.20781217 23271.16237755 33851 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+688.15027341 21284.38899504 33852 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-1420.9658002 20073.80138045 33853 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-1379.10554385 18835.69069509 33854 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+167.76294615 18066.1030804 33855 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-1844.33484737 18069.84142343 33856 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-2801.55560496 18195.2339103 33857 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+-3684.60192225 16649.94909439 33858 FALSE "1" "249" "249.1" "240" "20904" "Whittlesea - Wallan" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 997447530.504828 20904
+24532.16970625 -13914.21899115 37767 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+16975.65561071 -12767.36047987 37768 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+17572.05407974 -9060.69899688 37769 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+18847.34729003 -9092.20503635 37770 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19804.41236619 -7887.84311217 37771 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+18029.62996838 -6203.68009649 37772 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19722.53246953 -5513.37775586 37773 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+17992.10269978 -4235.80695616 37774 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+18344.7340907 -2358.69210266 37775 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+17787.41091995 -1597.16747268 37776 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19728.56321468 -1917.88822535 37777 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+20823.43268214 -713.00277204 37778 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+21790.48717601 -1073.32859825 37779 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19185.66398377 652.58425754 37780 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19089.68580403 3512.0204553 37781 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+17986.483269 3139.43281023 37782 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+18163.57481166 7594.99872944 37783 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+17308.44776915 9587.89756739 37784 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+16478.33446488 12713.06234037 37785 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+17069.86745146 15273.30727947 37786 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+18626.04374938 14838.96489432 37787 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+18885.2724862 15889.81159614 37788 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19580.00428977 15796.96181282 37789 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+19143.87131527 17514.26396848 37790 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+20376.56348311 17493.68270571 37791 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+20323.4160087 19738.95229269 37792 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+22406.65156145 22843.93075388 37793 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+23543.41759904 33804.84815479 37794 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+25974.13374449 34267.39656798 37795 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+26823.30050352 35792.04486362 37796 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+28069.87468121 35887.1760517 37797 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+28813.08519737 34912.05954043 37798 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+30098.18106733 35081.34673551 37799 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+29852.94725205 33701.17287337 37800 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+32497.11887619 33253.43465441 37801 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+32684.75278914 32381.42276717 37802 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+36113.82048807 31704.07299274 37803 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+35568.23133088 32567.49888683 37804 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+36048.71531544 32563.54238556 37805 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+37580.30778833 31691.36003148 37806 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+38124.47870978 32447.62727982 37807 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+40832.56874416 28404.47783164 37808 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+42407.75982851 30833.9195367 37809 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+43715.66525952 31432.116398 37810 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+44386.57165216 30286.91508938 37811 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+45761.41238177 30696.51459537 37812 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+48298.57431204 28273.06948208 37813 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+49377.88011152 25625.88168916 37814 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+50835.78106295 24906.42983739 37815 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+56286.79936699 28223.68241347 37816 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+55697.83700386 29546.80547946 37817 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+56521.55473373 31297.56382251 37818 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+57956.75717858 30381.23205627 37819 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+58751.71066587 26297.08479289 37820 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+59516.97138116 25222.05860612 37821 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62896.79770089 24224.63800276 37822 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62261.57805476 23055.41251164 37823 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62842.07807385 20598.84901726 37824 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+61854.15730734 21321.78837857 37825 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+61100.87774033 20856.19822187 37826 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62716.43973299 17808.95513989 37827 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+60533.36403688 15443.42078411 37828 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+60667.78188296 14042.51313606 37829 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+61694.36691109 14469.91286217 37830 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+65744.39096351 10203.974009 37831 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+68556.2344133 5336.25705535 37832 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+67521.59322319 4537.48117667 37833 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+65252.97497501 5520.70416328 37834 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+64205.26235005 3947.03469034 37835 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62494.9291374 4481.45010984 37836 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+61200.54740096 3642.55335743 37837 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+61084.59699998 2385.76351611 37838 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62043.48648357 2339.52177127 37839 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62578.32795274 1280.94497194 37840 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62018.09843281 -424.48760361 37841 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+63148.4443555 -1104.65703516 37842 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62545.43198838 -1844.32879917 37843 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+61879.52070995 -1425.91519477 37844 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+62055.15601813 -2513.84609052 37845 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+60912.03209028 -3300.41629604 37846 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+57951.74467239 -3756.20769575 37847 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+58032.40450864 -5677.45522202 37848 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+56976.33008406 -6574.07072169 37849 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+55339.43367984 -6055.1500353 37850 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+54676.741294 -4093.41883274 37851 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+51628.31625799 -3582.61490406 37852 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+51575.13082414 -4470.73245238 37853 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+50183.62626702 -5071.58581716 37854 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+50189.3841066 -6495.99587028 37855 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+46241.08017557 -7628.41615739 37856 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+46429.46930984 -6128.20239831 37857 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+41254.29044494 -5430.63463458 37858 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+39884.34883707 -2715.40474298 37859 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+36884.62617456 -943.44996574 37860 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+37553.35630988 -1597.85420047 37861 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+37441.07275873 -4230.88463047 37862 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+35858.6728004 -5609.97475291 37863 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+32586.67505391 -5740.34088486 37864 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+32244.1255464 -6947.42278116 37865 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+30826.39675346 -3612.57438978 37866 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+29934.31377818 -4968.86652973 37867 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+29784.23023297 -7221.82614725 37868 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+28886.94226079 -7098.10968173 37869 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+26484.07878139 -9971.733085 37870 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+24922.88697043 -9835.75939981 37871 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+25308.60181847 -13467.44081058 37872 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+24532.16970625 -13914.21899115 37873 FALSE "1" "280" "280.1" "284" "21105" "Yarra Ranges" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 1604944102.73946 21105
+-25991.47817546 -4963.78265414 40218 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-26450.25530635 -8164.18665145 40219 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-32032.115818 -10400.11669175 40220 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-39379.84064846 -16925.95740053 40221 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-44653.40982443 -17264.6923981 40222 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-46254.80504489 -16692.14830814 40223 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-46752.34732903 -15064.15483752 40224 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-47910.08757346 -15100.83449429 40225 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-48541.98510534 -13671.07025319 40226 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-50603.97140672 -13849.75953772 40227 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-51071.12205917 -14701.21485079 40228 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-53101.32334864 -13966.22696387 40229 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-53036.78818617 -12849.3960933 40230 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-55029.75179246 -9694.98241211 40231 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-54283.19391052 -8312.26000726 40232 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-54688.34809552 -6929.98277484 40233 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-54103.92854346 -6725.16468392 40234 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-54467.28688425 -4657.05103029 40235 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-57719.88712811 -1771.33264678 40236 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-57306.85055577 1236.41327087 40237 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-55733.21668435 1021.49770223 40238 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-54822.49416276 7474.70073378 40239 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-49972.64718894 6810.74607637 40240 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-46020.39097 4654.01358567 40241 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-45029.20939432 6189.04887262 40242 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-30734.9686041 4330.95475076 40243 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-24074.28017763 3641.7937259 40244 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-23999.36838844 2980.507232 40245 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-27997.33341857 599.23668766 40246 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-28928.26123443 -2026.52029595 40247 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-30373.51841948 -2227.98815735 40248 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-30638.2364565 -4126.58740706 40249 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-28785.27159471 -3930.95163414 40250 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-27910.86318428 -5582.01569013 40251 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-25991.47817546 -4963.78265414 40252 FALSE "1" "294" "294.1" "296" "21305" "Wyndham" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 544118627.682508 21305
+-9060.18841173 -3758.16380863 42454 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-10116.55025579 -4557.27288755 42455 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-10859.42351403 -3638.42438802 42456 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-12028.81857517 -615.66280196 42457 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-14471.1558263 814.41268677 42458 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-14975.05892427 283.50566378 42459 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-15235.67239082 1091.94922872 42460 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-16407.01324377 889.78106474 42461 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-16502.30379705 43.59083502 42462 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-17748.49040547 957.1340009 42463 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-17118.92379353 2991.43609519 42464 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-11328.21647581 2223.71882879 42465 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-10191.43321498 -80.39409223 42466 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-7873.99937751 -1138.7107003 42467 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-7992.51856219 -1956.96135381 42468 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-8796.00871134 -1831.12323361 42469 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-9060.18841173 -3758.16380863 42470 FALSE "1" "300" "300.1" "295" "20605" "Port Phillip" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 25609182.593373 20605
+-2897.15493699 7665.1684608 43262 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-5268.03274922 7299.23268655 43263 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-5640.645603 7891.49318144 43264 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-6359.34615433 9562.81882288 43265 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-6049.30865212 10463.02825455 43266 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-5435.52242404 13590.56560768 43267 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-3457.8410313 13373.57649871 43268 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2246.07075935 14857.76195549 43269 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2208.99220817 15673.02377449 43270 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-4292.13390162 15717.13915638 43271 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-3684.60192225 16649.94909439 43272 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2801.55560496 18195.2339103 43273 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-1844.33484737 18069.84142343 43274 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-694.73990557 17176.32181724 43275 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+3855.06898901 18576.49003282 43276 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+3558.94252131 16507.89726574 43277 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+2784.02937271 16609.22679121 43278 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+3144.06300913 12107.18998563 43279 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+1992.22830297 12144.23151406 43280 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+2296.52761775 10979.29941888 43281 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+1136.35410696 10516.45122364 43282 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-1533.16775117 10946.34382821 43283 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2369.5171532 10152.74407776 43284 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-1832.42194849 9736.9972424 43285 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2508.61267216 9194.82237335 43286 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2053.70762393 8501.12383718 43287 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2684.55843885 8641.89507496 43288 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+-2897.15493699 7665.1684608 43289 FALSE "1" "309" "309.1" "308" "20901" "Banyule" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 62615225.6185194 20901
+4936.37273171 -24131.44941514 45419 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+4269.50622123 -25908.69956119 45420 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+1999.11544563 -26084.27030795 45421 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+1742.27836265 -24836.69371799 45422 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+2247.35187411 -24603.234121 45423 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+1718.76711452 -24776.55107792 45424 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+1407.93948015 -23326.26327803 45425 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-824.65660404 -18308.9364674 45426 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-4243.84583447 -15187.41112437 45427 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-3930.70771809 -13061.93664254 45428 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-5769.37957722 -9215.25630257 45429 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-4268.94104413 -9444.53294273 45430 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-1799.13927262 -9851.18177522 45431 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+1080.69294257 -11928.47458532 45432 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+1657.25300364 -15294.3836108 45433 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+3925.88881887 -15638.0934664 45434 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+2942.76392719 -19466.86399002 45435 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+4411.27878466 -24120.50125802 45436 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+4936.37273171 -24131.44941514 45437 FALSE "1" "323" "323.1" "324" "20803" "Kingston" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 69862523.9809729 20803
+-1799.13927262 -9851.18177522 49697 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-4268.94104413 -9444.53294273 49698 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-5769.37957722 -9215.25630257 49699 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-6818.04497025 -7840.36261121 49700 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-6509.30296058 -5792.62402097 49701 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-8239.2138798 -5533.89600361 49702 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-9060.18841173 -3758.16380863 49703 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-8796.00871134 -1831.12323361 49704 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-7992.51856219 -1956.96135381 49705 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-7873.99937751 -1138.7107003 49706 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-6363.16590111 -1813.87810057 49707 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-4235.56088071 -3641.22926039 49708 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-1035.63064196 -4770.19365526 49709 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-1540.7660072 -8213.49695358 49710 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+-1799.13927262 -9851.18177522 49711 FALSE "1" "39" "39.1" "33" "20802" "Glen Eira" "208" "Melbourne - Inner South" "2GMEL" "Greater Melbourne" "2" "Victoria" 40701070.9178701 20802
+6850.02781025 12382.18815103 50796 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+4813.32375319 12874.37671407 50797 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+3144.06300913 12107.18998563 50798 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+2784.02937271 16609.22679121 50799 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+3558.94252131 16507.89726574 50800 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+3855.06898901 18576.49003282 50801 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+-694.73990557 17176.32181724 50802 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+-1844.33484737 18069.84142343 50803 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+167.76294615 18066.1030804 50804 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+-1379.10554385 18835.69069509 50805 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+-1420.9658002 20073.80138045 50806 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+688.15027341 21284.38899504 50807 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+137.20781217 23271.16237755 50808 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+852.47148668 23422.62508429 50809 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+771.87381576 24283.47797113 50810 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+3157.36579694 25535.10546967 50811 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+3925.66287078 31043.45475638 50812 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+5742.25223555 32406.66034387 50813 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+7063.35117501 34799.36229639 50814 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+9325.16995276 34488.9211642 50815 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+9438.7568432 35298.67896803 50816 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+8309.27943693 35461.4013642 50817 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+8551.57719242 36209.29220213 50818 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11883.72996943 36923.43880263 50819 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11977.74809929 37717.28113221 50820 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11170.69345755 37873.44417634 50821 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+12002.27399979 38469.92261058 50822 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+12474.85281855 41309.75283852 50823 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+10815.93875459 41880.70718106 50824 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11038.46745256 43483.21127891 50825 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+12059.6129433 45955.73176064 50826 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+14660.72651779 47784.35261499 50827 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+14675.98820331 48844.25090729 50828 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+17092.24413261 47732.97931267 50829 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+17492.81856675 48600.92994618 50830 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+19318.41559748 48839.54334597 50831 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+20549.19961227 48332.63769058 50832 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+20541.23085617 46602.91948452 50833 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+26578.41283826 46081.04000275 50834 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+26576.62753935 45007.08217328 50835 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+27710.43915972 44861.1061313 50836 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+26852.48715404 43560.2515664 50837 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+25390.88851792 43632.09101438 50838 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+26121.16742679 42357.1370275 50839 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+28086.59635195 42360.62186718 50840 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+28324.93308539 43171.91392751 50841 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+34380.57001677 43069.16137906 50842 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+34920.70075602 45722.75975199 50843 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+36883.3893401 45733.03389266 50844 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+36535.91036292 43530.64639359 50845 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+41570.12140927 43139.46697772 50846 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+40691.35477688 35431.39855112 50847 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+41983.69999382 33745.01059765 50848 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+40818.65565204 33490.97547021 50849 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+42407.75982851 30833.9195367 50850 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+40832.56874416 28404.47783164 50851 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+38124.47870978 32447.62727982 50852 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+37580.30778833 31691.36003148 50853 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+36048.71531544 32563.54238556 50854 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+35568.23133088 32567.49888683 50855 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+36113.82048807 31704.07299274 50856 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+32684.75278914 32381.42276717 50857 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+32497.11887619 33253.43465441 50858 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+29852.94725205 33701.17287337 50859 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+30098.18106733 35081.34673551 50860 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+28813.08519737 34912.05954043 50861 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+28069.87468121 35887.1760517 50862 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+26823.30050352 35792.04486362 50863 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+25974.13374449 34267.39656798 50864 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+23543.41759904 33804.84815479 50865 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+22406.65156145 22843.93075388 50866 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+20323.4160087 19738.95229269 50867 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+20376.56348311 17493.68270571 50868 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+19143.87131527 17514.26396848 50869 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+19580.00428977 15796.96181282 50870 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+18885.2724862 15889.81159614 50871 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+18626.04374938 14838.96489432 50872 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+17069.86745146 15273.30727947 50873 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+16489.77200008 16279.95277308 50874 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+16323.3452181 14668.12256018 50875 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+15229.17828586 14853.23590055 50876 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+15498.80257091 15518.03214773 50877 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+14796.84182889 16266.40302718 50878 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+12561.46551734 13816.91163178 50879 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11895.55219513 14332.01221186 50880 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+12540.91933224 12641.63784152 50881 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11360.087748 13129.47165368 50882 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+11449.97675291 12342.40611018 50883 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+9291.2113706 12010.73585485 50884 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+9032.9252555 12480.89214842 50885 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+10168.96301933 13098.70555217 50886 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+8959.12130887 13274.03195378 50887 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+8587.2760128 12054.71537783 50888 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+8281.33690567 13110.46208885 50889 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+7210.40000271 13342.86249754 50890 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+6850.02781025 12382.18815103 50891 FALSE "1" "48" "48.1" "40" "20903" "Nillumbik - Kinglake" "209" "Melbourne - North East" "2GMEL" "Greater Melbourne" "2" "Victoria" 751768562.258955 20903
+6091.75687952 -1335.88775695 50967 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+-430.26591535 -371.79161623 50968 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+591.92142801 6419.91788161 50969 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+5345.27661341 5338.9558 50970 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+5967.52498397 5271.12032735 50971 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+6127.30359657 5218.22936017 50972 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+5917.3693399 2143.50330746 50973 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+5006.40041583 467.8445035 50974 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+5665.96326033 352.65892734 50975 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+6091.75687952 -1335.88775695 50976 FALSE "1" "5" "5.1" "6" "20703" "Whitehorse - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 38054162.4508783 20703
+8421.81744354 -1688.51112413 51951 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+6091.75687952 -1335.88775695 51952 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+5665.96326033 352.65892734 51953 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+5006.40041583 467.8445035 51954 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+5917.3693399 2143.50330746 51955 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+6127.30359657 5218.22936017 51956 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+9997.07610873 4237.63422781 51957 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+10264.85560434 1304.88798022 51958 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+8421.81744354 -1688.51112413 51959 FALSE "1" "54" "54.1" "49" "21104" "Whitehorse - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 26569235.6811206 21104
+-6655.90147883 1723.15025 51960 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-9866.130846 2255.89424124 51961 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-9567.50726521 4463.99937826 51962 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-11167.20069988 4662.69121029 51963 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-10946.81686289 6314.10815293 51964 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-12440.93858428 6663.60318736 51965 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-12312.92301036 7977.38474003 51966 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-9967.2835259 8387.48086066 51967 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-9000.44291631 7139.59763598 51968 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-5640.645603 7891.49318144 51969 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-5268.03274922 7299.23268655 51970 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-4820.03902249 7301.52955878 51971 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-5247.39275956 6683.69738291 51972 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-7647.96757048 7137.66874139 51973 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-7046.91324763 5153.72411783 51974 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-8871.59058723 5853.1009314 51975 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-8129.24341163 5161.04669351 51976 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-8776.98503006 4770.56777386 51977 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-7419.86431164 4366.67249775 51978 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+-6655.90147883 1723.15025 51979 FALSE "1" "55" "55.1" "50" "20607" "Yarra" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20615337.8472856 20607
+9997.07610873 4237.63422781 51980 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+6127.30359657 5218.22936017 51981 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+5967.52498397 5271.12032735 51982 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+6729.45692138 8468.53811492 51983 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+7388.99603178 8785.23944247 51984 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+6850.02781025 12382.18815103 51985 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+7210.40000271 13342.86249754 51986 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+8281.33690567 13110.46208885 51987 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+8587.2760128 12054.71537783 51988 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+8959.12130887 13274.03195378 51989 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+10168.96301933 13098.70555217 51990 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+9032.9252555 12480.89214842 51991 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+9291.2113706 12010.73585485 51992 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+11449.97675291 12342.40611018 51993 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+11360.087748 13129.47165368 51994 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+12540.91933224 12641.63784152 51995 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+11895.55219513 14332.01221186 51996 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+12561.46551734 13816.91163178 51997 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+14796.84182889 16266.40302718 51998 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+15498.80257091 15518.03214773 51999 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+15229.17828586 14853.23590055 52000 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+16323.3452181 14668.12256018 52001 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+16489.77200008 16279.95277308 52002 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+17069.86745146 15273.30727947 52003 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+16478.33446488 12713.06234037 52004 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+17308.44776915 9587.89756739 52005 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+12385.88046585 9451.37919711 52006 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+11976.130902 6641.28626472 52007 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+10323.66405383 6555.11778058 52008 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+9997.07610873 4237.63422781 52009 FALSE "1" "56" "56.1" "116" "21102" "Manningham - East" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 66561994.6972027 21102
+-29683.99141079 20550.71275656 52373 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-31374.50172419 20687.43542368 52374 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-36653.70764294 21414.83392729 52375 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-39140.9728134 23214.63001687 52376 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-39129.15250871 28331.31013186 52377 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-41263.84906524 28742.75984916 52378 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-41860.27645112 31759.22110437 52379 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-37843.29055036 31244.09378973 52380 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-41330.41917849 35400.7722832 52381 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-40848.34976344 38801.64987235 52382 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-37185.04370722 38829.41484307 52383 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-35307.61204506 40775.96244434 52384 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-30285.16090807 39364.40154476 52385 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-29453.46818269 38236.93005259 52386 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-20288.9872189 37097.59752975 52387 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-21949.36248671 35204.44519801 52388 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-21381.0975331 34240.10110964 52389 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-22270.27155872 32501.3457093 52390 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-23998.66481615 32678.00220235 52391 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-23640.3252161 31705.53816325 52392 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-24812.16135336 30799.54622212 52393 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-24552.72818212 30063.46451077 52394 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-25703.82518166 29723.785728 52395 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-25319.34551471 29098.65114359 52396 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-25851.50372857 28735.74302347 52397 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-25072.80552915 28269.97266371 52398 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-25950.76325165 27910.99013474 52399 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-24907.24628303 27631.05762469 52400 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-25771.41757403 26721.84380918 52401 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-27173.86372775 26373.85161288 52402 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-28004.53421762 28882.69352224 52403 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-30020.49713322 29621.83211244 52404 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-30027.9401887 27847.39713366 52405 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-28208.70367001 26019.99747853 52406 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-29576.4624329 23558.43339221 52407 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-29683.99141079 20550.71275656 52408 FALSE "1" "59" "59.1" "124" "21004" "Sunbury" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 260684309.344594 21004
+-17118.92379353 2991.43609519 52533 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-21324.62449483 2808.56541028 52534 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-21496.0859129 3869.75071997 52535 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-22967.63601745 5858.34178998 52536 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-21907.01396092 8824.47896214 52537 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-21075.48075732 8172.33365915 52538 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-19908.80819386 8694.6990868 52539 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-20211.9588061 9300.10587686 52540 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-19270.85040415 10390.00322293 52541 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-18597.22826026 9756.99462121 52542 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-17466.10220625 9345.13453854 52543 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-17986.13754088 8498.01456893 52544 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-17377.66406286 6682.7914662 52545 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-16162.33097646 5754.47609696 52546 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-17045.12660098 4549.72446949 52547 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-17118.92379353 2991.43609519 52548 FALSE "1" "61" "61.1" "197" "21303" "Maribyrnong" "213" "Melbourne - West" "2GMEL" "Greater Melbourne" "2" "Victoria" 31226812.7808155 21303
+-12312.92301036 7977.38474003 52685 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-14353.25586381 8004.05195711 52686 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-14238.96095906 9874.48554342 52687 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-15266.10876026 10908.64934853 52688 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-14644.55285193 11697.05753822 52689 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-15111.96884149 12718.56260531 52690 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-10321.34160626 12651.63026007 52691 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-10527.90915526 11373.91314797 52692 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-10501.43094221 11062.50481865 52693 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-9967.2835259 8387.48086066 52694 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+-12312.92301036 7977.38474003 52695 FALSE "1" "63" "63.1" "54" "20601" "Brunswick - Coburg" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 20413315.3663684 20601
+19185.66398377 652.58425754 53820 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+16485.93139751 1834.02811302 53821 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+10264.85560434 1304.88798022 53822 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+9997.07610873 4237.63422781 53823 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+10323.66405383 6555.11778058 53824 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+11976.130902 6641.28626472 53825 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+12385.88046585 9451.37919711 53826 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+17308.44776915 9587.89756739 53827 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+18163.57481166 7594.99872944 53828 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+17986.483269 3139.43281023 53829 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+19089.68580403 3512.0204553 53830 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+19185.66398377 652.58425754 53831 FALSE "1" "71" "71.1" "59" "21103" "Maroondah" "211" "Melbourne - Outer East" "2GMEL" "Greater Melbourne" "2" "Victoria" 61188954.0367535 21103
+-5640.645603 7891.49318144 53832 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-9000.44291631 7139.59763598 53833 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-9967.2835259 8387.48086066 53834 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-10501.43094221 11062.50481865 53835 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-8440.24872834 10807.8907075 53836 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-6049.30865212 10463.02825455 53837 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-6359.34615433 9562.81882288 53838 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-5640.645603 7891.49318144 53839 FALSE "1" "72" "72.1" "127" "20602" "Darebin - South" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 14027301.8630943 20602
+-10321.34160626 12651.63026007 56224 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-15111.96884149 12718.56260531 56225 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-17793.08151829 15608.847952 56226 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-18850.4960788 15767.2507844 56227 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-17301.39903023 17288.89837835 56228 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-11284.20128771 17640.15585951 56229 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-10707.9670203 17156.98492984 56230 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-10321.34160626 12651.63026007 56231 FALSE "1" "81" "81.1" "128" "21003" "Moreland - North" "210" "Melbourne - North West" "2GMEL" "Greater Melbourne" "2" "Victoria" 30378518.1250785 21003
+-14353.25586381 8004.05195711 56295 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-14251.94486717 6760.47246433 56296 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-16422.16174966 7820.81826363 56297 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-17377.66406286 6682.7914662 56298 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-17986.13754088 8498.01456893 56299 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-17466.10220625 9345.13453854 56300 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-18597.22826026 9756.99462121 56301 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-18251.33878036 12790.40614126 56302 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-14644.55285193 11697.05753822 56303 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-15266.10876026 10908.64934853 56304 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-14238.96095906 9874.48554342 56305 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-14353.25586381 8004.05195711 56306 FALSE "1" "84" "84.1" "219" "20603" "Essendon" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 18213918.66729 20603
+-6363.16590111 -1813.87810057 56307 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+-7873.99937751 -1138.7107003 56308 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+-10191.43321498 -80.39409223 56309 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+-9866.130846 2255.89424124 56310 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+-6655.90147883 1723.15025 56311 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+-5925.46264331 1400.48258765 56312 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+-6363.16590111 -1813.87810057 56313 FALSE "1" "85" "85.1" "220" "20606" "Stonnington - West" "206" "Melbourne - Inner" "2GMEL" "Greater Melbourne" "2" "Victoria" 11924118.5967436 20606
+3144.06300913 12107.18998563 57559 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+4813.32375319 12874.37671407 57560 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+6850.02781025 12382.18815103 57561 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+7388.99603178 8785.23944247 57562 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+6729.45692138 8468.53811492 57563 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+5967.52498397 5271.12032735 57564 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+5345.27661341 5338.9558 57565 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+591.92142801 6419.91788161 57566 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-382.76804052 7757.28980398 57567 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-2897.15493699 7665.1684608 57568 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-2684.55843885 8641.89507496 57569 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-2053.70762393 8501.12383718 57570 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-2508.61267216 9194.82237335 57571 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-1832.42194849 9736.9972424 57572 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-2369.5171532 10152.74407776 57573 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+-1533.16775117 10946.34382821 57574 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+1136.35410696 10516.45122364 57575 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+2296.52761775 10979.29941888 57576 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+1992.22830297 12144.23151406 57577 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
+3144.06300913 12107.18998563 57578 FALSE "1" "9" "9.1" "29" "20702" "Manningham - West" "207" "Melbourne - Inner East" "2GMEL" "Greater Melbourne" "2" "Victoria" 48672862.4911158 20702
