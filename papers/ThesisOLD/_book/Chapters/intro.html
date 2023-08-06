@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Thesis - 3&nbsp; Compartmental models in epidemiology</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes.html" rel="next">
+<link href="../test.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models in epidemiology</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Thesis</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Untitled</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Chapters/intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models in epidemiology</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Notes</span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title"><b>Sections</b></h2>
+   
+  <ul>
+  <li><a href="#refresher-on-markov-chains" id="toc-refresher-on-markov-chains" class="nav-link active" data-scroll-target="#refresher-on-markov-chains"><span class="toc-section-number">3.1</span>  Refresher on Markov Chains</a></li>
+  <li><a href="#examples-of-markov-chain-representations-of-compartmental-models" id="toc-examples-of-markov-chain-representations-of-compartmental-models" class="nav-link" data-scroll-target="#examples-of-markov-chain-representations-of-compartmental-models"><span class="toc-section-number">3.2</span>  Examples of Markov chain representations of Compartmental Models</a>
+  <ul class="collapse">
+  <li><a href="#sis-dtmc" id="toc-sis-dtmc" class="nav-link" data-scroll-target="#sis-dtmc">SIS DTMC</a></li>
+  <li><a href="#sir-dtmc" id="toc-sir-dtmc" class="nav-link" data-scroll-target="#sir-dtmc">SIR DTMC</a></li>
+  <li><a href="#sir-ctmc" id="toc-sir-ctmc" class="nav-link" data-scroll-target="#sir-ctmc">SIR CTMC</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models in epidemiology</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><span class="citation" data-cites="allen2015StochasticPopulationEpidemic">Allen (<a href="#ref-allen2015StochasticPopulationEpidemic" role="doc-biblioref">2015</a>)</span></p>
+<section id="refresher-on-markov-chains" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="refresher-on-markov-chains"><span class="header-section-number">3.1</span> Refresher on Markov Chains</h2>
+</section>
+<section id="examples-of-markov-chain-representations-of-compartmental-models" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="examples-of-markov-chain-representations-of-compartmental-models"><span class="header-section-number">3.2</span> Examples of Markov chain representations of Compartmental Models</h2>
+<section id="sis-dtmc" class="level3">
+<h3 class="anchored" data-anchor-id="sis-dtmc">SIS DTMC</h3>
+<p>The compartmental model</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    S --&gt; I</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    I --&gt; S</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+    S --&gt; I
+    I --&gt; S
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<p>Can be described by a Markov chain of a random variable I(t) representing the number of individuals infected at time t.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"LR"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">0</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">1</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="dv">2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"..."</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"..."</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="dv">2</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"..."</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">N</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">N</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"..."</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="605" height="365" viewbox="0.00 0.00 332.00 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-112 328,-112 328,4 -4,4"></polygon> <!-- 0 --> <g id="node1" class="node">
+<title>
+0
+</title>
+<ellipse fill="none" stroke="black" cx="117" cy="-72" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="117" y="-67.8" font-family="Times,serif" font-size="14.00">0</text> </g> <!-- 0&#45;&gt;0 --> <g id="edge1" class="edge">
+<title>
+0-&gt;0
+</title>
+<path fill="none" stroke="black" d="M101.77,-87.17C97.16,-97.66 102.23,-108 117,-108 126.92,-108 132.47,-103.33 133.64,-97.09"></path> <polygon fill="black" stroke="black" points="137.1,-96.57 132.23,-87.17 130.17,-97.56 137.1,-96.57"></polygon> </g> <!-- 1 --> <g id="node2" class="node">
+<title>
+1
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">1</text> </g> <!-- 1&#45;&gt;0 --> <g id="edge2" class="edge">
+<title>
+1-&gt;0
+</title>
+<path fill="none" stroke="black" d="M47.53,-29.98C59.38,-37.26 74.7,-46.66 87.84,-54.72"></path> <polygon fill="black" stroke="black" points="86.17,-57.8 96.52,-60.05 89.83,-51.84 86.17,-57.8"></polygon> </g> <!-- 2 --> <g id="node3" class="node">
+<title>
+2
+</title>
+<ellipse fill="none" stroke="black" cx="117" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="117" y="-13.8" font-family="Times,serif" font-size="14.00">2</text> </g> <!-- 1&#45;&gt;2 --> <g id="edge3" class="edge">
+<title>
+1-&gt;2
+</title>
+<path fill="none" stroke="black" d="M52.51,-11.88C61.4,-11.27 71.62,-11.1 81.22,-11.38"></path> <polygon fill="black" stroke="black" points="81.16,-14.88 91.31,-11.86 81.49,-7.89 81.16,-14.88"></polygon> </g> <!-- 2&#45;&gt;1 --> <g id="edge4" class="edge">
+<title>
+2-&gt;1
+</title>
+<path fill="none" stroke="black" d="M91.31,-24.14C82.41,-24.74 72.18,-24.9 62.59,-24.61"></path> <polygon fill="black" stroke="black" points="62.67,-21.11 52.51,-24.12 62.33,-28.1 62.67,-21.11"></polygon> </g> <!-- ... --> <g id="node4" class="node">
+<title>
+…
+</title>
+<ellipse fill="none" stroke="black" cx="207" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="207" y="-13.8" font-family="Times,serif" font-size="14.00">…</text> </g> <!-- 2&#45;&gt;... --> <g id="edge5" class="edge">
+<title>
+2-&gt;…
+</title>
+<path fill="none" stroke="black" d="M142.51,-11.88C151.4,-11.27 161.62,-11.1 171.22,-11.38"></path> <polygon fill="black" stroke="black" points="171.16,-14.88 181.31,-11.86 171.49,-7.89 171.16,-14.88"></polygon> </g> <!-- ...&#45;&gt;2 --> <g id="edge6" class="edge">
+<title>
+…-&gt;2
+</title>
+<path fill="none" stroke="black" d="M181.31,-24.14C172.41,-24.74 162.18,-24.9 152.59,-24.61"></path> <polygon fill="black" stroke="black" points="152.67,-21.11 142.51,-24.12 152.33,-28.1 152.67,-21.11"></polygon> </g> <!-- N --> <g id="node5" class="node">
+<title>
+N
+</title>
+<ellipse fill="none" stroke="black" cx="297" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="297" y="-13.8" font-family="Times,serif" font-size="14.00">N</text> </g> <!-- ...&#45;&gt;N --> <g id="edge7" class="edge">
+<title>
+…-&gt;N
+</title>
+<path fill="none" stroke="black" d="M232.51,-11.88C241.4,-11.27 251.62,-11.1 261.22,-11.38"></path> <polygon fill="black" stroke="black" points="261.16,-14.88 271.31,-11.86 261.49,-7.89 261.16,-14.88"></polygon> </g> <!-- N&#45;&gt;... --> <g id="edge8" class="edge">
+<title>
+N-&gt;…
+</title>
+<path fill="none" stroke="black" d="M271.31,-24.14C262.41,-24.74 252.18,-24.9 242.59,-24.61"></path> <polygon fill="black" stroke="black" points="242.67,-21.11 232.51,-24.12 242.33,-28.1 242.67,-21.11"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+<p>Note that <span class="math inline">I(t) = 0</span> is an absorbing state (i.e.&nbsp;if there are no infectious people they cannot infect anyone). All other states <span class="math inline">{1,…, N}</span> are transient.</p>
+<p>Possible transitions are specified by</p>
+<p><span id="eq-SIS_DTMC_Trans"><span class="math display">
+p _ {ji} ( \Delta t ) =
+     \begin{cases}
+        {\frac { \beta i ( N - i ) } { N}} \Delta t, &amp; {j = i + 1 } \\
+        { \gamma i \Delta t}, &amp; { j = i - 1 } \\
+        { 1 - \bigg[ \frac { \beta i (N - i) } { N } +  \gamma i }\bigg] \Delta t, &amp; { j = i } \\
+        0, &amp; { j \neq i +1, i, i-1}
+    \end{cases}
+\tag{3.1}</span></span></p>
+<p>Which can be simplified to</p>
+<p><span id="eq-SIS_DTMC_Trans_BD"><span class="math display">
+p _ {ji} ( \Delta t ) =
+    \begin{cases}
+        b(i) \Delta t, &amp; {j = i + 1 } \\
+        d(i) \Delta t, &amp; { j = i - 1 } \\
+        1 - [ b(i)  + d(i)] \Delta t, &amp; { j = i } \\
+        0, &amp; { j \neq i +1, i, i-1}
+    \end{cases}
+\tag{3.2}</span></span></p>
+<p>The probability of being in state <span class="math inline">i</span> at time <span class="math inline">t + \Delta t</span> can be expressed in terms of probabilities at time <span class="math inline">t</span>. <span class="math display">
+p_{i}(t + \Delta t) =
+    p_{i-1}(t)b(i-1)\Delta t +
+    p_{i+1}(t)d(i+1)\Delta t +
+    p_{i}(t)(1- [ b(i)  + d(i)] \Delta t)
+</span></p>
+<p>for <span class="math inline">i = 1,2,..., N</span>, where <span class="math inline">b(i) = \beta (N-1/N)</span>, and <span class="math inline">d(i)= \gamma i</span></p>
+<p>The transition matrix <span class="math inline">P(\Delta t)</span> is given by <span class="math display">
+\begin{pmatrix}
+    1 &amp; d(1)\Delta t &amp; 0 &amp;  \cdots &amp; 0 &amp; 0 \\
+    0  &amp; 1-(b+d)(1)\Delta t &amp; d(2)\Delta t &amp;  \cdots &amp; 0 &amp; 0 \\
+    0 &amp; b(1)\Delta t &amp; 1-(b+d)(1)\Delta t &amp;  \cdots &amp; 0 &amp; 0 \\
+    0 &amp; 0t &amp; b(1)\Delta &amp;  \cdots &amp; 0 &amp; 0 \\
+    \vdots &amp; \vdots &amp; \vdots &amp;  \ddots &amp; \vdots &amp; \vdots \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; d(N-1) \Delta t &amp; 0 \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; 1-(b+d)(N-1)\Delta t &amp; d(N) \Delta t \\
+    0 &amp; 0  &amp; 0 &amp;  \cdots &amp; b(N-1)\Delta t &amp; 1- d(N) \Delta t \\
+\end{pmatrix}
+</span></p>
+</section>
+<section id="sir-dtmc" class="level3">
+<h3 class="anchored" data-anchor-id="sir-dtmc">SIR DTMC</h3>
+<p>The compartmental model</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    S --&gt; I</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    I --&gt; R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
+    S --&gt; I
+    I --&gt; R
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<p>Can be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t, respectively (a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, i.e.&nbsp;R = N - S - I).</p>
+<p><span id="eq-SIR_DTMC_Trans"><span class="math display">
+p _ {(s +k, i +j),(s,i)}(\Delta t) =
+     \begin{cases}
+        {\frac { \beta i s} { N}} \Delta t, &amp; {(k, j) = (-1, 1) } \\
+        { \gamma i \Delta t}, &amp; { (k, j) = (0, -1)  } \\
+        { 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, &amp; { (k, j) = (0, 0)} \\
+        0, &amp; {otherwise}
+    \end{cases}
+\tag{3.3}</span></span></p>
+<p><a href="#eq-SIS_DTMC_Trans">Equation&nbsp;<span class="quarto-unresolved-ref">eq-SIS_DTMC_Trans</span></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"TB"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = N"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 0 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = 2"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = N"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 0 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 1 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 1 \n I = N - 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = 2 \n I = N - 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = 2 \n I = N - 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co">  </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 1 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = N - 2 \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 1 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co">    </span><span class="st">"S = N - 1\n I = 0"</span><span class="co">   </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = ~ \n I = 2"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 1"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = N - 2 \n I = 0"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = ~ \n I = ~"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"red"</span><span class="ot">]</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="st">"S = N - 2 \n I = 2"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"S = N - 2 \n I = 1"</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"blue"</span><span class="ot">]</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="605" height="365" viewbox="0.00 0.00 445.47 1204.81" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1200.81)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-1200.81 441.47,-1200.81 441.47,4 -4,4"></polygon> <!-- S = 0 \n I = 1 --> <g id="node1" class="node">
+<title>
+S = 0 I = 1
+</title>
+<ellipse fill="none" stroke="black" cx="202.78" cy="-124.25" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="202.78" y="-128.45" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="202.78" y="-111.65" font-family="Times,serif" font-size="14.00"> I = 1</text> </g> <!-- S = 0 \n I = 0 --> <g id="node2" class="node">
+<title>
+S = 0 I = 0
+</title>
+<ellipse fill="none" stroke="black" cx="202.78" cy="-29.42" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="202.78" y="-33.62" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="202.78" y="-16.82" font-family="Times,serif" font-size="14.00"> I = 0</text> </g> <!-- S = 0 \n I = 1&#45;&gt;S = 0 \n I = 0 --> <g id="edge1" class="edge">
+<title>
+S = 0 I = 1-&gt;S = 0 I = 0
+</title>
+<path fill="none" stroke="blue" d="M202.78,-94.64C202.78,-86.61 202.78,-77.74 202.78,-69.22"></path> <polygon fill="blue" stroke="blue" points="206.28,-69.09 202.78,-59.09 199.28,-69.09 206.28,-69.09"></polygon> </g> <!-- S = 0 \n I = 2 --> <g id="node3" class="node">
+<title>
+S = 0 I = 2
+</title>
+<ellipse fill="none" stroke="black" cx="202.78" cy="-219.08" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="202.78" y="-223.28" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="202.78" y="-206.48" font-family="Times,serif" font-size="14.00"> I = 2</text> </g> <!-- S = 0 \n I = 2&#45;&gt;S = 0 \n I = 1 --> <g id="edge2" class="edge">
+<title>
+S = 0 I = 2-&gt;S = 0 I = 1
+</title>
+<path fill="none" stroke="blue" d="M202.78,-189.47C202.78,-181.44 202.78,-172.57 202.78,-164.06"></path> <polygon fill="blue" stroke="blue" points="206.28,-163.92 202.78,-153.92 199.28,-163.92 206.28,-163.92"></polygon> </g> <!-- S = 0 \n I = ~ --> <g id="node4" class="node">
+<title>
+S = 0 I = ~
+</title>
+<ellipse fill="none" stroke="black" cx="158.78" cy="-313.91" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="158.78" y="-318.11" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="158.78" y="-301.31" font-family="Times,serif" font-size="14.00"> I = ~</text> </g> <!-- S = 0 \n I = ~&#45;&gt;S = 0 \n I = 2 --> <g id="edge3" class="edge">
+<title>
+S = 0 I = ~-&gt;S = 0 I = 2
+</title>
+<path fill="none" stroke="blue" d="M171.5,-286.06C175.97,-276.64 181.05,-265.92 185.8,-255.89"></path> <polygon fill="blue" stroke="blue" points="189.11,-257.08 190.23,-246.55 182.78,-254.09 189.11,-257.08"></polygon> </g> <!-- S = 0 \n I = N --> <g id="node5" class="node">
+<title>
+S = 0 I = N
+</title>
+<ellipse fill="none" stroke="black" cx="34.78" cy="-598.4" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="34.78" y="-602.6" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="34.78" y="-585.8" font-family="Times,serif" font-size="14.00"> I = N</text> </g> <!-- S = 0 \n I = N &#45; 1 --> <g id="node6" class="node">
+<title>
+S = 0 I = N - 1
+</title>
+<ellipse fill="none" stroke="black" cx="84.78" cy="-503.57" rx="47.93" ry="29.33"></ellipse> <text text-anchor="middle" x="84.78" y="-507.77" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="84.78" y="-490.97" font-family="Times,serif" font-size="14.00"> I = N - 1</text> </g> <!-- S = 0 \n I = N&#45;&gt;S = 0 \n I = N &#45; 1 --> <g id="edge4" class="edge">
+<title>
+S = 0 I = N-&gt;S = 0 I = N - 1
+</title>
+<path fill="none" stroke="blue" d="M48.97,-571.05C54.06,-561.61 59.88,-550.8 65.33,-540.68"></path> <polygon fill="blue" stroke="blue" points="68.54,-542.1 70.2,-531.64 62.38,-538.78 68.54,-542.1"></polygon> </g> <!-- S = 0 \n I = N &#45; 2 --> <g id="node7" class="node">
+<title>
+S = 0 I = N - 2
+</title>
+<ellipse fill="none" stroke="black" cx="84.78" cy="-408.74" rx="47.93" ry="29.33"></ellipse> <text text-anchor="middle" x="84.78" y="-412.94" font-family="Times,serif" font-size="14.00">S = 0 </text> <text text-anchor="middle" x="84.78" y="-396.14" font-family="Times,serif" font-size="14.00"> I = N - 2</text> </g> <!-- S = 0 \n I = N &#45; 1&#45;&gt;S = 0 \n I = N &#45; 2 --> <g id="edge5" class="edge">
+<title>
+S = 0 I = N - 1-&gt;S = 0 I = N - 2
+</title>
+<path fill="none" stroke="blue" d="M84.78,-473.96C84.78,-465.93 84.78,-457.07 84.78,-448.55"></path> <polygon fill="blue" stroke="blue" points="88.28,-448.42 84.78,-438.42 81.28,-448.42 88.28,-448.42"></polygon> </g> <!-- S = 0 \n I = N &#45; 2&#45;&gt;S = 0 \n I = ~ --> <g id="edge6" class="edge">
+<title>
+S = 0 I = N - 2-&gt;S = 0 I = ~
+</title>
+<path fill="none" stroke="blue" d="M105.39,-381.88C114.06,-371 124.24,-358.24 133.37,-346.78"></path> <polygon fill="blue" stroke="blue" points="136.3,-348.72 139.79,-338.72 130.82,-344.36 136.3,-348.72"></polygon> </g> <!-- S = 1 \n I = 1 --> <g id="node8" class="node">
+<title>
+S = 1 I = 1
+</title>
+<ellipse fill="none" stroke="black" cx="246.78" cy="-313.91" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="246.78" y="-318.11" font-family="Times,serif" font-size="14.00">S = 1 </text> <text text-anchor="middle" x="246.78" y="-301.31" font-family="Times,serif" font-size="14.00"> I = 1</text> </g> <!-- S = 1 \n I = 1&#45;&gt;S = 0 \n I = 2 --> <g id="edge7" class="edge">
+<title>
+S = 1 I = 1-&gt;S = 0 I = 2
+</title>
+<path fill="none" stroke="red" d="M234.05,-286.06C229.59,-276.64 224.5,-265.92 219.75,-255.89"></path> <polygon fill="red" stroke="red" points="222.77,-254.09 215.32,-246.55 216.44,-257.08 222.77,-254.09"></polygon> </g> <!-- S = 1 \n I = 2 --> <g id="node9" class="node">
+<title>
+S = 1 I = 2
+</title>
+<ellipse fill="none" stroke="black" cx="223.78" cy="-503.57" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="223.78" y="-507.77" font-family="Times,serif" font-size="14.00">S = 1 </text> <text text-anchor="middle" x="223.78" y="-490.97" font-family="Times,serif" font-size="14.00"> I = 2</text> </g> <!-- S = 1 \n I = 2&#45;&gt;S = 0 \n I = ~ --> <g id="edge9" class="edge">
+<title>
+S = 1 I = 2-&gt;S = 0 I = ~
+</title>
+<path fill="none" stroke="red" d="M214.19,-474.88C202.92,-442.36 184.18,-388.26 171.66,-352.1"></path> <polygon fill="red" stroke="red" points="174.88,-350.71 168.3,-342.41 168.27,-353 174.88,-350.71"></polygon> </g> <!-- S = 1 \n I = 2&#45;&gt;S = 1 \n I = 1 --> <g id="edge8" class="edge">
+<title>
+S = 1 I = 2-&gt;S = 1 I = 1
+</title>
+<path fill="none" stroke="blue" d="M227.27,-474.07C231.22,-441.87 237.66,-389.3 242.05,-353.46"></path> <polygon fill="blue" stroke="blue" points="245.55,-353.72 243.29,-343.37 238.6,-352.87 245.55,-353.72"></polygon> </g> <!-- S = 1 \n I = ~ --> <g id="node10" class="node">
+<title>
+S = 1 I = ~
+</title>
+<ellipse fill="none" stroke="black" cx="160.78" cy="-598.4" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="160.78" y="-602.6" font-family="Times,serif" font-size="14.00">S = 1 </text> <text text-anchor="middle" x="160.78" y="-585.8" font-family="Times,serif" font-size="14.00"> I = ~</text> </g> <!-- S = 1 \n I = ~&#45;&gt;S = 0 \n I = ~ --> <g id="edge11" class="edge">
+<title>
+S = 1 I = ~-&gt;S = 0 I = ~
+</title>
+<path fill="none" stroke="red" d="M160.57,-568.76C160.21,-517.79 159.46,-411.3 159.05,-353.77"></path> <polygon fill="red" stroke="red" points="162.55,-353.6 158.98,-343.63 155.55,-353.65 162.55,-353.6"></polygon> </g> <!-- S = 1 \n I = ~&#45;&gt;S = 0 \n I = N &#45; 1 --> <g id="edge12" class="edge">
+<title>
+S = 1 I = ~-&gt;S = 0 I = N - 1
+</title>
+<path fill="none" stroke="red" d="M141.2,-573.5C132.41,-562.76 121.89,-549.9 112.32,-538.21"></path> <polygon fill="red" stroke="red" points="114.93,-535.87 105.88,-530.35 109.51,-540.31 114.93,-535.87"></polygon> </g> <!-- S = 1 \n I = ~&#45;&gt;S = 1 \n I = 2 --> <g id="edge10" class="edge">
+<title>
+S = 1 I = ~-&gt;S = 1 I = 2
+</title>
+<path fill="none" stroke="blue" d="M177.66,-572.53C184.86,-561.91 193.38,-549.37 201.11,-537.96"></path> <polygon fill="blue" stroke="blue" points="204.13,-539.76 206.85,-529.52 198.34,-535.83 204.13,-539.76"></polygon> </g> <!-- S = 1 \n I = N &#45; 1 --> <g id="node11" class="node">
+<title>
+S = 1 I = N - 1
+</title>
+<ellipse fill="none" stroke="black" cx="78.78" cy="-788.07" rx="47.93" ry="29.33"></ellipse> <text text-anchor="middle" x="78.78" y="-792.27" font-family="Times,serif" font-size="14.00">S = 1 </text> <text text-anchor="middle" x="78.78" y="-775.47" font-family="Times,serif" font-size="14.00"> I = N - 1</text> </g> <!-- S = 1 \n I = N &#45; 1&#45;&gt;S = 0 \n I = N --> <g id="edge14" class="edge">
+<title>
+S = 1 I = N - 1-&gt;S = 0 I = N
+</title>
+<path fill="none" stroke="red" d="M62.61,-760.06C56.65,-748.86 50.46,-735.49 46.78,-722.65 38.85,-694.98 35.93,-662.55 34.95,-637.9"></path> <polygon fill="red" stroke="red" points="38.45,-637.73 34.64,-627.85 31.45,-637.95 38.45,-637.73"></polygon> </g> <!-- S = 1 \n I = N &#45; 2 --> <g id="node12" class="node">
+<title>
+S = 1 I = N - 2
+</title>
+<ellipse fill="none" stroke="black" cx="103.78" cy="-693.23" rx="47.93" ry="29.33"></ellipse> <text text-anchor="middle" x="103.78" y="-697.43" font-family="Times,serif" font-size="14.00">S = 1 </text> <text text-anchor="middle" x="103.78" y="-680.63" font-family="Times,serif" font-size="14.00"> I = N - 2</text> </g> <!-- S = 1 \n I = N &#45; 1&#45;&gt;S = 1 \n I = N &#45; 2 --> <g id="edge13" class="edge">
+<title>
+S = 1 I = N - 1-&gt;S = 1 I = N - 2
+</title>
+<path fill="none" stroke="blue" d="M86.35,-758.96C88.6,-750.59 91.11,-741.26 93.51,-732.36"></path> <polygon fill="blue" stroke="blue" points="96.93,-733.13 96.15,-722.56 90.17,-731.31 96.93,-733.13"></polygon> </g> <!-- S = 1 \n I = N &#45; 2&#45;&gt;S = 0 \n I = N &#45; 1 --> <g id="edge15" class="edge">
+<title>
+S = 1 I = N - 2-&gt;S = 0 I = N - 1
+</title>
+<path fill="none" stroke="red" d="M100.89,-663.73C97.63,-631.54 92.31,-578.97 88.68,-543.12"></path> <polygon fill="red" stroke="red" points="92.15,-542.63 87.66,-533.03 85.18,-543.34 92.15,-542.63"></polygon> </g> <!-- S = 1 \n I = N &#45; 2&#45;&gt;S = 1 \n I = ~ --> <g id="edge16" class="edge">
+<title>
+S = 1 I = N - 2-&gt;S = 1 I = ~
+</title>
+<path fill="none" stroke="blue" d="M120.26,-665.38C126.38,-655.43 133.39,-644 139.85,-633.48"></path> <polygon fill="blue" stroke="blue" points="142.86,-635.27 145.11,-624.92 136.9,-631.61 142.86,-635.27"></polygon> </g> <!-- S = 2 \n I = 1 --> <g id="node13" class="node">
+<title>
+S = 2 I = 1
+</title>
+<ellipse fill="none" stroke="black" cx="248.78" cy="-598.4" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="248.78" y="-602.6" font-family="Times,serif" font-size="14.00">S = 2 </text> <text text-anchor="middle" x="248.78" y="-585.8" font-family="Times,serif" font-size="14.00"> I = 1</text> </g> <!-- S = 2 \n I = 1&#45;&gt;S = 1 \n I = 2 --> <g id="edge17" class="edge">
+<title>
+S = 2 I = 1-&gt;S = 1 I = 2
+</title>
+<path fill="none" stroke="red" d="M241.28,-569.55C238.95,-560.92 236.35,-551.27 233.88,-542.1"></path> <polygon fill="red" stroke="red" points="237.25,-541.15 231.27,-532.4 230.49,-542.97 237.25,-541.15"></polygon> </g> <!-- S = 2 \n I = 0 --> <g id="node14" class="node">
+<title>
+S = 2 I = 0
+</title>
+<ellipse fill="none" stroke="black" cx="311.78" cy="-503.57" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="311.78" y="-507.77" font-family="Times,serif" font-size="14.00">S = 2 </text> <text text-anchor="middle" x="311.78" y="-490.97" font-family="Times,serif" font-size="14.00"> I = 0</text> </g> <!-- S = 2 \n I = 1&#45;&gt;S = 2 \n I = 0 --> <g id="edge18" class="edge">
+<title>
+S = 2 I = 1-&gt;S = 2 I = 0
+</title>
+<path fill="none" stroke="blue" d="M265.66,-572.53C272.86,-561.91 281.38,-549.37 289.11,-537.96"></path> <polygon fill="blue" stroke="blue" points="292.13,-539.76 294.85,-529.52 286.34,-535.83 292.13,-539.76"></polygon> </g> <!-- S = 2 \n I = 2 --> <g id="node15" class="node">
+<title>
+S = 2 I = 2
+</title>
+<ellipse fill="none" stroke="black" cx="242.78" cy="-693.23" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="242.78" y="-697.43" font-family="Times,serif" font-size="14.00">S = 2 </text> <text text-anchor="middle" x="242.78" y="-680.63" font-family="Times,serif" font-size="14.00"> I = 2</text> </g> <!-- S = 2 \n I = 2&#45;&gt;S = 1 \n I = ~ --> <g id="edge19" class="edge">
+<title>
+S = 2 I = 2-&gt;S = 1 I = ~
+</title>
+<path fill="none" stroke="red" d="M222.51,-669.29C212.06,-657.46 199.18,-642.87 187.89,-630.09"></path> <polygon fill="red" stroke="red" points="190.34,-627.59 181.1,-622.41 185.09,-632.22 190.34,-627.59"></polygon> </g> <!-- S = 2 \n I = 2&#45;&gt;S = 2 \n I = 1 --> <g id="edge20" class="edge">
+<title>
+S = 2 I = 2-&gt;S = 2 I = 1
+</title>
+<path fill="none" stroke="blue" d="M244.63,-663.62C245.14,-655.6 245.72,-646.73 246.27,-638.21"></path> <polygon fill="blue" stroke="blue" points="249.77,-638.28 246.92,-628.08 242.79,-637.83 249.77,-638.28"></polygon> </g> <!-- S = 2 \n I = ~ --> <g id="node16" class="node">
+<title>
+S = 2 I = ~
+</title>
+<ellipse fill="none" stroke="black" cx="179.78" cy="-788.07" rx="34.55" ry="29.33"></ellipse> <text text-anchor="middle" x="179.78" y="-792.27" font-family="Times,serif" font-size="14.00">S = 2 </text> <text text-anchor="middle" x="179.78" y="-775.47" font-family="Times,serif" font-size="14.00"> I = ~</text> </g> <!-- S = 2 \n I = ~&#45;&gt;S = 1 \n I = ~ --> <g id="edge21" class="edge">
+<title>
+S = 2 I = ~-&gt;S = 1 I = ~
+</title>
+<path fill="none" stroke="red" d="M176.89,-758.56C173.63,-726.37 168.31,-673.8 164.68,-637.96"></path> <polygon fill="red" stroke="red" points="168.15,-637.46 163.66,-627.87 161.18,-638.17 168.15,-637.46"></polygon> </g> <!-- S = 2 \n I = ~&#45;&gt;S = 1 \n I = N &#45; 2 --> <g id="edge22" class="edge">
+<title>
+S = 2 I = ~-&gt;S = 1 I = N - 2
+</title>
+<path fill="none" stroke="red" d="M160.2,-763.16C151.41,-752.42 140.89,-739.56 131.32,-727.88"></path> <polygon fill="red" stroke="red" points="133.93,-725.53 124.88,-720.01 128.51,-729.97 133.93,-725.53"></polygon> </g> <!-- S = 2 \n I = ~&#45;&gt;S = 2 \n I = 2 --> <g id="edge23" class="edge">
+<title>
+S = 2 I = ~-&gt;S = 2 I = 2
+</title>
+<path fill="none" stroke="blue" d="M196.66,-762.19C203.86,-751.58 212.38,-739.03 220.11,-727.63"></path> <polygon fill="blue" stroke="blue" points="223.13,-729.42 225.85,-719.18 217.34,-725.49 223.13,-729.42"></polygon> </g> <!-- S = 2 \n I = N &#45; 2 --> <g id="node17" class="node">
+<title>
+S = 2 I = N - 2
+</title>
+<ellipse fill="none" stroke="black" cx="115.78" cy="-882.9" rx="47.93" ry="29.33"></ellipse> <text text-anchor="middle" x="115.78" y="-887.1" font-family="Times,serif" font-size="14.00">S = 2 </text> <text text-anchor="middle" x="115.78" y="-870.3" font-family="Times,serif" font-size="14.00"> I = N - 2</text> </g> <!-- S = 2 \n I = N &#45; 2&#45;&gt;S = 1 \n I = N &#45; 1 --> <g id="edge24" class="edge">
+<title>
+S = 2 I = N - 2-&gt;S = 1 I = N - 1
+</title>
+<path fill="none" stroke="red" d="M104.68,-854.04C101.2,-845.32 97.31,-835.56 93.62,-826.3"></path> <polygon fill="red" stroke="red" points="96.82,-824.89 89.87,-816.9 90.32,-827.48 96.82,-824.89"></polygon> </g> <!-- S = 2 \n I = N &#45; 2&#45;&gt;S = 2 \n I = ~ --> <g id="edge25" class="edge">
+<title>
+S = 2 I = N - 2-&gt;S = 2 I = ~
+</title>
+<path fill="none" stroke="blue" d="M133.95,-855.54C141.06,-845.22 149.31,-833.26 156.82,-822.36"></path> <polygon fill="blue" stroke="blue" points="159.87,-824.11 162.66,-813.89 154.11,-820.14 159.87,-824.11"></polygon> </g> <!-- S = ~ \n I = 1 --> <g id="node18" class="node">
+<title>
+S = ~ I = 1
+</title>
+<ellipse fill="none" stroke="black" cx="267.78" cy="-788.07" rx="35.37" ry="29.33"></ellipse> <text text-anchor="middle" x="267.78" y="-792.27" font-family="Times,serif" font-size="14.00">S = ~ </text> <text text-anchor="middle" x="267.78" y="-775.47" font-family="Times,serif" font-size="14.00"> I = 1</text> </g> <!-- S = ~ \n I = 1&#45;&gt;S = 2 \n I = 2 --> <g id="edge28" class="edge">
+<title>
+S = ~ I = 1-&gt;S = 2 I = 2
+</title>
+<path fill="none" stroke="red" d="M260.28,-759.21C257.95,-750.59 255.35,-740.93 252.88,-731.76"></path> <polygon fill="red" stroke="red" points="256.25,-730.81 250.27,-722.07 249.49,-732.63 256.25,-730.81"></polygon> </g> <!-- S = ~ \n I = 0 --> <g id="node19" class="node">
+<title>
+S = ~ I = 0
+</title>
+<ellipse fill="none" stroke="black" cx="330.78" cy="-693.23" rx="35.37" ry="29.33"></ellipse> <text text-anchor="middle" x="330.78" y="-697.43" font-family="Times,serif" font-size="14.00">S = ~ </text> <text text-anchor="middle" x="330.78" y="-680.63" font-family="Times,serif" font-size="14.00"> I = 0</text> </g> <!-- S = ~ \n I = 1&#45;&gt;S = ~ \n I = 0 --> <g id="edge26" class="edge">
+<title>
+S = ~ I = 1-&gt;S = ~ I = 0
+</title>
+<path fill="none" stroke="blue" d="M284.66,-762.19C291.86,-751.58 300.38,-739.03 308.11,-727.63"></path> <polygon fill="blue" stroke="blue" points="311.13,-729.42 313.85,-719.18 305.34,-725.49 311.13,-729.42"></polygon> </g> <!-- S = ~ \n I = 2 --> <g id="node20" class="node">
+<title>
+S = ~ I = 2
+</title>
+<ellipse fill="none" stroke="black" cx="254.78" cy="-882.9" rx="35.37" ry="29.33"></ellipse> <text text-anchor="middle" x="254.78" y="-887.1" font-family="Times,serif" font-size="14.00">S = ~ </text> <text text-anchor="middle" x="254.78" y="-870.3" font-family="Times,serif" font-size="14.00"> I = 2</text> </g> <!-- S = ~ \n I = 1&#45;&gt;S = ~ \n I = 2 --> <g id="edge27" class="edge">
+<title>
+S = ~ I = 1-&gt;S = ~ I = 2
+</title>
+<path fill="none" stroke="red" d="M270.07,-817.51C269.35,-826.07 268.13,-835.59 266.63,-844.62"></path> <polygon fill="red" stroke="red" points="263.17,-844.08 264.82,-854.55 270.06,-845.34 263.17,-844.08"></polygon> </g> <!-- S = ~ \n I = 2&#45;&gt;S = 2 \n I = ~ --> <g id="edge30" class="edge">
+<title>
+S = ~ I = 2-&gt;S = 2 I = ~
+</title>
+<path fill="none" stroke="red" d="M235.46,-857.99C226.36,-846.73 215.38,-833.14 205.58,-821.01"></path> <polygon fill="red" stroke="red" points="208.03,-818.47 199.03,-812.89 202.59,-822.87 208.03,-818.47"></polygon> </g> <!-- S = ~ \n I = 2&#45;&gt;S = ~ \n I = 1 --> <g id="edge31" class="edge">
+<title>
+S = ~ I = 2-&gt;S = ~ I = 1
+</title>
+<path fill="none" stroke="blue" d="M252.47,-853.54C253.2,-844.94 254.42,-835.36 255.94,-826.27"></path> <polygon fill="blue" stroke="blue" points="259.4,-826.76 257.75,-816.3 252.52,-825.51 259.4,-826.76"></polygon> </g> <!-- S = ~ \n I = ~ --> <g id="node21" class="node">
+<title>
+S = ~ I = ~
+</title>
+<ellipse fill="none" stroke="black" cx="204.78" cy="-977.73" rx="35.37" ry="29.33"></ellipse> <text text-anchor="middle" x="204.78" y="-981.93" font-family="Times,serif" font-size="14.00">S = ~ </text> <text text-anchor="middle" x="204.78" y="-965.13" font-family="Times,serif" font-size="14.00"> I = ~</text> </g> <!-- S = ~ \n I = 2&#45;&gt;S = ~ \n I = ~ --> <g id="edge29" class="edge">
+<title>
+S = ~ I = 2-&gt;S = ~ I = ~
+</title>
+<path fill="none" stroke="red" d="M246.06,-911.67C241.13,-921.91 234.92,-933.59 228.76,-944.21"></path> <polygon fill="red" stroke="red" points="225.75,-942.44 223.64,-952.82 231.76,-946.02 225.75,-942.44"></polygon> </g> <!-- S = ~ \n I = ~&#45;&gt;S = 2 \n I = ~ --> <g id="edge32" class="edge">
+<title>
+S = ~ I = ~-&gt;S = 2 I = ~
+</title>
+<path fill="none" stroke="red" d="M200.98,-948.23C196.69,-916.03 189.69,-863.46 184.91,-827.62"></path> <polygon fill="red" stroke="red" points="188.36,-826.98 183.57,-817.53 181.42,-827.9 188.36,-826.98"></polygon> </g> <!-- S = ~ \n I = ~&#45;&gt;S = 2 \n I = N &#45; 2 --> <g id="edge33" class="edge">
+<title>
+S = ~ I = ~-&gt;S = 2 I = N - 2
+</title>
+<path fill="none" stroke="red" d="M183.23,-954.26C172.33,-942.88 158.89,-928.86 146.88,-916.34"></path> <polygon fill="red" stroke="red" points="149.07,-913.57 139.63,-908.77 144.02,-918.41 149.07,-913.57"></polygon> </g> <!-- S = ~ \n I = ~&#45;&gt;S = ~ \n I = 2 --> <g id="edge36" class="edge">
+<title>
+S = ~ I = ~-&gt;S = ~ I = 2
+</title>
+<path fill="none" stroke="blue" d="M213.41,-949.13C218.35,-938.86 224.59,-927.1 230.78,-916.43"></path> <polygon fill="blue" stroke="blue" points="233.82,-918.16 235.93,-907.78 227.81,-914.58 233.82,-918.16"></polygon> </g> <!-- S = ~ \n I = ~&#45;&gt;S = ~ \n I = ~ --> <g id="edge34" class="edge">
+<title>
+S = ~ I = ~-&gt;S = ~ I = ~
+</title>
+<path fill="none" stroke="red" d="M238.53,-986.54C249.37,-986.45 257.96,-983.51 257.96,-977.73 257.96,-973.93 254.26,-971.36 248.65,-970.02"></path> <polygon fill="red" stroke="red" points="248.85,-966.52 238.53,-968.92 248.1,-973.48 248.85,-966.52"></polygon> </g> <!-- S = ~ \n I = ~&#45;&gt;S = ~ \n I = ~ --> <g id="edge35" class="edge">
+<title>
+S = ~ I = ~-&gt;S = ~ I = ~
+</title>
+<path fill="none" stroke="blue" d="M234.77,-993.63C255.52,-998.45 275.96,-993.15 275.96,-977.73 275.96,-964.84 261.68,-959.02 244.87,-960.27"></path> <polygon fill="blue" stroke="blue" points="244.12,-956.84 234.77,-961.82 245.18,-963.76 244.12,-956.84"></polygon> </g> <!-- S = N &#45; 1 \n I = 1 --> <g id="node22" class="node">
+<title>
+S = N - 1 I = 1
+</title>
+<ellipse fill="none" stroke="black" cx="331.78" cy="-1167.39" rx="50.34" ry="29.33"></ellipse> <text text-anchor="middle" x="331.78" y="-1171.59" font-family="Times,serif" font-size="14.00">S = N - 1 </text> <text text-anchor="middle" x="331.78" y="-1154.79" font-family="Times,serif" font-size="14.00"> I = 1</text> </g> <!-- S = N &#45; 2 \n I = 2 --> <g id="node23" class="node">
+<title>
+S = N - 2 I = 2
+</title>
+<ellipse fill="none" stroke="black" cx="273.78" cy="-1072.56" rx="50.34" ry="29.33"></ellipse> <text text-anchor="middle" x="273.78" y="-1076.76" font-family="Times,serif" font-size="14.00">S = N - 2 </text> <text text-anchor="middle" x="273.78" y="-1059.96" font-family="Times,serif" font-size="14.00"> I = 2</text> </g> <!-- S = N &#45; 1 \n I = 1&#45;&gt;S = N &#45; 2 \n I = 2 --> <g id="edge37" class="edge">
+<title>
+S = N - 1 I = 1-&gt;S = N - 2 I = 2
+</title>
+<path fill="none" stroke="red" d="M315,-1139.54C309.05,-1130.01 302.26,-1119.14 295.93,-1109.01"></path> <polygon fill="red" stroke="red" points="298.78,-1106.98 290.51,-1100.35 292.85,-1110.69 298.78,-1106.98"></polygon> </g> <!-- S = N &#45; 1\n I = 0 --> <g id="node24" class="node">
+<title>
+S = N - 1I = 0
+</title>
+<ellipse fill="none" stroke="black" cx="389.78" cy="-1072.56" rx="47.9" ry="29.33"></ellipse> <text text-anchor="middle" x="389.78" y="-1076.76" font-family="Times,serif" font-size="14.00">S = N - 1</text> <text text-anchor="middle" x="389.78" y="-1059.96" font-family="Times,serif" font-size="14.00"> I = 0</text> </g> <!-- S = N &#45; 1 \n I = 1&#45;&gt;S = N &#45; 1\n I = 0 --> <g id="edge38" class="edge">
+<title>
+S = N - 1 I = 1-&gt;S = N - 1I = 0
+</title>
+<path fill="none" stroke="blue" d="M348.55,-1139.54C354.5,-1130.01 361.3,-1119.14 367.63,-1109.01"></path> <polygon fill="blue" stroke="blue" points="370.71,-1110.69 373.04,-1100.35 364.77,-1106.98 370.71,-1110.69"></polygon> </g> <!-- S = N &#45; 2 \n I = 2&#45;&gt;S = ~ \n I = ~ --> <g id="edge41" class="edge">
+<title>
+S = N - 2 I = 2-&gt;S = ~ I = ~
+</title>
+<path fill="none" stroke="red" d="M254.19,-1045.21C246.38,-1034.7 237.31,-1022.49 229.08,-1011.43"></path> <polygon fill="red" stroke="red" points="231.77,-1009.17 222.99,-1003.24 226.15,-1013.35 231.77,-1009.17"></polygon> </g> <!-- S = N &#45; 2 \n I = 1 --> <g id="node25" class="node">
+<title>
+S = N - 2 I = 1
+</title>
+<ellipse fill="none" stroke="black" cx="343.78" cy="-977.73" rx="50.34" ry="29.33"></ellipse> <text text-anchor="middle" x="343.78" y="-981.93" font-family="Times,serif" font-size="14.00">S = N - 2 </text> <text text-anchor="middle" x="343.78" y="-965.13" font-family="Times,serif" font-size="14.00"> I = 1</text> </g> <!-- S = N &#45; 2 \n I = 2&#45;&gt;S = N &#45; 2 \n I = 1 --> <g id="edge42" class="edge">
+<title>
+S = N - 2 I = 2-&gt;S = N - 2 I = 1
+</title>
+<path fill="none" stroke="blue" d="M293.65,-1045.21C301.18,-1035.22 309.86,-1023.71 317.86,-1013.1"></path> <polygon fill="blue" stroke="blue" points="320.87,-1014.92 324.1,-1004.83 315.28,-1010.7 320.87,-1014.92"></polygon> </g> <!-- S = N &#45; 2 \n I = 1&#45;&gt;S = ~ \n I = 2 --> <g id="edge39" class="edge">
+<title>
+S = N - 2 I = 1-&gt;S = ~ I = 2
+</title>
+<path fill="none" stroke="red" d="M319.46,-951.36C308.29,-939.71 294.97,-925.82 283.33,-913.68"></path> <polygon fill="red" stroke="red" points="285.78,-911.18 276.34,-906.38 280.73,-916.02 285.78,-911.18"></polygon> </g> <!-- S = N &#45; 2 \n I = 0 --> <g id="node26" class="node">
+<title>
+S = N - 2 I = 0
+</title>
+<ellipse fill="none" stroke="black" cx="357.78" cy="-882.9" rx="50.34" ry="29.33"></ellipse> <text text-anchor="middle" x="357.78" y="-887.1" font-family="Times,serif" font-size="14.00">S = N - 2 </text> <text text-anchor="middle" x="357.78" y="-870.3" font-family="Times,serif" font-size="14.00"> I = 0</text> </g> <!-- S = N &#45; 2 \n I = 1&#45;&gt;S = N &#45; 2 \n I = 0 --> <g id="edge40" class="edge">
+<title>
+S = N - 2 I = 1-&gt;S = N - 2 I = 0
+</title>
+<path fill="none" stroke="blue" d="M348.05,-948.37C349.29,-940.17 350.66,-931.08 351.97,-922.37"></path> <polygon fill="blue" stroke="blue" points="355.45,-922.81 353.48,-912.4 348.53,-921.77 355.45,-922.81"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+<p>There are (N + 1)(N + 2)/2 ordered pairs of states (s, i)</p>
+<pre class="{julia}"><code>N = 100
+S = 0:N
+I = 0:N
+
+n = Int64((N+1)*(N+2)/2)
+
+a = Base.product(S, I) |&gt; collect |&gt; vec
+b = []
+
+for i in a
+    if sum(i) &lt;= N
+        push!(b, i)
+    end
+end</code></pre>
+<pre class="{julia}"><code>using NamedArrays
+using SparseArrays
+β = 0.5
+γ = 0.1
+Q = zeros(Float64, lastindex(b), lastindex(b))
+
+for i in eachindex(b)
+    iS, iI = b[i]
+    for j in eachindex(b)
+        jS, jI = b[j]
+        if iS - jS == 1 &amp;&amp; iI - jI == -1 ## Infection condition
+            Q[i, j] = β*iS*iI/N
+        elseif  iS == jS &amp;&amp; iI - jI == 1 ## recovery condition
+            Q[i, j] = γ*iI
+        elseif  iS == jS  &amp;&amp; iI == jI 
+            Q[i, j] = -((β*iS*iI/N) + γ*iI)
+        end
+    end
+end
+</code></pre>
+<pre class="{julia}"><code>using ExponentialUtilities
+t = 10
+
+x0 = (25, 30)
+x0i = findfirst(x -&gt; x == x0, b)
+
+p0 = zeros(lastindex(b))
+p0[x0i] = 1
+
+pt = expv(t, Q, p0)</code></pre>
+<p>unpack the state vector</p>
+<pre class="{julia}"><code>SImat = zeros(N+1, N+1)
+pS = zeros(N+1)
+pI = zeros(N+1)
+
+for i in eachindex(pt)
+    S, I = b[i]
+    pS[S+1] += pt[i]
+    pI[I+1] += pt[i] 
+    SImat[S+1, I+1] = pt[i]
+end</code></pre>
+<pre class="{julia}"><code>using StatsPlots
+plot(pS)
+heatmap(SImat)</code></pre>
+</section>
+<section id="sir-ctmc" class="level3">
+<h3 class="anchored" data-anchor-id="sir-ctmc">SIR CTMC</h3>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-allen2015StochasticPopulationEpidemic" class="csl-entry" role="doc-biblioentry">
+Allen, L. J. S. (2015). <em>Stochastic <span>Population</span> and <span>Epidemic Models</span>: <span>Persistence</span> and <span>Extinction</span></em>. <span>Springer International Publishing</span>. <a href="https://doi.org/10.1007/978-3-319-21554-9">https://doi.org/10.1007/978-3-319-21554-9</a>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../test.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Untitled</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../notes.html" class="pagination-link">
+        <span class="nav-page-text">Notes</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Created using <a href="https://quarto.org">Quarto</a>. © 2023</div>   
+  </div>
+</footer>
+
+
+
+</body></html>

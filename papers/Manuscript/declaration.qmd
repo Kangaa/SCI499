@@ -16,9 +16,9 @@ Date:
 
 > Remove this section if you do not have publications.
 
-The material in @sec-intro has been submitted to the journal *Journal of Impossible Results* for possible publication.
+The material in sec-intro has been submitted to the journal *Journal of Impossible Results* for possible publication.
 
-The contribution in @sec-litreview of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
+The contribution in sec-litreview of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
 
 ### Reproducibility statement
 
@@ -36,41 +36,6 @@ This thesis includes ?? original papers published in peer reviewed journals and 
 
 In the case of (??insert chapter numbers) my contribution to the work involved the following:
 
-
-```{r}
-#| message: false
-#| echo: false
-library(tidyverse)
-library(knitr)
-library(kableExtra)
-tab <- tribble(
-  ~`Thesis chapter`, ~`Publication title`, ~Status, ~`Nature and % of student contribution`, ~`Nature and % of coauthors' contribution`, ~`Coauthors are Monash students`,
-  2, "The life cycle of Mongolian crickets", "Submitted", "Concept and data analysis, writing first draft: 60%", "Shu Xu, input into manuscript: 25%; Eddie Betts, input into manuscript: 15%", "Shu Xu: No; Eddie Betts: Yes"
-)
-```
-
-::: {.content-visible when-format="html"}
-
-```{r}
-tab |>
-  kable() |>
-  row_spec(0, align = "l")
-```
-
-:::
-
-::: {.content-visible when-format="pdf"}
-
-```{r}
-tab |>
-  kable(booktabs = TRUE, format = "latex") |>
-  kable_styling(full_width = TRUE, font_size = 10, latex_options = "scale_down") |>
-  column_spec(1, width = "1.2cm") |>
-  column_spec(c(2, 4:6), width = "2.6cm") |>
-  row_spec(0, align = "l", bold = TRUE)
-```
-
-:::
 
 I have / have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.
 

@@ -25,18 +25,7 @@ At each time unit an infected individual can come into contact with, on average,
 | $\beta$   | Transmission rate |
 | $\gamma$  | Recovery rate     |
 
-Thus, an SIR model can be represented by the schematic in @fig-SIR
-
-```{dot}
-//| label: fig-SIR
-//| fig-cap: "Graphical representation of SIR model"
-
-digraph G {
-    S -> I [label = "β"]
-    I -> R [label = "γ"]
-    rankdir = "LR"
-}
-```
+Thus, an SIR model can be represented by the schematic 
 
 ## SIR Dynamics
 
@@ -87,7 +76,7 @@ $$ i.e. the probabilities in @eq-Markov-Property do not vary with $t$
 
 An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).
 
-There are two potential events (@tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
+There are two potential events (tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
 
 $$
 p _ {(s +k, i +j),(s,i)}(\Delta t) =
@@ -99,11 +88,6 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 \end{cases}
 $$ {#eq-SIR_DTMC_Trans}
 
-| Event     | Change $(\Delta S, \Delta I)$ | Probability                                |
-|:----------|:------------------------------|:-------------------------------------------|
-| Infection | $(-1,+1)$                     | $\beta i \frac{s}{N} \Delta t+o(\Delta t)$ |
-| Recovery  | $(0,-1)$                      | $\gamma i \Delta t+o(\Delta t)$            |
-: Possible events in a SIR Markov Chain {#tbl-SIR_Events}
 
 ##### Transition Matrix
 

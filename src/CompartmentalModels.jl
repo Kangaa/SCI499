@@ -3,8 +3,8 @@ using DataFrames
 using CSV
 # Create a CompartmentalModel type to hold the state and parameters of the model
 struct CompartmentalModel
-    state::NamedTuple
-    transition_parameters::NamedTuple
+    state::NamedTuple{(:S, :I), Tuple{Vector{Int64}, Vector{Int64}}}
+    transition_parameters::NamedTuple{(:β, :γ), Tuple{Vector{Float64}, Vector{Float64}}}
     total_population::Int64
     num_patches::Int64
     patch_names::Vector{String}
@@ -15,27 +15,27 @@ end
 function SIR(patch_names::Vector{String}, population_per_patch::Vector{Int64}, mixing_matrix::Matrix{Float64}, β::Float64, γ::Float64)
     num_patches = length(patch_names)
     state = (
-        S = Vector{Int}(population_per_patch),
-        I = Vector{Int}(zeros(Int, num_patches)))
+        S = Vector{Int64}(population_per_patch),
+        I = Vector{Int64}(zeros(Int, num_patches)))
     transition_parameters = (
         β = Vector{Float64}(fill(β, num_patches)),
         γ = Vector{Float64}(fill(γ, num_patches)))
     total_population = sum(population_per_patch)
     num_patches = length(patch_names)
     patch_names = Vector{String}(patch_names)
-    population_per_patch = Vector{Int}(population_per_patch)
+    population_per_patch = Vector{Int64}(population_per_patch)
     mixing_matrix = mixing_matrix
     return CompartmentalModel(state, transition_parameters, total_population, num_patches, patch_names, population_per_patch, mixing_matrix)
 end
 
 ## Function to seed the model with a number of infected individuals at a random patch
-function rand_infection!(model::CompartmentalModel, num_infected::Int)
+function rand_infection!(model::CompartmentalModel, num_infected::Int64)::CompartmentalModel
     # Randomly select a patch to seed
-    patch = rand(1:model.num_patches)
+    patch::Int64 = rand(1:model.num_patches)
     # Set the number of infected individuals in the patch
-    model.state.I[patch] += num_infected
+    model.state.I[patch]::Int64 += num_infected
     # Set the number of susceptible individuals in the patch
-    model.state.S[patch] -= num_infected
+    model.state.S[patch]::Int64 -= num_infected
     return model
 end
 
@@ -163,7 +163,6 @@ function simulate(params, i0, aggregation_time = 7, include_log = false, sim = 0
     #run simulation loop
     sim_loop(model, rates, t, wk, aggregation_time, include_log, tot_data, patch_inf, patch_sus, summary_stats)
 
-    #TODO 
 
     summary_stats[1, 3] = wk
 

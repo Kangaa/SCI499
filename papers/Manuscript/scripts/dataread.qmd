@@ -1,0 +1,212 @@
+---
+title: "DataRead"
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+# SA2 files
+
+```{r}
+SA2_files <- list.files("../../data/sims/SA2", full.names = TRUE)
+
+SA2_tot_files <- SA2_files[!str_detect(SA2_files, "patchinf|patchsus|summary")]
+
+SA2_sims <- read_csv(SA2_tot_files, col_names = c("t", "S", "I"), skip = 2, id = "sim")
+
+SA2_sims <- SA2_sims |>
+  mutate(
+    beta = as.numeric(str_extract(sim, "(...)_.{3}_.{3}_.{1,3}.csv", group = 1)),
+    gamma = as.numeric(str_extract(sim, "(...)_.{3}_.{1,3}.csv", group = 1)),
+    mu = as.numeric(str_extract(sim, "(...)_.{1,3}.csv", group = 1)),
+    R0 = beta/gamma,
+    SA = 2)
+
+
+SA2_sims |> 
+  filter(R0 == 1.2 | R0 == 1.6 | R0 == 2) |>
+  ggplot() +
+  aes(x = t, y = I, col = factor(mu), group = sim) +
+  geom_line() +
+  facet_grid(R0~mu, scales = "free", labeller = label_both) +
+  xlab("time(days)") + 
+  ylab("n infected individuals") +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "none") +
+  scale_x_continuous(breaks = c(0, 50, 100))
+```
+# SA3
+
+```{r}
+
+SA3_files <- list.files("../../data/sims/SA3", full.names = TRUE)
+
+SA3_tot_files <- SA3_files[!str_detect(SA3_files, "patchinf|patchsus|summary")]
+
+SA3_sims <- read_csv(SA3_tot_files, col_names = c("t", "S", "I"), skip = 2, id = "sim")
+
+SA3_sims <- SA3_sims |>
+  mutate(
+    beta = as.numeric(str_extract(sim, "(...)_.{3}_.{3}_.{1,3}.csv", group = 1)),
+    gamma = as.numeric(str_extract(sim, "(...)_.{3}_.{1,3}.csv", group = 1)),
+    mu = as.numeric(str_extract(sim, "(...)_.{1,3}.csv", group = 1)),
+    R0 = beta/gamma,
+    SA = 3)
+
+
+SA3_sims |>
+  ggplot() +
+  aes(x = t, y = I, col = mu, group = sim) +
+  geom_line() +
+  facet_wrap(~R0, scales = "free")
+```
+
+# SA4
+```{r}
+
+SA4_files <- list.files("../../data/sims/SA4", full.names = TRUE)
+
+SA4_tot_files <- SA4_files[!str_detect(SA4_files, "patchinf|patchsus|summary")]
+
+SA4_sims <- read_csv(SA4_tot_files, col_names = c("t", "S", "I"), skip = 2, id = "sim")
+
+SA4_sims <- SA4_sims |>
+  mutate(
+    beta = as.numeric(str_extract(sim, "(...)_.{3}_.{3}_.{1,3}.csv", group = 1)),
+    gamma = as.numeric(str_extract(sim, "(...)_.{3}_.{1,3}.csv", group = 1)),
+    mu = as.numeric(str_extract(sim, "(...)_.{1,3}.csv", group = 1)),
+    R0 = beta/gamma,
+    SA = 4)
+
+
+SA4_sims |>
+  ggplot() +
+  aes(x = t, y = I, col = mu, group = sim) +
+  geom_line() +
+  facet_wrap(~R0, scales = "free")
+```
+
+# Moss
+
+```{r}
+Moss_files <- list.files("../../data/sims/Moss", full.names = TRUE)
+
+Moss_tot_files <- Moss_files[!str_detect(Moss_files, "patchinf|patchsus|summary")]
+
+Moss_sims <- read_csv(Moss_tot_files, col_names = c("t", "S", "I"), skip = 2, id = "sim")
+
+Moss_sims <- Moss_sims |>
+  mutate(
+    beta = as.numeric(str_extract(sim, "(...)_.{3}_Moss_.{1,3}.csv", group = 1)),
+    gamma = as.numeric(str_extract(sim, "(...)_Moss_.{1,3}.csv", group = 1)),
+    R0 = beta/gamma,
+    SA = 3, 
+    mu = "Moss")
+
+
+Moss_sims |>
+  ggplot() +
+  aes(x = t, y = I, col = mm, group = sim) +
+  geom_line() +
+  facet_wrap(~R0, scales = "free")
+```
+
+# All
+
+```{r}
+rbind(SA2_sims,
+      SA3_sims,
+      SA4_sims
+      ) |> 
+  filter(R0 <= 2) |>
+  ggplot() +
+  aes(x = t, y = I, col = mu, group = sim) +
+  geom_line() +
+  facet_grid(SA ~ R0, scales = "free")
+```
+
+```{r size}
+rbind(SA2_sims,
+      SA3_sims,
+      SA4_sims,
+      Moss_sims
+      ) |> 
+  group_by(sim, SA, R0, mu) |> 
+  summarise(fin = min(S)) |> 
+    ggplot() +
+  aes(x = SA, y = fin, col = mu) +
+  geom_point(size = 0.5) +
+  facet_grid(mu ~ R0, scales = "free")
+```
+
+```{r duration}
+rbind(SA2_sims,
+      SA3_sims
+      ) |> 
+  filter(R0 <= 2, R0 > 1) |> 
+  group_by(sim, SA, R0, mu) |> 
+  summarise(duration = max(t)) |> 
+    ggplot() +
+  aes(x = mu, y = duration, col = factor(SA), alpha = 0.5) +
+  geom_point() +
+  facet_grid(~ R0, scales = "free")
+
+rbind(SA2_sims,
+      SA3_sims
+      ) |> 
+  filter(R0 <= 2, R0 > 1) |> 
+  group_by(sim, SA, R0, mu) |> 
+  summarise(duration = max(t)) |> 
+    ggplot() +
+  aes(x = factor(mu), y = duration, col = factor(SA), alpha = 0.5) +
+  geom_boxplot() +
+  facet_grid(~ R0, scales = "free")
+```
+
+```{r}
+rbind(SA2_sims,
+      SA3_sims,
+      SA4_sims
+      ) |> 
+  filter(R0 == 1) |> 
+  group_by(sim, SA, R0, mu) |> 
+  summarise(fin = min(S)) |> 
+    ggplot() +
+  aes(x = fin, col = SA, group = sim) +
+  geom_histogram(bins = 100) +
+  facet_grid(mu ~ SA)
+```
+
+
+### Patch data animation
+```{r}
+library(sf)
+infs <- read_csv("../../data/sims/SA2/SA2_1.0_1.0_1.0_patchinf_11.csv")
+
+SA2_shapefile <- read_sf("../../data/ASGS_GDA2020/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")
+
+melb_shp_SA2 <- SA2_shapefile |>
+  filter(GCC_CODE21 == "2GMEL")
+
+infs_sc <- log1p(infs/max(infs)) |> 
+  mutate(t = row_number()) |> 
+  pivot_longer(-t, names_to = "SA2_NAME21", values_to = "infections")
+
+anim = melb_shp_SA2 |> 
+  left_join(infs_sc, by = "SA2_NAME21")
+
+ggplot() +
+  geom_sf(data =anim[anim$t==1,],aes(fill =infections)) +
+  scale_fill_viridis_c()
+
+library(gganimate)
+melb_anim <- ggplot() +
+  geom_sf(data =anim,aes(fill =infections)) +
+  scale_fill_viridis_c()+
+  transition_time(t)
+anim_save("../../plots/Melb_1.0_1_2.gif",  melb_anim)
+
+```
+

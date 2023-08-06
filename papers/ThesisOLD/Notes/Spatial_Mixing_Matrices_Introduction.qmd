@@ -1,0 +1,39 @@
+---
+title: Spatial Mixing Matrices
+format: html
+jupyter: python3
+---
+
+```{julia}
+using DrWatson
+@quickactivate
+
+using Symbolics
+using Latexify
+```
+## Definition
+
+From @moss2019WhatCanUrban
+
+"For each data set we constructed a family of mixing matrices M, under the assumption that some proportion of infections $\delta^{H}_i$ arising from a resident of region $\delta_i$ occur in the resident's home region $i$ and that the remaining proportion $\delta^{*}_i = 1- \delta^{H}_i$ of infections occur outside of region $i$"
+
+to produce the matrix
+$$ 
+M = \begin{pmatrix} 
+        \delta^{H}_1 & \delta^{*}_i f_{1,2} & \cdots & \delta^{*}_i f_{1,r} \\
+        \delta^{*}_2 f_{2,1} & \delta^{H}_2 & \cdots & \delta^{*}_i f_{2,r} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \delta^{*}_r f_{r,1} & \delta^{*}_r f_{r,2} & \cdots & \delta^{H}_r
+    \end{pmatrix}
+$$ {#Mixing Matrix}
+
+Which is used to compute the daily force of infection vector ( $\Lambda$ )
+
+$$
+\Lambda = \beta \cdot \textbf{I} \times M
+$$ {#Daily Force of Infection Vector}
+
+## Example Mixing Matrices
+Whereas @moss2019WhatCanUrban uses empirical data to define its mixing matrices, here we will generate them de novo
+
+We will, however, use the melbourne SA3 regions

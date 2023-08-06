@@ -13,7 +13,12 @@ codes = VicPop[:,1]|> x -> string.(x)
 popns = VicPop[:,3] .+ 1  
 names = string.(VicPop[:,1])
 mm_parameter = 0.5
-mixmat = SCI499.MixingMatrices.SpatialMixingMatrix(codes, 0.5)
+
+CodePops = DataFrame(Codes = codes, Pop = popns)
+mixmat = SCI499.MixingMatrices.SpatialMixingMatrix(CodePops, [1/4,1/4,1/4,1/4], 0.5)
+
+using StatsPlots
+heatmap(mixmat)
 
 using HssMatrices
 mixmat_hss = hss(mixmat)
