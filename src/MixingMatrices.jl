@@ -30,12 +30,14 @@ function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
     return MMM
 end
 
-function SAMMij(i, j, ξ, codes, popns)
+function SAMMij(i, j, ξ, Codes, Popns)
     for l in eachindex(ξ)
-        if codes[i, l] == codes[j, l]
-            l == 1 && return ξ[l] 
-            ll_pop = popns[1]|> x -> get(x, codes[j, 1], false) 
-            ul_pop = get(popns[l], codes[i, l], false) - get(popns[l-1], codes[i, l-1], false)
+        if Codes[i, l] == Codes[j, l]
+
+            l == 1 && return ξ[1]
+
+            ll_pop = Popns[1]|> x -> get(x, Codes[j, 1], false) 
+            ul_pop = get(Popns[l], Codes[i, l], false) - get(Popns[l-1], Codes[i, l-1], false)
             return ξ[l] * (ll_pop/ul_pop)
         end
     end

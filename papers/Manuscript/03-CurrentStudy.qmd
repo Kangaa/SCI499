@@ -1,6 +1,33 @@
 # The Current Study {#sec-intro}
 
-## Construction of mixing matrix
+## Spatial Metapopulation Model
+
+### Specification
+
+We employ a basic $SIR$ compartmental model, assuming no births and deaths, with a total of $N$ individuals. $$ S + I  + R = N$$ {#eq-ConstantTotalPopulation}
+
+
+We divide the population into $n$ connected sub-populations,hereafter 'patches', with $N_i$ denoting the population of patch $i$ (note that $N = \sum\limits_{i=1}^{n}N_i$).
+
+Let $S_i$, $I_i$, $R_i$ respectively denote the number of susceptible, infected and recovered individuals in Patch $i$ (noting also that $N_i = S_i + I_i + R_i$). Also, since $R_i = N_i - S_i - I_i$, we will not explicitly show $R_i$ in the equations hereafter (thought this could be calculated at any time)
+
+Individuals coming into contact with an infective, whether within or without patch, become infected at a rate $\beta$. 
+
+While Individuals do not migrate between patches,  individuals from patch $i$ can contact  - and potentially infect - individuals from another patch $j$ with a probability $c_ij$. 
+
+The force of infection in patch $i$ given by
+$$
+\lambda_i = \beta \sum\limits_{j}^{n}c_{ij}\frac{I_j}{N_j}
+$$
+
+
+### Construction of mixing matrix
+
+Instead of constructing the mixing matrix from empirical OD data, we specified the matrix analytically to encode the hierarchical structure of the SA classification.
+
+The main constraint employed was that patches within the same level $L$ SA region would mix together more strongly than those not. Nevertheless, because of a higher level enclosing group (in the case of Melbourne, the state level grouping), we only need to specify a series of coefficients which correspond to the lowest level grouping in which two patches co-occur. Furthermore, to ensure the matrix rows sum to one, mixing is also proportional to the fraction of the population of the grouping region comprised by the patch.
+
+for any two patches $i$ and $j$,
 
 $i, j$ are patches
 
@@ -8,7 +35,20 @@ $S_{i}^{L}$ is the set of patches in level $L$ $N_i$ is the population of $i$ $N
 
 $M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}$ if $j \in S_{i}^{L}$ & $j \in S_{i}^{L-1}$
 
-## Model implementation
+## Implementation 
+
+The model was implemented as continuous time markov chain, with discrete state variables
+$$S_{i}(t), I_{i}(t) \in {0,1,2,...N_{i}}$$
+where $t\in [0, \infty)$
+
+at $t = 0$, a randomly selected patch, $i$, is seeded with $I = 10$ infectives, such that $$S_{i}(0) = N_{i} - 10, I_{i}(0) = 10$$
+and the remaining patches are disease free
+$$S_j(0) = N_j, I_j(0) =0, i\neq j $$
+Changes in state occur after a exponentially distributed time with parameter equal to the sum of all event rates
+$$\Delta t \sim Exp(\lambda)$$
+where 
+
+$\lambda = \sum\limits_{i}^{n}S_i$
 
 ### Final Size
 

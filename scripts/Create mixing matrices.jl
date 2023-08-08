@@ -6,12 +6,13 @@ using CSV
 using DataFrames
 ### SA2
 
-SA2_VicPop = CSV.read("data/GmelbSA2Pop21.csv", DataFrame, types=Dict("SA2 name"=>String))
+SA2_VicPop = CSV.read("data/GmelbSA2Pop21.csv", DataFrame)
 SA2_codes = SA2_VicPop[:, 1]|> x -> string.(x)
 SA2_names = SA2_VicPop[:,2]
 SA2_popns = SA2_VicPop[:, 3] .+ 1  
 
-SA2_mixmat = SCI499.MixingMatrices.SpatialMixingMatrix(SA2_codes, SA2_popns, 0.5, 1)
+SA2_CodePop = DataFrame([:SA2_Code => SA2_codes, :SA2_pop => SA2_popns .+ 1])
+SA2_mixmat = SCI499.MixingMatrices.SpatialMixingMatrix(SA2_CodePop, [1/4, 1/4, 1/4, 1/4], 1.0)
 
 CSV.write("data/SA2_Mixmat_0.5_0.5.csv", DataFrame(SA2_mixmat, SA2_codes))
 
