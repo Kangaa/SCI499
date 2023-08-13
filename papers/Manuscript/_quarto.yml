@@ -43,12 +43,8 @@ execute:
   echo: false
 
 format:
-  html:
-    theme:
-      - cosmo
-      - thesis.scss
-    fontsize: 16px
-    mainfont: "Merriweather, Georgia, serif"
+  pdf:
+    documentclass: monashthesis
 
   monashthesis-pdf:
     keep-tex: false

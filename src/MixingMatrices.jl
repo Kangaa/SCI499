@@ -46,7 +46,7 @@ end
 PPMMij(i, j, popns) = popns[j]/sum(popns)
 
 
-function  expandCodes(codes::Vector)
+function  expandCodes(codes::Vector{String})
     lowerCodes = string.(codes)
 
     Code_DF = DataFrame(getSARegion(lowerCodes[1])  => lowerCodes)

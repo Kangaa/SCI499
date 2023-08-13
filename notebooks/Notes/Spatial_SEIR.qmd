@@ -1,0 +1,140 @@
+---
+title: "Spatial SEIR"
+format: html
+---
+```{julia}
+using DrWatson
+@quickactivate "SCI499"
+```
+
+```{julia}
+using CSV
+using CSVFiles
+using DataFrames
+using Match
+
+include(srcdir("JRB_Spatial_SEIR_model_src.jl"))
+```
+##Mixing matrix
+
+### Choose regions
+
+```{julia}
+using Shapefile
+
+ASGSdir = datadir("ASGS_GDA2020")
+
+(AUS_SHP,
+GCCSA_SHP,
+MB_SHP,
+SA1_SHP,
+SA2_SHP,
+SA3_SHP,
+SA4_SHP, 
+STE_SHP) = Shapefile.Table.(joinpath.(joinpath(ASGSdir),
+                readdir(ASGSdir),
+                string.(replace.(readdir(ASGSdir), r"_SHP" => ""),
+                 ".shp")))
+```
+Create an index of the SA regions in the Greater Melbourne GCC
+```{julia}
+using Tables
+
+GMelb_SA1_SHP,
+GMelb_SA2_SHP,
+GMelb_SA3_SHP,
+SGMelb_A4_SHP = (
+    SA1_SHP,
+    SA2_SHP,
+    SA3_SHP,
+    SA4_SHP) .|>
+     x -> Tables.subset(x, x.GCC_NAME21 .== "Greater Melbourne")
+```
+
+lets start with SA3
+
+List of names
+```{julia}
+function get_SA_names(SHP)              
+    fields = string.(Tables.columnnames(SHP)) 
+    index = findfirst(endswith("NAME21"), fields)
+    sym = Symbol(fields[index])
+    Tables.getcolumn(SHP, sym)
+end
+
+function get_SA_codes(SHP)              
+    fields = string.(Tables.columnnames(SHP)) 
+    index = findfirst(endswith("CODE21"), fields)
+    sym = Symbol(fields[index])
+    Tables.getcolumn(SHP, sym)
+end
+
+
+get_SA_codes(GMelb_SA3_SHP)
+```
+ generate a mixing matrix 
+```{julia}
+SA_names = get_SA_names(GMelb_SA3_SHP)
+mat_dims = length(SA_names)
+
+mm = fill(0.001, mat_dims, mat_dims)
+for i in 1:mat_dims
+    for j in 1:mat_dims
+        if i == j 
+            mm[i,j] = 1/3
+        elseif  j == (i-1)
+            mm[i,j] = 1/5
+        elseif  j == (i+1)
+            mm[i,j] = 1/5
+        end
+    end
+end
+
+popns = fill(1000, mat_dims)
+```
+
+
+```{julia}
+mixmat = MixMat(mm, SA_names, popns, Uniform(0.5), .5)
+```
+## SEIR Model
+We can now create our parameters object
+
+```{julia}
+β = 2.0
+σ = 2.0
+γ = 0.5
+
+params = Params(β, σ, γ, mixmat)
+```
+
+```{julia}
+totlog, inflog  = run_sim(params, 10)
+```
+```{julia}
+using StatsPlots
+@df totlog plot(:t, [:S :E :I])
+```
+```{julia}
+@df inflog plot(:t, [cols(2:41)], legend = false)
+```
+
+```{julia}
+using ColorSchemes
+using StatsPlots
+frac_infs = inflog./10
+savename(params)
+```
+
+```{julia}
+using ColorSchemes
+plot()
+
+anim = @animate for i in 1:1000:nrow(inflog)
+    for j in eachindex(GMelb_SA2_SHP.geometry)
+        plot!(GMelb_SA2_SHP.geometry[j], color = get(ColorSchemes.viridis, frac_infs[i, j]))
+    end
+end
+
+gif(anim)
+```
