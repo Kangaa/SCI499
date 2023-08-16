@@ -1,0 +1,105 @@
+---
+title: Spatial Mixing Matrices
+format: html
+jupyter: python3
+---
+
+```{julia}
+using DrWatson
+@quickactivate
+```
+## Definition
+
+From @moss2019WhatCanUrban
+
+"For each data set we constructed a family of mixing matrices M, under the assumption that some proportion of infections $\delta^{H}_i$ arising from a resident of region $\delta_i$ occur in the resident's home region $i$ and that the remaining proportion $\delta^{*}_i = 1- \delta^{H}_i$ of infections occur outside of region $i$"
+
+to produce the matrix
+$$ 
+M = \begin{pmatrix} 
+        \delta^{H}_1 & \delta^{*}_i f_{1,2} & \cdots & \delta^{*}_i f_{1,r} \\
+        \delta^{*}_2 f_{2,1} & \delta^{H}_2 & \cdots & \delta^{*}_i f_{2,r} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \delta^{*}_r f_{r,1} & \delta^{*}_r f_{r,2} & \cdots & \delta^{H}_r
+    \end{pmatrix}
+$$ {#Mixing Matrix}
+
+Which is used to compute the daily force of infection vector ( $\Lambda$ )
+
+$$
+\Lambda = \beta \cdot \textbf{I} \times M
+$$ {#Daily Force of Infection Vector}
+
+## Example Mixing Matrices
+Whereas @moss2019WhatCanUrban uses empirical data to define its mixing matrices, here we will generate them de novo
+
+We will, however, use the melbourne SA3 regions
+
+```{julia}
+using Shapefile
+using Tables: subset
+
+
+AUS_SA3_SHP = Shapefile.Table(datadir("ASGS_GDA2020/SA3_2021_AUST_SHP_GDA2020/SA3_2021_AUST_GDA2020.shp"))
+GMelb_SA3_SHP = subset(AUS_SA3_SHP, AUS_SA3_SHP.GCC_NAME21 .== "Greater Melbourne")
+```
+
+```{julia}
+SA3_Codes = GMelb_SA3_SHP.SA3_CODE21
+SA4_Codes = GMelb_SA3_SHP.SA4_CODE21
+
+SA4_Color_dict = Dict(zip(unique(SA4_Codes), palette(:tab10, length(unique(SA4_Codes)))))
+SA4_Colors = get.(Ref(SA4_Color_dict), SA4_Codes, "NA")
+
+
+plot(GMelb_SA3_SHP.geometry; color = SA4_Colors')
+```
+
+
+```{julia}
+MM = Matrix(undef, 40, 40)
+for (i, origin) in enumerate(SA3_Codes)
+    originSA4 = origin[1:3]
+    for (j, destination) in enumerate(SA3_Codes)
+        if origin[1:3] == destination[1:3]
+            MM[i,j] = 0.5
+        else
+            MM[i,j] = 0.001
+        end
+    end
+end
+```
+
+```{julia}
+MM = fill(0.001, 40, 40)
+for i in 1:40
+    for j in 1:40
+        if i == j 
+            MM[i,j] = 1/3
+        elseif  j == (i-1)
+            MM[i,j] = 1/5
+        elseif  j == (i+1)
+            MM[i,j] = 1/5
+        end
+    end
+end
+
+```
+
+```{julia}
+include(srcdir("JRB_Spatial_SEIR_src.jl"))
+using .SpatialSEIR
+
+mixmat = SpatialSEIR.MixingMatrix(MM, GMelb_SA3_SHP.SA3_NAME21, fill(1000, 40))
+
+params = SpatialSEIR.Parameters(0.1, 0.1, 0.1, mixmat)
+
+tot_log, inf_log = SpatialSEIR.run_sim(params, 1)
+```
+
+```{julia}
+using StatsPlots
+using DataFrames
+@df tot_log Plots.plot(:t, [:S :E :I])
+@df inf_log plot(:t, [cols(2:41)], legend = false)
+```

@@ -46,9 +46,21 @@ And thus the force of infection vector $$\Lambda = \beta I \Phi$$ {#eq-FOIv}
 
 Where $I$ is the vector of patch infection counts, and $\Phi$ is the mixing matrix.
 
+### Construction of mixing matrix
 
+Instead of constructing the mixing matrix from empirical OD data, we specified the matrix analytically to encode the hierarchical structure of the SA classification.
 
-## Implementation
+The main constraint employed was that patches within the same level $L$ SA region would mix together more strongly than those not. Nevertheless, because of a higher level enclosing group (in the case of Melbourne, the state level grouping), we only need to specify a series of coefficients which correspond to the lowest level grouping in which two patches co-occur. Furthermore, to ensure the matrix rows sum to one, mixing is also proportional to the fraction of the population of the grouping region comprised by the patch.
+
+for any two patches $i$ and $j$,
+
+$i, j$ are patches
+
+$S_{i}^{L}$ is the set of patches in level $L$ $N_i$ is the population of $i$ $N_{i}^{L}$ is the population of $S_{i}^{L}$ $\xi^{L}(\delta)$ is the proportion of mixing that occurs within $S_{i}^{L}$ but not$S_{i}^{L-1}$
+
+The intra level mixing coefficients $\xi_L$ comprise the vector $\xi$. Constraining the elements of $\xi$ s.t. $\sum\limits_{i = 1}^{L} \xi_i = 1$ (where $L$ is the highest level grouping) ensures the rows of the mixing matrix sum to unity. 
+
+### Implementation
 
 The model was implemented as continuous time markov chain, with discrete state variables $$S_{i}(t), I_{i}(t) \in {0,1,2,...N_{i}}$$ where $t\in [0, \infty)$
 
@@ -69,4 +81,4 @@ $\lambda = \sum\limits_{i}^{n}S_i \Lambda_i + \gamma I_i$
 
 at $t + \delta t$, a random event from @tbl-EventRates will occur with probability directly proportional to it's rate.
 
-When the system enters a disease free equilibrium state (i.e. $I = 0$), the implimentation is complete.
+When the system enters a disease free equilibrium state (i.e. $I = 0$), the implementation is complete.

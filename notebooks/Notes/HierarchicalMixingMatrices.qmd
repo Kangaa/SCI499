@@ -1,0 +1,61 @@
+---
+title: "Hierarchical Mixing Matrices"
+format: pdf
+bibliography: "../SCI499.bib"
+---
+
+The standard mixing matrix, defined in [@moss2019WhatCanUrban] as
+
+"For each data set we constructed a family of mixing matrices M, under the assumption that some proportion of infections $\delta^{H}_i$ arising from a resident of region $\delta_i$ occur in the resident's home region $i$ and that the remaining proportion $\delta^{*}_i = 1- \delta^{H}_i$ of infections occur outside of region $i$"
+
+$$ M = \begin{pmatrix}         \delta^{H} & \delta^{A} & \cdots & \delta^{A} \\       \delta^{A} & \delta^{H} & \cdots & \delta^{A} \\         \vdots & \vdots & \ddots & \vdots \\         \delta^{A} & \delta^{A} & \cdots & \delta^{H} \end{pmatrix} $$
+
+We simplify this by assuming that each region shares the proportion of infections that occur in the home region, $\delta_{H}$, and those that occur from outside the region, $\delta^{A} = 1 - \delta^{H}$, to produce the matrix to produce the single level mixing matrix
+
+Similarly, $\delta^A$, the proportion of infections occurring outside an individuals home region can be divided into those infections which occur inside the home region at the next highest scale, $\delta^{H_2}$, and those that occur at outside this higher level home region $\delta^{A_2}$, to create the two level mixing matrix:
+
+$$ M = \begin{pmatrix}  
+        \delta^{H} & \delta^{A}\cdot L_{1,2}^{2} & \cdots & \delta^{A}\cdot L_{1,j}^{2} \\          
+        \delta^{A}\cdot L_{2,1}^{2} & \delta^{H} & \cdots & \delta^{A}\cdot L_{2,j}^{2} \\         \vdots & \vdots & \ddots & \vdots \\         \delta^{A}\cdot L_{j,1}^{2} & \delta^{A}\cdot L_{j,2}^{2} & \cdots & \delta^{H} \end{pmatrix} $$
+
+where
+
+$$ L_{i,j}^{k} = \begin{cases} 
+ \frac{\delta^{H}}{N_{j,k}} & \mbox{if } j \in R^{k}_{i} \\ 
+\frac{\delta^{A}}{N_{j,k}} & \mbox{if } j \notin R^{k}_{i} \mbox{ \& } k = n \\
+\delta^{A}L_{i,j}^{k+1} & otherwise  \\
+\end{cases} $$
+
+Where $R_{i}^{k}$, is the set of first level regions in the same $k$ level region as $i$, and $N_{j,k}$ is the number of (first level) regions in the same level $k$ region as $j$, and $n$ is the total number of levels. 
+
+The sum of each row is given by
+
+$$
+\sum_{j=1}^{N} M_{i,j} = \delta^{H} + \delta^{A}\delta^{H} + \cdots + \delta^{H^{n-1}}\delta^{A} + \delta^{H^{n}}
+$$
+Which factorises to 
+
+
+$$
+\sum_{j=1}^{N} M_{i,j} = \delta^{H} + \delta^{A}( \delta^{H} + \delta^{A}\delta^{H} +\cdots + \delta^{A^{n-2}}\delta^{H} + \delta^{A^{n-1}})
+$$
+iteratively until 
+$$
+\sum_{j=1}^{N} M_{i,j} = \delta^{H} + \delta^{A}( \delta^{H} + \delta^{A}(\delta^{H} + \delta^{A}(\cdots ( \delta^{H} + \delta^{A})))
+$$
+
+since $\delta^{H}+ \delta^{A} =1$, then 
+$$
+\sum_{j=1}^{N} M_{i,j} = \delta^{H} + \delta^{A} = 1
+$$
+
+ As a real world example, we can look at a a small group of suburbs in the greater melbourne region.
+
+
+```julia
+using DrWatson @quickactivate using Shapefile using Tables using Plots include(srcdir("SpatialSEIR_module.jl")) using .SpatialSEIRutils.MixingMatrices AUS_SA2_SHP = Shapefile.Table(datadir("ASGS_GDA2020/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")) GMelb_SA2_SHP = Tables.subset(AUS_SA2_SHP, AUS_SA2_SHP.GCC_NAME21 .== "Greater Melbourne") SA_Codes = MixingMatrices.getCodes(GMelb_SA2_SHP) SA2_names = GMelb_SA2_SHP.SA2_NAME21 Demo = Tables.subset(GMelb_SA2_SHP, findall( x -> ( x == "Flemington" || x == "Ascot Vale" || x == "West Melbourne - Industrial" || x == "Flemington Racecourse" || x == "Kensington (Vic.)" || x == "Footscray"|| x == "Maribyrnong"), SA2_names)) SA3_cols = Dict(zip(Demo.SA3_NAME21|>unique, palette(:tab10, Demo.SA3_CODE21|>unique) )) plot(Demo.geometry, color = collect(Demo.SA3_NAME21.|> x -> get(SA3_cols, x, "null"))')
+```
+
+Kensington, Racecourse, and West industrial are SA2 regions within the 'Melbourne City' SA3 region, Footscray and Maribyrnong are SA2 regions within the 'Maribyrnong' SA3 region, and Flemington and Ascot Vale are SA2 regions withing the 'Essendon' SA3 region. Furthermore, both 'Melbnourne city' and Essendon are within the 'Inner Melbourne' SA4 region while Marybyrnong lies iside the 'West Melbourne' SA4 Region $$ V = \{Kensington, Racecourse, Industrial, Flemington, Ascot, Footscray, Maribyrnong \} $$
+
+$$ M = \begin{pmatrix} \delta_{H} & \delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} \\ \delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{H} & \delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} \\ \delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\frac{\delta_{H}}{2} &\delta_{H} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} \\ \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{3} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{3} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{3} & \delta_{H} & \delta_{A}\cdot\delta_{H} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} \\ \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{3} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{3} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{H}}{3} & \delta_{A}\cdot\delta_{H} & \delta_{H} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} \\ \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{H} & \delta_{A}\cdot\delta_{H} \\ \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{A}\cdot\frac{\delta_{A}}{2} & \delta_{A}\cdot\delta_{H} & \delta_{H} \\ \end{pmatrix} $$
