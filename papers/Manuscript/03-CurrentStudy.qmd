@@ -40,7 +40,13 @@ $N_{i}^{L}$ is the population of $S_{i}^{L}$
 
 $\xi^{L}$ is the proportion of mixing that occurs within $S_{i}^{L}$ but not$S_{i}^{L-1}$
 
-The intra level mixing coefficients $\xi_L$ comprise the vector $\xi$. Constraining the elements of $\xi$ s.t. $\sum\limits_{i = 1}^{L} \xi_i = 1$ (where $L$ is the highest level grouping) ensures the rows of the mixing matrix sum to unity. 
+The intra level mixing coefficients $\xi_L$ comprise the vector $\xi$. Constraining the elements of $\xi$ s.t. $\sum\limits_{L = 1}^{L} \xi_i = 1$ (where $L$ is the highest level grouping) ensures the rows of the mixing matrix sum to unity.\
+
+-More verbosity
+
+-Be more explicit about SA Levels
+
+-Mention Mixing with PPMM
 
 ### Implementation
 

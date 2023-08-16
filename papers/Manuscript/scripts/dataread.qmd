@@ -37,6 +37,7 @@ SA2_sims |>
   theme(legend.position = "none") +
   scale_x_continuous(breaks = c(0, 50, 100))
 ```
+
 # SA3
 
 ```{r}
@@ -64,6 +65,7 @@ SA3_sims |>
 ```
 
 # SA4
+
 ```{r}
 
 SA4_files <- list.files("../../../data/sims/SA4", full.names = TRUE)
@@ -99,11 +101,14 @@ Moss_sims <- read_csv(Moss_tot_files, col_names = c("t", "S", "I"), skip = 2, id
 
 Moss_sims <- Moss_sims |>
   mutate(
-    beta = as.numeric(str_extract(sim, "(...)_.{3}_Moss_.{1,3}.csv", group = 1)),
-    gamma = as.numeric(str_extract(sim, "(...)_Moss_.{1,3}.csv", group = 1)),
+    beta = as.numeric(str_extract(sim, "(...)_.{3}_.{1,2}_.{1,3}.csv", group = 1)),
+    gamma = as.numeric(str_extract(sim, "(...)_.{1,2}_.{1,3}.csv", group = 1)),
     R0 = beta/gamma,
     SA = 3, 
-    mu = "Moss")
+    mu = "Moss",
+    mossparam = as.numeric(str_extract(sim, "_(.{1,2})_.{1,3}.csv", group = 1)) ) |> 
+  filter(mossparam == 5) |> 
+  select(-mossparam)
 ```
 
 # All
@@ -111,7 +116,8 @@ Moss_sims <- Moss_sims |>
 ```{r}
 rbind(SA2_sims,
       SA3_sims,
-      SA4_sims
+      SA4_sims,
+      Moss_sims
       ) |> 
   filter(R0 <= 2) |>
   ggplot() +
@@ -136,7 +142,8 @@ rbind(SA2_sims,
 
 ```{r duration}
 rbind(SA2_sims,
-      SA3_sims
+      SA3_sims, 
+      SA4_sims
       ) |> 
   filter(R0 <= 2, R0 > 1) |> 
   group_by(sim, SA, R0, mu) |> 
@@ -147,7 +154,8 @@ rbind(SA2_sims,
   facet_grid(~ R0, scales = "free")
 
 rbind(SA2_sims,
-      SA3_sims
+      SA3_sims,
+      SA4_sims
       ) |> 
   filter(R0 <= 2, R0 > 1) |> 
   group_by(sim, SA, R0, mu) |> 
@@ -162,17 +170,17 @@ rbind(SA2_sims,
 rbind(SA2_sims,
       SA3_sims,
       SA4_sims
-      ) |> 
-  filter(R0 == 1) |> 
+      )  |> 
   group_by(sim, SA, R0, mu) |> 
   summarise(fin = min(S)) |> 
     ggplot() +
-  aes(x = fin, col = SA, group = sim) +
-  geom_histogram(bins = 100) +
-  facet_grid(mu ~ SA)
+  aes(x = R0, fill = factor(SA)) +
+  geom_histogram(position = position_dodge()) +
+  facet_grid( ~ mu )
 ```
 
 ### Patch data animation
+
 ```{r}
 library(sf)
 infs <- read_csv("../../data/sims/SA2/SA2_1.0_1.0_1.0_patchinf_11.csv")
@@ -201,4 +209,3 @@ melb_anim <- ggplot() +
 anim_save("../../plots/Melb_1.0_1_2.gif",  melb_anim)
 
 ```
-
