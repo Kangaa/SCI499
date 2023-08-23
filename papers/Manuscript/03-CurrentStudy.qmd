@@ -1,15 +1,21 @@
 # Hierarchically structured spatial metapopulation models {#sec-intro}
 
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(sf)
+```
+
 In the previous chapter, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the 'SA3' regions of the Australian Statistical Geography Standard's Statistical Areas (SA) classification (comprising 40 patches for the Greater Melbourne area).
 
-An important feature of the SA classification structure is that there is more than one scale of classification and that lower levels of SA are hierarchically nested within higher levels (it is a hierarchichally organised classification scheme). For example, the Maribyrnong SA3 region sits inside the 'West Melbourne' SA4 region alongside Essendon (SA3) @fig-MelbSAexample. Both West Melbourne and the neighbouring 'Inner Melbourne' (SA4) are part of the Greater Melbourne area.
-
-Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and 'Mesh Block' level regions @fig-ASGS.
+An important feature of the SA classification structure is that there is more than one scale of classification and that lower levels of SA are hierarchically nested within higher levels (it is a hierarchichally organised classification scheme). The SA2 - SA4 level regions Greater Melbourne area are shown in @fig-GMelbSA2SA3SA4
 
 ```{r}
-#| label: fig-MelbSAexaple
-library(sf)
-library(tidyverse)
+#| echo: false
+#| warning: false
+#| column: margin
+
 Shapes <- list(SA1 = tibble(),
                SA2 = tibble(),
                SA3 = tibble(),
@@ -25,11 +31,29 @@ GMelb_Shapes <- Shapes |>
 ```
 
 ```{r}
+#| echo: false
+#| warning: false
+#| column: margin
+#| label: fig-GMelbSA2SA3SA4
+ggplot() +
+  geom_sf(data = GMelb_Shapes$SA4, aes(fill = SA4_CODE21), alpha = 0.5, linewidth = 0.5) +
+  geom_sf(data = GMelb_Shapes$SA3, fill = NA, linewidth = 0.3) +
+  geom_sf(data = GMelb_Shapes$SA2, lty = "dashed", fill = NA, linewidth = 0.1)
+```
+
+For example, the Maribyrnong SA3 region sits inside the 'West Melbourne' SA4 region alongside Essendon (SA3) @fig-FootscraySAexample. Both West Melbourne and the neighbouring 'Inner Melbourne' (SA4) are part of the Greater Melbourne area. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and 'Mesh Block' level regions @fig-ASGS.
+
+```{r}
+#| echo: false
+#| warning: false
+#| column: margin
+#| label: fig-FootscraySAexample
+
 GMelb_SA4_plot <- ggplot() + geom_sf(data = GMelb_Shapes$SA4, aes(fill = SA4_CODE21))
 
 GMelb_SA4_colors <- ggplot_build(GMelb_SA4_plot) |> 
   pluck("data",1, "fill")
-  
+
 
 ggplot() +
   geom_sf(data = GMelb_Shapes$SA4, aes(fill = SA4_CODE21), alpha = 0.5, linewidth = NA) +
@@ -49,11 +73,51 @@ Helpfully, Statistical Areas are also indexed by a structured code representing 
 
 We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches).
 
-The resulting mixing matrices will be of different sizes (i.e. 40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients
+The resulting mixing matrices will be of different sizes (i.e. 40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.
 
 $$
-
+\phi_{ij} = N_j/N_{tot}
 $$
+
+Which gives mixing matrices shown in @fig-GMelbPopMM
+
+```{r}
+Gmelb_Popns <- map(
+  map(
+    c("2", "3", "4"),
+    \(x) str_replace("../../data/GmelbSA_X_Pop21.csv", "_X_", x)),
+  read_csv) |> 
+  `names<-`(c("SA2", "SA3", "SA4"))
+
+MMpops <- map(c("SA2", "SA3", "SA4"),
+              \(x){
+                size <- nrow(Gmelb_Popns[[x]])
+                
+                MMpop <- matrix(NA,
+                                size,
+                                size,
+                                dimnames = list(
+                                  Gmelb_Popns[[x]][[paste0(x, "_Code")]],
+                                  Gmelb_Popns[[x]][[paste0(x, "_Code")]]))
+                
+                Ntot = sum(Gmelb_Popns[[x]][[3]])
+                
+                for (i in seq_along(MMpop[1,])){
+                  for (j in seq_along(MMpop[,1])){
+                    MMpop[i,j] <- Gmelb_Popns[[x]][[3]][j]/Ntot
+                  }
+                } 
+                MMpop
+              })
+
+
+map(MMpops, \(x){ x |> 
+  as_tibble(rownames = "i") |> 
+  pivot_longer(-i, names_to = "j", values_to = "mix") |> 
+  ggplot()+
+  geom_tile(aes(x = j, y = i,fill= mix)) +
+  scale_fill_continuous(type = "viridis")})
+```
 
 To implement this, we posit two main constraints on mixing between patches:
 

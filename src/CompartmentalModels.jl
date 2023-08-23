@@ -10,12 +10,12 @@ struct CompartmentalModel
     num_patches::Int64
     patch_names::Vector{String}
     population_per_patch::Vector{Int64}
-    mixing_matrix::Matrix{Float64}
+    mixing_matrix::AbstractArray{Float64}
     foi::Vector{Float64}
     s_frac::Vector{Float64}
 end
 
-function SIR(patch_names::Vector{String}, population_per_patch::Vector{Int64}, mixing_matrix::Matrix{Float64}, β::Float64, γ::Float64)
+function SIR(patch_names::Vector{String}, population_per_patch::Vector{Int64}, mixing_matrix::Transpose{Float64, Matrix{Float64}}, β::Float64, γ::Float64)
     num_patches = length(patch_names)
     state = (
         S = Vector{Int64}(population_per_patch),
@@ -72,13 +72,12 @@ function update_rates!(model::CompartmentalModel, rates::EventRates)
     ## fraction of susceptible in each patch
     model.s_frac .=  (model.state.S ./ model.population_per_patch)
     ##force of infection
-    @inline    mul!(model.foi, model.mixing_matrix', model.state.I)
-    rmul!(model.foi, model.transition_parameters.β[1])
+    mul!(model.foi::Vector{Float64}, model.mixing_matrix::Transpose{Float64, Matrix{Float64}}, model.state.I::Vector{Int64}, model.transition_parameters.β[1]::Float64, 0)
 
-    rates.rates[1:model.num_patches] .= (model.s_frac .* model.foi)
+    @inbounds rates.rates[1:model.num_patches] .= (model.s_frac .* model.foi)
     ## Recovery rate
-    rates.rates[(model.num_patches+1):(2*model.num_patches)] .= (model.state.I .* model.transition_parameters.γ[1])
-    rates.net = sum(rates.rates)
+    @inbounds rates.rates[(model.num_patches+1):(2*model.num_patches)] .= (model.state.I .* model.transition_parameters.γ[1])
+    @inbounds rates.net = sum(rates.rates)
 
     return rates
 end
@@ -135,7 +134,7 @@ function simulate(params, i0, aggregation_time = 7, include_log = false, sim = 0
     model = SIR(
         params.patch_names,
         params.population_per_patch,
-        params.mixing_matrix, 
+        transpose(params.mixing_matrix), 
         params.β,
         params.γ)
 
