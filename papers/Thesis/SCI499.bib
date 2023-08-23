@@ -10,6 +10,18 @@
   file = {C\:\\Users\\Reubender\\Zotero\\storage\\YWY43BJ4\\(2017) A Historical Introduction to Mathematical Modeling of Infectious Diseases.pdf}
 }
 
+@inreference{2023PairwiseSummation,
+  title = {Pairwise Summation},
+  booktitle = {Wikipedia},
+  date = {2023-08-21T11:56:31Z},
+  url = {https://en.wikipedia.org/w/index.php?title=Pairwise_summation&oldid=1171489398},
+  urldate = {2023-08-22},
+  abstract = {In numerical analysis, pairwise summation, also called cascade summation, is a technique to sum a sequence of finite-precision floating-point numbers that substantially reduces the accumulated round-off error compared to naively accumulating the sum in sequence.  Although there are other techniques such as Kahan summation that typically have even smaller round-off errors, pairwise summation is nearly as good (differing only by a logarithmic factor) while having much lower computational cost—it can be implemented so as to have nearly the same cost (and exactly the same number of arithmetic operations) as naive summation. In particular, pairwise summation of a sequence of n numbers xn works by recursively breaking the sequence into two halves, summing each half, and adding the two sums: a divide and conquer algorithm.  Its worst-case roundoff errors grow asymptotically as at most O(ε log n), where ε is the machine precision (assuming a fixed condition number, as discussed below).  In comparison, the naive technique of accumulating the sum in sequence (adding each xi one at a time for i = 1, ..., n) has roundoff errors that grow at worst as O(εn).  Kahan summation has a worst-case error of roughly O(ε), independent of n, but requires several times more arithmetic operations.   If the roundoff errors are random, and in particular have random signs, then they form a random walk and the error growth is reduced to an average of                         O         (         ε                                 log             ⁡             n                             )                 \{\textbackslash displaystyle O(\textbackslash varepsilon \{\textbackslash sqrt \{\textbackslash log n\}\})\}    for pairwise summation.A very similar recursive structure of summation is found in many fast Fourier transform (FFT) algorithms, and is responsible for the same slow roundoff accumulation of those FFTs.},
+  langid = {english},
+  annotation = {Page Version ID: 1171489398},
+  file = {C\:\\Users\\Reubender\\Zotero\\storage\\VNBD797H\\Pairwise_summation.html}
+}
+
 @article{ajelli2010ComparingLargescaleComputational,
   title = {Comparing Large-Scale Computational Approaches to Epidemic Modeling: {{Agent-based}} versus Structured Metapopulation Models},
   shorttitle = {Comparing Large-Scale Computational Approaches to Epidemic Modeling},

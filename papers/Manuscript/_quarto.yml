@@ -43,8 +43,8 @@ execute:
   echo: false
 
 format:
-  pdf:
-    documentclass: monashthesis
+  html:
+    toc: true
 
   monashthesis-pdf:
     keep-tex: false
