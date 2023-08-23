@@ -4,16 +4,13 @@ In the previous chapter, we observed the construction of a meta-population mixin
 
 ## hierarchical structure in the ASGS SA classification
 
-An important feature of the SA classification structure is that there is more than one scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 scale regions are contained within a single SA4 scale regions, and multiple SA4 regions are contained within the Greater Melbourne area. (figure)
-Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMSA, 361 of them), which in turn are divided further into (for GMSA 20xx) SA1 scale regions. @figurex shows the SA2, SA3, and SA4, regions in the greater melbourne area.
+An important feature of the SA classification structure is that there is more than one scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 scale regions are contained within a single SA4 scale regions, and multiple SA4 regions are contained within the Greater Melbourne area. (figure) Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMSA, 361 of them), which in turn are divided further into (for GMSA 20xx) SA1 scale regions. @figurex shows the SA2, SA3, and SA4, regions in the greater melbourne area.
 
 ### Construction of hierarchical mixing matrix
 
-We can exploit this hierarchical data structure by creating meta population models based off the same spatial structure, but with varying levels of spatial resolution (i.e.  using SA2 instead of SA3 scale patches). This is the intention of the current chapter. 
+We can exploit this hierarchical data structure by creating meta population models based off the same spatial structure, but with varying levels of spatial resolution (i.e. using SA2 instead of SA3 scale patches). This is the intention of the current chapter.
 
-Instead of constructing the mixing matrix from empirical OD data (of whic SA2 scale records are unavailable), we specify the matrix analytically to encode the hierarchical structure of the SA classification system.  To impliment this, we posit two main constraints:
-  1. for a given level, $L$, of spatial structure,(e.g. SA2, SA3, SA4 etc.), two patches within the same region will have a higher probability of mixing than will patches in different regions. 
-  2. This mixing will be proportional to the population size 
+Instead of constructing the mixing matrix from empirical OD data (of whic SA2 scale records are unavailable), we specify the matrix analytically to encode the hierarchical structure of the SA classification system. To impliment this, we posit two main constraints: 1. for a given level, $L$, of spatial structure,(e.g. SA2, SA3, SA4 etc.), two patches within the same region will have a higher probability of mixing than will patches in different regions. 2. This mixing will be proportional to the population size
 
 The main constraint employed was that patches within the same level $L$ SA region would mix together more strongly than those not. Nevertheless, because of a higher level enclosing group (in the case of Melbourne, the state level grouping), we only need to specify a series of coefficients which correspond to the lowest level grouping in which two patches co-occur. Furthermore, to ensure the matrix rows sum to one, mixing is also proportional to the fraction of the population of the grouping region comprised by the patch.
 
@@ -24,7 +21,8 @@ $i, j$ are patches
 $S_{i}^{L}$ is the set of patches in level $L$ $N_i$ is the population of $i$ $N_{i}^{L}$ is the population of $S_{i}^{L}$ $\xi^{L}(\delta)$ is the proportion of mixing that occurs within $S_{i}^{L}$ but not$S_{i}^{L-1}$
 
 $M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}$ if $j \in S_{i}^{L}$ & $j \in S_{i}^{L-1}$
-## Spatial Metapopulation Model
+
+\## Hierarchical Spatial Metapopulation Model
 
 ### Specification
 
