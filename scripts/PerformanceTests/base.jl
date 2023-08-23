@@ -30,14 +30,8 @@ function Distrosim(mm_parameter, beta, gamma, SA_scale, nsims)
             γ = gamma::Float64,
         )
     #run sims
-    map(function batch_sim(sim) 
-    tot_data, patch_sus, patch_inf = SCI499.simulate(sim_params, 10, 1,false, sim)
+SCI499.simulate(sim_params, 10, 1,false, 1)
 
-    CSV.write("data/sims/test/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
-    CSV.write("data/sims/test/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_patchinf_$sim.csv" , patch_inf)
-    CSV.write("data/sims/test/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_patchsus_$sim.csv" , patch_sus)
-end,
-1:nsims)
 end
 
 
@@ -45,4 +39,4 @@ using BenchmarkTools
 using Profile
 using Cthulhu
 
-Distrosim(0.5, 1.5, 1.0, "SA2", 50)
+@profview Distrosim(0.5, 1.4, 1.0, "SA2", 1)
