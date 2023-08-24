@@ -8,7 +8,7 @@
 
 <meta name="description" content="A thesis submitted for the degree of Graduate Diploma in Applied Statistics at The University of New England in 2023. School of Science and Technology.">
 
-<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - Abstract</title>
+<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 2&nbsp; Spatial Metapopulation Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./declaration.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./03-CurrentStudy.html" rel="next">
+<link href="./01-IntroBackground.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./abstract.html">Abstract</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-Metapopulation Models.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./abstract.html" class="sidebar-item-text sidebar-link active">
+  <a href="./abstract.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
   </div>
 </li>
@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-Metapopulation Models.html" class="sidebar-item-text sidebar-link">
+  <a href="./02-Metapopulation Models.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></a>
   </div>
 </li>
@@ -186,14 +186,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title"><b>Sections</b></h2>
+   
+  <ul>
+  <li><a href="#specification" id="toc-specification" class="nav-link active" data-scroll-target="#specification">Specification</a></li>
+  <li><a href="#construction-of-mixing-matrix" id="toc-construction-of-mixing-matrix" class="nav-link" data-scroll-target="#construction-of-mixing-matrix">Construction of mixing matrix</a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
+  <li><a href="#sec-MossGmelb" id="toc-sec-MossGmelb" class="nav-link" data-scroll-target="#sec-MossGmelb"><span class="header-section-number">2.1</span> Example: Greater Melbourne Area Spatial Metapopulation model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Abstract</h1>
+<h1 class="title"><span id="sec-MPMspec" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></h1>
 </div>
 
 
@@ -208,9 +217,71 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Epidemiological modelling is essential to understand and predict the spread of infectious diseases and plan effective interventions. Disease spread is an inherently spatial process, particularly in diseases that spread through contact with body fluids, and spatially structured epidemiological models provide an opportunity to incorporate a wealth of geographical information into the modelling process. Here, we present a compartmental meta-population model encoding the hierarchical spatial structure of the Australian Statistical Geography Standard (ASGS). Relationships between spatial groupings are represented in a mixing matrix, which influences the spread of infection between patches (i.e.&nbsp;Patches in the same spatial grouping are more likely to spread disease to each other compared to patches outside this grouping). As an example, we model the Greater Melbourne Statistical Area (SA) with patches representing SA2, SA4, and SA4 level groupings, and stochastically simulate the course of an epidemic as a Continuous Time Markov Chain (CTMC). We compare the results of simulations with varying influence of the spatial relationships between patches (through the construction of the mixing matrix), different levels of spatial resolution (which level of the spatial hierarchy is represented by compartmental patches), and different infectious disease parameters (e.g.&nbsp;<span class="math inline">R_0</span>), as well as with the results of a spatial compartmental model incorporating an alternative source of geographic information (i.e.&nbsp;empirically derived mobility data). We conclude by speculating on the potential use of such geographically informed epidemiological models in the management of infectious diseases.</p>
+<section id="specification" class="level3">
+<h3 class="anchored" data-anchor-id="specification">Specification</h3>
+<p>We employ a basic <span class="math inline">SIR</span> compartmental model, assuming no births and deaths, with a total of <span class="math inline">N</span> individuals. <span id="eq-ConstantTotalPopulation"><span class="math display"> S + I  + R = N \tag{2.1}</span></span></p>
+<p>We divide the population into <span class="math inline">n</span> connected sub-populations,hereafter ‘patches’, with <span class="math inline">N_i</span> denoting the population of patch <span class="math inline">i</span> (note that <span class="math inline">N = \sum\limits_{i=1}^{n}N_i</span>).</p>
+<p>Let <span class="math inline">S_i</span>, <span class="math inline">I_i</span>, <span class="math inline">R_i</span> respectively denote the number of susceptible, infected and recovered individuals in Patch <span class="math inline">i</span> (noting also that <span class="math inline">N_i = S_i + I_i + R_i</span>). Also, since <span class="math inline">R_i = N_i - S_i - I_i</span>, we will not explicitly show <span class="math inline">R_i</span> in the equations hereafter (thought this could be calculated at any time)</p>
+<p>Individuals coming into contact with an infective, whether within or without patch, become infected at a rate <span class="math inline">\beta</span>.</p>
+<p>While individuals do not migrate between patches, infectives from patch <span class="math inline">i</span> infect - individuals from <span class="math inline">j</span> with a proportion <span class="math inline">\phi_{ij}</span>.</p>
+<p>The force of infection in patch <span class="math inline">i</span> given by <span class="math display">
+\Lambda_i = \beta \sum\limits_{j}^{n}\phi_{ij}I_j
+</span></p>
+<p>And thus the force of infection vector <span id="eq-FOIv"><span class="math display">\Lambda = \beta I \Phi \tag{2.2}</span></span></p>
+<p>Where <span class="math inline">I</span> is the vector of patch infection counts, and <span class="math inline">\Phi</span> is the mixing matrix.</p>
+</section>
+<section id="construction-of-mixing-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="construction-of-mixing-matrix">Construction of mixing matrix</h3>
+<p>Instead of constructing the mixing matrix from empirical OD data, we specified the matrix analytically to encode the hierarchical structure of the SA classification.</p>
+<p>The main constraint employed was that patches within the same level <span class="math inline">L</span> SA region would mix together more strongly than those not. Nevertheless, because of a higher level enclosing group (in the case of Melbourne, the state level grouping), we only need to specify a series of coefficients which correspond to the lowest level grouping in which two patches co-occur. Furthermore, to ensure the matrix rows sum to one, mixing is also proportional to the fraction of the population of the grouping region comprised by the patch.</p>
+<p>for any two patches <span class="math inline">i</span> and <span class="math inline">j</span>,</p>
+<p><span class="math inline">i, j</span> are patches</p>
+<p><span class="math inline">S_{i}^{L}</span> is the set of patches in level <span class="math inline">L</span> <span class="math inline">N_i</span> is the population of <span class="math inline">i</span> <span class="math inline">N_{i}^{L}</span> is the population of <span class="math inline">S_{i}^{L}</span> <span class="math inline">\xi^{L}(\delta)</span> is the proportion of mixing that occurs within <span class="math inline">S_{i}^{L}</span> but not<span class="math inline">S_{i}^{L-1}</span></p>
+<p>The intra level mixing coefficients <span class="math inline">\xi_L</span> comprise the vector <span class="math inline">\xi</span>. Constraining the elements of <span class="math inline">\xi</span> s.t. <span class="math inline">\sum\limits_{L = 1}^{L} \xi_i = 1</span> (where <span class="math inline">L</span> is the highest level grouping) ensures the rows of the mixing matrix sum to unity.<br>
+</p>
+<p>-More verbosity</p>
+<p>-Be more explicit about SA Levels</p>
+<p>-Mention Mixing with PPMM</p>
+</section>
+<section id="implementation" class="level3">
+<h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
+<p>The model was implemented as continuous time markov chain, with discrete state variables <span class="math display">S_{i}(t), I_{i}(t) \in {0,1,2,...N_{i}}</span> where <span class="math inline">t\in [0, \infty)</span></p>
+<p>at <span class="math inline">t = 0</span>, a randomly selected patch, <span class="math inline">i</span>, is seeded with <span class="math inline">I = 10</span> invectives, such that <span class="math display">S_{i}(0) = N_{i} - 10, I_{i}(0) = 10</span> and the remaining patches are disease free <span class="math display">S_j(0) = N_j, I_j(0) =0, i\neq j </span></p>
+<p>at <span class="math inline">t&gt;0</span> possible changes in state (‘events’) are infection at a patch <span class="math inline">i</span> (if <span class="math inline">S_i \geq 1</span> &amp; <span class="math inline">I \geq 1</span>), or recovery at patch <span class="math inline">i</span> (if <span class="math inline">I_i \geq 1</span>). Rates for these events are given in <a href="#tbl-EventRates">Table&nbsp;<span>2.1</span></a></p>
+<div id="tbl-EventRates" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.1: Event Rates</caption>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>State change</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Infection in patch <span class="math inline">i</span></td>
+<td><span class="math inline">\{S_i -1, I_i +1\}</span></td>
+<td><span class="math inline">S_i \Lambda_i</span></td>
+</tr>
+<tr class="even">
+<td>Recovery in patch <span class="math inline">i</span></td>
+<td><span class="math inline">\{I_i - 1\}</span></td>
+<td><span class="math inline">\gamma I_i</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Due to the Markov property, events occur after a exponentially distributed time with parameter equal to the sum of all event rates <span class="math display">\Delta t \sim Exp(\lambda)</span> where</p>
+<p><span class="math inline">\lambda = \sum\limits_{i}^{n}S_i \Lambda_i + \gamma I_i</span></p>
+<p>at <span class="math inline">t + \delta t</span>, a random event from <a href="#tbl-EventRates">Table&nbsp;<span>2.1</span></a> will occur with probability directly proportional to it’s rate.</p>
+<p>When the system enters a disease free equilibrium state (i.e.&nbsp;<span class="math inline">I = 0</span>), the implementation is complete.</p>
+</section>
+<section id="sec-MossGmelb" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-MossGmelb"><span class="header-section-number">2.1</span> Example: Greater Melbourne Area Spatial Metapopulation model</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -448,13 +519,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Copyright notice</span>
+      <a href="./01-IntroBackground.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./declaration.html" class="pagination-link">
-        <span class="nav-page-text">Declaration</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-CurrentStudy.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchically structured spatial metapopulation models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
