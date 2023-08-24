@@ -11,7 +11,7 @@ book:
     - declaration.qmd
     - acknowledgements.qmd
     - 01-IntroBackground.qmd
-    - 02-chap2.qmd
+    - 02-Metapopulation Models.qmd
     - 03-CurrentStudy.qmd
   appendices:
     - A-appA.qmd
@@ -39,7 +39,7 @@ affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
 
 execute:
-  freeze: auto
+  freeze: true
   echo: false
 
 format:

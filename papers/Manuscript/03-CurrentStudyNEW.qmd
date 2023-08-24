@@ -105,6 +105,84 @@ ggplot() +
 
 Helpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. @fig-FootscraySA1Code demonstrates this for an SA1 region in the area considered above.
 
-![Decomposition of theFootscray SA1 region code from @fig-FootscraySAexample into its hierachical spatial information components](FootscraySA1eg.png){#fig-FootscraySA1Code}
+![Decomposition of theFootscray SA1 region code from @fig-FootscraySAexample into its hierachical spatial information](FootscraySA1eg.png){#fig-FootscraySA1Code}
 
 
+
+
+## Varying the spatial resolution of metapopulation models
+
+We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches).
+
+The resulting mixing matrices will be of different sizes (i.e. 40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches $i$ and $j$ the mixing coefficient $\phi_{i,j}$:
+
+$$
+\phi_{ij} = N_j/N_{i}
+$$
+
+Which gives mixing matrices shown in @fig-GMelbPopMM
+
+```{r}
+Gmelb_Popns <- map(
+  map(
+    c("2", "3", "4"),
+    \(x) str_replace("../../data/GmelbSA_X_Pop21.csv", "_X_", x)),
+  read_csv) |> 
+  `names<-`(c("SA2", "SA3", "SA4"))
+
+MMpops <- map(c("SA2", "SA3", "SA4"),
+              \(x){
+                size <- nrow(Gmelb_Popns[[x]])
+                
+                MMpop <- matrix(NA,
+                                size,
+                                size,
+                                dimnames = list(
+                                  Gmelb_Popns[[x]][[paste0(x, "_Code")]],
+                                  Gmelb_Popns[[x]][[paste0(x, "_Code")]]))
+                
+                Ntot = sum(Gmelb_Popns[[x]][[3]])
+                
+                for (i in seq_along(MMpop[1,])){
+                  for (j in seq_along(MMpop[,1])){
+                    MMpop[i,j] <- Gmelb_Popns[[x]][[3]][j]/Gmelb_Popns[[x]][[3]][i]
+                  }
+                } 
+                MMpop
+              })
+
+
+
+map(MMpops, \(x){ x |> 
+  as_tibble(rownames = "i") |> 
+  pivot_longer(-i, names_to = "j", values_to = "mix") |> 
+  ggplot()+
+  geom_tile(aes(x = j, y = i,fill= mix)) +
+  scale_fill_continuous(type = "viridis")})
+```
+
+We can implement a metapopulation model using these mixing matrices as described in chapter @sec-MPMspec, to briefly summarise:
+
+### Results: equivalent models at different spatial resolution
+
+-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
+
+# 
+
+To implement this, we posit two main constraints on mixing between patches:
+
+1\. For a given level of spatial structure,(e.g. SA2, SA3, SA4 etc.), individuals from patches within the same region will have a higher probability of mixing than will than will those from patches in different regions.
+
+2\. This mixing will be proportional to the population size
+
+The main constraint employed was that patches within the same level $L$ SA region would mix together more strongly than those not. Nevertheless, because of a higher level enclosing group (in the case of Melbourne, the state level grouping), we only need to specify a series of coefficients which correspond to the lowest level grouping in which two patches co-occur. Furthermore, to ensure the matrix rows sum to one, mixing is also proportional to the fraction of the population of the grouping region comprised by the patch.
+
+for any two patches $i$ and $j$,
+
+$i, j$ are patches
+
+$S_{i}^{L}$ is the set of patches in level $L$ $N_i$ is the population of $i$ $N_{i}^{L}$ is the population of $S_{i}^{L}$ $\xi^{L}(\delta)$ is the proportion of mixing that occurs within $S_{i}^{L}$ but not$S_{i}^{L-1}$
+
+$M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}$ if $j \in S_{i}^{L}$ & $j \in S_{i}^{L-1}$
+
+\## Hierarchical Spatial Metapopulation Model $M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}$ if $j \in S_{i}^{L}$ & $j \in S_{i}^{L-1}$
