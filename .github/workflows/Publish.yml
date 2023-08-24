@@ -19,7 +19,7 @@ jobs:
         - name: Render
           uses: quarto-dev/quarto-actions/render@v2
           with:
-            to: pdf
+            to: html
             path: papers/Manuscript
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
