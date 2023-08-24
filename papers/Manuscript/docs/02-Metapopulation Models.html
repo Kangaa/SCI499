@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
 <p>The model was implemented as continuous time markov chain, with discrete state variables <span class="math display">S_{i}(t), I_{i}(t) \in {0,1,2,...N_{i}}</span> where <span class="math inline">t\in [0, \infty)</span></p>
 <p>at <span class="math inline">t = 0</span>, a randomly selected patch, <span class="math inline">i</span>, is seeded with <span class="math inline">I = 10</span> invectives, such that <span class="math display">S_{i}(0) = N_{i} - 10, I_{i}(0) = 10</span> and the remaining patches are disease free <span class="math display">S_j(0) = N_j, I_j(0) =0, i\neq j </span></p>
-<p>at <span class="math inline">t&gt;0</span> possible changes in state (‘events’) are infection at a patch <span class="math inline">i</span> (if <span class="math inline">S_i \geq 1</span> &amp; <span class="math inline">I \geq 1</span>), or recovery at patch <span class="math inline">i</span> (if <span class="math inline">I_i \geq 1</span>). Rates for these events are given in <a href="#tbl-EventRates">Table&nbsp;<span class="quarto-unresolved-ref">tbl-EventRates</span></a></p>
+<p>at <span class="math inline">t&gt;0</span> possible changes in state (‘events’) are infection at a patch <span class="math inline">i</span> (if <span class="math inline">S_i \geq 1</span> &amp; <span class="math inline">I \geq 1</span>), or recovery at patch <span class="math inline">i</span> (if <span class="math inline">I_i \geq 1</span>). Rates for these events are given in <a href="#tbl-EventRates">Table&nbsp;<span>2.1</span></a></p>
 <div id="tbl-EventRates" class="anchored">
 <table class="table">
 <caption>Table&nbsp;2.1: Event Rates</caption>
@@ -274,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Due to the Markov property, events occur after a exponentially distributed time with parameter equal to the sum of all event rates <span class="math display">\Delta t \sim Exp(\lambda)</span> where</p>
 <p><span class="math inline">\lambda = \sum\limits_{i}^{n}S_i \Lambda_i + \gamma I_i</span></p>
-<p>at <span class="math inline">t + \delta t</span>, a random event from <a href="#tbl-EventRates">Table&nbsp;<span class="quarto-unresolved-ref">tbl-EventRates</span></a> will occur with probability directly proportional to it’s rate.</p>
+<p>at <span class="math inline">t + \delta t</span>, a random event from <a href="#tbl-EventRates">Table&nbsp;<span>2.1</span></a> will occur with probability directly proportional to it’s rate.</p>
 <p>When the system enters a disease free equilibrium state (i.e.&nbsp;<span class="math inline">I = 0</span>), the implementation is complete.</p>
 </section>
 <section id="sec-MossGmelb" class="level2" data-number="2.1">

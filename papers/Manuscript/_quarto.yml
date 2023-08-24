@@ -1,7 +1,7 @@
 project:
   type: book
   output-dir: docs
-
+  
 book:
   title: "Hierarchical Spatial Structure in Compartmental Epidemiological models"
   author: "James Bender"
@@ -46,6 +46,3 @@ execute:
 format:
   html:
     toc: true
-
-  monashthesis-pdf:
-    keep-tex: false
