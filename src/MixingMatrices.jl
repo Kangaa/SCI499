@@ -6,7 +6,39 @@ struct MixingMatrix
     popns::Array{Int, 1}
 end
 
-function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
+function HMixingMatrix(codes::Vector{String}, ξ::Vector{Float64})
+    Codes = expandCodes(codes)
+    npatch = size(Codes, 1)
+    HMM = fill(0.0, npatch, npatch)
+
+    levels = names(Codes)
+    nlevels = length(levels)
+    norm_vec = fill(0, nlevels)
+    level_vec = fill("", npatch)
+
+    for i in 1:npatch
+        norm_vec .= 0
+        for j in 1:npatch
+            for l in 1:nlevels
+                if Codes[i, l] == Codes[j, l]
+                    @views norm_vec[l:nlevels] .+= 1
+                    level_vec[j] = levels[l]
+                    break
+                end
+            end
+      end
+        for l in 1:nlevels
+            for j in 1:npatch
+               if level_vec[j] ∈ levels[1:l]
+                   HMM[i, j] += (ξ[l]/norm_vec[l])
+                end
+            end
+        end
+    end
+    HMM
+end
+
+function HierarchicalPopulationMixingMatrix(llCodepop::DataFrame, ξ::Vector{Float64}, μ::Float64)
     Codes = expandCodes(llCodepop[:,1])
     
     Popns = Vector{Dict{String, Int}}()
@@ -30,6 +62,10 @@ function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
     return MMM
 end
 
+function PPMMij(i, j, popns)
+    popns[j]/sum(popns)
+end
+
 function SAMMij(i, j, ξ, Codes, Popns)
     for l in eachindex(ξ)
         if Codes[i, l] == Codes[j, l]
@@ -42,8 +78,6 @@ function SAMMij(i, j, ξ, Codes, Popns)
         end
     end
 end
-
-PPMMij(i, j, popns) = popns[j]/sum(popns)
 
 
 function  expandCodes(codes::Vector{String})

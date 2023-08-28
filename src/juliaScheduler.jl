@@ -1,6 +1,7 @@
 #Parse Args
-SA_scale = ARGS[1]
-nsims = parse(Int64, ARGS[2])
+MM_type = ARGS[1]
+SA_scale = ARGS[2]
+nsims = parse(Int64, ARGS[3])
 
 # Define the range of parameters to use
 mms = 1:19
@@ -15,7 +16,7 @@ for param in params
     beta = param[2]
     gamma = param[3]
     # Define the Slurm batch job parameters
-    jobname = "SIR_$(SA_scale)_$(mm)_$(beta)_$(gamma)"
+    jobname = "SIR_$(MM_type)_$(SA_scale)_$(mm)_$(beta)_$(gamma)"
     nodes = 1
     tasks_per_node = 1
     cpus_per_task = 40
@@ -24,7 +25,7 @@ for param in params
     output = "/home/jbender/Documents/SCI499/slurmout/%j.out"
 
     # Define the command to run
-    command = "julia --project=/home/jbender/Documents/SCI499 DistributedSims_moss.jl $mm $beta $gamma $SA_scale $nsims"
+    command = "julia --project=/home/jbender/Documents/SCI499 DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $nsims"
 
     # Generate the Slurm batch job script
     script = "#!/bin/bash

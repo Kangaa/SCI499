@@ -129,7 +129,7 @@ function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::
     end
 end
 
-function simulate(params, i0, aggregation_time = 7, include_log = false, sim = 0)
+function simulate(params, i0::Int64, aggregation_time::Int64, include_log::Bool, sim::Int64)
     #setup 
     model = SIR(
         params.patch_names,

@@ -11,29 +11,46 @@ using CSV
 using DataFrames
 
 ## parse arguments
-
-@everywhere begin 
-    mm_parameter = parse(Float64, ARGS[1])
-    beta = parse(Float64, ARGS[2])
-    gamma = parse(Float64, ARGS[3])
-    SA_scale =  ARGS[4]
-    nsims = parse(Int64, ARGS[5])
+if ARGS[1] == "HMM"
+    @everywhere const CI_params = (
+        MM_type = "HMM",
+        mm_parameter = "",
+        beta = parse(Float64, ARGS[2]),
+        gamma = parse(Float64, ARGS[3]),
+        SA_scale =  ARGS[4],
+        nsims = parse(Int64, ARGS[5]))::Tuple{String, Float64, Float64, Float64, String, Int64}
 end
 
-VicPop = CSV.read("data/Gmelb$(SA_scale)Pop21.csv", DataFrame)
-names = convert(Vector{String}, VicPop[:,2]) 
-codes = VicPop[:, 1]|> x -> string.(x)
-popns  = VicPop[:, 3] .+ 1
+if ARGS[1] == "HPMM"
+    @everywhere const CI_params = ( 
+        MM_type = "HPMM",
+        mm_parameter = parse(Float64, ARGS[2]),
+        beta = parse(Float64, ARGS[3]),
+        gamma = parse(Float64, ARGS[4]),
+        SA_scale =  ARGS[5],
+        nsims = parse(Int64, ARGS[6]))::Tuple{String, Float64, Float64, Float64, String, Int64}
+end
 
-CodePops = DataFrame(
-    Codes = codes,
-    Pop = popns)
+const VicPop = CSV.read("data/Gmelb$(CI_params.SA_scale)Pop21.csv", DataFrame)
+const patchnames = convert(Vector{String}, VicPop[:,2]) 
+const codes = VicPop[:, 1]|> x -> string.(x)
+const popns  = VicPop[:, 3] .+ 1
 
 SA_scale == "SA2" ?  ξ = [1/4,1/4,1/4,1/4] : 
 SA_scale == "SA3" ?  ξ = [1/2,1/4,1/4] :
 SA_scale == "SA4" ?  ξ = [3/4,1/4] : error("SA_Scale must be SA2, SA3 or SA4")
 
-mixmat = SCI499.MixingMatrices.SpatialMixingMatrix(CodePops, ξ, mm_parameter)
+if ARGS[1] == "HHMM"
+    const    mixmat = SCI499.MixingMatrices.HierarchicalPopulationMixingMatrix(
+        DataFrame(
+            Codes = codes,
+            Pop = popns),
+        ξ, mm_parameter)::Matrix{Float64}
+elseif ARGS[1] == "HPMM"
+    const    mixmat = SCI499.MixingMatrices.HMixingMatrix(CodePops, ξ)::Matrix{Float64}
+end
+
+
 
 
 addprocs(40,   exeflags="--project")
@@ -45,40 +62,40 @@ addprocs(40,   exeflags="--project")
     using DataFrames
 end
 
-@everywhere begin
-    popns = $popns
-    codes = $codes 
-    names = $names   
-    mm_parameter = $mm_parameter
-    mixmat = $mixmat
-    beta = $beta
-    gamma = $gamma
-    SA_scale = $SA_scale
-end
+@everywhere const metaparams = (
+    mixmat_type = $(CI_params.MM_type),
+    popns = $popns,
+    codes = $codes,
+    patchnames = $patchnames,   
+    mm_parameter = $(CI_params.mm_parameter),
+    mixmat = $mixmat,
+    beta = $(CI_params.beta),
+    gamma = $(CI_params.gamma),
+    SA_scale = $(CI_params.SA_scale))::Tuple{Vector{Int64}, Vector{String}, Vector{String}, Float64, Matrix{Float64}, Float64, Float64, String}
+
 
 @everywhere begin
+
 const  sim_params = (
-        patch_names = names,
-        population_per_patch = popns,
-        mixing_matrix = mixmat,
-        β = beta,
-        γ = gamma
+        patch_names = metaparams.patchnames,
+        population_per_patch = metaparams.popns,
+        mixing_matrix = metaparams.mixmat,
+        β = metaparams.metabeta,
+        γ = metaparams.gamma
     )
-nsims = $nsims
-
 end
 
 @everywhere begin
     #run sims
     pmap(function batch_sim(sim) 
-        tot_data, summary_stats, patch_sus, patch_inf = CompartmentalModels.simulate(sim_params, 10, 1,false, sim)
+        tot_data, summary_stats, patch_sus, patch_inf = CompartmentalModels.simulate(sim_params, 10, 1, false, sim)
 
-        CSV.write("data/sims/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
-        CSV.write("data/sims/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_patchinf_$sim.csv" , patch_inf)
-        CSV.write("data/sims/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_patchsus_$sim.csv" , patch_sus)
-        CSV.write("data/sims/$(SA_scale)/$(SA_scale)_$(beta)_$(gamma)_$(mm_parameter)_summary_$sim.csv" , summary_stats)
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)$(metaparams.mm_parameter)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)$(metaparams.mm_parameter)_patchinf_$sim.csv" , patch_inf)
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)$(metaparams.mm_parameter)_patchsus_$sim.csv" , patch_sus)
+
     end,
-    1:nsims)
+    1:ci_params.nsims)
 end
 
 rmprocs(workers())
