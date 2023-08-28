@@ -82,6 +82,22 @@ div.csl-indent {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 </head>
 
@@ -195,6 +211,10 @@ div.csl-indent {
    
   <ul>
   <li><a href="#hierarchical-structure-of-the-sa-classification" id="toc-hierarchical-structure-of-the-sa-classification" class="nav-link active" data-scroll-target="#hierarchical-structure-of-the-sa-classification"><span class="header-section-number">3.1</span> Hierarchical Structure of the SA classification</a></li>
+  <li><a href="#varying-the-spatial-resolution-of-metapopulation-models" id="toc-varying-the-spatial-resolution-of-metapopulation-models" class="nav-link" data-scroll-target="#varying-the-spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Varying the spatial resolution of metapopulation models</a>
+  <ul class="collapse">
+  <li><a href="#multiple-homogenous-mixing-models" id="toc-multiple-homogenous-mixing-models" class="nav-link" data-scroll-target="#multiple-homogenous-mixing-models">Multiple homogenous mixing models</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -265,6 +285,142 @@ div.csl-indent {
 <figcaption class="figure-caption">Figure&nbsp;3.3: Decomposition of theFootscray SA1 region code from <a href="#fig-FootscraySAexample">Figure&nbsp;<span>3.2</span></a> into its hierachical spatial information components</figcaption>
 </figure>
 </div>
+</section>
+<section id="varying-the-spatial-resolution-of-metapopulation-models" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="varying-the-spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Varying the spatial resolution of metapopulation models</h2>
+<p>We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e.&nbsp;the ASGS Statistical Areas structure), but with varying levels of resolution (e.g.&nbsp;by using SA2 scale patches instead of SA3 scale patches).</p>
+<section id="multiple-homogenous-mixing-models" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-homogenous-mixing-models">Multiple homogenous mixing models</h3>
+<pre><code>- prove that homogenous mixing between patches reduces to single patch model</code></pre>
+<section id="population-size-based-heterogenous-mixing" class="level4">
+<h4 class="anchored" data-anchor-id="population-size-based-heterogenous-mixing">Population size based heterogenous mixing</h4>
+<p>The resulting mixing matrices will be of different sizes (i.e.&nbsp;40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches <span class="math inline">i</span> and <span class="math inline">j</span> the mixing coefficient <span class="math inline">\phi_{i,j}</span>:</p>
+<p><span class="math display">
+\phi_{ij} = N_j/N_{i}
+</span></p>
+<p>Which gives mixing matrices shown in <span class="quarto-unresolved-ref">?fig-GMelbPopMM</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 361 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): SA2_Name
+dbl (2): SA2_Code, Pop
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 40 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): SA3_Name
+dbl (2): SA3_Code, SA3_pop
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 9 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): SA4_Name
+dbl (2): SA4_Code, SA4_pop
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="604"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+[[2]]</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="604"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+[[3]]</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="604"></p>
+</div>
+</div>
+<p>We can implement a metapopulation model using these mixing matrices as described in chapter <a href="02-Metapopulation Models.html"><span>Chapter&nbsp;2</span></a>, to briefly summarise:</p>
+<section id="results-equivalent-models-at-different-spatial-resolution" class="level5">
+<h5 class="anchored" data-anchor-id="results-equivalent-models-at-different-spatial-resolution">Results: equivalent models at different spatial resolution</h5>
+<p>-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence</p>
+<p>To implement this, we posit two main constraints on mixing between patches:</p>
+<p>1. For a given level of spatial structure,(e.g.&nbsp;SA2, SA3, SA4 etc.), individuals from patches within the same region will have a higher probability of mixing than will than will those from patches in different regions.</p>
+<p>2. This mixing will be proportional to the population size</p>
+</section>
+</section>
+<section id="hierarchical-structure" class="level4">
+<h4 class="anchored" data-anchor-id="hierarchical-structure">Hierarchical structure</h4>
+<p>We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients <span class="math inline">\xi = [\xi_1, ..., \xi_i]</span> which determine the proportion of mixing occurs at each level of the spatial hierarchy. Note that <span class="math display">
+\sum\limits_{i}\xi=1
+</span> This coefficient is distributed amongst patches occurring in the same level <span class="math inline">L</span> region, so mixing for any two patches, <span class="math inline">i</span> and <span class="math inline">j</span> <span class="math display">
+M_{ij}= \frac{\xi_{L}}{N^{L}}
+</span> if <span class="math display">
+j \in S_{i}^{L}
+</span> but <span class="math display">j \notin S_{i}^{L-1}</span> Where <span class="math inline">S_{i}^{L}</span> is the set of patches in the same level <span class="math inline">L</span> region as <span class="math inline">i</span>.</p>
+<p>To extend the example from <span class="quarto-unresolved-ref">?sec-XX</span>, we can consider a subset of SA2 regions from the GMGCCSA (<span class="citation" data-cites="tab-MMeg">(<a href="refs.html#ref-tab-MMeg" role="doc-biblioref"><strong>tab-MMeg?</strong></a>)</span>)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Example_region" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-Example_region-1.png" class="img-fluid figure-img" width="604"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.4: <strong>?(caption)</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Kensington, Racecourse, and West industrial are SA2 regions within the ‘Melbourne City’ SA3 region, Footscray and Maribyrnong are SA2 regions within the ‘Maribyrnong’ SA3 region, and Flemington and Ascot Vale are SA2 regions withing the ‘Essendon’ SA3 region. Furthermore, both ‘Melbnourne city’ and Essendon are within the ‘Inner Melbourne’ SA4 region while Marybyrnong lies iside the ‘West Melbourne’ SA4 Region</p>
+<p>To model these SA2 patches in isolation, we can construct a <span class="math inline">7 \times 7</span> mixing matrix, row by row, for <span class="math inline">\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]</span>as follows:</p>
+<p>let <span class="math inline">i =</span> <code>Kensington</code>. Since <code>Kensington</code> is it’s own SA2 region, <span class="math display">M_{i,i} = \frac{1}{4}</span>When <span class="math inline">j</span> is a region in <code>Melbourne City</code> SA3 (alongside <code>Kensington</code>), like <code>West Industrial</code> or <code>Racecourse</code>, <span class="math inline">M_{i,j}</span> will be a proportion of <span class="math inline">\xi_{SA3}</span>. For <span class="math inline">j = Racecourse</span> and <span class="math inline">j = West Industrial</span> <span class="math display">
+M_{i,j} = \frac{\xi_{SA3}}{N_{i}^{SA3} - N_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
+</span> When patch <span class="math inline">j</span> occurs outside the Melbourne City SA3, but within the <code>Inner Melbourne</code> SA4, like those in <code>Essendon</code>SA3 <span class="math display">
+M_{i,j} = \frac{\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \frac{\frac{1}{4}}{5 - 3} = \frac{1}{8}
+</span> Finally when <span class="math inline">j</span> is a patch outside the <code>Inner Melbourne</code> SA4, like those in <code>West Melbourne</code>SA4 <span class="math display">
+M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3} = \frac{1}{16}
+</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Kensington, <span class="math display">
+\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} +\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = 1
+</span></p>
+<p>repeating this for all other patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-egMM">Figure&nbsp;<span>3.5</span></a></p>
+<div class="cell" data-caption="Hierarchical Mixing matrix for the example region shown in @fig-Example_region">
+<div class="cell-output-display">
+<div id="fig-egMM" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-egMM-1.png" class="img-fluid figure-img" width="604"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.5: <strong>?(caption)</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <span class="citation" data-cites="GCC_HMM">(<a href="refs.html#ref-GCC_HMM" role="doc-biblioref"><strong>GCC_HMM?</strong></a>)</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$SA2</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="604"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+$SA3</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="604"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+$SA4</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="604"></p>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -272,6 +428,8 @@ div.csl-indent {
 Australian statistical geography standard (ASGS), (2023).
 </div>
 </div>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
