@@ -19,12 +19,18 @@ if ARGS[1] == "HMM"
         gamma = parse(Float64, ARGS[3]),
         SA_scale =  ARGS[4],
         nsims = parse(Int64, ARGS[5]))
-end
-
-if ARGS[1] == "HPMM"
+elseif ARGS[1] == "HPMM"
     @everywhere const CI_params = ( 
         MM_type = "HPMM",
         mm_parameter = parse(Float64, ARGS[2]),
+        beta = parse(Float64, ARGS[3]),
+        gamma = parse(Float64, ARGS[4]),
+        SA_scale =  ARGS[5],
+        nsims = parse(Int64, ARGS[6]))
+elseif ARGS[1] == "OD"
+    @everywhere const CI_params = ( 
+        MM_type = "OD",
+        deltaH = parse(Float64, ARGS[2]),
         beta = parse(Float64, ARGS[3]),
         gamma = parse(Float64, ARGS[4]),
         SA_scale =  ARGS[5],
@@ -41,7 +47,7 @@ CI_params.SA_scale == "SA3" ?  ξ = [1/2,1/4,1/4] :
 CI_params.SA_scale == "SA4" ?  ξ = [3/4,1/4] : error("SA_Scale must be SA2, SA3 or SA4")
 
 if ARGS[1] == "HPMM"
-    const    mixmat = SCI499.MixingMatrices.HierarchicalPopulationMixingMatrix(
+    const    mixmat = SCI499.MixingMatrices.HPMixingMatrix(
         DataFrame(
             Codes = codes,
             Pop = popns),
@@ -49,7 +55,11 @@ if ARGS[1] == "HPMM"
         "generated HMM mixmat" 
 elseif ARGS[1] == "HMM"
     const    mixmat = SCI499.MixingMatrices.HMixingMatrix(codes, ξ)::Matrix{Float64}
-    "Generated HMM Mixmat"
+    "Generated HPMM Mixmat"
+
+elseif ARGS[1] == "OD"
+    const    mixmat = SCI499.MixingMatrices.ODMixingMatrix(CI_params.SA_scale, CI_params.deltaH)::Matrix{Float64}
+    "Generated OD Mixmat"
 end
 
 
