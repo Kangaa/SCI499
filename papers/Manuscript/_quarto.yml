@@ -1,7 +1,7 @@
 project:
   type: book
   output-dir: docs
-  
+
 book:
   title: "Hierarchical Spatial Structure in Compartmental Epidemiological models"
   author: "James Bender"
@@ -14,6 +14,7 @@ book:
     - 01-IntroBackground.qmd
     - 02-Metapopulation Models.qmd
     - 03-CurrentStudy.qmd
+    - 04-Interventions.qmd
   appendices:
     - A-appA.qmd
   references: refs.qmd
@@ -42,6 +43,8 @@ degrees: 'B.Sc. (Hons), University of Queensland'
 execute:
   freeze: true
   echo: false
+  warning: false
+  message: false
 
 format:
   html:

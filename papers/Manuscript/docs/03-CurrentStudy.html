@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./refs.html" rel="next">
+<link href="./04-Interventions.html" rel="next">
 <link href="./02-Metapopulation Models.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -178,6 +178,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04-Interventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4. Modelling intervention</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./refs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliography</span></a>
   </div>
@@ -295,64 +301,50 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="population-size-based-heterogenous-mixing">Population size based heterogenous mixing</h4>
 <p>The resulting mixing matrices will be of different sizes (i.e.&nbsp;40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches <span class="math inline">i</span> and <span class="math inline">j</span> the mixing coefficient <span class="math inline">\phi_{i,j}</span>:</p>
 <p><span class="math display">
-\phi_{ij} = N_j/N_{i}
+\phi_{ij} = N_j/N_{tot}
 </span></p>
 <p>Which gives mixing matrices shown in <span class="quarto-unresolved-ref">?fig-GMelbPopMM</span></p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 361 Columns: 3
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): SA2_Name
-dbl (2): SA2_Code, Pop
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-Rows: 40 Columns: 3
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): SA3_Name
-dbl (2): SA3_Code, SA3_pop
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-Rows: 9 Columns: 3
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): SA4_Name
-dbl (2): SA4_Code, SA4_pop
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="604"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 [[2]]</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="604"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 [[3]]</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="604"></p>
+<div id="fig-GMelbPopMM-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPopMM-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-GMelbPopMM-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPopMM-2.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-GMelbPopMM-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPopMM-3.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can implement a metapopulation model using these mixing matrices as described in chapter <a href="02-Metapopulation Models.html"><span>Chapter&nbsp;2</span></a>, to briefly summarise:</p>
 <section id="results-equivalent-models-at-different-spatial-resolution" class="level5">
 <h5 class="anchored" data-anchor-id="results-equivalent-models-at-different-spatial-resolution">Results: equivalent models at different spatial resolution</h5>
 <p>-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence</p>
-<p>To implement this, we posit two main constraints on mixing between patches:</p>
-<p>1. For a given level of spatial structure,(e.g.&nbsp;SA2, SA3, SA4 etc.), individuals from patches within the same region will have a higher probability of mixing than will than will those from patches in different regions.</p>
-<p>2. This mixing will be proportional to the population size</p>
 </section>
 </section>
 <section id="hierarchical-structure" class="level4">
@@ -370,7 +362,7 @@ j \in S_{i}^{L}
 <div id="fig-Example_region" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-CurrentStudy_files/figure-html/fig-Example_region-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: <strong>?(caption)</strong></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.7: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -383,41 +375,53 @@ M_{i,j} = \frac{\xi_{SA3}}{N_{i}^{SA3} - N_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1
 M_{i,j} = \frac{\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \frac{\frac{1}{4}}{5 - 3} = \frac{1}{8}
 </span> Finally when <span class="math inline">j</span> is a patch outside the <code>Inner Melbourne</code> SA4, like those in <code>West Melbourne</code>SA4 <span class="math display">
 M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3} = \frac{1}{16}
-</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Kensington, <span class="math display">
-\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} +\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = 1
-</span></p>
-<p>repeating this for all other patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-egMM">Figure&nbsp;<span>3.5</span></a></p>
+</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Kensington, $ sum<em>{j}M</em>{j}= + + + + + + = 1$ as desired. Repeating this for all patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-egMM">Figure&nbsp;<span>3.8</span></a></p>
 <div class="cell" data-caption="Hierarchical Mixing matrix for the example region shown in @fig-Example_region">
 <div class="cell-output-display">
 <div id="fig-egMM" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-CurrentStudy_files/figure-html/fig-egMM-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: <strong>?(caption)</strong></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.8: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <span class="citation" data-cites="GCC_HMM">(<a href="refs.html#ref-GCC_HMM" role="doc-biblioref"><strong>GCC_HMM?</strong></a>)</span></p>
+<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <span class="quarto-unresolved-ref">?fig-GCC_HMM</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>$SA2</code></pre>
 </div>
-<div class="cell-output-display">
-<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="604"></p>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 $SA3</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="604"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 $SA4</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="03-CurrentStudy_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="604"></p>
+<div id="fig-GCC_HMM-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.9: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-GCC_HMM-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM-2.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.10: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-GCC_HMM-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM-3.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.11: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -672,8 +676,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./refs.html" class="pagination-link">
-        <span class="nav-page-text">Bibliography</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-Interventions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4. Modelling intervention</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
