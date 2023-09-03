@@ -62,9 +62,6 @@ elseif ARGS[1] == "OD"
     "Generated OD Mixmat"
 end
 
-
-
-
 addprocs(40,   exeflags="--project")
 
 @everywhere begin
