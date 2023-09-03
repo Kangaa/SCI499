@@ -1,4 +1,6 @@
 #Functions for constructing mixing matrices
+using CSV
+using DataFrames
 
 struct MixingMatrix
     mm::Array{Real, 2}
