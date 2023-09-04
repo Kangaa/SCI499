@@ -168,8 +168,6 @@ map(MMpops, \(x){ x |>
 
 We can implement a metapopulation model using these mixing matrices as described in chapter @sec-MPMspec, to briefly summarise:
 
-
-
 ##### Results: equivalent models at different spatial resolution
 
 -total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
@@ -214,7 +212,7 @@ $$ When patch $j$ occurs outside the Melbourne City SA3, but within the `Inner M
 M_{i,j} = \frac{\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \frac{\frac{1}{4}}{5 - 3} = \frac{1}{8}
 $$ Finally when $j$ is a patch outside the `Inner Melbourne` SA4, like those in `West Melbourne`SA4 $$
 M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3} = \frac{1}{16}
-$$ thus for the row $M_{i}$, representing the mixing of individuals from Kensington, $ sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} +\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = 1$ as desired. Repeating this for all patches $i$, gives the mixing matrix represented in @fig-egMM
+$$ thus for the row $M_{i}$, representing the mixing of individuals from Kensington, \$ sum\limits*{j}M\*{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} +\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = 1\$ as desired. Repeating this for all patches $i$, gives the mixing matrix represented in @fig-egMM
 
 ```{r}
 GMelb_MM_eg <- GMelb_Shapes$SA2 %>% 

@@ -1,7 +1,8 @@
 #Parse Args
 MM_type = ARGS[1]
 SA_scale = ARGS[2]
-nsims = parse(Int64, ARGS[3])
+Intervention_type = ARGS[3]
+nsims = parse(Int64, ARGS[4])
 
 # Define the range of parameters to use
 
@@ -22,7 +23,7 @@ if MM_type == "HMM"
         output = "/home/jbender/Documents/SCI499_new/slurmout/%j.out"
     
         # Define the command to run
-        command = "julia --project=/home/jbender/Documents/SCI499_new src/DistributedSims.jl $MM_type $beta $gamma $SA_scale $nsims"
+        command = "julia --project=/home/jbender/Documents/SCI499_new src/DistributedSims.jl $MM_type $beta $gamma $SA_scale $Intervention_type  $nsims"
     
         # Generate the Slurm batch job script
         script = "#!/bin/bash
@@ -57,7 +58,7 @@ elseif MM_type == "HPMM"
         beta = param[2]
         gamma = param[3]
         # Define the Slurm batch job parameters
-        jobname = "SIR_$(MM_type)_$(SA_scale)_$(mm)_$(beta)_$(gamma)"
+        jobname = "SIR_$(MM_type)_$(SA_scale)_$(mm)_$(Intervention_type)_$(beta)_$(gamma)"
         nodes = 1
         tasks_per_node = 1
         cpus_per_task = 40
@@ -66,7 +67,7 @@ elseif MM_type == "HPMM"
         output = "/home/jbender/Documents/SCI499_new/slurmout/%j.out"
     
         # Define the command to run
-        command = "julia --project=/home/jbender/Documents/SCI499_new DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $nsims"
+        command = "julia --project=/home/jbender/Documents/SCI499_new DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $Intervention_type $nsims"
     
         # Generate the Slurm batch job script
         script = "#!/bin/bash
@@ -111,7 +112,7 @@ elseif MM_type == "OD"
         output = "/home/jbender/Documents/SCI499_new/slurmout/%j.out"
     
         # Define the command to run
-        command = "julia --project=/home/jbender/Documents/SCI499_new DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $nsims"
+        command = "julia --project=/home/jbender/Documents/SCI499_new DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $Intervention_type $nsims"
     
         # Generate the Slurm batch job script
         script = "#!/bin/bash

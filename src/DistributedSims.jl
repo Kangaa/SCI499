@@ -18,7 +18,8 @@ if ARGS[1] == "HMM"
         beta = parse(Float64, ARGS[2]),
         gamma = parse(Float64, ARGS[3]),
         SA_scale =  ARGS[4],
-        nsims = parse(Int64, ARGS[5]))
+        Intervention_type = ARGS[5],
+        nsims = parse(Int64, ARGS[6]))
 elseif ARGS[1] == "HPMM"
     @everywhere const CI_params = ( 
         MM_type = "HPMM",
@@ -26,7 +27,8 @@ elseif ARGS[1] == "HPMM"
         beta = parse(Float64, ARGS[3]),
         gamma = parse(Float64, ARGS[4]),
         SA_scale =  ARGS[5],
-        nsims = parse(Int64, ARGS[6]))
+        Intervention_type = ARGS[6],
+        nsims = parse(Int64, ARGS[7]))
 elseif ARGS[1] == "OD"
     @everywhere const CI_params = ( 
         MM_type = "OD",
@@ -34,7 +36,8 @@ elseif ARGS[1] == "OD"
         beta = parse(Float64, ARGS[3]),
         gamma = parse(Float64, ARGS[4]),
         SA_scale =  ARGS[5],
-        nsims = parse(Int64, ARGS[6]))
+        Intervention_type = ARGS[6],
+        nsims = parse(Int64, ARGS[7]))
 end
 
 const VicPop = CSV.read("data/Gmelb$(CI_params.SA_scale)Pop21.csv", DataFrame)
@@ -80,7 +83,8 @@ end
     mixmat = $mixmat,
     beta = $(CI_params.beta),
     gamma = $(CI_params.gamma),
-    SA_scale = $(CI_params.SA_scale))
+    SA_scale = $(CI_params.SA_scale),
+    Intervention_type = $(CI_params.Intervention_type))
 
 
 @everywhere begin
@@ -97,11 +101,11 @@ end
 @everywhere begin
     #run sims
     pmap(function batch_sim(sim) 
-        tot_data, patch_sus, patch_inf = CompartmentalModels.simulate(sim_params, 10, 1, false, sim)
+        tot_data, patch_sus, patch_inf = CompartmentalModels.simulate(sim_params, 10, 1, metaparams.Intevention_type, false, sim)
 
-        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)$(metaparams.mm_parameter)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
-        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)$(metaparams.mm_parameter)_patchinf_$sim.csv" , patch_inf)
-        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)$(metaparams.mm_parameter)_patchsus_$sim.csv" , patch_sus)
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intevention_type)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intevention_type)_patchinf_$sim.csv" , patch_inf)
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intevention_type)_patchsus_$sim.csv" , patch_sus)
 
     end,
     1:$CI_params.nsims)
