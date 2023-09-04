@@ -32,7 +32,7 @@ elseif ARGS[1] == "HPMM"
 elseif ARGS[1] == "OD"
     @everywhere const CI_params = ( 
         MM_type = "OD",
-        deltaH = parse(Float64, ARGS[2]),
+        mm_parameter = parse(Float64, ARGS[2]),
         beta = parse(Float64, ARGS[3]),
         gamma = parse(Float64, ARGS[4]),
         SA_scale =  ARGS[5],
@@ -61,7 +61,7 @@ elseif ARGS[1] == "HMM"
     "Generated HPMM Mixmat"
 
 elseif ARGS[1] == "OD"
-    const    mixmat = SCI499.MixingMatrices.ODMixingMatrix(CI_params.SA_scale, CI_params.deltaH)::Matrix{Float64}
+    const    mixmat = SCI499.MixingMatrices.ODMixingMatrix(CI_params.SA_scale, CI_params.mm_parameter)::Matrix{Float64}
     "Generated OD Mixmat"
 end
 
