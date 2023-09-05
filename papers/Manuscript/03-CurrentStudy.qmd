@@ -106,16 +106,13 @@ Helpfully, Statistical Areas are also indexed by a structured code representing 
 
 ## Varying the spatial resolution of metapopulation models
 
-We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy. 
+We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy.
 
 ### Mixing matrices to preserve homogeneous mixing
-We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e.
-$$
+
+We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e. $$
 \phi_{ij} = \frac{1}{P_{tot}}
-$$
-Where $P_{tot}$ is the total number of patches. 
-- How should we interpret this mixing coefficient?
-### Population proportional mixing
+$$ Where $P_{tot}$ is the total number of patches. - How should we interpret this mixing coefficient? \### Population proportional mixing
 
 The resulting mixing matrices will be of different sizes (i.e. 40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches $i$ and $j$ the mixing coefficient $\phi_{i,j}$:
 
@@ -173,7 +170,7 @@ We can implement a metapopulation model using these mixing matrices as described
 
 -total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
 
-#### Statistical area Mixing structure
+#### Statistical Area Mixing structure
 
 We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients $\xi = [\xi_1, ..., \xi_i]$ which determine the proportion of mixing occurs at each level of the spatial hierarchy. Note that $$
 \sum\limits_{i}\xi=1
@@ -290,6 +287,9 @@ Applying this process to the whole GMGCCSA yields the mixing matrices presented 
 
 ```{r}
 #| label: fig-GCC_HMM
+#|  caption: Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA)
+#| echo: false
+#| warning: false
 GMelb_Shapes[3:5] %>%
   map(Hmixmat) %>% 
   map(plotmixmat)
