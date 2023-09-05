@@ -1,0 +1,2 @@
+Our mixing matrix is not constructed from empirical OD data like others's.
+It does take in the population of each patch, and one variant is entirely based on the patch population.  In this model, the mixing is strictly proportional to the ratio of population in patch j and patch i

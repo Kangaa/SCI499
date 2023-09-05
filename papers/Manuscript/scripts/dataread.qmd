@@ -10,7 +10,7 @@ library(tidyverse)
 # SA2 files
 
 ```{r}
-SA2_files <- list.files("../../../data/sims/SA2", full.names = TRUE)
+SA2_files <- list.files("../../../data/sims/SA2", full.names = TRUE, recursive = TRUE) 
 
 SA2_tot_files <- SA2_files[!str_detect(SA2_files, "patchinf|patchsus|summary")]
 
@@ -26,11 +26,10 @@ SA2_sims <- SA2_sims |>
 
 
 SA2_sims |> 
-  filter(R0 == 1.2 | R0 == 1.6 | R0 == 2) |>
   ggplot() +
   aes(x = t, y = I, col = factor(mu), group = sim) +
   geom_line() +
-  facet_grid(R0~mu, scales = "free", labeller = label_both) +
+  facet_grid(mu ~ R0, scales = "free", labeller = label_both) +
   xlab("time(days)") + 
   ylab("n infected individuals") +
   theme_bw(base_size = 14) +
@@ -116,8 +115,7 @@ Moss_sims <- Moss_sims |>
 ```{r}
 rbind(SA2_sims,
       SA3_sims,
-      SA4_sims,
-      Moss_sims
+      SA4_sims
       ) |> 
   filter(R0 <= 2) |>
   ggplot() +
@@ -129,8 +127,7 @@ rbind(SA2_sims,
 ```{r size}
 rbind(SA2_sims,
       SA3_sims,
-      SA4_sims,
-      Moss_sims
+      SA4_sims
       ) |> 
   group_by(sim, SA, R0, mu) |> 
   summarise(fin = min(S)) |> 

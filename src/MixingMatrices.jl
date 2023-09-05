@@ -1,4 +1,6 @@
 #Functions for constructing mixing matrices
+using CSV
+using DataFrames
 
 struct MixingMatrix
     mm::Array{Real, 2}
@@ -6,7 +8,74 @@ struct MixingMatrix
     popns::Array{Int, 1}
 end
 
-function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
+function HMixingMatrix(codes::Vector{String}, ξ::Vector{Float64})
+    Codes = expandCodes(codes)
+    npatch = size(Codes, 1)
+    HMM = fill(0.0, npatch, npatch)
+
+    levels = names(Codes)
+    nlevels = length(levels)
+    norm_vec = fill(0, nlevels)
+    level_vec = fill("", npatch)
+
+    for i in 1:npatch
+        norm_vec .= 0
+        for j in 1:npatch
+            for l in 1:nlevels
+                if Codes[i, l] == Codes[j, l]
+                    @views norm_vec[l:nlevels] .+= 1
+                    level_vec[j] = levels[l]
+                    break
+                end
+            end
+      end
+        for l in 1:nlevels
+            for j in 1:npatch
+               if level_vec[j] ∈ levels[1:l]
+                   HMM[i, j] += (ξ[l]/norm_vec[l])
+                end
+            end
+        end
+    end
+    HMM
+end
+
+
+function ODMixingMatrix(SA, δᴴ)
+    OD = CSV.read("data/GMelb_$(SA)_URxPOW_2016.csv", DataFrame)
+    OD_mat = Matrix(OD[:,2:end])
+
+    ## remove diag
+    for i in 1:size(OD_mat,1)
+        OD_mat[i,i] = 0
+    end
+    OD_mat = convert(Array{Float64}, OD_mat)
+
+    #normalise rows
+    for i in eachslice(OD_mat, dims = 1)
+        sumi = sum(i)
+        if sumi == 0
+            i .= 0.0
+        else
+            i ./= sumi
+        end
+    end
+
+    δᴬ = 1-δᴴ
+
+    for i in 1:size(OD_mat,1)
+        for j in 1:size(OD_mat,2)
+            if i == j
+                OD_mat[i,j] = δᴴ
+            else
+                OD_mat[i,j] = δᴬ*OD_mat[i,j]
+            end
+        end
+    end
+    OD_mat
+end
+
+function HPMixingMatrix(llCodepop::DataFrame, ξ::Vector{Float64}, μ::Float64)
     Codes = expandCodes(llCodepop[:,1])
     
     Popns = Vector{Dict{String, Int}}()
@@ -30,6 +99,10 @@ function SpatialMixingMatrix(llCodepop, ξ, μ = 0.5)
     return MMM
 end
 
+function PPMMij(i, j, popns)
+    popns[j]/sum(popns)
+end
+
 function SAMMij(i, j, ξ, Codes, Popns)
     for l in eachindex(ξ)
         if Codes[i, l] == Codes[j, l]
@@ -42,8 +115,6 @@ function SAMMij(i, j, ξ, Codes, Popns)
         end
     end
 end
-
-PPMMij(i, j, popns) = popns[j]/sum(popns)
 
 
 function  expandCodes(codes::Vector{String})

@@ -1,0 +1,110 @@
+SA4_CODE_2021,Names,Popn
+101,Capital Region,238238
+102,Central Coast,346695
+103,Central West,213057
+104,Coffs Harbour - Grafton,146225
+105,Far West and Orana,115589
+106,Hunter Valley exc Newcastle,291779
+107,Illawarra,313626
+108,Mid North Coast,229340
+109,Murray,123345
+110,New England and North West,185406
+111,Newcastle and Lake Macquarie,390334
+112,Richmond - Tweed,257046
+113,Riverina,163580
+114,Southern Highlands and Shoalhaven,160965
+115,Sydney - Baulkham Hills and Hawkesbury,264177
+116,Sydney - Blacktown,400903
+117,Sydney - City and Inner South,331440
+118,Sydney - Eastern Suburbs,261266
+119,Sydney - Inner South West,604949
+120,Sydney - Inner West,304875
+121,Sydney - North Sydney and Hornsby,424084
+122,Sydney - Northern Beaches,263445
+123,Sydney - Outer South West,297201
+124,Sydney - Outer West and Blue Mountains,331817
+125,Sydney - Parramatta,493298
+126,Sydney - Ryde,202008
+127,Sydney - South West,474336
+128,Sydney - Sutherland,229517
+197,Migratory - Offshore - Shipping (NSW),0
+199,No usual address (NSW),11371
+201,Ballarat,174014
+202,Bendigo,167637
+203,Geelong,327891
+204,Hume,184970
+205,Latrobe - Gippsland,300672
+206,Melbourne - Inner,616847
+207,Melbourne - Inner East,373521
+208,Melbourne - Inner South,422761
+209,Melbourne - North East,540638
+210,Melbourne - North West,424137
+211,Melbourne - Outer East,518315
+212,Melbourne - South East,860173
+213,Melbourne - West,853001
+214,Mornington Peninsula,308192
+215,North West,155574
+216,Shepparton,137495
+217,Warrnambool and South West,127993
+297,Migratory - Offshore - Shipping (Vic.),35
+299,No usual address (Vic.),9089
+301,Brisbane - East,239780
+302,Brisbane - North,224459
+303,Brisbane - South,371140
+304,Brisbane - West,189332
+305,Brisbane Inner City,292150
+306,Cairns,253511
+307,Darling Downs - Maranoa,128667
+308,Central Queensland,228395
+309,Gold Coast,640936
+310,Ipswich,367178
+311,Logan - Beaudesert,359834
+312,Mackay - Isaac - Whitsunday,180884
+313,Moreton Bay - North,264642
+314,Moreton Bay - South,217695
+315,Queensland - Outback,79714
+316,Sunshine Coast,398698
+317,Toowoomba,162124
+318,Townsville,234166
+319,Wide Bay,307698
+397,Migratory - Offshore - Shipping (Qld),184
+399,No usual address (Qld),14670
+401,Adelaide - Central and Hills,312371
+402,Adelaide - North,455641
+403,Adelaide - South,374740
+404,Adelaide - West,244130
+405,Barossa - Yorke - Mid North,114410
+406,South Australia - Outback,82657
+407,South Australia - South East,193749
+497,Migratory - Offshore - Shipping (SA),12
+499,No usual address (SA),3377
+501,Bunbury,188557
+502,Mandurah,107615
+503,Perth - Inner,182325
+504,Perth - North East,276260
+505,Perth - North West,577283
+506,Perth - South East,529423
+507,Perth - South West,443490
+509,Western Australia - Wheat Belt,137252
+510,Western Australia - Outback (North),90085
+511,Western Australia - Outback (South),118702
+597,Migratory - Offshore - Shipping (WA),522
+599,No usual address (WA),8055
+601,Hobart,247019
+602,Launceston and North East,151190
+603,South East,41766
+604,West and North West,115999
+697,Migratory - Offshore - Shipping (Tas.),17
+699,No usual address (Tas.),1377
+701,Darwin,139846
+702,Northern Territory - Outback,89072
+797,Migratory - Offshore - Shipping (NT),91
+799,No usual address (NT),3500
+801,Australian Capital Territory,453764
+897,Migratory - Offshore - Shipping (ACT),0
+899,No usual address (ACT),605
+901,Other Territories,4785
+997,Migratory - Offshore - Shipping (OT),0
+999,No usual address (OT),11
+ZZZ,Outside Australia,NA
+NA,NA,NA

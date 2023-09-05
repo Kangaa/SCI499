@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Hierarchical Spatial Structure in Compartmental Epidemiological models"
@@ -11,8 +12,9 @@ book:
     - declaration.qmd
     - acknowledgements.qmd
     - 01-IntroBackground.qmd
-    - 02-chap2.qmd
+    - 02-Metapopulation Models.qmd
     - 03-CurrentStudy.qmd
+    - 04-Interventions.qmd
   appendices:
     - A-appA.qmd
   references: refs.qmd
@@ -39,12 +41,11 @@ affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
 
 execute:
-  freeze: auto
+  freeze: true
   echo: false
+  warning: false
+  message: false
 
 format:
   html:
     toc: true
-
-  monashthesis-pdf:
-    keep-tex: false

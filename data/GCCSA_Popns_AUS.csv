@@ -1,0 +1,37 @@
+GCCSA_CODE_2021,Names,Popn
+19499,No usual address (NSW),11371
+19799,Migratory - Offshore - Shipping (NSW),0
+1GSYD,Greater Sydney,5230011
+1RNSW,Rest of NSW,2828530
+29499,No usual address (Vic.),9089
+29799,Migratory - Offshore - Shipping (Vic.),35
+2GMEL,Greater Melbourne,4917585
+2RVIC,Rest of Vic.,1576246
+39499,No usual address (Qld),14670
+39799,Migratory - Offshore - Shipping (Qld),184
+3GBRI,Greater Brisbane,2526210
+3RQLD,Rest of Qld,2614793
+49499,No usual address (SA),3377
+49799,Migratory - Offshore - Shipping (SA),12
+4GADE,Greater Adelaide,1386882
+4RSAU,Rest of SA,390816
+59499,No usual address (WA),8055
+59799,Migratory - Offshore - Shipping (WA),522
+5GPER,Greater Perth,2116396
+5RWAU,Rest of WA,534596
+69499,No usual address (Tas.),1377
+69799,Migratory - Offshore - Shipping (Tas.),17
+6GHOB,Greater Hobart,247019
+6RTAS,Rest of Tas.,308955
+79499,No usual address (NT),3500
+79799,Migratory - Offshore - Shipping (NT),91
+7GDAR,Greater Darwin,139846
+7RNTE,Rest of NT,89072
+89499,No usual address (ACT),605
+89799,Migratory - Offshore - Shipping (ACT),0
+8ACTE,Australian Capital Territory,453764
+99499,No usual address (OT),11
+99799,Migratory - Offshore - Shipping (OT),0
+9OTER,Other Territories,4785
+ZZZZZ,Outside Australia,NA
+NA,NA,NA

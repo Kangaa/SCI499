@@ -16,13 +16,7 @@ jobs:
         - name: Set up Quarto
           uses: quarto-dev/quarto-actions/setup@v2
 
-        - name: Render
-          uses: quarto-dev/quarto-actions/render@v2
-          with:
-            to: pdf
-            path: papers/Manuscript
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         - name: Publish to GitHub Pages (and render)
           uses: quarto-dev/quarto-actions/publish@v2
           with:

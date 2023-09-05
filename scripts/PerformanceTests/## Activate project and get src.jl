@@ -2,21 +2,20 @@
 using Pkg
 Pkg.activate("../SCI499")
 Pkg.instantiate()
-include("src/SCI499.jl")
+include("../../src/SCI499.jl")
 using .SCI499
 
 ## load packages
-using Distributed
 using CSV
 using DataFrames
 
 mm_parameter = 0.5
 beta = 1.5
 gamma = 1
-SA_scale =  SA2
+SA_scale =  "SA2"
 nsims = 1
 
-VicPop = CSV.read("data/Gmelb$(SA_scale)Pop21.csv", DataFrame)
+VicPop = CSV.read("./data/GmelbSA3Pop21.csv", DataFrame)
 names = convert(Vector{String}, VicPop[:,2]) 
 codes = VicPop[:, 1]|> x -> string.(x)
 popns  = VicPop[:, 3] .+ 1
