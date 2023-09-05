@@ -4,9 +4,8 @@ moss_mm <- read_csv("../../data/Moss_new/GMelb_OD_SA3.csv", col_select = -1) |>
   as.matrix()
 
 
-moss_mm[6,] |> sum()
 
-delta_h = c((1:20)/20)
+delta_h = c((1:19)/20)
 delta_a = 1 - delta_h
 mms = replicate(length(delta_h), moss_mm, simplify = FALSE)
 
@@ -22,6 +21,7 @@ for (d in seq_along(delta_h)){
 
 for (i in seq_along(mms)){
 
-write_csv(mms[i] |> as.data.frame(), paste0("../../data/Moss_new/Moss_MM_", i, ".csv"))}
-
-mms[[1]][,1] |> sum()
+  write_csv(mms[i] |> as.data.frame(), paste0("../../data/Moss_new/Moss_MM_", i, ".csv"))}
+mms[[5]] %>% as_tibble() %>% ggplot() +
+  aes() +
+  geom_tile()
