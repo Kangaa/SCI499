@@ -94,7 +94,7 @@ elseif MM_type == "HPMM"
 
     
 elseif MM_type == "OD"
-    deltaH = [0.1, 0.2, 0.4, 0.6, 0.8]
+    deltaH = [0.1, 0.5, 0.9]
     β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     γ = [1.0]
     params = Base.product(deltaH, β, γ)
