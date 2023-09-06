@@ -8,7 +8,7 @@
 
 <meta name="description" content="A thesis submitted for the degree of Graduate Diploma in Applied Statistics at The University of New England in 2023. School of Science and Technology.">
 
-<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 3&nbsp; Hierarchically structured spatial metapopulation models</title>
+<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 3&nbsp; Metapopulation Spatial resolution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-CurrentStudy.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchically structured spatial metapopulation models</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-CurrentStudy.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -173,7 +173,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-CurrentStudy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchically structured spatial metapopulation models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -216,9 +216,12 @@ div.csl-indent {
    
   <ul>
   <li><a href="#hierarchical-structure-of-the-sa-classification" id="toc-hierarchical-structure-of-the-sa-classification" class="nav-link active" data-scroll-target="#hierarchical-structure-of-the-sa-classification"><span class="header-section-number">3.1</span> Hierarchical Structure of the SA classification</a></li>
-  <li><a href="#varying-the-spatial-resolution-of-metapopulation-models" id="toc-varying-the-spatial-resolution-of-metapopulation-models" class="nav-link" data-scroll-target="#varying-the-spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Varying the spatial resolution of metapopulation models</a>
+  <li><a href="#spatial-resolution-of-metapopulation-models" id="toc-spatial-resolution-of-metapopulation-models" class="nav-link" data-scroll-target="#spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Spatial resolution of metapopulation models</a>
   <ul class="collapse">
-  <li><a href="#multiple-homogenous-mixing-models" id="toc-multiple-homogenous-mixing-models" class="nav-link" data-scroll-target="#multiple-homogenous-mixing-models">Multiple homogenous mixing models</a></li>
+  <li><a href="#homogenous-mixing-in-metapopulation-models" id="toc-homogenous-mixing-in-metapopulation-models" class="nav-link" data-scroll-target="#homogenous-mixing-in-metapopulation-models">Homogenous mixing in metapopulation models</a></li>
+  <li><a href="#population-proportional-mixing" id="toc-population-proportional-mixing" class="nav-link" data-scroll-target="#population-proportional-mixing">Population proportional mixing</a></li>
+  <li><a href="#statistical-area-mixing-structure" id="toc-statistical-area-mixing-structure" class="nav-link" data-scroll-target="#statistical-area-mixing-structure">Statistical Area Mixing structure</a></li>
+  <li><a href="#population-normalised-sa-mixmat" id="toc-population-normalised-sa-mixmat" class="nav-link" data-scroll-target="#population-normalised-sa-mixmat">Population normalised SA mixmat</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -228,7 +231,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchically structured spatial metapopulation models</span></span></h1>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></span></h1>
 </div>
 
 
@@ -291,55 +294,70 @@ div.csl-indent {
 </figure>
 </div>
 </section>
-<section id="varying-the-spatial-resolution-of-metapopulation-models" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="varying-the-spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Varying the spatial resolution of metapopulation models</h2>
-<p>We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e.&nbsp;the ASGS Statistical Areas structure), but with varying levels of resolution (e.g.&nbsp;by using SA2 scale patches instead of SA3 scale patches).</p>
-<section id="multiple-homogenous-mixing-models" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-homogenous-mixing-models">Multiple homogenous mixing models</h3>
-<pre><code>- prove that homogenous mixing between patches reduces to single patch model</code></pre>
-<section id="population-size-based-heterogenous-mixing" class="level4">
-<h4 class="anchored" data-anchor-id="population-size-based-heterogenous-mixing">Population size based heterogenous mixing</h4>
-<p>The resulting mixing matrices will be of different sizes (i.e.&nbsp;40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches <span class="math inline">i</span> and <span class="math inline">j</span> the mixing coefficient <span class="math inline">\phi_{i,j}</span>:</p>
-<p><span class="math display">
-\phi_{ij} = N_j/N_{tot}
-</span></p>
-<p>Which gives mixing matrices shown in <span class="quarto-unresolved-ref">?fig-GMelbPopMM</span></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-[[2]]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-[[3]]</code></pre>
-</div>
+<section id="spatial-resolution-of-metapopulation-models" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Spatial resolution of metapopulation models</h2>
+<p>We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e.&nbsp;the ASGS Statistical Areas structure), but with varying levels of resolution (e.g.&nbsp;by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy.</p>
+<section id="homogenous-mixing-in-metapopulation-models" class="level3">
+<h3 class="anchored" data-anchor-id="homogenous-mixing-in-metapopulation-models">Homogenous mixing in metapopulation models</h3>
+<p>We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e.&nbsp;<span class="math display">
+\phi_{ij} = \frac{1}{P_{tot}}
+</span> Where <span class="math inline">P_{tot}</span> is the total number of patches. - How should we interpret this mixing coefficient?</p>
+</section>
+<section id="population-proportional-mixing" class="level3">
+<h3 class="anchored" data-anchor-id="population-proportional-mixing">Population proportional mixing</h3>
+<div class="cell" data-caption="Population of SA2 regions in the GMGCCSA">
 <div class="cell-output-display">
-<div id="fig-GMelbPopMM-1" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-GMelbPop" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPopMM-1.png" class="img-fluid figure-img" width="604"></p>
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPop-1.png" class="img-fluid figure-img" width="604"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3.4: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
-<div class="cell-output-display">
-<div id="fig-GMelbPopMM-2" class="quarto-figure quarto-figure-center anchored">
+</div>
+<p>To ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches <span class="math inline">i</span> and <span class="math inline">j</span> the mixing coefficient <span class="math inline">\phi_{i,j}</span>:</p>
+<p><span class="math display">
+\phi_{ij} = N_j/N_{tot}
+</span></p>
+<p>Which gives mixing matrices shown in <a href="#fig-GMGCC_PMM">Figure&nbsp;<span>3.5</span></a></p>
+<div id="fig-GMGCC_PMM" class="quarto-layout-panel">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPopMM-2.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: <strong>?(caption)</strong></figcaption><p></p>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GMelb_PMM_SA2_59229f77c90641b503198dac375c3cb7" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div id="fig-GMelb_PMM_SA2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelb_PMM_SA2-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
+<p></p><figcaption class="figure-caption">(a)</figcaption><p></p>
 </figure>
 </div>
 </div>
+</div>
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GMelb_PMM_SA3_c0a8926a8df95a94e7747c70c363a316" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
-<div id="fig-GMelbPopMM-3" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-GMelb_PMM_SA3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPopMM-3.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: <strong>?(caption)</strong></figcaption><p></p>
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelb_PMM_SA3-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
+<p></p><figcaption class="figure-caption">(b)</figcaption><p></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GMelb_PMM_SA4_d0f5fc134c538599b75ad5b8361d35f1" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div id="fig-GMelb_PMM_SA4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GMelb_PMM_SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
+<p></p><figcaption class="figure-caption">(c)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: Population proportional mixing matrices</figcaption><p></p>
+</figure>
 </div>
 <p>We can implement a metapopulation model using these mixing matrices as described in chapter <a href="02-Metapopulation Models.html"><span>Chapter&nbsp;2</span></a>, to briefly summarise:</p>
 <section id="results-equivalent-models-at-different-spatial-resolution" class="level5">
@@ -347,8 +365,8 @@ div.csl-indent {
 <p>-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence</p>
 </section>
 </section>
-<section id="hierarchical-structure" class="level4">
-<h4 class="anchored" data-anchor-id="hierarchical-structure">Hierarchical structure</h4>
+<section id="statistical-area-mixing-structure" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-area-mixing-structure">Statistical Area Mixing structure</h3>
 <p>We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients <span class="math inline">\xi = [\xi_1, ..., \xi_i]</span> which determine the proportion of mixing occurs at each level of the spatial hierarchy. Note that <span class="math display">
 \sum\limits_{i}\xi=1
 </span> This coefficient is distributed amongst patches occurring in the same level <span class="math inline">L</span> region, so mixing for any two patches, <span class="math inline">i</span> and <span class="math inline">j</span> <span class="math display">
@@ -362,7 +380,7 @@ j \in S_{i}^{L}
 <div id="fig-Example_region" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-CurrentStudy_files/figure-html/fig-Example_region-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.7: <strong>?(caption)</strong></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -375,55 +393,63 @@ M_{i,j} = \frac{\xi_{SA3}}{N_{i}^{SA3} - N_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1
 M_{i,j} = \frac{\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \frac{\frac{1}{4}}{5 - 3} = \frac{1}{8}
 </span> Finally when <span class="math inline">j</span> is a patch outside the <code>Inner Melbourne</code> SA4, like those in <code>West Melbourne</code>SA4 <span class="math display">
 M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3} = \frac{1}{16}
-</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Kensington, $ sum<em>{j}M</em>{j}= + + + + + + = 1$ as desired. Repeating this for all patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-egMM">Figure&nbsp;<span>3.8</span></a></p>
+</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Kensington, $ sum*{j}M*{j}= + + + + + + = 1$ as desired. Repeating this for all patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-egMM">Figure&nbsp;<span>3.7</span></a></p>
 <div class="cell" data-caption="Hierarchical Mixing matrix for the example region shown in @fig-Example_region">
 <div class="cell-output-display">
 <div id="fig-egMM" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="03-CurrentStudy_files/figure-html/fig-egMM-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.8: <strong>?(caption)</strong></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.7: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <span class="quarto-unresolved-ref">?fig-GCC_HMM</span></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>$SA2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-$SA3</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-$SA4</code></pre>
-</div>
-<div class="cell-output-display">
-<div id="fig-GCC_HMM-1" class="quarto-figure quarto-figure-center anchored">
+<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <a href="#fig-GCC_HMM">Figure&nbsp;<span>3.8</span></a></p>
+<div id="fig-GCC_HMM" class="quarto-layout-panel">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.9: <strong>?(caption)</strong></figcaption><p></p>
-</figure>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA1_284e99da0994a4042a73677fbff98cbd" style="flex-basis: 50.0%;justify-content: center;">
+
 </div>
-</div>
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA2_0c8ab0119dae9d162d899af42b766583" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
-<div id="fig-GCC_HMM-2" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-GCC_HMM_SA2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM-2.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.10: <strong>?(caption)</strong></figcaption><p></p>
+<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM_SA2-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
+<p></p><figcaption class="figure-caption">(a)</figcaption><p></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA3_fe9e44d3baef9095c8e0d8c8e580e976" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
-<div id="fig-GCC_HMM-3" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-GCC_HMM_SA3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM-3.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.11: <strong>?(caption)</strong></figcaption><p></p>
+<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM_SA3-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
+<p></p><figcaption class="figure-caption">(b)</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA4_97c411632d8f445066add7bc0e471baa" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div id="fig-GCC_HMM_SA4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM_SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
+<p></p><figcaption class="figure-caption">(c)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.8: Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="population-normalised-sa-mixmat" class="level3">
+<h3 class="anchored" data-anchor-id="population-normalised-sa-mixmat">Population normalised SA mixmat</h3>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -431,7 +457,6 @@ $SA4</code></pre>
 Australian statistical geography standard (ASGS), (2023).
 </div>
 </div>
-</section>
 </section>
 </section>
 
