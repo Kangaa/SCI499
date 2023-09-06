@@ -54,7 +54,7 @@ if ARGS[1] == "HPMM"
         DataFrame(
             Codes = codes,
             Pop = popns),
-        ξ, mm_parameter)::Matrix{Float64}
+        ξ, CI_params.mm_parameter)::Matrix{Float64}
         "generated HMM mixmat" 
 elseif ARGS[1] == "HMM"
     const    mixmat = SCI499.MixingMatrices.HMixingMatrix(codes, ξ)::Matrix{Float64}
@@ -101,11 +101,11 @@ end
 @everywhere begin
     #run sims
     pmap(function batch_sim(sim) 
-        tot_data, patch_sus, patch_inf = CompartmentalModels.simulate(sim_params, 10, 1, metaparams.Intevention_type, false, sim)
+        tot_data, patch_sus, patch_inf = CompartmentalModels.simulate(sim_params, 10, 1, metaparams.Intervention_type, false, sim)
 
-        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intevention_type)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
-        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intevention_type)_patchinf_$sim.csv" , patch_inf)
-        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intevention_type)_patchsus_$sim.csv" , patch_sus)
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intervention_type)_$sim.csv" , tot_data, append=false, header=[:time, :TotalSusceptible, :TotalInfected])
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intervention_type)_patchinf_$sim.csv" , patch_inf)
+        CSV.write("data/sims/$(metaparams.SA_scale)/$(metaparams.SA_scale)_$(metaparams.beta)_$(metaparams.gamma)_$(metaparams.mixmat_type)_$(metaparams.mm_parameter)_$(metaparams.Intervention_type)_patchsus_$sim.csv" , patch_sus)
 
     end,
     1:$CI_params.nsims)
