@@ -1,13 +1,13 @@
-MM_type = ["OD", "HMM", "HPMM"]
-SA_scale = ["SA2", "SA3", "SA4"]
-Intervention_type = ["None", "local", "travel", "total"]
+MM_types = ["OD", "HMM", "HPMM"]
+SA_scales = ["SA2", "SA3", "SA4"]
+Intervention_types = ["None", "local", "travel", "total"]
 nsims = 50
 
 #combine permutations into string for running script
-params = Base.product(MM_type, SA_scale, Intervention_type)
+params = Base.product(MM_types, SA_scales, Intervention_types)
 
 for param in params
-    MM_type = param[1]
+    MM_type= param[1]
     SA_scale = param[2]
     Intervention_type = param[3]
     #run juliaScheduler.jl script
