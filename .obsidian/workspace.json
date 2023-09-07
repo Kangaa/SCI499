@@ -30,8 +30,29 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "18a5189e65273253",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "c2f9dfbc6f12c1be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Simulation checklist.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -97,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd",
+                "file": "Simulation checklist.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd",
+                "file": "Simulation checklist.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd"
+                "file": "Simulation checklist.md"
               }
             }
           }
@@ -158,8 +179,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "03cb95ba0750734e",
+  "active": "c2f9dfbc6f12c1be",
   "lastOpenFiles": [
+    "Simulation checklist.md",
+    "papers/Manuscript/03-CurrentStudy.qmd",
     "src/scheduler_Scheduler.jl",
     "src/scheduler_Scheduler.sh",
     "src/scheduler_Scheduler",
@@ -176,8 +199,6 @@
     "data/sims/SA4/SA4_2.0_1.0_OD0.8_97.csv",
     "data/sims/SA4/SA4_2.0_1.0_OD0.8_96.csv",
     "data/sims/SA4/SA4_2.0_1.0_OD0.8_95.csv",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_94.csv",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_93.csv",
     "papers/Manuscript/Notes/Chapter drafts/Ch1. IntroBackround/Implimentations of compartmental models.md",
     "papers/Manuscript/Notes/Chapter drafts/Ch1. IntroBackround/Compartmental models.md",
     "papers/Manuscript/Notes/Chapter drafts/Ch3. Hierarchical Spatial models/On the construction of the mixing matrix.md",
