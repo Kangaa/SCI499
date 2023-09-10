@@ -57,7 +57,7 @@ sim_stats %>%
   ggplot() + 
   aes(x = R0, y = peaksize) +
   geom_point(aes(col = mu)) +
-  facet_grid(Intervention ~ SA)
+  facet_grid(SA ~ Intervention)
 ```
 ## Final Size
 
@@ -82,5 +82,13 @@ sim_stats %>%
   facet_grid(Intervention ~ R0, scales = "free")
 
 ```
+### SA4
+```{r}
+sim_stats %>% 
+  filter(duration < 1000, SA == "4") %>% 
+  ggplot() + 
+  geom_histogram(aes(x = duration, fill = mu))+
+  facet_grid(Intervention ~ R0, scales = "free")
 
+```
 
