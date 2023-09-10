@@ -77,6 +77,34 @@
     "text": "3.2 Spatial resolution of metapopulation models\nWe can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy.\n\nHomogenous mixing in metapopulation models\nWe might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e. \n\\phi_{ij} = \\frac{1}{P_{tot}}\n Where P_{tot} is the total number of patches. - How should we interpret this mixing coefficient?\n\n\nPopulation proportional mixing\n\n\n\n\n\nFigure 3.4: ?(caption)\n\n\n\n\nTo ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches i and j the mixing coefficient \\phi_{i,j}:\n\n\\phi_{ij} = N_j/N_{tot}\n\nWhich gives mixing matrices shown in Figure 3.5\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\nFigure 3.5: Population proportional mixing matrices\n\n\nWe can implement a metapopulation model using these mixing matrices as described in chapter Chapter 2, to briefly summarise:\n\nResults: equivalent models at different spatial resolution\n-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence\n\n\n\nStatistical Area Mixing structure\nWe can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients \\xi = [\\xi_1, ..., \\xi_i] which determine the proportion of mixing occurs at each level of the spatial hierarchy. Note that \n\\sum\\limits_{i}\\xi=1\n This coefficient is distributed amongst patches occurring in the same level L region, so mixing for any two patches, i and j \nM_{ij}= \\frac{\\xi_{L}}{N^{L}}\n if \nj \\in S_{i}^{L}\n but j \\notin S_{i}^{L-1} Where S_{i}^{L} is the set of patches in the same level L region as i.\nTo extend the example from ?sec-XX, we can consider a subset of SA2 regions from the GMGCCSA ((tab-MMeg?))\n\n\n\n\n\nFigure 3.6: ?(caption)\n\n\n\n\nKensington, Racecourse, and West industrial are SA2 regions within the ‘Melbourne City’ SA3 region, Footscray and Maribyrnong are SA2 regions within the ‘Maribyrnong’ SA3 region, and Flemington and Ascot Vale are SA2 regions withing the ‘Essendon’ SA3 region. Furthermore, both ‘Melbnourne city’ and Essendon are within the ‘Inner Melbourne’ SA4 region while Marybyrnong lies iside the ‘West Melbourne’ SA4 Region\nTo model these SA2 patches in isolation, we can construct a 7 \\times 7 mixing matrix, row by row, for \\xi = \\left[ \\frac{1}{4}, \\frac{1}{4},\\frac{1}{4},\\frac{1}{4} \\right]as follows:\nlet i = Kensington. Since Kensington is it’s own SA2 region, M_{i,i} = \\frac{1}{4}When j is a region in Melbourne City SA3 (alongside Kensington), like West Industrial or Racecourse, M_{i,j} will be a proportion of \\xi_{SA3}. For j = Racecourse and j = West Industrial \nM_{i,j} = \\frac{\\xi_{SA3}}{N_{i}^{SA3} - N_{i}^{SA2}} = \\frac{\\frac{1}{4}}{3 - 1} = \\frac{1}{8}\n When patch j occurs outside the Melbourne City SA3, but within the Inner Melbourne SA4, like those in EssendonSA3 \nM_{i,j} = \\frac{\\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \\frac{\\frac{1}{4}}{5 - 3} = \\frac{1}{8}\n Finally when j is a patch outside the Inner Melbourne SA4, like those in West MelbourneSA4 \nM_{i,j} = \\frac{\\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \\frac{\\frac{1}{4}}{7 - 3} = \\frac{1}{16}\n thus for the row M_{i}, representing the mixing of individuals from Kensington, $ sum*{j}M*{j}= + + + + + + = 1$ as desired. Repeating this for all patches i, gives the mixing matrix represented in Figure 3.7\n\n\n\n\n\nFigure 3.7: ?(caption)\n\n\n\n\nApplying this process to the whole GMGCCSA yields the mixing matrices presented in figure Figure 3.8\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\nFigure 3.8: Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.\n\n\n\n\nPopulation normalised SA mixmat\n\n\n\n\nAustralian statistical geography standard (ASGS), (2023)."
   },
   {
+    "objectID": "04-Interventions.html",
+    "href": "04-Interventions.html",
+    "title": "4  Chapter 4. Modelling interventions different scales",
+    "section": "",
+    "text": "5 Load data"
+  },
+  {
+    "objectID": "04-Interventions.html#peak-size",
+    "href": "04-Interventions.html#peak-size",
+    "title": "4  Chapter 4. Modelling interventions different scales",
+    "section": "6.1 peak size",
+    "text": "6.1 peak size"
+  },
+  {
+    "objectID": "04-Interventions.html#final-size",
+    "href": "04-Interventions.html#final-size",
+    "title": "4  Chapter 4. Modelling interventions different scales",
+    "section": "6.2 Final Size",
+    "text": "6.2 Final Size"
+  },
+  {
+    "objectID": "04-Interventions.html#duration",
+    "href": "04-Interventions.html#duration",
+    "title": "4  Chapter 4. Modelling interventions different scales",
+    "section": "6.3 Duration",
+    "text": "6.3 Duration"
+  },
+  {
     "objectID": "refs.html",
     "href": "refs.html",
     "title": "Bibliography",
