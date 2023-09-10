@@ -127,7 +127,7 @@ We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, S
 \phi_{ij} = \frac{1}{P_{tot}}
 $$ Where $P_{tot}$ is the total number of patches. - How should we interpret this mixing coefficient?
 
-### Population proportional mixing
+### Proportionate mixing
 
 ```{r}
 #| caption: Population of SA2 regions in the GMGCCSA

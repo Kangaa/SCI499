@@ -1,0 +1,16 @@
+{
+  "hash": "ac09c9917e50f346c97ad012f5694403",
+  "result": {
+    "markdown": "---\ntitle: \"Chapter 4. Modelling interventions different scales\"\neditor: visual\n---\n\n::: {.cell}\n\n:::\n\n\n# Load data\n\n::: {.cell}\n\n:::\n\n# Population proportional SA mixing matrix\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-3-1.png){width=604.8}\n:::\n:::\n\n::: {.cell}\n\n:::\n\n## peak size\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-5-1.png){width=604.8}\n:::\n:::\n\n## Final Size\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-6-1.png){width=604.8}\n:::\n:::\n\n\n## Duration\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-7-1.png){width=604.8}\n:::\n:::\n",
+    "supporting": [
+      "04-Interventions_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
