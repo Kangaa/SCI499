@@ -7,7 +7,7 @@ nsims = 50
 params = Base.product(MM_types, SA_scales, Intervention_types)
 
 for param in params
-    MM_type= param[1]
+    MM_type = param[1]
     SA_scale = param[2]
     Intervention_type = param[3]
     #run juliaScheduler.jl script
