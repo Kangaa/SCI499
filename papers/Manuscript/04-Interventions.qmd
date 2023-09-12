@@ -1,8 +1,7 @@
 ---
-title: "Chapter 4. Modelling interventions different scales"
+title: "Modelling interventions different scales"
 editor: visual
 ---
-
 
 ```{r}
 library(tidyverse)
@@ -32,14 +31,16 @@ sims <-  sims |>
     sim_num = str_extract(sim, "(_.{1,3}).csv", 1))
 
 ```
-# Population proportional SA mixing matrix
+
+## Population proportional SA mixing matrix
+
 ```{r}
 sims %>% 
   filter(R0 == 1.4) %>% 
   ggplot() +
   aes(x = t, y = I) +
   geom_line(aes(col = mu, group = sim_num)) +
-  facet_wrap(SA~Intervention, scales = "free")
+  facet_grid(Intervention ~ SA, scales = "free")
 ```
 
 ```{r}
@@ -49,6 +50,7 @@ sim_stats <- sims %>%
             finalsize = max(S) - min(S),
             duration = max(t))
 ```
+
 ## peak size
 
 ```{r}
@@ -59,6 +61,7 @@ sim_stats %>%
   geom_point(aes(col = mu)) +
   facet_grid(SA ~ Intervention)
 ```
+
 ## Final Size
 
 ```{r}
@@ -74,6 +77,7 @@ sim_stats %>%
 ## Duration
 
 ### SA3
+
 ```{r}
 sim_stats %>% 
   filter(duration < 1000, SA == "3") %>% 
@@ -82,7 +86,9 @@ sim_stats %>%
   facet_grid(Intervention ~ R0, scales = "free")
 
 ```
+
 ### SA4
+
 ```{r}
 sim_stats %>% 
   filter(duration < 1000, SA == "4") %>% 
@@ -91,4 +97,3 @@ sim_stats %>%
   facet_grid(Intervention ~ R0, scales = "free")
 
 ```
-

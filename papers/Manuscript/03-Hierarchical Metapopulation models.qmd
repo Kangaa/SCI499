@@ -1,33 +1,10 @@
-# Metapopulation Spatial resolution {#sec-intro}
-
-```{r}
-#| echo: false
-#| warning: false
-library(tidyverse)
-library(sf)
-```
+{{< include _src.qmd >}}
 
 In @sec-MossGmelb, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the 'SA3' regions of the Australian Statistical Geography Standard's Statistical Areas (SA) classification [@2023AustralianStatisticalGeographya] (comprising forty patches for the Greater Melbourne area in that example).
 
 ## Hierarchical Structure of the SA classification
 
 An important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. @fig-GMelbSA2SA3SA4 shows the SA2, SA3, and SA4 regions of the GMCCSA.
-
-```{r}
-#| echo: false
-#| warning: false
-library(glue)
-levels <- list(MB = "MB", SA1 = "SA1", SA2 = "SA2", SA3 = "SA3", SA4 = "SA4")
-Shapes <- map(
-  map(
-    levels,
-    \(x) glue("../../data/ASGS_GDA2020/{x}_2021_AUST_SHP_GDA2020/{x}_2021_AUST_GDA2020.shp")),
-  read_sf)
-
-
-GMelb_Shapes <- Shapes |> 
-  map(\(x) filter(x, GCC_NAME21 == "Greater Melbourne"))
-```
 
 ::: {#fig-ASGSSA layout-ncol="2"}
 ![](ASGS_Diagram_2021.png){#fig-ASGS width="464"}
@@ -110,19 +87,6 @@ We can exploit this hierarchical structure by creating meta-population models in
 
 ### Homogenous mixing in metapopulation models
 
-```{r}
-plotmixmat <- function(mixmat){
-  mixmat %>% 
-    as_tibble(rownames = "i") %>% 
-    pivot_longer(-1, names_to = "j", values_to = "mixing") %>% 
-    ggplot() +
-    aes(x = j, y = i, fill = log(mixing)) +
-    geom_tile(show.legend = FALSE) + 
-    theme(axis.text = element_blank(),
-          axis.ticks = element_blank())+
-    scale_fill_continuous(type = "viridis")}
-```
-
 We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e. $$
 \phi_{ij} = \frac{1}{P_{tot}}
 $$ Where $P_{tot}$ is the total number of patches. - How should we interpret this mixing coefficient?
@@ -133,12 +97,7 @@ $$ Where $P_{tot}$ is the total number of patches. - How should we interpret thi
 #| caption: Population of SA2 regions in the GMGCCSA
 #| label: fig-GMelbPop
 #| echo: false
-GMelb_Popns <- map(
-  map(
-    c("2", "3", "4"),
-    \(x) str_replace("../../data/GmelbSA_X_Pop21.csv", "_X_", x)),
-  read_csv) |> 
-  `names<-`(c("SA2", "SA3", "SA4"))
+
 
 ggplot() +
   geom_sf(data = GMelb_Shapes$SA2 %>% 
@@ -155,29 +114,6 @@ $$
 $$
 
 Which gives mixing matrices shown in @fig-GMGCC_PMM
-
-```{r}
-MMpops <- map(c("SA2", "SA3", "SA4"),
-              \(x){
-                size <- nrow(GMelb_Popns[[x]])
-                
-                MMpop <- matrix(NA,
-                                size,
-                                size,
-                                dimnames = list(
-                                  GMelb_Popns[[x]][[paste0(x, "_Code")]],
-                                  GMelb_Popns[[x]][[paste0(x, "_Code")]]))
-                
-                Ntot = sum(GMelb_Popns[[x]][[3]])
-                
-                for (i in seq_along(MMpop[1,])){
-                  for (j in seq_along(MMpop[,1])){
-                    MMpop[i,j] <- GMelb_Popns[[x]][[3]][j]/Ntot
-                  }
-                } 
-                MMpop
-              })
-```
 
 ::: {#fig-GMGCC_PMM layout-ncol="2"}
 ```{r}
@@ -253,53 +189,7 @@ $$ When $j$ occurs outside the `Maribyrnong` SA3, but within the `West Melbourne
 M_{i,j} = \frac{\xi_{SA4}}{P_{i}^{SA4} - P_{i}^{SA3}} = \frac{\frac{1}{4}}{4 - 3} = \frac{1}{4}
 $$ Finally when $j$ is a patch outside the `West Melbourne` SA4, like those in the `Inner Melbourne`SA4 $$
 M_{i,j} = \frac{\xi_{SA5}}{P_{i}^{SA5} - P_{i}^{SA4}} = \frac{\frac{1}{4}}{8 - 4} = \frac{1}{16}
-$$ thus for the row $M_{i}$, representing the mixing of individuals from Footscray, $\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8}  + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} = 1$. Repeating this for all patches $i$, gives the mixing matrix represented in @fig-GMelb_eg_MixMat 
-
-```{r}
-Hmixmat <- function(data){
-  
-  levels <- data %>%
-    names() %>%
-    subset(grepl("SA._CODE|GCC_CODE21", .))
-  
-  xi <- rep(1/length(levels), length(levels))
-  
-  npatch = nrow(data)
-  
-  level_vec = vector("character", npatch)
-  
-  mixmat = matrix(0, npatch, npatch,
-                  dimnames = list(data[[levels[1]]],
-                                  data[[levels[1]]]))
-  
-  for (i in 1:npatch){
-    patch_i <- data[i,]
-    norm <- rep(0, length(levels))
-    for (j in 1:npatch){
-      patch_j <- data[j,]
-      for (l in seq_along(levels)){ #find lowest level of association (LLA)
-        code_l <-  levels[l]
-        if (patch_i[[code_l]] == patch_j[[code_l]]){
-          level_vec[j] <- levels[l] #place LLA in level_vec(i)
-          norm[l:length(norm)] <- norm[l:length(norm)] + 1 #add +1 to the count of patches in the same level L as i
-          break
-        }
-      }
-    }
-    for (l in seq_along(levels)){
-      for (j in 1:npatch){
-        #if (level_vec[j] %in% levels[1:l]){
-         if (level_vec[j] == levels[l]){ 
-          #mixmat[i,j] <- mixmat[i,j] + (xi[l]/norm[l])
-           if (l == 1) mixmat[i,j] <- xi[l]/norm[l]
-           else mixmat[i,j] <- xi[l]/(norm[l] - norm[l-1]
-        }
-      }
-    }
-  }
-  mixmat
-}
-```
+$$ thus for the row $M_{i}$, representing the mixing of individuals from Footscray, $\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} = 1$. Repeating this for all patches $i$, gives the mixing matrix represented in @fig-GMelb_eg_MixMat
 
 ```{r}
 #| label: fig-GMelb_eg_MixMat
