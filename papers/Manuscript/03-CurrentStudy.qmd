@@ -115,9 +115,11 @@ $$
 $$
 Where $P_{tot}$ is the total number of patches. 
 - How should we interpret this mixing coefficient?
-### Population proportional mixing
 
-The resulting mixing matrices will be of different sizes (i.e. 40 SA3 patches vs 361 SA2 patches for the Greater Melbourne region), and to ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches $i$ and $j$ the mixing coefficient $\phi_{i,j}$:
+The mixing matrix $\phi$ entails that mixing is uniform across all patches, and that the mixing coefficient is independent of the size of the patch. This is equivalent to assuming that the population of each patch is the same, and that the mixing coefficient is independent of the size of the patch. However, In the case of the GMGCCSA this is not the case, as the population of each SA2 region varies considerably @fig-GMelbSA2Popn.
+
+### Population proportional mixing
+To account for the different population sizes of each patch, we can construct a mixing matrix where the mixing coefficient is proportional to the population size of each patch i.e.. for two patches $i$ and $j$ the mixing coefficient $\phi_{i,j}$:
 
 $$
 \phi_{ij} = N_j/N_{tot}
@@ -169,9 +171,14 @@ map(MMpops, \(x){ x |>
 
 We can implement a metapopulation model using these mixing matrices as described in chapter @sec-MPMspec, to briefly summarise:
 
+
 ##### Results: equivalent models at different spatial resolution
 
--total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
+-total size
+-peak size
+-Duration
+d
+of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
 
 #### Statistical area Mixing structure
 

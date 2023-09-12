@@ -1,7 +1,7 @@
 ## Spatial Metapopulation Model {#sec-MPMspec}
 
 ### Specification
-
+ 
 We employ a basic $SIR$ compartmental model, assuming no births and deaths, with a total of $N$ individuals. $$ S + I  + R = N$$ {#eq-ConstantTotalPopulation}
 
 We divide the population into $n$ connected sub-populations,hereafter 'patches', with $N_i$ denoting the population of patch $i$ (note that $N = \sum\limits_{i=1}^{n}N_i$).
