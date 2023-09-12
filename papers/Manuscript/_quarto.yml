@@ -11,9 +11,9 @@ book:
     - abstract.qmd
     - declaration.qmd
     - acknowledgements.qmd
-    - 01-IntroBackground.qmd
+    - 01-Background.qmd
     - 02-Metapopulation Models.qmd
-    - 03-CurrentStudy.qmd
+    - 03-Hierarchical Metapopulation models.qmd
     - 04-Interventions.qmd
   appendices:
     - A-appA.qmd

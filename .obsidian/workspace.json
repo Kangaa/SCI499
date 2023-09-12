@@ -30,8 +30,29 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "18a5189e65273253",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "c2f9dfbc6f12c1be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Simulation checklist.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -97,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd",
+                "file": "Simulation checklist.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd",
+                "file": "Simulation checklist.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd"
+                "file": "Simulation checklist.md"
               }
             }
           }
@@ -158,19 +179,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "03cb95ba0750734e",
+  "active": "c2f9dfbc6f12c1be",
   "lastOpenFiles": [
-    "notebooks/Notes/HierarchicalMixingMatrices.qmd",
-    "notebooks/Notes/HierarchicalMixingMatrices.pdf",
-    "papers/Manuscript/03-CurrentStudy.qmd",
-    "notebooks/Notes/Compartmental_Models_Markov_Chains.qmd",
-    "notebooks/Compartmental_Models_Markov_Chains.qmd",
-    "notebooks/CTMC_SIR_Sim.qmd",
-    "notebooks/Moss.qmd",
-    "notebooks/Mixing Matrix.qmd",
-    "notebooks/Q.qmd",
-    "notebooks/Spatial_SEIR.qmd",
-    "notebooks/Spatial Mixing Matrices.qmd",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_7.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_35.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_13.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_24.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchinf_30.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_41.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_29.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_2.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_21.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_11.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_11.csv",
+    "Simulation checklist.md",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA4-1.png",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA3-1.png",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA2-1.png",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelbPop-1.png",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GCC_PMM_SA4-1.png",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GCC_PMM_SA3-1.png",
+    "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GCC_PMM_SA2-1.png",
     "papers/Manuscript/Notes/Chapter drafts/Ch1. IntroBackround/Implimentations of compartmental models.md",
     "papers/Manuscript/Notes/Chapter drafts/Ch1. IntroBackround/Compartmental models.md",
     "papers/Manuscript/Notes/Chapter drafts/Ch3. Hierarchical Spatial models/On the construction of the mixing matrix.md",
@@ -194,7 +223,6 @@
     "papers/Manuscript/Notes/Manuscript notes/Chapter drafts/Ch3. Hierarchical Spatial models/On the construction of the mixing matrix.md",
     "papers/Manuscript/Notes/Manuscript notes/Chapter drafts/Ch3. Hierarchical Spatial models/Footscray example.md",
     "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Melb mm.md",
-    "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Revised Spatial Mixing Matrix definition.md",
-    "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Random musings on mixing matrix to encourage writing.md"
+    "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Revised Spatial Mixing Matrix definition.md"
   ]
 }

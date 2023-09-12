@@ -133,8 +133,8 @@ function intervention!(mixmat, intervention_type, patch)
                 mixmat[patch,i] *= 0.5
                 mixmat[i,patch] *= 0.5
             end
-            mixmat[patch,patch] *= 0.5
         end
+        mixmat[patch,patch] *= 0.5
     else
         error("Intervention type must be none, local, travel or total")
     end
@@ -156,9 +156,8 @@ function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::
             end 
             ## if s_frac has changed to >x% then update mixmat 
             
-            if model.intervention[event_location] == 0 && model.s_frac[event_location] > 0.2
-                intervention!(model.mixing_matrix, 
-                Intervention_type, event_location)
+            if model.intervention[event_location] == 0 && model.state.I[event_location] > 100
+                intervention!(model.mixing_matrix, Intervention_type, event_location)
                 model.intervention[event_location] = 1
             end
             

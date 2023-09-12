@@ -10,7 +10,7 @@ levels = names(data)
         norm = zeros(length(levels))
         for j in 1:npatch
             patch_j = data[j,:]
-            for l in 1:length(levels)
+            for l in eachindex(levels)
                 code_l = levels[l]
                 if patch_i[Symbol(code_l)] == patch_j[Symbol(code_l)]
                     level_vec[j] = levels[l]

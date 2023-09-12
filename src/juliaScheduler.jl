@@ -49,7 +49,7 @@ if MM_type == "HMM"
     end
 
 elseif MM_type == "HPMM"
-    mmcoef = [0.0, 0.5, 1.0]
+    mmcoef = [1.0, 0.5, 0.0]
     β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     γ = [1.0]
     params = Base.product(mmcoef, β, γ)
@@ -67,7 +67,7 @@ elseif MM_type == "HPMM"
         output = "/home/jbender/Documents/SCI499_new/slurmout/%j.out"
     
         # Define the command to run
-        command = "julia --project=/home/jbender/Documents/SCI499_new src/DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $nsims"
+        command = "julia --project=/home/jbender/Documents/SCI499_new src/DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $Intervention_type $nsims"
     
         # Generate the Slurm batch job script
         script = "#!/bin/bash
@@ -94,7 +94,7 @@ elseif MM_type == "HPMM"
 
     
 elseif MM_type == "OD"
-    deltaH = [0.1, 0.2, 0.4, 0.6, 0.8]
+    deltaH = [0.1, 0.5, 0.9]
     β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     γ = [1.0]
     params = Base.product(deltaH, β, γ)
@@ -112,7 +112,7 @@ elseif MM_type == "OD"
         output = "/home/jbender/Documents/SCI499_new/slurmout/%j.out"
     
         # Define the command to run
-        command = "julia --project=/home/jbender/Documents/SCI499_new src/DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $nsims"
+        command = "julia --project=/home/jbender/Documents/SCI499_new src/DistributedSims.jl $MM_type $mm $beta $gamma $SA_scale $Intervention_type $nsims"
     
         # Generate the Slurm batch job script
         script = "#!/bin/bash
