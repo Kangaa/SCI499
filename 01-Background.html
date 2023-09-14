@@ -128,7 +128,7 @@ MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Background.html">background</a></li><li class="breadcrumb-item"><a href="./01-Background.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Background.html">Background</a></li><li class="breadcrumb-item"><a href="./01-Background.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,7 +180,7 @@ MathJax = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">background</span></a>
+ <span class="menu-text">Background</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -203,7 +203,7 @@ MathJax = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">current_study</span></a>
+ <span class="menu-text">Current Study</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -265,6 +265,7 @@ MathJax = {
   <ul class="collapse">
   <li><a href="#ode-representation" id="toc-ode-representation" class="nav-link" data-scroll-target="#ode-representation">ODE representation</a></li>
   <li><a href="#stochastic-process-markov-chain-representation" id="toc-stochastic-process-markov-chain-representation" class="nav-link" data-scroll-target="#stochastic-process-markov-chain-representation">Stochastic Process (Markov Chain) Representation</a></li>
+  <li><a href="#stochastic-simulation" id="toc-stochastic-simulation" class="nav-link" data-scroll-target="#stochastic-simulation">Stochastic simulation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -383,10 +384,14 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 </section>
 <section id="sir-ctmc" class="level4">
 <h4 class="anchored" data-anchor-id="sir-ctmc">SIR CTMC</h4>
-<p>###Stochastic simulation <span class="citation" data-cites="simoni2019">Simoni et al. (<a href="refs.html#ref-simoni2019" role="doc-biblioref">2019</a>)</span></p>
-<div id="alg-Gillespie" class="pseudocode-container" data-no-end="false" data-line-number="true" data-alg-title="Algorithm" data-indent-size="1.2em" data-comment-delimiter="//" data-pseudocode-index="1" data-line-number-punc=":">
+</section>
+</section>
+<section id="stochastic-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-simulation">Stochastic simulation</h3>
+<p><span class="citation" data-cites="simoni2019">Simoni et al. (<a href="refs.html#ref-simoni2019" role="doc-biblioref">2019</a>)</span></p>
+<div id="alg-Gillespie" class="pseudocode-container" data-indent-size="1.2em" data-comment-delimiter="//" data-line-number="true" data-alg-title="Algorithm" data-line-number-punc=":" data-no-end="false" data-pseudocode-index="1">
 <div class="pseudocode">
-\begin{algorithm} \caption{Gillespie Direct Method for SIR Compartmental Model CTMC} \begin{algorithmic} \input \output \State Initialise time $t = 0$ and state $X = x_0$ \While{$t &lt; T_{max}$} \State set $a_0 = 0$ \For{reaction $R_j$} \State compute $a_j$ \State update $a_0 = a_0 + a_j$ \EndFor \State generate two random numbers $r_1$, $r_2$ ion $\union (0,1)$ \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$ \State update $X = X + v_\mu$ \State set $t = t + \tau$ \EndWhile \end{algorithmic} \end{algorithm}
+\begin{algorithm} \caption{Gillespie Direct Method for SIR Compartmental Model CTMC} \begin{algorithmic} \input \output \State Initialise time $t = 0$ and state $X = x_{0}$ \While{$t &lt; T_{max}$} \State set $a_0 = 0$ \For{reaction $R_j$} \State compute $a_j$ \State update $a_0 = a_0 + a_j$ \EndFor \State generate two random numbers $r_1$, $r_2$ in $(0,1)$ \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$ \State update $X = X + v_\mu$ \State set $t = t + \tau$ \EndWhile \end{algorithmic} \end{algorithm}
 </div>
 </div>
 
@@ -396,7 +401,6 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 Simoni, G., Reali, F., Priami, C., &amp; Marchetti, L. (2019). Stochastic simulation algorithms for computational systems biology: Exact, approximate, and hybrid methods. <em>WIREs Systems Biology and Medicine</em>, <em>11</em>(6), e1459. <a href="https://doi.org/10.1002/wsbm.1459">https://doi.org/10.1002/wsbm.1459</a> <span>_</span>Eprint: https://wires.onlinelibrary.wiley.com/doi/pdf/10.1002/wsbm.1459 QID: Q91506994
 </div>
 </div>
-</section>
 </section>
 </section>
 
