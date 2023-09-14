@@ -1,6 +1,5 @@
 Abstract
-1. Intro and Background
-	1. [[Disease spread]]
+1. Background: Compartmental models in epidemiology
 	2. [[Compartmental models]]
 		1. [[SIR]]
 		2. Structure (compartments)
