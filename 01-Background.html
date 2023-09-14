@@ -389,7 +389,7 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 <section id="stochastic-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="stochastic-simulation">Stochastic simulation</h3>
 <p><span class="citation" data-cites="simoni2019">Simoni et al. (<a href="refs.html#ref-simoni2019" role="doc-biblioref">2019</a>)</span></p>
-<div id="alg-Gillespie" class="pseudocode-container" data-indent-size="1.2em" data-comment-delimiter="//" data-line-number="true" data-alg-title="Algorithm" data-line-number-punc=":" data-no-end="false" data-pseudocode-index="1">
+<div id="alg-Gillespie" class="pseudocode-container" data-pseudocode-index="1" data-alg-title="Algorithm" data-line-number="true" data-indent-size="1.2em" data-line-number-punc=":" data-no-end="false" data-comment-delimiter="//">
 <div class="pseudocode">
 \begin{algorithm} \caption{Gillespie Direct Method for SIR Compartmental Model CTMC} \begin{algorithmic} \input \output \State Initialise time $t = 0$ and state $X = x_{0}$ \While{$t &lt; T_{max}$} \State set $a_0 = 0$ \For{reaction $R_j$} \State compute $a_j$ \State update $a_0 = a_0 + a_j$ \EndFor \State generate two random numbers $r_1$, $r_2$ in $(0,1)$ \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$ \State update $X = X + v_\mu$ \State set $t = t + \tau$ \EndWhile \end{algorithmic} \end{algorithm}
 </div>

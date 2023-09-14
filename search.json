@@ -95,7 +95,7 @@
     "href": "03-Hierarchical_models.html#hierarchical-structure-of-the-sa-classification",
     "title": "3  Code & Data",
     "section": "5.1 Hierarchical Structure of the SA classification",
-    "text": "5.1 Hierarchical Structure of the SA classification\nAn important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. Figure 5.1 (b) shows the SA2, SA3, and SA4 regions of the GMCCSA.\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\nFigure 5.1: Showing (a) the abstract structureof The Australian Statistical Geography Standard (ASGS) Statistical Areas (SA) Classification and (b) an example of SA3 and SA4 regions within the Greater Melbourne Greater Capital City Statistical Area (GMGCCSA)\n\n\nFor specific example, the Maribyrnong (SA3) region sits inside the West Melbourne (SA4) region alongside Essendon (SA3) Figure 5.2. Both West Melbourne and the neighbouring ‘Inner Melbourne’ (SA4), containing the city center and other SA3 regions, are part of the GSCCSA. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and ‘Mesh Block’ level regions Figure 5.1 (a). In Figure 5.2, we highlight the SA1 region comprising the main footscray CBD (SA1 code ‘21303134811’; see Figure 5.3).\n\n\n\n\n\nFigure 5.2: Showing the five SA3 blocks that make up the ‘Melbourne - West’ SA4 region, the six SA2 blocks that make up the Maribyrnong SA3 region, the forty SA1 regionsa that make up the ‘Footscray’ SA2 region, and the sixteen mesh blocks that make up the central Footscray ‘21303134811’ SA1 region. Note that each red-bounded area represents a higher resolution (‘lower’ SA level) than the one that encloses it. Not Pictured: Boundary of the GMGCCSA.\n\n\n\n\nHelpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. Figure 5.3 demonstrates this for an SA1 region in the area considered above.\n\n\n\nFigure 5.3: Decomposition of theFootscray SA1 region code from Figure 5.2 into its hierachical spatial information components"
+    "text": "5.1 Hierarchical Structure of the SA classification\nAn important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. Figure 5.1 (b) shows the SA2, SA3, and SA4 regions of the GMCCSA.\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\nFigure 5.1: Showing (a) the abstract structure of The Australian Statistical Geography Standard (ASGS) Statistical Areas (SA) Classification and (b) an example of SA3 and SA4 regions within the Greater Melbourne Greater Capital City Statistical Area (GMGCCSA)\n\n\nFor specific example, the Maribyrnong (SA3) region sits inside the West Melbourne (SA4) region alongside Essendon (SA3) Figure 5.2. Both West Melbourne and the neighbouring ‘Inner Melbourne’ (SA4), containing the city center and other SA3 regions, are part of the GSCCSA. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and ‘Mesh Block’ level regions Figure 5.1 (a). In Figure 5.2, we highlight the SA1 region comprising the main footscray CBD (SA1 code ‘21303134811’; see Figure 5.3).\n\n\n\n\n\nFigure 5.2: Showing the five SA3 blocks that make up the ‘Melbourne - West’ SA4 region, the six SA2 blocks that make up the Maribyrnong SA3 region, the forty SA1 regionsa that make up the ‘Footscray’ SA2 region, and the sixteen mesh blocks that make up the central Footscray ‘21303134811’ SA1 region. Note that each red-bounded area represents a higher resolution (‘lower’ SA level) than the one that encloses it. Not Pictured: Boundary of the GMGCCSA.\n\n\n\n\nHelpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. Figure 5.3 demonstrates this for an SA1 region in the area considered above.\n\n\n\nFigure 5.3: Decomposition of theFootscray SA1 region code from Figure 5.2 into its hierachical spatial information components"
   },
   {
     "objectID": "03-Hierarchical_models.html#spatial-resolution-of-metapopulation-models",
@@ -107,51 +107,58 @@
   {
     "objectID": "04-Interventions.html",
     "href": "04-Interventions.html",
-    "title": "Code & Data",
+    "title": "Code and data for Chp 4",
     "section": "",
     "text": "5 Package dependencies"
   },
   {
     "objectID": "04-Interventions.html#population-proportional-sa-mixing-matrix",
     "href": "04-Interventions.html#population-proportional-sa-mixing-matrix",
-    "title": "Code & Data",
-    "section": "7.1 Population proportional SA mixing matrix",
-    "text": "7.1 Population proportional SA mixing matrix"
+    "title": "Code and data for Chp 4",
+    "section": "6.1 Population proportional SA mixing matrix",
+    "text": "6.1 Population proportional SA mixing matrix"
   },
   {
     "objectID": "04-Interventions.html#peak-size",
     "href": "04-Interventions.html#peak-size",
-    "title": "Code & Data",
-    "section": "7.2 peak size",
-    "text": "7.2 peak size"
+    "title": "Code and data for Chp 4",
+    "section": "6.2 peak size",
+    "text": "6.2 peak size"
   },
   {
     "objectID": "04-Interventions.html#final-size",
     "href": "04-Interventions.html#final-size",
-    "title": "Code & Data",
-    "section": "7.3 Final Size",
-    "text": "7.3 Final Size"
+    "title": "Code and data for Chp 4",
+    "section": "6.3 Final Size",
+    "text": "6.3 Final Size"
   },
   {
     "objectID": "04-Interventions.html#duration",
     "href": "04-Interventions.html#duration",
-    "title": "Code & Data",
-    "section": "7.4 Duration",
-    "text": "7.4 Duration\n\nSA3\n\n\n\n\n\n\n\nSA4"
+    "title": "Code and data for Chp 4",
+    "section": "6.4 Duration",
+    "text": "6.4 Duration\n\nSA3\n\n\n\n\n\n\n\nSA4"
   },
   {
     "objectID": "04-Interventions.html#motivation",
     "href": "04-Interventions.html#motivation",
-    "title": "Code & Data",
-    "section": "7.5 Motivation",
-    "text": "7.5 Motivation\nReduce the total epidemic size/effects by intervening in strategic locations\nSpatial resolution allows for precise targeting. Behavioural intervention (restriction of mixing) Mixing matrix is modified during simulation ## Formulation - - Three types of intervention: -local reduce the intra-patch mixing -travel reduce inter-patch mixing -total reduce intra- and inter-patch mixing - Parameters - Trigger: condition at which intervention occurs - effect: effect of intervention"
+    "title": "Code and data for Chp 4",
+    "section": "6.5 Motivation",
+    "text": "6.5 Motivation\n\nReduce the total epidemic size/effects by intervening in strategic locations\nSpatial resolution allows for precise targeting. Behavioural intervention (restriction of mixing) Mixing matrix is modified during simulation"
+  },
+  {
+    "objectID": "04-Interventions.html#formulation",
+    "href": "04-Interventions.html#formulation",
+    "title": "Code and data for Chp 4",
+    "section": "6.6 Formulation",
+    "text": "6.6 Formulation\n\nParameters\n\nTrigger: condition at which intervention occurs\nEffect:\n\nlocal reduce the intra-patch mixing\ntravel reduce inter-patch mixing\ntotal reduce intra- and inter-patch mixing"
   },
   {
     "objectID": "04-Interventions.html#implimentation",
     "href": "04-Interventions.html#implimentation",
-    "title": "Code & Data",
-    "section": "7.6 Implimentation",
-    "text": "7.6 Implimentation\n\n\n\\begin{algorithm} \\caption{Quicksort} \\begin{algorithmic} \\Procedure{Quicksort}{$A, p, r$} \\If{$p &lt; r$} \\State $q = $ \\Call{Partition}{$A, p, r$} \\State \\Call{Quicksort}{$A, p, q - 1$} \\State \\Call{Quicksort}{$A, q + 1, r$} \\EndIf \\EndProcedure \\Procedure{Partition}{$A, p, r$} \\State $x = A[r]$ \\State $i = p - 1$ \\For{$j = p$ \\To $r - 1$} \\If{$A[j] &lt; x$} \\State $i = i + 1$ \\State exchange $A[i]$ with $A[j]$ \\EndIf \\State exchange $A[i]$ with $A[r]$ \\EndFor \\EndProcedure \\end{algorithmic} \\end{algorithm}"
+    "title": "Code and data for Chp 4",
+    "section": "6.7 Implimentation",
+    "text": "6.7 Implimentation\n\nlocal intervention\n\nfinal size\n\n\n\n\n\n\n\npeak size\n\n\n\n\n\n\n\nduration"
   },
   {
     "objectID": "refs.html",
