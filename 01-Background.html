@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.302">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="description" content="A thesis submitted for the degree of Graduate Diploma in Applied Statistics at The University of New England in 2023. School of Science and Technology.">
 
-<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 2&nbsp; Spatial Metapopulation Model</title>
+<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 1&nbsp; Introduction &amp; Background</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-CurrentStudy.html" rel="next">
-<link href="./01-IntroBackground.html" rel="prev">
+<link href="./02-Metapopulation_Models.html" rel="next">
+<link href="./acknowledgements.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -58,10 +77,28 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
+MathJax = {
+  loader: {
+    load: ['[tex]/boldsymbol']
+  },
+  tex: {
+    tags: "all",
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    packages: {
+      '[+]': ['boldsymbol']
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -91,10 +128,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-Metapopulation Models.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Background.html">background</a></li><li class="breadcrumb-item"><a href="./01-Background.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -140,30 +177,52 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-IntroBackground.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-Background.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-Metapopulation Models.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-Metapopulation_Models.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">current_study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-CurrentStudy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></span></a>
+  <a href="./03-Hierarchical_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchical Structure of the SA classification</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-Interventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4. Modelling interventions different scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modelling interventions different scales</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./refs.html" class="sidebar-item-text sidebar-link">
@@ -172,13 +231,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-appA.html" class="sidebar-item-text sidebar-link">
@@ -197,10 +256,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title"><b>Sections</b></h2>
    
   <ul>
-  <li><a href="#specification" id="toc-specification" class="nav-link active" data-scroll-target="#specification">Specification</a></li>
-  <li><a href="#construction-of-mixing-matrix" id="toc-construction-of-mixing-matrix" class="nav-link" data-scroll-target="#construction-of-mixing-matrix">Construction of mixing matrix</a></li>
-  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
-  <li><a href="#sec-MossGmelb" id="toc-sec-MossGmelb" class="nav-link" data-scroll-target="#sec-MossGmelb"><span class="header-section-number">2.1</span> Example: Greater Melbourne Area Spatial Metapopulation model</a></li>
+  <li><a href="#modelling-infectious-epidemics" id="toc-modelling-infectious-epidemics" class="nav-link active" data-scroll-target="#modelling-infectious-epidemics"><span class="header-section-number">1.1</span> Modelling Infectious Epidemics</a></li>
+  <li><a href="#compartment-models" id="toc-compartment-models" class="nav-link" data-scroll-target="#compartment-models"><span class="header-section-number">1.2</span> Compartment Models</a>
+  <ul class="collapse">
+  <li><a href="#the-sir-compartmental-model" id="toc-the-sir-compartmental-model" class="nav-link" data-scroll-target="#the-sir-compartmental-model">The SIR compartmental model</a></li>
+  </ul></li>
+  <li><a href="#sir-dynamics" id="toc-sir-dynamics" class="nav-link" data-scroll-target="#sir-dynamics"><span class="header-section-number">1.3</span> SIR Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#ode-representation" id="toc-ode-representation" class="nav-link" data-scroll-target="#ode-representation">ODE representation</a></li>
+  <li><a href="#stochastic-process-markov-chain-representation" id="toc-stochastic-process-markov-chain-representation" class="nav-link" data-scroll-target="#stochastic-process-markov-chain-representation">Stochastic Process (Markov Chain) Representation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -209,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-MPMspec" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></h1>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span></h1>
 </div>
 
 
@@ -224,70 +289,115 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="specification" class="level3">
-<h3 class="anchored" data-anchor-id="specification">Specification</h3>
-<p>We employ a basic <span class="math inline">SIR</span> compartmental model, assuming no births and deaths, with a total of <span class="math inline">N</span> individuals. <span id="eq-ConstantTotalPopulation"><span class="math display"> S + I  + R = N \tag{2.1}</span></span></p>
-<p>We divide the population into <span class="math inline">n</span> connected sub-populations,hereafter ‘patches’, with <span class="math inline">N_i</span> denoting the population of patch <span class="math inline">i</span> (note that <span class="math inline">N = \sum\limits_{i=1}^{n}N_i</span>).</p>
-<p>Let <span class="math inline">S_i</span>, <span class="math inline">I_i</span>, <span class="math inline">R_i</span> respectively denote the number of susceptible, infected and recovered individuals in Patch <span class="math inline">i</span> (noting also that <span class="math inline">N_i = S_i + I_i + R_i</span>). Also, since <span class="math inline">R_i = N_i - S_i - I_i</span>, we will not explicitly show <span class="math inline">R_i</span> in the equations hereafter (thought this could be calculated at any time)</p>
-<p>Individuals coming into contact with an infective, whether within or without patch, become infected at a rate <span class="math inline">\beta</span>.</p>
-<p>While individuals do not migrate between patches, infectives from patch <span class="math inline">i</span> infect - individuals from <span class="math inline">j</span> with a proportion <span class="math inline">\phi_{ij}</span>.</p>
-<p>The force of infection in patch <span class="math inline">i</span> given by <span class="math display">
-\Lambda_i = \beta \sum\limits_{j}^{n}\phi_{ij}I_j
-</span></p>
-<p>And thus the force of infection vector <span id="eq-FOIv"><span class="math display">\Lambda = \beta I \Phi \tag{2.2}</span></span></p>
-<p>Where <span class="math inline">I</span> is the vector of patch infection counts, and <span class="math inline">\Phi</span> is the mixing matrix.</p>
+<section id="modelling-infectious-epidemics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="modelling-infectious-epidemics"><span class="header-section-number">1.1</span> Modelling Infectious Epidemics</h2>
+<p>“Epidemic models are used to inform decisions on disease prevention, surveillance, control and treatment and can be applied to new epidemics” <span class="citation" data-cites="bjørnstad2020">(<a href="refs.html#ref-bjørnstad2020" role="doc-biblioref"><strong>bjørnstad2020?</strong></a>)</span></p>
 </section>
-<section id="construction-of-mixing-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="construction-of-mixing-matrix">Construction of mixing matrix</h3>
-<p>Instead of constructing the mixing matrix from empirical OD data, we specified the matrix analytically to encode the hierarchical structure of the SA classification.</p>
-<p>The main constraint employed was that patches within the same level <span class="math inline">L</span> SA region would mix together more strongly than those not. Nevertheless, because of a higher level enclosing group (in the case of Melbourne, the state level grouping), we only need to specify a series of coefficients which correspond to the lowest level grouping in which two patches co-occur. Furthermore, to ensure the matrix rows sum to one, mixing is also proportional to the fraction of the population of the grouping region comprised by the patch.</p>
-<p>for any two patches <span class="math inline">i</span> and <span class="math inline">j</span>,</p>
-<p><span class="math inline">i, j</span> are patches</p>
-<p><span class="math inline">S_{i}^{L}</span> is the set of patches in level <span class="math inline">L</span> <span class="math inline">N_i</span> is the population of <span class="math inline">i</span> <span class="math inline">N_{i}^{L}</span> is the population of <span class="math inline">S_{i}^{L}</span> <span class="math inline">\xi^{L}(\delta)</span> is the proportion of mixing that occurs within <span class="math inline">S_{i}^{L}</span> but not<span class="math inline">S_{i}^{L-1}</span></p>
-<p>The intra level mixing coefficients <span class="math inline">\xi_L</span> comprise the vector <span class="math inline">\xi</span>. Constraining the elements of <span class="math inline">\xi</span> s.t. <span class="math inline">\sum\limits_{L = 1}^{L} \xi_i = 1</span> (where <span class="math inline">L</span> is the highest level grouping) ensures the rows of the mixing matrix sum to unity.<br>
-</p>
-<p>-More verbosity</p>
-<p>-Be more explicit about SA Levels</p>
-<p>-Mention Mixing with PPMM</p>
-</section>
-<section id="implementation" class="level3">
-<h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
-<p>The model was implemented as continuous time markov chain, with discrete state variables <span class="math display">S_{i}(t), I_{i}(t) \in {0,1,2,...N_{i}}</span> where <span class="math inline">t\in [0, \infty)</span></p>
-<p>at <span class="math inline">t = 0</span>, a randomly selected patch, <span class="math inline">i</span>, is seeded with <span class="math inline">I = 10</span> invectives, such that <span class="math display">S_{i}(0) = N_{i} - 10, I_{i}(0) = 10</span> and the remaining patches are disease free <span class="math display">S_j(0) = N_j, I_j(0) =0, i\neq j </span></p>
-<p>at <span class="math inline">t&gt;0</span> possible changes in state (‘events’) are infection at a patch <span class="math inline">i</span> (if <span class="math inline">S_i \geq 1</span> &amp; <span class="math inline">I \geq 1</span>), or recovery at patch <span class="math inline">i</span> (if <span class="math inline">I_i \geq 1</span>). Rates for these events are given in <a href="#tbl-EventRates">Table&nbsp;<span>2.1</span></a></p>
-<div id="tbl-EventRates" class="anchored">
+<section id="compartment-models" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="compartment-models"><span class="header-section-number">1.2</span> Compartment Models</h2>
+<p>“Compartmental models are the most frequently used type of epidemic model. In this class of models, individuals can be in a finite number of discrete states. Some of these states are simply labels that specify the various traits of individuals. Of these, some will be changing with time, such as age class, and others will be fixed, such as sex or species. Other states indicate the progress of an infection: for example, an individual can upon becoming infected, typically first enter a state of latency, then progress to a state of infectiousness, and then lose infected status to progress to a recovered/immune state. With each state one can associate the subpopulation of individuals who are in that particular state at the given time (e.g.&nbsp;a female in a latent state of infection). Often the same symbol is used as a label for a state and to denote the corresponding subpopulation size, either as a fraction or as a number (e.g.&nbsp;I or Y for individuals in an infectious state)” - <span class="citation" data-cites="diekmann2010">(<a href="refs.html#ref-diekmann2010" role="doc-biblioref"><strong>diekmann2010?</strong></a>)</span></p>
+<section id="the-sir-compartmental-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-sir-compartmental-model">The SIR compartmental model</h3>
+<p>The simplest comparmental model of infectious disease spread is the SIR Compartmental Model, with three compartments: S - for individuals <em>susceptible</em> to the disease; I - for <em>infected</em> individuals; and R - for previously infected individuals who have <em>recovered</em> (or been otherwise <em>removed</em> from that compartment). With the simplifying assumption of a constant population size, <span class="math inline">N</span>, i.e.</p>
+<p><span id="eq-SIR_N"><span class="math display">
+N = S + I + R
+\tag{1.1}</span></span></p>
+<p>Individuals move between compartments in a fixed set of ways, they may either become infected (moving from S -&gt; I), or recover from infection (I -&gt; R).</p>
+<p>At each time unit an infected individual can come into contact with, on average, <span class="math inline">k\frac{S}{N}</span> Susceptible individuals. <span class="math inline">\pi</span> is the probability of infecting somebody on coming in contact, so <span class="math inline">\beta = k\pi</span> is the average rate at which an infected indivudual will infect a susceptible. Infected individuals recover at the constant rate, <span class="math inline">\gamma</span>, with <span class="math inline">1/\gamma</span> the mean recovery time.</p>
 <table class="table">
-<caption>Table&nbsp;2.1: Event Rates</caption>
 <thead>
 <tr class="header">
-<th>Event</th>
-<th>State change</th>
-<th>Rate</th>
+<th>Parameter</th>
+<th>Interpretation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Infection in patch <span class="math inline">i</span></td>
-<td><span class="math inline">\{S_i -1, I_i +1\}</span></td>
-<td><span class="math inline">S_i \Lambda_i</span></td>
+<td><span class="math inline">\beta</span></td>
+<td>Transmission rate</td>
 </tr>
 <tr class="even">
-<td>Recovery in patch <span class="math inline">i</span></td>
-<td><span class="math inline">\{I_i - 1\}</span></td>
-<td><span class="math inline">\gamma I_i</span></td>
+<td><span class="math inline">\gamma</span></td>
+<td>Recovery rate</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>Due to the Markov property, events occur after a exponentially distributed time with parameter equal to the sum of all event rates <span class="math display">\Delta t \sim Exp(\lambda)</span> where</p>
-<p><span class="math inline">\lambda = \sum\limits_{i}^{n}S_i \Lambda_i + \gamma I_i</span></p>
-<p>at <span class="math inline">t + \delta t</span>, a random event from <a href="#tbl-EventRates">Table&nbsp;<span>2.1</span></a> will occur with probability directly proportional to it’s rate.</p>
-<p>When the system enters a disease free equilibrium state (i.e.&nbsp;<span class="math inline">I = 0</span>), the implementation is complete.</p>
+<p>Thus, an SIR model can be represented by the schematic</p>
 </section>
-<section id="sec-MossGmelb" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="sec-MossGmelb"><span class="header-section-number">2.1</span> Example: Greater Melbourne Area Spatial Metapopulation model</h2>
+</section>
+<section id="sir-dynamics" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sir-dynamics"><span class="header-section-number">1.3</span> SIR Dynamics</h2>
+<section id="ode-representation" class="level3">
+<h3 class="anchored" data-anchor-id="ode-representation">ODE representation</h3>
+<p>Given the rate parameters defined above, the change in compartment composition over time can be described by the system of differential equations</p>
+<p><span id="eq-SIR-ODE"><span class="math display">
+\begin{aligned}
+&amp; \frac{d S}{d t}=-\beta I \frac{S}{N} \\
+&amp; \frac{d I}{d t}=\beta I \frac{S}{N}-\gamma I \\
+&amp; \frac{d R}{d t}=\gamma I
+\end{aligned}
+\tag{1.2}</span></span> Importantly, if the total population size is known, given <a href="#eq-SIR_N">Equation&nbsp;<span>1.1</span></a>, R = N - S + I and the entire system can be described by two of the equations in <a href="#eq-SIR-ODE">Equation&nbsp;<span>1.2</span></a>.</p>
+<p>EXAMPLE</p>
+<section id="limitations-of-deterministic-ode" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-of-deterministic-ode">Limitations of Deterministic ODE</h4>
+<p>While <a href="#eq-SIR-ODE">Equation&nbsp;<span>1.2</span></a> provides a neat solution for the expected behaviour of a epidemic, it fails to caputure the variability inherent in a complex process like disease spread.</p>
+</section>
+</section>
+<section id="stochastic-process-markov-chain-representation" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-process-markov-chain-representation">Stochastic Process (Markov Chain) Representation</h3>
+<p>A Stochastic Process is a collection of random variables, <span class="math inline">X_t</span>.</p>
+<section id="markov-chains" class="level4">
+<h4 class="anchored" data-anchor-id="markov-chains">Markov chains</h4>
+<p>A Markov chain is a sequence of random variables <span class="math inline">X_0, X_1, \ldots</span> taking values in <span class="math inline">S</span> with the property that</p>
+<p><span id="eq-Markov-Property"><span class="math display">
+\begin{aligned}
+P\left(X_{n+1}\right. &amp; \left.=j \mid X_0=x_0, \ldots, X_{n-1}=x_{n-1}, X_n=i\right) \\
+&amp; =P\left(X_{n+1}=j \mid X_n=i\right),
+\end{aligned}
+\tag{1.3}</span></span></p>
+<p>for all <span class="math inline">x_0, \ldots, x_{n-1}, i, j \in S</span>, and <span class="math inline">n \geq 0</span>. That is, the state at the next time step is determined only by the state at the current time step.</p>
+</section>
+<section id="time-homogeneity" class="level4">
+<h4 class="anchored" data-anchor-id="time-homogeneity">Time Homogeneity</h4>
+<p>While not a general property of Markov chains, all of those considered in this work will have the additional property of <em>time homogeneity</em>:</p>
+<p><span class="math display">
+P\left(X_{n+1}=j \mid X_n=i\right)=P\left(X_1=j \mid X_0=i\right),
+</span> i.e.&nbsp;the probabilities in <a href="#eq-Markov-Property">Equation&nbsp;<span>1.3</span></a> do not vary with <span class="math inline">t</span></p>
+</section>
+<section id="sir-dtmc" class="level4">
+<h4 class="anchored" data-anchor-id="sir-dtmc">SIR DTMC</h4>
+<p>An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).</p>
+<p>There are two potential events (tbl-SIR_Events) resulting in a change of state i.e.&nbsp;from <span class="math inline">X_{t}</span> to <span class="math inline">X_{t+\delta t}</span></p>
+<p><span id="eq-SIR_DTMC_Trans"><span class="math display">
+p _ {(s +k, i +j),(s,i)}(\Delta t) =
+\begin{cases}
+{\frac { \beta i s} { N}} \Delta t, &amp; {(k, j) = (-1, 1) } \\
+{ \gamma i \Delta t}, &amp; { (k, j) = (0, -1)  } \\
+{ 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, &amp; { (k, j) = (0, 0)} \\
+0 &amp; {otherwise}
+\end{cases}
+\tag{1.4}</span></span></p>
+<section id="transition-matrix" class="level5">
+<h5 class="anchored" data-anchor-id="transition-matrix">Transition Matrix</h5>
+</section>
+</section>
+<section id="sir-ctmc" class="level4">
+<h4 class="anchored" data-anchor-id="sir-ctmc">SIR CTMC</h4>
+<p>###Stochastic simulation <span class="citation" data-cites="simoni2019">Simoni et al. (<a href="refs.html#ref-simoni2019" role="doc-biblioref">2019</a>)</span></p>
+<div id="alg-Gillespie" class="pseudocode-container" data-no-end="false" data-line-number="true" data-alg-title="Algorithm" data-indent-size="1.2em" data-comment-delimiter="//" data-pseudocode-index="1" data-line-number-punc=":">
+<div class="pseudocode">
+\begin{algorithm} \caption{Gillespie Direct Method for SIR Compartmental Model CTMC} \begin{algorithmic} \input \output \State Initialise time $t = 0$ and state $X = x_0$ \While{$t &lt; T_{max}$} \State set $a_0 = 0$ \For{reaction $R_j$} \State compute $a_j$ \State update $a_0 = a_0 + a_j$ \EndFor \State generate two random numbers $r_1$, $r_2$ ion $\union (0,1)$ \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$ \State update $X = X + v_\mu$ \State set $t = t + \tau$ \EndWhile \end{algorithmic} \end{algorithm}
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-simoni2019" class="csl-entry" role="listitem">
+Simoni, G., Reali, F., Priami, C., &amp; Marchetti, L. (2019). Stochastic simulation algorithms for computational systems biology: Exact, approximate, and hybrid methods. <em>WIREs Systems Biology and Medicine</em>, <em>11</em>(6), e1459. <a href="https://doi.org/10.1002/wsbm.1459">https://doi.org/10.1002/wsbm.1459</a> <span>_</span>Eprint: https://wires.onlinelibrary.wiley.com/doi/pdf/10.1002/wsbm.1459 QID: Q91506994
+</div>
+</div>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -526,13 +636,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-IntroBackground.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span>
+      <a href="./acknowledgements.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Acknowledgements</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-CurrentStudy.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-Metapopulation_Models.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -548,6 +658,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 
