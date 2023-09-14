@@ -1,15 +1,28 @@
 ##SIR Metapopulation Model ODE
 using ModelingToolkit
 using OrdinaryDiffEq
+using CSV
+using DataFrames
 using Plots
-
 include("../src/SCI499.jl")
-npatch = 
+using .SCI499
+VicPop = CSV.read("data/GmelbSA2Pop21.csv", DataFrame)
+codes::Vector{String} = VicPop[:, 1]::Vector{Int64} |> x -> string.(x)
+names::Vector{String} = VicPop[:, 2] |> x -> string.(x)
+popns::Vector{Int64}  = (VicPop[:, 3] .÷ 100) .+ 1
+CodePops = DataFrame(
+    Codes = codes,
+    Pop = popns)
+    ξ = [1/4, 1/4, 1/4, 1/4]
+
+mixmat = SCI499.MixingMatrices.HPMixingMatrix(CodePops, ξ, 1.0)
+
+npatch = length(names)
 
 @parameters t
 D = Differential(t)
 
-@parameters t β c[1:npatch] γ;
+@parameters t β γ;
 
 @variables (S(t))[1:npatch] (I(t))[1:npatch] (R(t))[1:npatch] (λ(t))[1:npatch]
 
@@ -25,8 +38,7 @@ state_eqs = vcat(state_eqs...);
 
 variable_eqs = [
     [N[i] ~ S[i]+I[i]+R[i] for i in 1:npatch]...,
-    [λ[i] ~ sum([β*c[i]*p[i,j]*I[j]/N[j] for j in 1:npatch]) for i in 1:npatch]...,
-    [p[i,j] ~ c[j]*N[j]/sum([c[k]*N[k] for k in 1:npatch]) for j in 1:npatch for i in 1:npatch]...
+    [λ[i] ~ sum([β*mixmat[i,j]*I[j]/N[j] for j in 1:npatch]) for i in 1:npatch]...
 ];
 
 @named  sys = ODESystem([state_eqs; variable_eqs])
@@ -37,7 +49,7 @@ u₀ = [[S[i] => 990.0/npatch for i in 1:npatch]...,
       [I[i] => 10.0/npatch for i in 1:npatch]...,
       [R[i] => 0.0 for i in 1:npatch]...];
 
-p = [β => 0.05, γ => 0.25, [c[i] => 10.0 for i in 1:npatch]...];
+p = [β => 1.5, γ => 1];
 
 δt = 0.1
 tmax = 40
@@ -65,14 +77,3 @@ times = sol.t
 plot(times, Stotal, label="S", xlabel="Time", ylabel="Number");
 plot!(times, Itotal, label="I");
 plot!(times, Rtotal, label="R")
-
-
-p2 = [β=>0.05, c[1] => 20, c[2] => 5, γ=>0.25]
-prob2 = remake(prob, p=p2)
-sol2 = solve(prob2, Tsit5(), saveat=δt);
-
-plot(times, sol2(times, idxs=S_indexes)', labels=["S₁" "S₂"], linecolor=:blue, linestyle=[:solid :dash]);
-plot!(times, sol2(times, idxs=I_indexes)', labels=["I₁" "I₂"], linecolor=:red, linestyle=[:solid :dash]);
-plot!(times, sol2(times, idxs=R_indexes)', labels=["R₁" "R₂"], linecolor=:green, linestyle=[:solid :dash])
-xlabel!("Time")
-ylabel!("Number")

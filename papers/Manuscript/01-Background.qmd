@@ -25,7 +25,7 @@ At each time unit an infected individual can come into contact with, on average,
 | $\beta$   | Transmission rate |
 | $\gamma$  | Recovery rate     |
 
-Thus, an SIR model can be represented by the schematic 
+Thus, an SIR model can be represented by the schematic
 
 ## SIR Dynamics
 
@@ -88,8 +88,42 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 \end{cases}
 $$ {#eq-SIR_DTMC_Trans}
 
-
 ##### Transition Matrix
 
-
 #### SIR CTMC
+
+### Stochastic simulation
+
+@simoni2019
+``` pseudocode
+#| label: alg-Gillespie
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
+\begin{algorithm}
+\caption{Gillespie Direct Method for SIR Compartmental Model CTMC}
+
+\begin{algorithmic}
+\input
+\output
+\State Initialise time $t = 0$ and state $X = x_{0}$
+  \While{$t < T_{max}$}
+      \State set $a_0 = 0$
+      \For{reaction $R_j$}
+          \State compute $a_j$
+          \State update $a_0 = a_0 + a_j$
+      \EndFor
+      \State generate two random numbers $r_1$, $r_2$ in $(0,1)$
+      \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
+      \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$
+      \State update $X = X + v_\mu$
+      \State set $t = t + \tau$
+  \EndWhile
+\end{algorithmic}
+\end{algorithm}
+```

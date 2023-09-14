@@ -101,6 +101,7 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+\usepackage{xeCJK}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \makeatother
@@ -156,6 +157,12 @@
 \makeatother
 \makeatletter
 \makeatother
+\makeatletter
+\@ifpackageloaded{algorithm}{}{\usepackage{algorithm}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{algpseudocode}{}{\usepackage{algpseudocode}}
+\makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -179,12 +186,27 @@ models}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden, enhanced]}{\end{tcolorbox}}\fi
+\renewcommand{\Return}{\State \textbf{return}~}
+\newcommand{\Print}{\State \textbf{print}~}
+\newcommand{\Break}{\State \textbf{break}}
+\newcommand{\Continue}{\State \textbf{continue}}
+\newcommand{\True}{\textbf{true}}
+\newcommand{\False}{\textbf{false}}
+\renewcommand{\And}{\textbf{and}~}
+\newcommand{\Or}{\textbf{or}~}
+\renewcommand{\Not}{\textbf{not}~}
+\newcommand{\To}{\textbf{to}~}
+\newcommand{\DownTo}{\textbf{downto}~}
+\numberwithin{algorithm}{chapter}
+
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, breakable, sharp corners, enhanced, borderline west={3pt}{0pt}{shadecolor}, frame hidden]}{\end{tcolorbox}}\fi
+
+\floatname{algorithm}{Algorithm}
 
 \renewcommand*\contentsname{Sections}
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 \tableofcontents
 }
 \bookmarksetup{startatroot}
@@ -400,7 +422,7 @@ so as to contribute to the interpretation.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
-\bookmarksetup{startatroot}
+\part{Background}
 
 \hypertarget{sec-intro}{%
 \chapter{Introduction \& Background}\label{sec-intro}}
@@ -566,13 +588,21 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 \hypertarget{sir-ctmc}{%
 \subsubsection{SIR CTMC}\label{sir-ctmc}}
 
-\bookmarksetup{startatroot}
+\hypertarget{stochastic-simulation}{%
+\subsection{Stochastic simulation}\label{stochastic-simulation}}
+
+Simoni et al. (2019)
 
 \hypertarget{sec-MPMspec}{%
 \chapter{Spatial Metapopulation Model}\label{sec-MPMspec}}
 
-\hypertarget{specification}{%
-\subsection{Specification}\label{specification}}
+\hypertarget{motivation}{%
+\section{Motivation}\label{motivation}}
+
+\hypertarget{formulation}{%
+\section{Formulation}\label{formulation}}
+
+Jacquez et al. (1988)
 
 We employ a basic \(SIR\) compartmental model, assuming no births and
 deaths, with a total of \(N\) individuals.
@@ -642,7 +672,33 @@ grouping) ensures the rows of the mixing matrix sum to unity.\\
 -Mention Mixing with PPMM
 
 \hypertarget{implementation}{%
-\subsection{Implementation}\label{implementation}}
+\section{Implementation}\label{implementation}}
+
+\begin{algorithm}[htb!]
+\caption{Quicksort}
+\label{alg-quicksort}
+\begin{algorithmic}[1]
+\Procedure{Quicksort}{$A, p, r$}
+  \If{$p < r$}
+    \State $q = $ \Call{Partition}{$A, p, r$}
+    \State \Call{Quicksort}{$A, p, q - 1$}
+    \State \Call{Quicksort}{$A, q + 1, r$}
+  \EndIf
+\EndProcedure
+\Procedure{Partition}{$A, p, r$}
+  \State $x = A[r]$
+  \State $i = p - 1$
+  \For{$j = p$ to $r - 1$}
+    \If{$A[j] < x$}
+      \State $i = i + 1$
+      \State exchange
+      $A[i]$ with     $A[j]$
+    \EndIf
+    \State exchange $A[i]$ with $A[r]$
+  \EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 The model was implemented as continuous time markov chain, with discrete
 state variables \[S_{i}(t), I_{i}(t) \in {0,1,2,...N_{i}}\] where
@@ -691,10 +747,16 @@ When the system enters a disease free equilibrium state
 \section{Example: Greater Melbourne Area Spatial Metapopulation
 model}\label{sec-MossGmelb}}
 
-\bookmarksetup{startatroot}
+\part{Current Study}
 
-\hypertarget{sec-intro}{%
-\chapter{Metapopulation Spatial resolution}\label{sec-intro}}
+\hypertarget{code-data}{%
+\chapter{Code \& Data}\label{code-data}}
+
+\hypertarget{package-dependencies}{%
+\chapter{Package dependencies}\label{package-dependencies}}
+
+\hypertarget{chapter-3}{%
+\chapter{Chapter 3}\label{chapter-3}}
 
 In Section~\ref{sec-MossGmelb}, we observed the construction of a
 meta-population mixing matrix from empirical origin-destination (OD)
@@ -742,7 +804,7 @@ the GMCCSA.
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GMelbSA2SA3SA4-1.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelbSA2SA3SA4-1.pdf}
 
 }
 
@@ -774,7 +836,7 @@ Figure~\ref{fig-FootscraySA1Code}).
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-FootscraySAexample-1.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-FootscraySAexample-1.pdf}
 
 }
 
@@ -806,9 +868,9 @@ hierachical spatial information components}
 
 \end{figure}
 
-\hypertarget{varying-the-spatial-resolution-of-metapopulation-models}{%
-\section{Varying the spatial resolution of metapopulation
-models}\label{varying-the-spatial-resolution-of-metapopulation-models}}
+\hypertarget{spatial-resolution-of-metapopulation-models}{%
+\section{Spatial resolution of metapopulation
+models}\label{spatial-resolution-of-metapopulation-models}}
 
 We can exploit this hierarchical structure by creating meta-population
 models incorporating the same overarching spatial structure (i.e.~the
@@ -817,70 +879,91 @@ ASGS Statistical Areas structure), but with varying levels of resolution
 can model the GMGCSSA using patches corresponding to different levels of
 the SA hierarchy.
 
-\hypertarget{mixing-matrices-to-preserve-homogeneous-mixing}{%
-\subsection{Mixing matrices to preserve homogeneous
-mixing}\label{mixing-matrices-to-preserve-homogeneous-mixing}}
+\hypertarget{homogenous-mixing-in-metapopulation-models}{%
+\subsection{Homogenous mixing in metapopulation
+models}\label{homogenous-mixing-in-metapopulation-models}}
 
 We might initially consider the models with patch sizes 2, 3, 4 (for
 SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across
 patches, i.e.~\[
 \phi_{ij} = \frac{1}{P_{tot}}
 \] Where \(P_{tot}\) is the total number of patches. - How should we
-interpret this mixing coefficient? \#\#\# Population proportional mixing
+interpret this mixing coefficient?
 
-The resulting mixing matrices will be of different sizes (i.e.~40 SA3
-patches vs 361 SA2 patches for the Greater Melbourne region), and to
-ensure equivalent representation of aggregate levels, patch population
-size can be used to scale mixing coefficients, i.e.. for two patches
-\(i\) and \(j\) the mixing coefficient \(\phi_{i,j}\):
+\hypertarget{proportionate-mixing}{%
+\subsection{Proportionate mixing}\label{proportionate-mixing}}
+
+\begin{figure}
+
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelbPop-1.pdf}
+
+}
+
+\caption{\label{fig-GMelbPop}\textbf{?(caption)}}
+
+\end{figure}
+
+To ensure equivalent representation of aggregate levels, patch
+population size can be used to scale mixing coefficients, i.e.. for two
+patches \(i\) and \(j\) the mixing coefficient \(\phi_{i,j}\):
 
 \[
 \phi_{ij} = N_j/N_{tot}
 \]
 
-Which gives mixing matrices shown in \textbf{?@fig-GMelbPopMM}
-
-\begin{verbatim}
-[[1]]
-\end{verbatim}
-
-\begin{verbatim}
-
-[[2]]
-\end{verbatim}
-
-\begin{verbatim}
-
-[[3]]
-\end{verbatim}
+Which gives mixing matrices shown in Figure~\ref{fig-GMGCC_PMM}
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GMelbPopMM-1.pdf}
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\begin{figure}
+
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelb_PMM_SA2-1.pdf}
 
 }
-
-\caption{\label{fig-GMelbPopMM-1}\textbf{?(caption)}}
 
 \end{figure}
 
-\begin{figure}
-
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GMelbPopMM-2.pdf}
-
 }
 
-\caption{\label{fig-GMelbPopMM-2}\textbf{?(caption)}}
+\end{minipage}%
+%
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\begin{figure}
+
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelb_PMM_SA3-1.pdf}
+
+}
 
 \end{figure}
 
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GMelbPopMM-3.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelb_PMM_SA4-1.pdf}
 
 }
 
-\caption{\label{fig-GMelbPopMM-3}\textbf{?(caption)}}
+\end{figure}
+
+}
+
+\end{minipage}%
+
+\caption{\label{fig-GMGCC_PMM}Population proportional mixing matrices}
 
 \end{figure}
 
@@ -895,130 +978,193 @@ resolution}\label{results-equivalent-models-at-different-spatial-resolution}}
 homogeneous patches - Expect equivalence
 
 \hypertarget{statistical-area-mixing-structure}{%
-\subsubsection{Statistical Area Mixing
+\subsection{Statistical Area Mixing
 structure}\label{statistical-area-mixing-structure}}
 
 We can also enforce heterogenous mixing, while simultaneously encoding
 the hierarchical structure of the SA classification by constructing
 hierarchical block mixing matrices. To do so, we specify a set of
-coefficients \(\xi = [\xi_1, ..., \xi_i]\) which determine the
-proportion of mixing occurs at each level of the spatial hierarchy. Note
-that \[
-\sum\limits_{i}\xi=1
-\] This coefficient is distributed amongst patches occurring in the same
-level \(L\) region, so mixing for any two patches, \(i\) and \(j\) \[
-M_{ij}= \frac{\xi_{L}}{N^{L}} 
+coefficients \(\xi = [\xi_1, ..., \xi_i]\) such that
+\(\sum\limits_{i}\xi_{i}=1\), which determine the proportion of mixing
+occurs at each level of the spatial hierarchy. This coefficient is
+distributed amongst patches occurring in the same level \(L\) region, so
+mixing for any two patches, \(i\) and \(j\) \[
+M_{ij}= \frac{\xi_{L}}{P^{L}} 
 \] if \[
 j \in S_{i}^{L}
 \] but \[j \notin S_{i}^{L-1}\] Where \(S_{i}^{L}\) is the set of
 patches in the same level \(L\) region as \(i\).
 
 To extend the example from \textbf{?@sec-XX}, we can consider a subset
-of SA2 regions from the GMGCCSA ((\textbf{tab-MMeg?}))
+of SA2 regions from the GMGCCSA (Figure~\ref{fig-GMelb_eg_Map},
+(\textbf{tab-MMeg?}))
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-Example_region-1.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelb_eg_Map-1.pdf}
 
 }
 
-\caption{\label{fig-Example_region}\textbf{?(caption)}}
+\caption{\label{fig-GMelb_eg_Map}\textbf{?(caption)}}
 
 \end{figure}
 
-Kensington, Racecourse, and West industrial are SA2 regions within the
-`Melbourne City' SA3 region, Footscray and Maribyrnong are SA2 regions
-within the `Maribyrnong' SA3 region, and Flemington and Ascot Vale are
-SA2 regions withing the `Essendon' SA3 region. Furthermore, both
-`Melbnourne city' and Essendon are within the `Inner Melbourne' SA4
-region while Marybyrnong lies iside the `West Melbourne' SA4 Region
+Docklands and West industrial are SA2 regions within the `Melbourne
+City' SA3 region. Port Melbourne and Port Industrial are SA2 regions
+within the `Port Melbourne' SA3 region. Footscray, Seddon-Kingsville,
+and Yarraville are SA2 regions within the `Maribyrnong' SA3 region.
+Newport SA2 is within the Hobsons Bay SA3 region. Port Melbourne and
+Port Industrial are SA2 regions within the `Port Melbourne' SA3 region.
+Furthermore, both `Melbourne city' and `Port Melbourne' are within the
+`Inner Melbourne' SA4 region, while Maribyrnong and Hobsons Bay SA3 lie
+inside the `West Melbourne' SA4 Region.
 
-To model these SA2 patches in isolation, we can construct a
-\(7 \times 7\) mixing matrix, row by row, for
-\(\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]\)as
-follows:
+To model mixing between these SA2 patches (isolated from the rest of the
+GMGCCSA), we can construct a \(8 \times 8\) mixing matrix with
+\(\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]\)
+as follows:
 
-let \(i =\) \texttt{Kensington}. Since \texttt{Kensington} is it's own
-SA2 region, \[M_{i,i} = \frac{1}{4}\]When \(j\) is a region in
-\texttt{Melbourne\ City} SA3 (alongside \texttt{Kensington}), like
-\texttt{West\ Industrial} or \texttt{Racecourse}, \(M_{i,j}\) will be a
-proportion of \(\xi_{SA3}\). For \(j = Racecourse\) and
-\(j = West Industrial\) \[
-M_{i,j} = \frac{\xi_{SA3}}{N_{i}^{SA3} - N_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
-\] When patch \(j\) occurs outside the Melbourne City SA3, but within
-the \texttt{Inner\ Melbourne} SA4, like those in \texttt{Essendon}SA3 \[
-M_{i,j} = \frac{\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \frac{\frac{1}{4}}{5 - 3} = \frac{1}{8}
-\] Finally when \(j\) is a patch outside the \texttt{Inner\ Melbourne}
-SA4, like those in \texttt{West\ Melbourne}SA4 \[
-M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3} = \frac{1}{16}
+let \(i =\) \texttt{Footscray}. Since \texttt{Footscray} is it's own SA2
+region, \[M_{i,i} = \frac{1}{4}\] When \(j\) is a region in
+\texttt{Maribyrnong} SA3 (alongside \texttt{Footscray}), like
+\texttt{Yarraville} or \texttt{Seddon-Kingsville}, \(M_{i,j}\) will be a
+proportion of \(\xi_{SA3}\). \[
+M_{i,j} = \frac{\xi_{SA3}}{P_{i}^{SA3} - P_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
+\] When \(j\) occurs outside the \texttt{Maribyrnong} SA3, but within
+the \texttt{West\ Melbourne} SA4, like \texttt{Newport} SA2 \[
+M_{i,j} = \frac{\xi_{SA4}}{P_{i}^{SA4} - P_{i}^{SA3}} = \frac{\frac{1}{4}}{4 - 3} = \frac{1}{4}
+\] Finally when \(j\) is a patch outside the \texttt{West\ Melbourne}
+SA4, like those in the \texttt{Inner\ Melbourne}SA4 \[
+M_{i,j} = \frac{\xi_{SA5}}{P_{i}^{SA5} - P_{i}^{SA4}} = \frac{\frac{1}{4}}{8 - 4} = \frac{1}{16}
 \] thus for the row \(M_{i}\), representing the mixing of individuals
-from Kensington, \$ sum\limits*\{j\}M*\{j\}= \frac{1}{4} +\frac{1}{8} +
-\frac{1}{8} +\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = 1\$
-as desired. Repeating this for all patches \(i\), gives the mixing
-matrix represented in Figure~\ref{fig-egMM}
+from Footscray,
+\(\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} = 1\).
+Repeating this for all patches \(i\), gives the mixing matrix
+represented in Figure~\ref{fig-GMelb_eg_MixMat}
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-egMM-1.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GMelb_eg_MixMat-1.pdf}
 
 }
 
-\caption{\label{fig-egMM}\textbf{?(caption)}}
+\caption{\label{fig-GMelb_eg_MixMat}\textbf{?(caption)}}
 
 \end{figure}
 
 Applying this process to the whole GMGCCSA yields the mixing matrices
-presented in figure \textbf{?@fig-GCC\_HMM}
-
-\begin{verbatim}
-$SA2
-\end{verbatim}
-
-\begin{verbatim}
-
-$SA3
-\end{verbatim}
-
-\begin{verbatim}
-
-$SA4
-\end{verbatim}
+presented in figure Figure~\ref{fig-GCC_HMM}
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GCC_HMM-1.pdf}
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
 
 }
 
-\caption{\label{fig-GCC_HMM-1}\textbf{?(caption)}}
+\end{minipage}%
+%
+\begin{minipage}[t]{0.50\linewidth}
 
-\end{figure}
+{\centering 
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GCC_HMM-2.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GCC_HMM_SA2-1.pdf}
 
 }
 
-\caption{\label{fig-GCC_HMM-2}\textbf{?(caption)}}
-
 \end{figure}
+
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
 
 \begin{figure}
 
-{\centering \includegraphics{03-CurrentStudy_files/figure-pdf/fig-GCC_HMM-3.pdf}
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GCC_HMM_SA3-1.pdf}
 
 }
 
-\caption{\label{fig-GCC_HMM-3}\textbf{?(caption)}}
+\end{figure}
+
+}
+
+\end{minipage}%
+%
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\begin{figure}
+
+{\centering \includegraphics{03-Hierarchical_models_files/figure-pdf/fig-GCC_HMM_SA4-1.pdf}
+
+}
 
 \end{figure}
 
-\bookmarksetup{startatroot}
+}
 
-\hypertarget{chapter-4.-modelling-intervention}{%
-\chapter{Chapter 4. Modelling
-intervention}\label{chapter-4.-modelling-intervention}}
+\end{minipage}%
+
+\caption{\label{fig-GCC_HMM}Hierarchical Mixing matrices for the Greater
+Melbourne Capital City Statistical Area (GMGCCSA) at three levels of
+spatial resolution.}
+
+\end{figure}
+
+\hypertarget{population-normalised-sa-mixmat}{%
+\subsection{Population normalised SA
+mixmat}\label{population-normalised-sa-mixmat}}
+
+\hypertarget{modelling-interventions-different-scales}{%
+\chapter{Modelling interventions different
+scales}\label{modelling-interventions-different-scales}}
+
+\hypertarget{motivation-1}{%
+\section{Motivation}\label{motivation-1}}
+
+Reduce the total epidemic size/effects by intervening in strategic
+locations
+
+Spatial resolution allows for precise targeting. Behavioural
+intervention (restriction of mixing) Mixing matrix is modified during
+simulation
+
+\hypertarget{formulation-1}{%
+\section{Formulation}\label{formulation-1}}
+
+\begin{itemize}
+\item
+  Three types of intervention:
+
+  \begin{itemize}
+  \item
+    \texttt{local} reduce the intra-patch mixing
+  \item
+    \texttt{travel} reduce inter-patch mixing
+  \item
+    \texttt{total} reduce intra- and inter-patch mixing
+  \end{itemize}
+\item
+  Parameters
+
+  \begin{itemize}
+  \item
+    Trigger: condition at which intervention occurs
+  \item
+    effect: effect of intervention
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{implimentation}{%
+\section{Implimentation}\label{implimentation}}
 
 \bookmarksetup{startatroot}
 
@@ -1032,6 +1178,21 @@ intervention}\label{chapter-4.-modelling-intervention}}
 \begin{CSLReferences}{1}{0}
 \leavevmode\vadjust pre{\hypertarget{ref-2023AustralianStatisticalGeographya}{}}%
 Australian statistical geography standard (ASGS), (2023).
+
+\leavevmode\vadjust pre{\hypertarget{ref-jacquez1988}{}}%
+Jacquez, J. A., Simon, C. P., Koopman, J., Sattenspiel, L., \& Perry, T.
+(1988). Modeling and analyzing HIV transmission: The effect of contact
+patterns. \emph{Mathematical Biosciences}, \emph{92}(2), 119--199.
+\url{https://doi.org/10.1016/0025-5564(88)90031-4}
+
+\leavevmode\vadjust pre{\hypertarget{ref-simoni2019}{}}%
+Simoni, G., Reali, F., Priami, C., \& Marchetti, L. (2019). Stochastic
+simulation algorithms for computational systems biology: Exact,
+approximate, and hybrid methods. \emph{WIREs Systems Biology and
+Medicine}, \emph{11}(6), e1459. \url{https://doi.org/10.1002/wsbm.1459}
+{\_}Eprint:
+https://wires.onlinelibrary.wiley.com/doi/pdf/10.1002/wsbm.1459 QID:
+Q91506994
 
 \leavevmode\vadjust pre{\hypertarget{ref-renv}{}}%
 Ushey, K. (2022). \emph{{renv}: Project environments}.

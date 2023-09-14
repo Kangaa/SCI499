@@ -8,7 +8,7 @@
 
 <meta name="description" content="A thesis submitted for the degree of Graduate Diploma in Applied Statistics at The University of New England in 2023. School of Science and Technology.">
 
-<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 3&nbsp; Metapopulation Spatial resolution</title>
+<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 3&nbsp; Code &amp; Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,7 +51,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./04-Interventions.html" rel="next">
-<link href="./02-Metapopulation Models.html" rel="prev">
+<link href="./02-Metapopulation_Models.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,6 +80,25 @@ div.csl-indent {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
+MathJax = {
+  loader: {
+    load: ['[tex]/boldsymbol']
+  },
+  tex: {
+    tags: "all",
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    packages: {
+      '[+]': ['boldsymbol']
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -109,7 +128,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-CurrentStudy.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-Hierarchical_models.html">Current Study</a></li><li class="breadcrumb-item"><a href="./03-Hierarchical_models.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchical Structure of the SA classification</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -158,30 +177,52 @@ div.csl-indent {
  <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-IntroBackground.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-Background.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-Metapopulation Models.html" class="sidebar-item-text sidebar-link">
+  <a href="./02-Metapopulation_Models.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Current Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-CurrentStudy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></span></a>
+  <a href="./03-Hierarchical_models.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchical Structure of the SA classification</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-Interventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4. Modelling interventions different scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modelling interventions different scales</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./refs.html" class="sidebar-item-text sidebar-link">
@@ -190,13 +231,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-appA.html" class="sidebar-item-text sidebar-link">
@@ -215,13 +256,17 @@ div.csl-indent {
     <h2 id="toc-title"><b>Sections</b></h2>
    
   <ul>
-  <li><a href="#hierarchical-structure-of-the-sa-classification" id="toc-hierarchical-structure-of-the-sa-classification" class="nav-link active" data-scroll-target="#hierarchical-structure-of-the-sa-classification"><span class="header-section-number">3.1</span> Hierarchical Structure of the SA classification</a></li>
-  <li><a href="#spatial-resolution-of-metapopulation-models" id="toc-spatial-resolution-of-metapopulation-models" class="nav-link" data-scroll-target="#spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Spatial resolution of metapopulation models</a>
+  <li><a href="#package-dependencies" id="toc-package-dependencies" class="nav-link active" data-scroll-target="#package-dependencies"><span class="header-section-number">4</span> Package dependencies</a></li>
+  <li><a href="#chapter-3" id="toc-chapter-3" class="nav-link" data-scroll-target="#chapter-3"><span class="header-section-number">5</span> Chapter 3</a>
+  <ul class="collapse">
+  <li><a href="#hierarchical-structure-of-the-sa-classification" id="toc-hierarchical-structure-of-the-sa-classification" class="nav-link" data-scroll-target="#hierarchical-structure-of-the-sa-classification"><span class="header-section-number">5.1</span> Hierarchical Structure of the SA classification</a></li>
+  <li><a href="#spatial-resolution-of-metapopulation-models" id="toc-spatial-resolution-of-metapopulation-models" class="nav-link" data-scroll-target="#spatial-resolution-of-metapopulation-models"><span class="header-section-number">5.2</span> Spatial resolution of metapopulation models</a>
   <ul class="collapse">
   <li><a href="#homogenous-mixing-in-metapopulation-models" id="toc-homogenous-mixing-in-metapopulation-models" class="nav-link" data-scroll-target="#homogenous-mixing-in-metapopulation-models">Homogenous mixing in metapopulation models</a></li>
-  <li><a href="#population-proportional-mixing" id="toc-population-proportional-mixing" class="nav-link" data-scroll-target="#population-proportional-mixing">Population proportional mixing</a></li>
+  <li><a href="#proportionate-mixing" id="toc-proportionate-mixing" class="nav-link" data-scroll-target="#proportionate-mixing">Proportionate mixing</a></li>
   <li><a href="#statistical-area-mixing-structure" id="toc-statistical-area-mixing-structure" class="nav-link" data-scroll-target="#statistical-area-mixing-structure">Statistical Area Mixing structure</a></li>
   <li><a href="#population-normalised-sa-mixmat" id="toc-population-normalised-sa-mixmat" class="nav-link" data-scroll-target="#population-normalised-sa-mixmat">Population normalised SA mixmat</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -231,7 +276,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metapopulation Spatial resolution</span></span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code &amp; Data</span></h1>
 </div>
 
 
@@ -246,10 +291,15 @@ div.csl-indent {
 
 </header>
 
-<p>In <a href="02-Metapopulation Models.html#sec-MossGmelb"><span>Section&nbsp;2.1</span></a>, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the ‘SA3’ regions of the Australian Statistical Geography Standard’s Statistical Areas (SA) classification <span class="citation" data-cites="2023AustralianStatisticalGeographya">(<a href="refs.html#ref-2023AustralianStatisticalGeographya" role="doc-biblioref">Australian Statistical Geography Standard (ASGS), 2023</a>)</span> (comprising forty patches for the Greater Melbourne area in that example).</p>
-<section id="hierarchical-structure-of-the-sa-classification" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="hierarchical-structure-of-the-sa-classification"><span class="header-section-number">3.1</span> Hierarchical Structure of the SA classification</h2>
-<p>An important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. <a href="#fig-GMelbSA2SA3SA4">Figure&nbsp;<span>3.1 (b)</span></a> shows the SA2, SA3, and SA4 regions of the GMCCSA.</p>
+<section id="package-dependencies" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Package dependencies</h1>
+</section>
+<section id="chapter-3" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Chapter 3</h1>
+<p>In <a href="02-Metapopulation_Models.html#sec-MossGmelb"><span>Section&nbsp;2.4</span></a>, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the ‘SA3’ regions of the Australian Statistical Geography Standard’s Statistical Areas (SA) classification <span class="citation" data-cites="2023AustralianStatisticalGeographya">(<a href="refs.html#ref-2023AustralianStatisticalGeographya" role="doc-biblioref">Australian Statistical Geography Standard (ASGS), 2023</a>)</span> (comprising forty patches for the Greater Melbourne area in that example).</p>
+<section id="hierarchical-structure-of-the-sa-classification" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="hierarchical-structure-of-the-sa-classification"><span class="header-section-number">5.1</span> Hierarchical Structure of the SA classification</h2>
+<p>An important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. <a href="#fig-GMelbSA2SA3SA4">Figure&nbsp;<span>5.1 (b)</span></a> shows the SA2, SA3, and SA4 regions of the GMCCSA.</p>
 <div id="fig-ASGSSA" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -265,37 +315,37 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="fig-GMelbSA2SA3SA4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbSA2SA3SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-ASGSSA" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelbSA2SA3SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-ASGSSA" width="604"></p>
 <p></p><figcaption class="figure-caption">(b)</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Showing (a) the abstract structureof The Australian Statistical Geography Standard (ASGS) Statistical Areas (SA) Classification and (b) an example of SA3 and SA4 regions within the Greater Melbourne Greater Capital City Statistical Area (GMGCCSA)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: Showing (a) the abstract structure of The Australian Statistical Geography Standard (ASGS) Statistical Areas (SA) Classification and (b) an example of SA3 and SA4 regions within the Greater Melbourne Greater Capital City Statistical Area (GMGCCSA)</figcaption><p></p>
 </figure>
 </div>
-<p>For specific example, the Maribyrnong (SA3) region sits inside the West Melbourne (SA4) region alongside Essendon (SA3) <a href="#fig-FootscraySAexample">Figure&nbsp;<span>3.2</span></a>. Both West Melbourne and the neighbouring ‘Inner Melbourne’ (SA4), containing the city center and other SA3 regions, are part of the GSCCSA. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and ‘Mesh Block’ level regions <a href="#fig-ASGS">Figure&nbsp;<span>3.1 (a)</span></a>. In <a href="#fig-FootscraySAexample">Figure&nbsp;<span>3.2</span></a>, we highlight the SA1 region comprising the main footscray CBD (SA1 code ‘21303134811’; see <a href="#fig-FootscraySA1Code">Figure&nbsp;<span>3.3</span></a>).</p>
+<p>For specific example, the Maribyrnong (SA3) region sits inside the West Melbourne (SA4) region alongside Essendon (SA3) <a href="#fig-FootscraySAexample">Figure&nbsp;<span>5.2</span></a>. Both West Melbourne and the neighbouring ‘Inner Melbourne’ (SA4), containing the city center and other SA3 regions, are part of the GSCCSA. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and ‘Mesh Block’ level regions <a href="#fig-ASGS">Figure&nbsp;<span>5.1 (a)</span></a>. In <a href="#fig-FootscraySAexample">Figure&nbsp;<span>5.2</span></a>, we highlight the SA1 region comprising the main footscray CBD (SA1 code ‘21303134811’; see <a href="#fig-FootscraySA1Code">Figure&nbsp;<span>5.3</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-FootscraySAexample" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-FootscraySAexample-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Showing the five SA3 blocks that make up the ‘Melbourne - West’ SA4 region, the six SA2 blocks that make up the Maribyrnong SA3 region, the forty SA1 regionsa that make up the ‘Footscray’ SA2 region, and the sixteen mesh blocks that make up the central Footscray ‘21303134811’ SA1 region. Note that each red-bounded area represents a higher resolution (‘lower’ SA level) than the one that encloses it. Not Pictured: Boundary of the GMGCCSA.</figcaption><p></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-FootscraySAexample-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: Showing the five SA3 blocks that make up the ‘Melbourne - West’ SA4 region, the six SA2 blocks that make up the Maribyrnong SA3 region, the forty SA1 regionsa that make up the ‘Footscray’ SA2 region, and the sixteen mesh blocks that make up the central Footscray ‘21303134811’ SA1 region. Note that each red-bounded area represents a higher resolution (‘lower’ SA level) than the one that encloses it. Not Pictured: Boundary of the GMGCCSA.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Helpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. <a href="#fig-FootscraySA1Code">Figure&nbsp;<span>3.3</span></a> demonstrates this for an SA1 region in the area considered above.</p>
+<p>Helpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. <a href="#fig-FootscraySA1Code">Figure&nbsp;<span>5.3</span></a> demonstrates this for an SA1 region in the area considered above.</p>
 <div id="fig-FootscraySA1Code" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="FootscraySA1eg.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Decomposition of theFootscray SA1 region code from <a href="#fig-FootscraySAexample">Figure&nbsp;<span>3.2</span></a> into its hierachical spatial information components</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.3: Decomposition of theFootscray SA1 region code from <a href="#fig-FootscraySAexample">Figure&nbsp;<span>5.2</span></a> into its hierachical spatial information components</figcaption><p></p>
 </figure>
 </div>
 </section>
-<section id="spatial-resolution-of-metapopulation-models" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="spatial-resolution-of-metapopulation-models"><span class="header-section-number">3.2</span> Spatial resolution of metapopulation models</h2>
+<section id="spatial-resolution-of-metapopulation-models" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="spatial-resolution-of-metapopulation-models"><span class="header-section-number">5.2</span> Spatial resolution of metapopulation models</h2>
 <p>We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e.&nbsp;the ASGS Statistical Areas structure), but with varying levels of resolution (e.g.&nbsp;by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy.</p>
 <section id="homogenous-mixing-in-metapopulation-models" class="level3">
 <h3 class="anchored" data-anchor-id="homogenous-mixing-in-metapopulation-models">Homogenous mixing in metapopulation models</h3>
@@ -303,14 +353,14 @@ div.csl-indent {
 \phi_{ij} = \frac{1}{P_{tot}}
 </span> Where <span class="math inline">P_{tot}</span> is the total number of patches. - How should we interpret this mixing coefficient?</p>
 </section>
-<section id="population-proportional-mixing" class="level3">
-<h3 class="anchored" data-anchor-id="population-proportional-mixing">Population proportional mixing</h3>
+<section id="proportionate-mixing" class="level3">
+<h3 class="anchored" data-anchor-id="proportionate-mixing">Proportionate mixing</h3>
 <div class="cell" data-caption="Population of SA2 regions in the GMGCCSA">
 <div class="cell-output-display">
 <div id="fig-GMelbPop" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelbPop-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: <strong>?(caption)</strong></figcaption><p></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelbPop-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.4: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -319,25 +369,25 @@ div.csl-indent {
 <p><span class="math display">
 \phi_{ij} = N_j/N_{tot}
 </span></p>
-<p>Which gives mixing matrices shown in <a href="#fig-GMGCC_PMM">Figure&nbsp;<span>3.5</span></a></p>
+<p>Which gives mixing matrices shown in <a href="#fig-GMGCC_PMM">Figure&nbsp;<span>5.5</span></a></p>
 <div id="fig-GMGCC_PMM" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GMelb_PMM_SA2_59229f77c90641b503198dac375c3cb7" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GMelb_PMM_SA2_717640d33b568f5955d884bd1fadfda0" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-GMelb_PMM_SA2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelb_PMM_SA2-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelb_PMM_SA2-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
 <p></p><figcaption class="figure-caption">(a)</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GMelb_PMM_SA3_c0a8926a8df95a94e7747c70c363a316" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GMelb_PMM_SA3_8d0c451497d81e990f59ddf11ad75952" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-GMelb_PMM_SA3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelb_PMM_SA3-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelb_PMM_SA3-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
 <p></p><figcaption class="figure-caption">(b)</figcaption><p></p>
 </figure>
 </div>
@@ -345,21 +395,21 @@ div.csl-indent {
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GMelb_PMM_SA4_d0f5fc134c538599b75ad5b8361d35f1" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GMelb_PMM_SA4_137e3b2f61f61a4dc18e3516d0dd27f1" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-GMelb_PMM_SA4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GMelb_PMM_SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelb_PMM_SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-GMGCC_PMM" width="604"></p>
 <p></p><figcaption class="figure-caption">(c)</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: Population proportional mixing matrices</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.5: Population proportional mixing matrices</figcaption><p></p>
 </figure>
 </div>
-<p>We can implement a metapopulation model using these mixing matrices as described in chapter <a href="02-Metapopulation Models.html"><span>Chapter&nbsp;2</span></a>, to briefly summarise:</p>
+<p>We can implement a metapopulation model using these mixing matrices as described in chapter <a href="02-Metapopulation_Models.html"><span>Chapter&nbsp;2</span></a>, to briefly summarise:</p>
 <section id="results-equivalent-models-at-different-spatial-resolution" class="level5">
 <h5 class="anchored" data-anchor-id="results-equivalent-models-at-different-spatial-resolution">Results: equivalent models at different spatial resolution</h5>
 <p>-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence</p>
@@ -367,55 +417,53 @@ div.csl-indent {
 </section>
 <section id="statistical-area-mixing-structure" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-area-mixing-structure">Statistical Area Mixing structure</h3>
-<p>We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients <span class="math inline">\xi = [\xi_1, ..., \xi_i]</span> which determine the proportion of mixing occurs at each level of the spatial hierarchy. Note that <span class="math display">
-\sum\limits_{i}\xi=1
-</span> This coefficient is distributed amongst patches occurring in the same level <span class="math inline">L</span> region, so mixing for any two patches, <span class="math inline">i</span> and <span class="math inline">j</span> <span class="math display">
-M_{ij}= \frac{\xi_{L}}{N^{L}}
+<p>We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients <span class="math inline">\xi = [\xi_1, ..., \xi_i]</span> such that <span class="math inline">\sum\limits_{i}\xi_{i}=1</span>, which determine the proportion of mixing occurs at each level of the spatial hierarchy. This coefficient is distributed amongst patches occurring in the same level <span class="math inline">L</span> region, so mixing for any two patches, <span class="math inline">i</span> and <span class="math inline">j</span> <span class="math display">
+M_{ij}= \frac{\xi_{L}}{P^{L}}
 </span> if <span class="math display">
 j \in S_{i}^{L}
 </span> but <span class="math display">j \notin S_{i}^{L-1}</span> Where <span class="math inline">S_{i}^{L}</span> is the set of patches in the same level <span class="math inline">L</span> region as <span class="math inline">i</span>.</p>
-<p>To extend the example from <span class="quarto-unresolved-ref">?sec-XX</span>, we can consider a subset of SA2 regions from the GMGCCSA (<span class="citation" data-cites="tab-MMeg">(<a href="refs.html#ref-tab-MMeg" role="doc-biblioref"><strong>tab-MMeg?</strong></a>)</span>)</p>
+<p>To extend the example from <span class="quarto-unresolved-ref">?sec-XX</span>, we can consider a subset of SA2 regions from the GMGCCSA (<a href="#fig-GMelb_eg_Map">Figure&nbsp;<span>5.6</span></a>, <span class="citation" data-cites="tab-MMeg">(<a href="refs.html#ref-tab-MMeg" role="doc-biblioref"><strong>tab-MMeg?</strong></a>)</span>)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-Example_region" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-GMelb_eg_Map" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-Example_region-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: <strong>?(caption)</strong></figcaption><p></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelb_eg_Map-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.6: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Kensington, Racecourse, and West industrial are SA2 regions within the ‘Melbourne City’ SA3 region, Footscray and Maribyrnong are SA2 regions within the ‘Maribyrnong’ SA3 region, and Flemington and Ascot Vale are SA2 regions withing the ‘Essendon’ SA3 region. Furthermore, both ‘Melbnourne city’ and Essendon are within the ‘Inner Melbourne’ SA4 region while Marybyrnong lies iside the ‘West Melbourne’ SA4 Region</p>
-<p>To model these SA2 patches in isolation, we can construct a <span class="math inline">7 \times 7</span> mixing matrix, row by row, for <span class="math inline">\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]</span>as follows:</p>
-<p>let <span class="math inline">i =</span> <code>Kensington</code>. Since <code>Kensington</code> is it’s own SA2 region, <span class="math display">M_{i,i} = \frac{1}{4}</span>When <span class="math inline">j</span> is a region in <code>Melbourne City</code> SA3 (alongside <code>Kensington</code>), like <code>West Industrial</code> or <code>Racecourse</code>, <span class="math inline">M_{i,j}</span> will be a proportion of <span class="math inline">\xi_{SA3}</span>. For <span class="math inline">j = Racecourse</span> and <span class="math inline">j = West Industrial</span> <span class="math display">
-M_{i,j} = \frac{\xi_{SA3}}{N_{i}^{SA3} - N_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
-</span> When patch <span class="math inline">j</span> occurs outside the Melbourne City SA3, but within the <code>Inner Melbourne</code> SA4, like those in <code>Essendon</code>SA3 <span class="math display">
-M_{i,j} = \frac{\xi_{SA4}}{N_{i}^{SA4} - N_{i}^{SA3}} = \frac{\frac{1}{4}}{5 - 3} = \frac{1}{8}
-</span> Finally when <span class="math inline">j</span> is a patch outside the <code>Inner Melbourne</code> SA4, like those in <code>West Melbourne</code>SA4 <span class="math display">
-M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3} = \frac{1}{16}
-</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Kensington, $ sum*{j}M*{j}= + + + + + + = 1$ as desired. Repeating this for all patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-egMM">Figure&nbsp;<span>3.7</span></a></p>
+<p>Docklands and West industrial are SA2 regions within the ‘Melbourne City’ SA3 region. Port Melbourne and Port Industrial are SA2 regions within the ‘Port Melbourne’ SA3 region. Footscray, Seddon-Kingsville, and Yarraville are SA2 regions within the ‘Maribyrnong’ SA3 region. Newport SA2 is within the Hobsons Bay SA3 region. Port Melbourne and Port Industrial are SA2 regions within the ‘Port Melbourne’ SA3 region. Furthermore, both ‘Melbourne city’ and ‘Port Melbourne’ are within the ‘Inner Melbourne’ SA4 region, while Maribyrnong and Hobsons Bay SA3 lie inside the ‘West Melbourne’ SA4 Region.</p>
+<p>To model mixing between these SA2 patches (isolated from the rest of the GMGCCSA), we can construct a <span class="math inline">8 \times 8</span> mixing matrix with <span class="math inline">\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]</span> as follows:</p>
+<p>let <span class="math inline">i =</span> <code>Footscray</code>. Since <code>Footscray</code> is it’s own SA2 region, <span class="math display">M_{i,i} = \frac{1}{4}</span> When <span class="math inline">j</span> is a region in <code>Maribyrnong</code> SA3 (alongside <code>Footscray</code>), like <code>Yarraville</code> or <code>Seddon-Kingsville</code>, <span class="math inline">M_{i,j}</span> will be a proportion of <span class="math inline">\xi_{SA3}</span>. <span class="math display">
+M_{i,j} = \frac{\xi_{SA3}}{P_{i}^{SA3} - P_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
+</span> When <span class="math inline">j</span> occurs outside the <code>Maribyrnong</code> SA3, but within the <code>West Melbourne</code> SA4, like <code>Newport</code> SA2 <span class="math display">
+M_{i,j} = \frac{\xi_{SA4}}{P_{i}^{SA4} - P_{i}^{SA3}} = \frac{\frac{1}{4}}{4 - 3} = \frac{1}{4}
+</span> Finally when <span class="math inline">j</span> is a patch outside the <code>West Melbourne</code> SA4, like those in the <code>Inner Melbourne</code>SA4 <span class="math display">
+M_{i,j} = \frac{\xi_{SA5}}{P_{i}^{SA5} - P_{i}^{SA4}} = \frac{\frac{1}{4}}{8 - 4} = \frac{1}{16}
+</span> thus for the row <span class="math inline">M_{i}</span>, representing the mixing of individuals from Footscray, <span class="math inline">\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} = 1</span>. Repeating this for all patches <span class="math inline">i</span>, gives the mixing matrix represented in <a href="#fig-GMelb_eg_MixMat">Figure&nbsp;<span>5.7</span></a></p>
 <div class="cell" data-caption="Hierarchical Mixing matrix for the example region shown in @fig-Example_region">
 <div class="cell-output-display">
-<div id="fig-egMM" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-GMelb_eg_MixMat" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-egMM-1.png" class="img-fluid figure-img" width="604"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.7: <strong>?(caption)</strong></figcaption><p></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GMelb_eg_MixMat-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.7: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <a href="#fig-GCC_HMM">Figure&nbsp;<span>3.8</span></a></p>
+<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <a href="#fig-GCC_HMM">Figure&nbsp;<span>5.8</span></a></p>
 <div id="fig-GCC_HMM" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA1_284e99da0994a4042a73677fbff98cbd" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GCC_HMM_SA1_9539bad34c8f61e498494dc605fef4a4" style="flex-basis: 50.0%;justify-content: center;">
 
 </div>
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA2_0c8ab0119dae9d162d899af42b766583" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GCC_HMM_SA2_423e14d5f257b385a754d3719d54b7e3" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-GCC_HMM_SA2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM_SA2-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GCC_HMM_SA2-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
 <p></p><figcaption class="figure-caption">(a)</figcaption><p></p>
 </figure>
 </div>
@@ -423,28 +471,28 @@ M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA3_fe9e44d3baef9095c8e0d8c8e580e976" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GCC_HMM_SA3_b5691baf4925e91ae6cbe830c950390a" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-GCC_HMM_SA3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM_SA3-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GCC_HMM_SA3-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
 <p></p><figcaption class="figure-caption">(b)</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="03-CurrentStudy_cache/html/fig-GCC_HMM_SA4_97c411632d8f445066add7bc0e471baa" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-Hierarchical_models_cache/html/fig-GCC_HMM_SA4_d817eb530595ab861812072617a1d0ea" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div id="fig-GCC_HMM_SA4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="03-CurrentStudy_files/figure-html/fig-GCC_HMM_SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
+<p><img src="03-Hierarchical_models_files/figure-html/fig-GCC_HMM_SA4-1.png" class="img-fluid figure-img" data-ref-parent="fig-GCC_HMM" width="604"></p>
 <p></p><figcaption class="figure-caption">(c)</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.8: Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.8: Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -457,6 +505,7 @@ M_{i,j} = \frac{\xi_{SA5}}{N_{i}^{SA5} - N_{i}^{SA4}} = \frac{\frac{1}{4}}{7 - 3
 Australian statistical geography standard (ASGS), (2023).
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -696,13 +745,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-Metapopulation Models.html" class="pagination-link">
+      <a href="./02-Metapopulation_Models.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04-Interventions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4. Modelling interventions different scales</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modelling interventions different scales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -718,6 +767,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

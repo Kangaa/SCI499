@@ -1,0 +1,239 @@
+{{< include _ch3_src.qmd >}}
+
+In @sec-MossGmelb, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the 'SA3' regions of the Australian Statistical Geography Standard's Statistical Areas (SA) classification [@2023AustralianStatisticalGeographya] (comprising forty patches for the Greater Melbourne area in that example).
+
+## Hierarchical Structure of the SA classification
+
+An important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. @fig-GMelbSA2SA3SA4 shows the SA2, SA3, and SA4 regions of the GMCCSA.
+
+::: {#fig-ASGSSA layout-ncol="2"}
+![](ASGS_Diagram_2021.png){#fig-ASGS width="464"}
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-GMelbSA2SA3SA4
+ggplot() +
+  geom_sf(data = GMelb_Shapes$SA4, aes(fill = SA4_CODE21), alpha = 0.5, linewidth = 0.5) +
+  geom_sf(data = GMelb_Shapes$SA3, fill = NA, linewidth = 0.3) 
+```
+
+Showing (a) the abstract structure of The Australian Statistical Geography Standard (ASGS) Statistical Areas (SA) Classification and (b) an example of SA3 and SA4 regions within the Greater Melbourne Greater Capital City Statistical Area (GMGCCSA)
+:::
+
+For specific example, the Maribyrnong (SA3) region sits inside the West Melbourne (SA4) region alongside Essendon (SA3) @fig-FootscraySAexample. Both West Melbourne and the neighbouring 'Inner Melbourne' (SA4), containing the city center and other SA3 regions, are part of the GSCCSA. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and 'Mesh Block' level regions @fig-ASGS. In @fig-FootscraySAexample, we highlight the SA1 region comprising the main footscray CBD (SA1 code '21303134811'; see @fig-FootscraySA1Code).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-FootscraySAexample
+#| fig-cap: "Showing the five SA3 blocks that make up the 'Melbourne - West' SA4 region, the six SA2 blocks that make up the Maribyrnong SA3 region, the forty SA1 regionsa that make up the 'Footscray' SA2 region, and the sixteen mesh blocks that make up the central Footscray '21303134811' SA1 region. Note that each red-bounded area represents a higher resolution ('lower' SA level) than the one that encloses it. Not Pictured: Boundary of the GMGCCSA."
+
+GMelb_SA4_plot <- ggplot() + geom_sf(data = GMelb_Shapes$SA4, aes(fill = SA4_CODE21))
+
+GMelb_SA4_colors <- ggplot_build(GMelb_SA4_plot) |> 
+  pluck("data",1, "fill")
+
+
+ggplot() +
+  geom_sf(data = GMelb_Shapes$SA4,
+          aes(fill = SA4_CODE21),
+          alpha = 0.5,
+          linewidth = NA,
+          show.legend = FALSE) +
+  geom_sf(data = GMelb_Shapes$SA4 |> filter(SA4_NAME21 == "Melbourne - West"),
+          fill = NA,
+          color = "red",
+          alpha = 0.5,
+          linewidth = 1)+
+  geom_sf(data = GMelb_Shapes$SA3 |> filter(SA4_NAME21 == "Melbourne - West"),
+          fill = NA,
+          linewidth = 0.1) +
+  geom_sf(data = GMelb_Shapes$SA3 |> filter(SA3_NAME21 == "Maribyrnong"),
+          fill = NA,
+          color = "red",
+          alpha = 0.5,
+          linewidth = 1) +
+  geom_sf(data = GMelb_Shapes$SA2 |> filter(SA3_NAME21 == "Maribyrnong"),
+          fill = NA,
+          linewidth = 0.1) +
+  geom_sf(data = GMelb_Shapes$SA2 |> filter(SA2_NAME21 == "Footscray"),
+          fill = NA,
+          color = "red",
+          linewidth = 1) +
+  geom_sf(data = GMelb_Shapes$SA2 |> filter(SA3_NAME21 == "Maribyrnong"),
+          fill = NA,
+          linewidth = 0.1) +
+  geom_sf(data = GMelb_Shapes$SA1 |>  filter(SA1_CODE21 == "21303134811"),
+          fill = NA,
+          color = "red",
+          linewidth = 1)+
+  geom_sf(data = GMelb_Shapes$SA1 |> filter(SA2_NAME21 == "Footscray"),
+          fill = NA,
+          linewidth = 0.001) +
+  geom_sf(data = GMelb_Shapes$MB |> filter(SA1_CODE21 == "21303134811"),
+          fill = NA,
+          linewidth = 0.001) +
+  coord_sf(xlim = c(144.8, 144.96) , ylim = c(-37.75, -37.88)) 
+```
+
+Helpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. @fig-FootscraySA1Code demonstrates this for an SA1 region in the area considered above.
+
+![Decomposition of theFootscray SA1 region code from @fig-FootscraySAexample into its hierachical spatial information components](FootscraySA1eg.png){#fig-FootscraySA1Code}
+
+## Spatial resolution of metapopulation models
+
+We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy.
+
+### Homogenous mixing in metapopulation models
+
+We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e. $$
+\phi_{ij} = \frac{1}{P_{tot}}
+$$ Where $P_{tot}$ is the total number of patches. - How should we interpret this mixing coefficient?
+
+### Proportionate mixing
+
+```{r}
+#| caption: Population of SA2 regions in the GMGCCSA
+#| label: fig-GMelbPop
+#| echo: false
+
+
+ggplot() +
+  geom_sf(data = GMelb_Shapes$SA2 %>% 
+    left_join(GMelb_Popns[[1]], by = join_by(SA2_NAME21 == SA2_Name)),
+    lty = 0,
+      aes(fill = Pop))+
+    scale_fill_continuous(type = "viridis")
+```
+
+To ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches $i$ and $j$ the mixing coefficient $\phi_{i,j}$:
+
+$$
+\phi_{ij} = N_j/N_{tot}
+$$
+
+Which gives mixing matrices shown in @fig-GMGCC_PMM
+
+::: {#fig-GMGCC_PMM layout-ncol="2"}
+```{r}
+#| label: fig-GMelb_PMM_SA2
+#| cache: true
+
+MMpops[[1]] %>% 
+  plotmixmat()
+```
+
+```{r}
+#| label: fig-GMelb_PMM_SA3
+#| cache: true
+
+MMpops[[2]] %>% 
+  plotmixmat()
+```
+
+```{r}
+#| label: fig-GMelb_PMM_SA4
+#| cache: true
+
+MMpops[[3]] %>% 
+  plotmixmat()
+```
+
+Population proportional mixing matrices
+:::
+
+We can implement a metapopulation model using these mixing matrices as described in chapter @sec-MPMspec, to briefly summarise:
+
+##### Results: equivalent models at different spatial resolution
+
+-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
+
+### Statistical Area Mixing structure
+
+We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients $\xi = [\xi_1, ..., \xi_i]$ such that $\sum\limits_{i}\xi_{i}=1$, which determine the proportion of mixing occurs at each level of the spatial hierarchy. This coefficient is distributed amongst patches occurring in the same level $L$ region, so mixing for any two patches, $i$ and $j$ $$
+M_{ij}= \frac{\xi_{L}}{P^{L}} 
+$$ if $$
+j \in S_{i}^{L}
+$$ but $$j \notin S_{i}^{L-1}$$ Where $S_{i}^{L}$ is the set of patches in the same level $L$ region as $i$.
+
+To extend the example from @sec-XX, we can consider a subset of SA2 regions from the GMGCCSA (@fig-GMelb_eg_Map, @tab-MMeg)
+
+```{r}
+#| label: fig-GMelb_eg_Map
+
+GMelb_MM_eg <-GMelb_Shapes$SA2 %>% 
+            filter(
+              SA2_NAME21 == "Port Melbourne Industrial" |
+                SA2_NAME21 == "Port Melbourne" |
+                SA2_NAME21 == "Docklands" |
+                SA2_NAME21 == "West Melbourne - Industrial" |
+                SA2_NAME21 == "Yarraville" |
+                SA2_NAME21 == "Seddon - Kingsville" |
+                SA2_NAME21 == "Footscray" |
+                SA2_NAME21 == "Newport")
+ggplot() +
+  aes() +
+  geom_sf(data = GMelb_MM_eg ,
+          aes(fill = SA4_CODE21))
+
+```
+
+Docklands and West industrial are SA2 regions within the 'Melbourne City' SA3 region. Port Melbourne and Port Industrial are SA2 regions within the 'Port Melbourne' SA3 region. Footscray, Seddon-Kingsville, and Yarraville are SA2 regions within the 'Maribyrnong' SA3 region. Newport SA2 is within the Hobsons Bay SA3 region. Port Melbourne and Port Industrial are SA2 regions within the 'Port Melbourne' SA3 region. Furthermore, both 'Melbourne city' and 'Port Melbourne' are within the 'Inner Melbourne' SA4 region, while Maribyrnong and Hobsons Bay SA3 lie inside the 'West Melbourne' SA4 Region.
+
+To model mixing between these SA2 patches (isolated from the rest of the GMGCCSA), we can construct a $8 \times 8$ mixing matrix with $\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]$ as follows:
+
+let $i =$ `Footscray`. Since `Footscray` is it's own SA2 region, $$M_{i,i} = \frac{1}{4}$$ When $j$ is a region in `Maribyrnong` SA3 (alongside `Footscray`), like `Yarraville` or `Seddon-Kingsville`, $M_{i,j}$ will be a proportion of $\xi_{SA3}$. $$
+M_{i,j} = \frac{\xi_{SA3}}{P_{i}^{SA3} - P_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
+$$ When $j$ occurs outside the `Maribyrnong` SA3, but within the `West Melbourne` SA4, like `Newport` SA2 $$
+M_{i,j} = \frac{\xi_{SA4}}{P_{i}^{SA4} - P_{i}^{SA3}} = \frac{\frac{1}{4}}{4 - 3} = \frac{1}{4}
+$$ Finally when $j$ is a patch outside the `West Melbourne` SA4, like those in the `Inner Melbourne`SA4 $$
+M_{i,j} = \frac{\xi_{SA5}}{P_{i}^{SA5} - P_{i}^{SA4}} = \frac{\frac{1}{4}}{8 - 4} = \frac{1}{16}
+$$ thus for the row $M_{i}$, representing the mixing of individuals from Footscray, $\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} = 1$. Repeating this for all patches $i$, gives the mixing matrix represented in @fig-GMelb_eg_MixMat
+
+```{r}
+#| label: fig-GMelb_eg_MixMat
+#| caption:  Hierarchical Mixing matrix for the example region shown in @fig-Example_region
+Hmixmat(GMelb_MM_eg) %>% 
+  plotmixmat()
+```
+
+Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure @fig-GCC_HMM
+
+::: {#fig-GCC_HMM layout-ncol="2"}
+```{r}
+#| label: fig-GCC_HMM_SA1
+#| cache: true
+#GMelb_Shapes[[2]] %>%
+#  Hmixmat %>% 
+#  plotmixmat
+```
+
+```{r}
+#| label: fig-GCC_HMM_SA2
+#| cache: true
+GMelb_Shapes[[3]] %>%
+  Hmixmat %>% 
+  plotmixmat
+```
+
+```{r}
+#| label: fig-GCC_HMM_SA3
+#| cache: true
+GMelb_Shapes[[4]] %>%
+  Hmixmat %>% 
+  plotmixmat
+```
+
+```{r}
+#| label: fig-GCC_HMM_SA4
+#| cache: true
+GMelb_Shapes[[5]] %>%
+  Hmixmat %>% 
+  plotmixmat
+```
+
+Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.
+:::
+
+### Population normalised SA mixmat

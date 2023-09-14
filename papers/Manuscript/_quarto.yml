@@ -11,10 +11,14 @@ book:
     - abstract.qmd
     - declaration.qmd
     - acknowledgements.qmd
-    - 01-Background.qmd
-    - 02-Metapopulation Models.qmd
-    - 03-Hierarchical Metapopulation models.qmd
-    - 04-Interventions.qmd
+    - part: "Background"
+      chapters:
+       - 01-Background.qmd
+       - 02-Metapopulation_Models.qmd
+    - part: "Current Study"
+      chapters:
+      - 03-Hierarchical_models.qmd
+      - 04-Interventions.qmd
   appendices:
     - A-appA.qmd
   references: refs.qmd
@@ -41,11 +45,34 @@ affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
 
 execute:
-  freeze: true
+  freeze: auto
   echo: false
   warning: false
   message: false
 
 format:
   html:
-    toc: true
+    include-in-header:
+      text: |
+        <script>
+        MathJax = {
+          loader: {
+            load: ['[tex]/boldsymbol']
+          },
+          tex: {
+            tags: "all",
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\\[','\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {
+              '[+]': ['boldsymbol']
+            }
+          }
+        };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+
+filters:
+ - pseudocode
