@@ -11,12 +11,8 @@
             "id": "03cb95ba0750734e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -161,6 +157,16 @@
                 "file": "Simulation checklist.md"
               }
             }
+          },
+          {
+            "id": "4895e7a23a5565eb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
+            }
           }
         ]
       }
@@ -181,6 +187,9 @@
   },
   "active": "c2f9dfbc6f12c1be",
   "lastOpenFiles": [
+    "papers/Manuscript/Notes/Thesis outline.md",
+    "notebooks/shapefiles.qmd",
+    "Simulation checklist.md",
     "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_7.csv",
     "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_35.csv",
     "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_13.csv",
@@ -190,9 +199,6 @@
     "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_29.csv",
     "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_2.csv",
     "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_21.csv",
-    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_11.csv",
-    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_11.csv",
-    "Simulation checklist.md",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA4-1.png",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA3-1.png",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA2-1.png",
@@ -209,7 +215,6 @@
     "papers/Manuscript/Notes/Hierarchical mixing matrix/Melb mm.md",
     "papers/Manuscript/Notes/Hierarchical mixing matrix/Hierarchical mixing matrices.md",
     "papers/Manuscript/Notes/Chapter drafts/Untitled Kanban.md",
-    "papers/Manuscript/Notes/Thesis outline.md",
     "papers/Manuscript/Manuscript notes/Hierarchical mixing matrix/Revised Spatial Mixing Matrix definition.md",
     "papers/Manuscript/Manuscript notes/Hierarchical mixing matrix/Melb mm.md",
     "papers/Manuscript/Manuscript notes/Hierarchical mixing matrix/Random musings on mixing matrix to encourage writing.md",

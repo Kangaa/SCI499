@@ -81,9 +81,15 @@ Helpfully, Statistical Areas are also indexed by a structured code representing 
 
 ![Decomposition of theFootscray SA1 region code from @fig-FootscraySAexample into its hierachical SA components](FootscraySA1eg.png){#fig-FootscraySA1Code fig-align="center" width="248"}
 
-## Spatial resolution of metapopulation models
+## Comparisons between models of different scales
 
-We can exploit this hierarchical structure by creating meta-population models incorporating the same overarching spatial structure (i.e. the ASGS Statistical Areas structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches). Thus, we can model the GMGCSSA using patches corresponding to different levels of the SA hierarchy.
+-   Spatial Epidemic models derived from emirical data are usually limited by the spatial resolution of their source material.
+
+-   Comparing models at different scales has been achieved by using different model types (e.g. agent based and compartental models) to represent different scales, (Or different parameterisations(?ref)
+
+-   We can exploit the hierarchical structure of the ASGS Statistical Areas structure by creating meta-population models representing the same overarching spatial structure), but with varying levels of resolution (e.g. by using SA2 scale patches instead of SA3 scale patches).
+
+-   In what follows, we present metapopulation models of the GMGCSSA with patches corresponding to different levels of the SA hierarchy.
 
 ### Homogenous mixing in metapopulation models
 
