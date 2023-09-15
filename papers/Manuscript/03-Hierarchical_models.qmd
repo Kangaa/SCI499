@@ -79,7 +79,7 @@ ggplot() +
 
 Helpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. @fig-FootscraySA1Code demonstrates this for an SA1 region in the area considered above.
 
-![Decomposition of theFootscray SA1 region code from @fig-FootscraySAexample into its hierachical spatial information components](FootscraySA1eg.png){#fig-FootscraySA1Code}
+![Decomposition of theFootscray SA1 region code from @fig-FootscraySAexample into its hierachical SA components](FootscraySA1eg.png){#fig-FootscraySA1Code fig-align="center" width="248"}
 
 ## Spatial resolution of metapopulation models
 
@@ -91,7 +91,7 @@ We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, S
 \phi_{ij} = \frac{1}{P_{tot}}
 $$ Where $P_{tot}$ is the total number of patches. - How should we interpret this mixing coefficient?
 
-### Proportionate mixing
+### Proportionate mixing {#sec-propmix}
 
 ```{r}
 #| caption: Population of SA2 regions in the GMGCCSA
@@ -236,4 +236,10 @@ GMelb_Shapes[[5]] %>%
 Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.
 :::
 
-### Population normalised SA mixmat
+### Population normalised SA mixing matrix
+
+-   As in @sec-propmix, because population varies between patches (@fig-GmelbPop) the purely SA-based mixing matrix will misrepresent proportional mixing.
+
+-   We can normalise matrix columns using the patch population numbers
+
+-   
