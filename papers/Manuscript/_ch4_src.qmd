@@ -63,6 +63,17 @@ sim_stats %>%
   facet_grid(SA ~ Intervention)
 ```
 
+
+
+```{r}
+sim_stats %>% 
+  filter(Intervention == "travel", SA == "3") %>% 
+  ggplot() + 
+  aes(x = R0, y = peaksize) +
+  geom_point(aes(col = mu)) +
+  facet_grid(SA ~ Intervention)
+```
+
 ## Final Size
 
 ```{r}

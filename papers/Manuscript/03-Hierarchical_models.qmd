@@ -155,13 +155,13 @@ We can implement a metapopulation model using these mixing matrices as described
 
 -total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence
 
-### Statistical Area Mixing structure
+### Statistical Area Mixing structure {#sec-SAmixmat}
 
-We can also enforce heterogenous mixing, while simultaneously encoding the hierarchical structure of the SA classification by constructing hierarchical block mixing matrices. To do so, we specify a set of coefficients $\xi = [\xi_1, ..., \xi_i]$ such that $\sum\limits_{i}\xi_{i}=1$, which determine the proportion of mixing occurs at each level of the spatial hierarchy. This coefficient is distributed amongst patches occurring in the same level $L$ region, so mixing for any two patches, $i$ and $j$ $$
+We can encoding the hierarchical structure of the SA classification by constructing hierarchical block matrices representing within and between SA region mixing. To do so, we specify a set of coefficients $\xi = [\xi_1, ..., \xi_i]$ such that $\sum\limits_{i}\xi_{i}=1$, which determine the proportion of mixing occurs at each level, $L$, of the spatial hierarchy (i.e. between SA2 regions, between SA3 regions, etc.) . This coefficient is distributed amongst patches occurring in the same level $L$ region, so mixing for any two patches, $i$ and $j$ $$
 M_{ij}= \frac{\xi_{L}}{P^{L}} 
-$$ if $$
-j \in S_{i}^{L}
-$$ but $$j \notin S_{i}^{L-1}$$ Where $S_{i}^{L}$ is the set of patches in the same level $L$ region as $i$.
+$$ {#eq-SAmix} where $$
+j \in S_{i}^{L} \  \& \ j \notin S_{i}^{L-1}
+$$ and $S_{i}^{L}$ is the set of patches in the same level $L$ region as $i$.
 
 To extend the example from @sec-XX, we can consider a subset of SA2 regions from the GMGCCSA (@fig-GMelb_eg_Map, @tab-MMeg)
 
@@ -242,10 +242,6 @@ GMelb_Shapes[[5]] %>%
 Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.
 :::
 
-### Population normalised SA mixing matrix
+### Population normalised SA mixmat
 
--   As in @sec-propmix, because population varies between patches (@fig-GmelbPop) the purely SA-based mixing matrix will misrepresent proportional mixing.
-
--   We can normalise matrix columns using the patch population numbers
-
--   
+-   in the same way as in @sec-proportionatemixing, the SA structured mixingmatrix given in @sec-SAmixmat, @eq-SAmix
