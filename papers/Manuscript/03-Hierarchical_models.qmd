@@ -244,4 +244,10 @@ Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical 
 
 ### Population normalised SA mixmat
 
--   in the same way as in @sec-proportionatemixing, the SA structured mixingmatrix given in @sec-SAmixmat, @eq-SAmix
+-   in the same way as in @sec-proportionatemixing, the SA structured mixingmatrix given in @sec-SAmixmat, @eq-SAmix, will result in hetrogenous mixing due to the different population per patch @fig-gmelbpop.
+
+-   Again, we can rectify this by scaling columns in the mixing matrix by the according population size. Due to the hierarchical structure we can reduce patch counts to population counts
+
+$$M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}$$ if $j \in S_{i}^{L}$ & $j \notin S_{i}^{L-1}$
+
+where $i, j$ are patches $S_{i}^{L}$ is the set of patches in level $L$ $N_i$ is the population of $i$ $N_{i}^{L}$ is the population of $S_{i}^{L}$ $\xi^{L}(\delta)$ is the proportion of mixing that occurs within $S_{i}^{L}$ but not$S_{i}^{L-1}$
