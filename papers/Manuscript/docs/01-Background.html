@@ -195,7 +195,7 @@ MathJax = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-Metapopulation_Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -292,11 +292,11 @@ MathJax = {
 
 <section id="modelling-infectious-epidemics" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="modelling-infectious-epidemics"><span class="header-section-number">1.1</span> Modelling Infectious Epidemics</h2>
-<p>“Epidemic models are used to inform decisions on disease prevention, surveillance, control and treatment and can be applied to new epidemics” <span class="citation" data-cites="bjørnstad2020">(<a href="refs.html#ref-bjørnstad2020" role="doc-biblioref"><strong>bjørnstad2020?</strong></a>)</span></p>
+<p>“Epidemic models are used to inform decisions on disease prevention, surveillance, control and treatment and can be applied to new epidemics” <span class="citation" data-cites="bjørnstad2020">(<a href="#ref-bjørnstad2020" role="doc-biblioref"><strong>bjørnstad2020?</strong></a>)</span></p>
 </section>
 <section id="compartment-models" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="compartment-models"><span class="header-section-number">1.2</span> Compartment Models</h2>
-<p>“Compartmental models are the most frequently used type of epidemic model. In this class of models, individuals can be in a finite number of discrete states. Some of these states are simply labels that specify the various traits of individuals. Of these, some will be changing with time, such as age class, and others will be fixed, such as sex or species. Other states indicate the progress of an infection: for example, an individual can upon becoming infected, typically first enter a state of latency, then progress to a state of infectiousness, and then lose infected status to progress to a recovered/immune state. With each state one can associate the subpopulation of individuals who are in that particular state at the given time (e.g.&nbsp;a female in a latent state of infection). Often the same symbol is used as a label for a state and to denote the corresponding subpopulation size, either as a fraction or as a number (e.g.&nbsp;I or Y for individuals in an infectious state)” - <span class="citation" data-cites="diekmann2010">(<a href="refs.html#ref-diekmann2010" role="doc-biblioref"><strong>diekmann2010?</strong></a>)</span></p>
+<p>“Compartmental models are the most frequently used type of epidemic model. In this class of models, individuals can be in a finite number of discrete states. Some of these states are simply labels that specify the various traits of individuals. Of these, some will be changing with time, such as age class, and others will be fixed, such as sex or species. Other states indicate the progress of an infection: for example, an individual can upon becoming infected, typically first enter a state of latency, then progress to a state of infectiousness, and then lose infected status to progress to a recovered/immune state. With each state one can associate the subpopulation of individuals who are in that particular state at the given time (e.g.&nbsp;a female in a latent state of infection). Often the same symbol is used as a label for a state and to denote the corresponding subpopulation size, either as a fraction or as a number (e.g.&nbsp;I or Y for individuals in an infectious state)” - <span class="citation" data-cites="diekmann2010">(<a href="#ref-diekmann2010" role="doc-biblioref"><strong>diekmann2010?</strong></a>)</span></p>
 <section id="the-sir-compartmental-model" class="level3">
 <h3 class="anchored" data-anchor-id="the-sir-compartmental-model">The SIR compartmental model</h3>
 <p>The simplest comparmental model of infectious disease spread is the SIR Compartmental Model, with three compartments: S - for individuals <em>susceptible</em> to the disease; I - for <em>infected</em> individuals; and R - for previously infected individuals who have <em>recovered</em> (or been otherwise <em>removed</em> from that compartment). With the simplifying assumption of a constant population size, <span class="math inline">N</span>, i.e.</p>
@@ -337,11 +337,11 @@ N = S + I + R
 &amp; \frac{d I}{d t}=\beta I \frac{S}{N}-\gamma I \\
 &amp; \frac{d R}{d t}=\gamma I
 \end{aligned}
-\tag{1.2}</span></span> Importantly, if the total population size is known, given <a href="#eq-SIR_N">Equation&nbsp;<span>1.1</span></a>, R = N - S + I and the entire system can be described by two of the equations in <a href="#eq-SIR-ODE">Equation&nbsp;<span>1.2</span></a>.</p>
+\tag{1.2}</span></span> Importantly, if the total population size is known, given <a href="#eq-SIR_N">Equation&nbsp;<span class="quarto-unresolved-ref">eq-SIR_N</span></a>, R = N - S + I and the entire system can be described by two of the equations in <a href="#eq-SIR-ODE">Equation&nbsp;<span class="quarto-unresolved-ref">eq-SIR-ODE</span></a>.</p>
 <p>EXAMPLE</p>
 <section id="limitations-of-deterministic-ode" class="level4">
 <h4 class="anchored" data-anchor-id="limitations-of-deterministic-ode">Limitations of Deterministic ODE</h4>
-<p>While <a href="#eq-SIR-ODE">Equation&nbsp;<span>1.2</span></a> provides a neat solution for the expected behaviour of a epidemic, it fails to caputure the variability inherent in a complex process like disease spread.</p>
+<p>While <a href="#eq-SIR-ODE">Equation&nbsp;<span class="quarto-unresolved-ref">eq-SIR-ODE</span></a> provides a neat solution for the expected behaviour of a epidemic, it fails to caputure the variability inherent in a complex process like disease spread.</p>
 </section>
 </section>
 <section id="stochastic-process-markov-chain-representation" class="level3">
@@ -363,7 +363,7 @@ P\left(X_{n+1}\right. &amp; \left.=j \mid X_0=x_0, \ldots, X_{n-1}=x_{n-1}, X_n=
 <p>While not a general property of Markov chains, all of those considered in this work will have the additional property of <em>time homogeneity</em>:</p>
 <p><span class="math display">
 P\left(X_{n+1}=j \mid X_n=i\right)=P\left(X_1=j \mid X_0=i\right),
-</span> i.e.&nbsp;the probabilities in <a href="#eq-Markov-Property">Equation&nbsp;<span>1.3</span></a> do not vary with <span class="math inline">t</span></p>
+</span> i.e.&nbsp;the probabilities in <a href="#eq-Markov-Property">Equation&nbsp;<span class="quarto-unresolved-ref">eq-Markov-Property</span></a> do not vary with <span class="math inline">t</span></p>
 </section>
 <section id="sir-dtmc" class="level4">
 <h4 class="anchored" data-anchor-id="sir-dtmc">SIR DTMC</h4>
@@ -382,21 +382,21 @@ p _ {(s +k, i +j),(s,i)}(\Delta t) =
 <h5 class="anchored" data-anchor-id="transition-matrix">Transition Matrix</h5>
 </section>
 </section>
-<section id="sir-ctmc" class="level4">
-<h4 class="anchored" data-anchor-id="sir-ctmc">SIR CTMC</h4>
+<section id="sec-SIR_CTMC" class="level4">
+<h4 class="anchored" data-anchor-id="sec-SIR_CTMC">SIR CTMC</h4>
 </section>
 </section>
 <section id="stochastic-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="stochastic-simulation">Stochastic simulation</h3>
-<p><span class="citation" data-cites="simoni2019">Simoni et al. (<a href="refs.html#ref-simoni2019" role="doc-biblioref">2019</a>)</span></p>
-<div id="alg-Gillespie" class="pseudocode-container" data-pseudocode-index="1" data-alg-title="Algorithm" data-line-number="true" data-indent-size="1.2em" data-line-number-punc=":" data-no-end="false" data-comment-delimiter="//">
+<p><span class="citation" data-cites="simoni2019">Simoni et al. (<a href="#ref-simoni2019" role="doc-biblioref">2019</a>)</span></p>
+<div id="alg-Gillespie" class="pseudocode-container" data-pseudocode-index="1" data-line-number="true" data-alg-title="Algorithm" data-comment-delimiter="//" data-line-number-punc=":" data-indent-size="1.2em" data-no-end="false">
 <div class="pseudocode">
 \begin{algorithm} \caption{Gillespie Direct Method for SIR Compartmental Model CTMC} \begin{algorithmic} \input \output \State Initialise time $t = 0$ and state $X = x_{0}$ \While{$t &lt; T_{max}$} \State set $a_0 = 0$ \For{reaction $R_j$} \State compute $a_j$ \State update $a_0 = a_0 + a_j$ \EndFor \State generate two random numbers $r_1$, $r_2$ in $(0,1)$ \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$ \State update $X = X + v_\mu$ \State set $t = t + \tau$ \EndWhile \end{algorithmic} \end{algorithm}
 </div>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-simoni2019" class="csl-entry" role="listitem">
 Simoni, G., Reali, F., Priami, C., &amp; Marchetti, L. (2019). Stochastic simulation algorithms for computational systems biology: Exact, approximate, and hybrid methods. <em>WIREs Systems Biology and Medicine</em>, <em>11</em>(6), e1459. <a href="https://doi.org/10.1002/wsbm.1459">https://doi.org/10.1002/wsbm.1459</a> <span>_</span>Eprint: https://wires.onlinelibrary.wiley.com/doi/pdf/10.1002/wsbm.1459 QID: Q91506994
 </div>
@@ -646,7 +646,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./02-Metapopulation_Models.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

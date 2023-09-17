@@ -13,7 +13,7 @@ book:
     - acknowledgements.qmd
     - part: "Background"
       chapters:
-       - 01-Background.qmd
+       - 01-CompartmentalModels.qmd
        - 02-Metapopulation_Models.qmd
     - part: "Current Study"
       chapters:

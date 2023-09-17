@@ -1,4 +1,4 @@
-{{< include _ch3_src.qmd >}}
+{{< include shp_src.qmd >}}
 
 In @sec-MossGmelb, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the 'SA3' regions of the Australian Statistical Geography Standard's Statistical Areas (SA) classification [@2023AustralianStatisticalGeographya] (comprising forty patches for the Greater Melbourne area in that example).
 

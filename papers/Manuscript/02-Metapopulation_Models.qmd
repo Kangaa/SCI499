@@ -1,7 +1,175 @@
-## Spatial Metapopulation Model {#sec-MPMspec}
+## Metapopulation Models {#sec-MPMspec}
+
+{{< include shp_src.qmd >}}
 
 ## Motivation
 
+Multi-patch, 'subdivided' models
+
+-   @wilson1945, @haskey1957
+
+-   Within patch mixing is random, between patch mixing is limited.
+
+-   assumptions @sattenspiel1987
+
+    -   Constant size
+
+        -   equal birth deaths
+
+    -   constant recovery parameter $\gamma$
+
+    -   No permanent movement of individuals between patches
+
+    -   Disease spread can occur on contact between susceptible individuals
+
+        -   "the total number of new cases is a proportion, $\beta$, of the number of contacts"
+
+        -   "The number of new cases is a proportion $\sigma$ of the total number of contacts between susceptible and infective individuals, corrected by a factor a, for differences in population size and density among the groups." @sattenspiel1988
+
+    -   Proportionate mixing @sattenspiel1988
+
+        -   "where the number of encounters is proportional to the size of the subpopulations involved"
+
+        -   "The mixing matrices used are chosen to fit known patterns of incidence, rather than on theoretical grounds; and there is no exploration of the importance of variation in the mixing patterns to the transmission of infection through the population."
+
+Mixing matrix
+
+-   Migration matrix @bodmer1968
+
+    -   "These models use a backward stochastic migration matrix, in which the elements m, j give the probabilitiesthat the parents of individuals in population i came from population j"
+
+-   Mixing (contact) matrix @sattenspiel1987
+
+    -   "the probability of two individuals from different neighborhoods coming into contact. This matrix is a forward stochastic migration matrix, with each element m,,giving the probability that an individual from population i moves topopulation j." @sattenspiel1988
+
 ## Formulation
 
+### Patches
+
+-   each region $i$ has its own N and $S$ $I$ and $R$ compartments
+
+-   sinlge $\beta$ and $\gamma$ values
+
+### Mixing matrix
+
+-   $m_{ij}$represent the probability that a susceptible individual who lives in neighborhood $i$ comes into contact with an infectiveindividual who lives in nieghborhood $j$.
+
+    -   Therefore, $0 \leq m_{ij} \leq 1$ and $\sum_j m_{ij} =1$
+
+    -   M is a stochastic matrix
+
+### Force of infection
+
+@moss2019
+
+-   FOI in region $i$ exerted by infectious individuals who reside in patch$j$ ($\beta_{ij}$)
+
+    $$\beta_{ij} = \beta \cdot I_j \cdot M'_{j,i}$$
+
+-   total FOI in patch $i$ ($\Lambda_i$)
+
+    $$
+    \Lambda_i = \sum\limits_{j =1}^{r}\beta_{ij}
+    $$
+
+-   and the FOI vector
+
+    $$
+    \boldsymbol{\Lambda} = \beta \cdot \boldsymbol{I} \times M'
+    $$
+
+### Dynamics
+
+$$
+\begin{aligned}
+\frac{d S_i}{d t} & =-\Lambda_i \cdot \frac{S_i}{N_i} \\
+\frac{d E_i}{d t} & =\Lambda_i \cdot \frac{S_i}{N_i}-\sigma E_I \\
+\frac{d I_i}{d t} & =\sigma E_I-\gamma I_i \\
+\frac{d R_i}{d t} & =\gamma I_i
+\end{aligned}
+$$
+
 @jacquez1988
+
+## Implimentation
+
+-   We impliment the metapopulation model as a CTMC in an analogous way to @sec-SIR_CTMC, but with a few key differences
+
+-   Following @moss2019
+
+### Patches
+
+    -   The GMGCCSA is partitioned into 40 subpopulations, based on the @2023AustralianStatisticalGeographya SA3 classification system.
+
+    -   The population of each patch is given in appendix_n and shown in @figGMelbSA3Pop
+
+```{r}
+#| caption: Population of SA3 regions in the GMGCCSA
+#| label: fig-GMelbSA3Pop
+#| echo: false
+
+
+ggplot() +
+  geom_sf(data = GMelb_Shapes$SA3 %>% 
+    left_join(GMelb_Popns[[2]], by = join_by(SA3_NAME21 == SA3_Name)),
+    lty = 0,
+      aes(fill = SA3_pop))+
+    scale_fill_continuous(type = "viridis")
+```
+
+### Initial conditions
+
+-   At the beginning of a simulation, all patches are composed of entirely susceptivle individuals.
+
+-   a number, $I_0$, of individuals in a randomly selected patch, $\alpha$, become infected.
+
+-   i.e
+
+$$
+\begin{aligned}
+\alpha & \sim \mathcal{U}\{1, r\} \\
+S_i(0) & = \begin{cases}N_i & \text { if } i \neq \alpha \\
+N_i-E_0 & \text { if } i=\alpha\end{cases} \\
+E_i(0) & = \begin{cases}0 & \text { if } i \neq \alpha \\
+E_0 & \text { if } i=\alpha\end{cases} \\
+ R_i(0)=0
+\end{aligned}
+$$
+
+### Mixing
+
+-   The mixing matrix was defined after @moss2019
+
+-   Empirically informed Origin Destination (OD) matrix
+
+    -   Derived from the 2016 Census data
+
+        -   usual residence X place of work matrix
+
+        -   Determines contact *between regions* but not *within* the region of residence
+
+    -   $$
+        F=\left(\begin{array}{cccc}f_{1,1} & f_{1,2} & \cdots & f_{1, r} \\f_{2,1} & f_{2,2} & \cdots & f_{2, r} \\\vdots & \vdots & \ddots & \vdots \\f_{r, 1} & f_{r, 2} & \cdots & f_{r, r}\end{array}\right)
+        $$
+
+    -   $$
+        \begin{aligned}
+        f_{i, i} & =0 \\
+        \sum_{j=1}^{r} f_{i, j} & =1 \quad \forall i \in[1 . . r]
+        \end{aligned}$$
+
+-   Within patch mixing is given by a parameter $\delta^H_i$, the remaining mixing proportion, $\delta^*_r = 1-\delta^H_i$ is distributed among the non-local patches
+$$
+M=\left(\begin{array}{cccc}
+\delta_{1}^{H} & \delta_{1}^{*} f_{1,2} & \cdots & \delta_{1}^{*} f_{1, r} \\
+\delta_{2}^{*} f_{2,1} & \delta_{2}^{H} & \cdots & \delta_{2}^{*} f_{2, r} \\
+\vdots & \vdots & \ddots & \vdots \\
+\delta_{r}^{*} f_{r, 1} & \delta_{r}^{*} f_{r, 2} & \cdots & \delta_{r}^{H}
+\end{array}\right)
+$$
+### Simulation
+
+-   detlta t will be the sum of exponentially distributed times (expt(sum.rates))
+-   State change will involve event type (as in single patch), and event location
+
+```{}

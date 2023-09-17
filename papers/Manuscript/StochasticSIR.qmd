@@ -1,0 +1,92 @@
+---
+title: "CTMC_SIR"
+---
+
+## State Space
+
+A Stochastic Process is a collection of random variables, $X(t)$. In the case of a compartmental SIR model @sec-ref, the state of the model at time $t$ can be represented by the number of individuals in the Susceptible and Infected compartments, i.e. $$
+X(t) = S(t) + I(t)
+$$ Where $S(t), I(t) \in \{0,1,2, \ldots, N\}$, $S(t) + I(t) \leq N$, and $t\in [0,\infty)$
+
+Note that in what follows lower case letters $s$, $i$ represent values of $S(t)$ and $I(t)$
+
+## Transition probabilities
+
+We can represent the probability of a state $x = (s, i)$ after a time $\Delta t > 0$, $X(t +\Delta t)$, as
+
+$$
+p_{(s, i),(s+k, i+j)}(\Delta t)=P((S(t+\Delta t), I(t+\Delta t))=(s+k, i+j) \mid(S(t), I(t))=(s, i))
+$$
+
+We will make two assumptions about $X(t +\Delta t)$:
+
+1.  Time Homogeneity $$
+    P\left(X_{t+s}=j \mid X_s=i\right)=P\left(X_t=j \mid X_0=i\right) \text {, for } s \geq 0 \text {. }
+    $$
+
+    Which states that the transition probabilities depend on the time between events, $\Delta t$, but not on the specific time $t$.
+
+2.  Memorylessness (Markov Property) $$
+    P\left(X_{t+s}=j \mid X_s=i, X_u=x_u, 0 \leq u<s\right)=P\left(X_{t+s}=j \mid X_s=i\right)
+    $$
+
+    Which states that transition probabilities at time $t$ depend on the state $X_t$ and not on any previous state $X_u$ (where $0 \leq u < t$).
+
+Such a stochastic process is known as a Time Homogeneous Markov Chain.
+
+#### SIR DTMC
+
+An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).
+
+There are two potential events (tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
+
+$$
+p _ {(s +k, i +j),(s,i)}(\Delta t) =
+\begin{cases}
+{\frac { \beta i s} { N}} \Delta t, & {(k, j) = (-1, 1) } \\ 
+{ \gamma i \Delta t}, & { (k, j) = (0, -1)  } \\ 
+{ 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, & { (k, j) = (0, 0)} \\
+0 & {otherwise}
+\end{cases}
+$$ {#eq-SIR_DTMC_Trans}
+
+##### Transition Matrix
+
+#### SIR CTMC {#sec-SIR_CTMC}
+
+### Stochastic simulation
+
+@simoni2019
+
+``` pseudocode
+#| label: alg-Gillespie
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
+\begin{algorithm}
+\caption{Gillespie Direct Method for SIR Compartmental Model CTMC}
+
+\begin{algorithmic}
+\input
+\output
+\State Initialise time $t = 0$ and state $X = x_{0}$
+  \While{$t < T_{max}$}
+      \State set $a_0 = 0$
+      \For{reaction $R_j$}
+          \State compute $a_j$
+          \State update $a_0 = a_0 + a_j$
+      \EndFor
+      \State generate two random numbers $r_1$, $r_2$ in $(0,1)$
+      \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
+      \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$
+      \State update $X = X + v_\mu$
+      \State set $t = t + \tau$
+  \EndWhile
+\end{algorithmic}
+\end{algorithm}
+```
