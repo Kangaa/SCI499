@@ -99,9 +99,11 @@ $$
 
 ### Patches
 
-    -   The GMGCCSA is partitioned into 40 subpopulations, based on the @2023AustralianStatisticalGeographya SA3 classification system.
+```         
+-   The GMGCCSA is partitioned into 40 subpopulations, based on the @2023AustralianStatisticalGeographya SA3 classification system.
 
-    -   The population of each patch is given in appendix_n and shown in @figGMelbSA3Pop
+-   The population of each patch is given in appendix_n and shown in @figGMelbSA3Pop
+```
 
 ```{r}
 #| caption: Population of SA3 regions in the GMGCCSA
@@ -158,18 +160,30 @@ $$
         \sum_{j=1}^{r} f_{i, j} & =1 \quad \forall i \in[1 . . r]
         \end{aligned}$$
 
--   Within patch mixing is given by a parameter $\delta^H_i$, the remaining mixing proportion, $\delta^*_r = 1-\delta^H_i$ is distributed among the non-local patches
-$$
-M=\left(\begin{array}{cccc}
-\delta_{1}^{H} & \delta_{1}^{*} f_{1,2} & \cdots & \delta_{1}^{*} f_{1, r} \\
-\delta_{2}^{*} f_{2,1} & \delta_{2}^{H} & \cdots & \delta_{2}^{*} f_{2, r} \\
-\vdots & \vdots & \ddots & \vdots \\
-\delta_{r}^{*} f_{r, 1} & \delta_{r}^{*} f_{r, 2} & \cdots & \delta_{r}^{H}
-\end{array}\right)
-$$
+-   Within patch mixing is given by a parameter $\delta^H_i$, the remaining mixing proportion, $\delta^*_r = 1-\delta^H_i$ is distributed among the non-local patches $$
+    M=\left(\begin{array}{cccc}
+    \delta_{1}^{H} & \delta_{1}^{*} f_{1,2} & \cdots & \delta_{1}^{*} f_{1, r} \\
+    \delta_{2}^{*} f_{2,1} & \delta_{2}^{H} & \cdots & \delta_{2}^{*} f_{2, r} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \delta_{r}^{*} f_{r, 1} & \delta_{r}^{*} f_{r, 2} & \cdots & \delta_{r}^{H}
+    \end{array}\right)
+    $$
+
+```{r}
+read_csv("data/MixingMatrices/ODMM_SA3_0.25.csv") %>% 
+  as.matrix() %>% 
+  plotmixmat()
+```
+
+
 ### Simulation
+    
+
+-   As per @sec-SIR_sim
 
 -   detlta t will be the sum of exponentially distributed times (expt(sum.rates))
--   State change will involve event type (as in single patch), and event location
 
-```{}
+-   State change will involve event type (as in single patch), and event location
+    -   State change vector is now 2*n patch long
+    
+    

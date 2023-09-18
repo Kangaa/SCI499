@@ -1,92 +1,93 @@
 ---
-title: "CTMC_SIR"
+title: "Compartmental models as stochastic processes"
 ---
 
-## State Space
+## Stochastic processes
 
 A Stochastic Process is a collection of random variables, $X(t)$. In the case of a compartmental SIR model @sec-ref, the state of the model at time $t$ can be represented by the number of individuals in the Susceptible and Infected compartments, i.e. $$
 X(t) = S(t) + I(t)
 $$ Where $S(t), I(t) \in \{0,1,2, \ldots, N\}$, $S(t) + I(t) \leq N$, and $t\in [0,\infty)$
 
-Note that in what follows lower case letters $s$, $i$ represent values of $S(t)$ and $I(t)$
-
-## Transition probabilities
-
-We can represent the probability of a state $x = (s, i)$ after a time $\Delta t > 0$, $X(t +\Delta t)$, as
+We can represent the probability of a transitioning one particular state $x = (s, i)$[^stochasticsir-1] to another $x = (s+k, i+j)$ (i.e. due to infection or recovery) after a time $\Delta t > 0$, as
 
 $$
-p_{(s, i),(s+k, i+j)}(\Delta t)=P((S(t+\Delta t), I(t+\Delta t))=(s+k, i+j) \mid(S(t), I(t))=(s, i))
+P(X(t+\Delta t) =(s+k, i+j) \mid(S(t), I(t))=(s, i))
 $$
 
-We will make two assumptions about $X(t +\Delta t)$:
+We will make two assumptions about the probability of states, $P(X(t))$:
 
 1.  Time Homogeneity $$
-    P\left(X_{t+s}=j \mid X_s=i\right)=P\left(X_t=j \mid X_0=i\right) \text {, for } s \geq 0 \text {. }
+    P\left(X(t+\Delta t)=j \mid X(t)=i\right)=P\left(X(t)=j \mid X(0)=i\right)
     $$
 
     Which states that the transition probabilities depend on the time between events, $\Delta t$, but not on the specific time $t$.
 
 2.  Memorylessness (Markov Property) $$
-    P\left(X_{t+s}=j \mid X_s=i, X_u=x_u, 0 \leq u<s\right)=P\left(X_{t+s}=j \mid X_s=i\right)
-    $$
+    P(X(t+\Delta t) = j \mid X(t) = i, X(u) = k, 0 \leq u < t ) = P(X(t+\Delta t) = j \mid X(t) = i)$$
 
-    Which states that transition probabilities at time $t$ depend on the state $X_t$ and not on any previous state $X_u$ (where $0 \leq u < t$).
+    Which states that the probability of transitioning from a state $i$ at time $t$ to a state $j$ at time $(t+\Delta t)$ depends on the state at $t$ and not on any previous state.
 
-Such a stochastic process is known as a Time Homogeneous Markov Chain.
+Representing our compartmental model as such a 'Time Homogeneous Markov Chain' means that we can succinctly describe the probabilities of possible state transitions ('events') because they only depend on the intervening time ($\Delta t$) and the current state $x_t = (s_t, i_t)$. $$
+p_{(s, i),(s+k, i+j)}(\Delta t)= \begin{cases}\beta i \frac{s}{N} \Delta t+o(\Delta t), & (k, j)=(-1,+1) \\ \gamma i \Delta t+o(\Delta t), & (k, j)=(0,-1) \\ 1-\left(\beta i \frac{s}{N}+\gamma i\right) \Delta t & \\ +o(\Delta t), & (k, j)=(0,0) \\ 0(\Delta t), & \text { otherwise. }\end{cases}
+$$ {#eq-SIR_CTMC_rates}
 
-#### SIR DTMC
+| Event     | Change ($\Delta S$ , $\Delta I$) | Probability                    |
+|------------------|----------------------------|--------------------------|
+| Infection | $(-1,+1)$                        | $\beta i \frac{s}{N} \Delta t$ |
+| Recovery  | $(0,-1)$                         | $\gamma i \Delta t$            |
 
-An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).
+: Transition events in a SIR time homogeneous markov chain {#tbl-SIR_Transitions}
 
-There are two potential events (tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
+-   Time homogeneity and the markov property allow us to define the 'transition function' $p_{ij}(t)$, which gives the probabilty of transitioning from state $i$ to state $j$ after time $t$
+
+$$p_{ij} = P(X(t) = P(X(t) = j \mid X(0) = i)$$
+
+If we consider the state space of $X(t)$, (i.e. containing all possible comninations of numbers of susceptible and infected individuals $(s,i$), $$
+\mathbb{S} = \{s, i: 0 \leq s,i; s + i \leq N\}.
+$$
+
+-   In our bivariate SIR model $x = (s,i)$, there are $(N+1)(N+2)/2$ possible states. i.e. $(s,i) \in \{(N,0),(N-1,1),\ldots,(0,0)\}$
+
+-   For a particular ordering of this space[^stochasticsir-2], $P(t)$ can be represented as a $(N+1)(N+2)/2 \times (N+1)(N+2)/2$ matrix specifying the probability of every state transition at time $t$.
+
+-   We can now consider the derivative of the transition function, $p'_{i,j}(t)$, which has two forms known as the forward (@eq-KolmogorovForward) and backward (@eq-KolmogorovBack) Kolmogorov equations
 
 $$
-p _ {(s +k, i +j),(s,i)}(\Delta t) =
-\begin{cases}
-{\frac { \beta i s} { N}} \Delta t, & {(k, j) = (-1, 1) } \\ 
-{ \gamma i \Delta t}, & { (k, j) = (0, -1)  } \\ 
-{ 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, & { (k, j) = (0, 0)} \\
-0 & {otherwise}
-\end{cases}
-$$ {#eq-SIR_DTMC_Trans}
+\frac{d p_{i, j}(t)}{d t}=\sum_{k \neq i} p_{i, k}(t) q_{k, j}-q_{i, i} p_{i, j}(t)
+$$ {#eq-KolmogorovForward}
 
-##### Transition Matrix
+$$
+\frac{d p_{i, j}(t)}{d t}=\sum_{k \neq i} q_{i, k} p_{k, j}(t)-q_{i, i} p_{i, j}(t)
+$$ {#eq-KolmogorovBack}
 
-#### SIR CTMC {#sec-SIR_CTMC}
+where $q_{k,j}$,$q_{i,i}$, and $q_{i,k}$ are the transition *rates* defined in @eq-SIR_CTMC_rates, i.e. for our SIR model, the forward Kolmogorov equations are
 
-### Stochastic simulation
+$$
+\frac{d p_{a,(s, i)}(t)}{d t}=p_{a,(s+1, i-1)}(t) \frac{\beta}{N}(s+1)(i-1)+p_{a,(s, i+1)}(t) \gamma(i+1)-p_{a,(s, i)}(t)\left[\frac{\beta}{N} s i+\gamma i\right] .
+$$
 
-@simoni2019
+and the backward Kolmogorov equations are
 
-``` pseudocode
-#| label: alg-Gillespie
-#| html-indent-size: "1.2em"
-#| html-comment-delimiter: "//"
-#| html-line-number: true
-#| html-line-number-punc: ":"
-#| html-no-end: false
-#| pdf-placement: "htb!"
-#| pdf-line-number: true
+$$
+\frac{d p_{(s, i), b}(t)}{d t}=\frac{\beta s i}{N} p_{(s-1, i+1), b}(t)+\gamma i p_{(s, i-1), b}(t)-\left[\frac{\beta}{N} s i+\gamma i\right] p_{(s, i), b}(t) .
+$$
 
-\begin{algorithm}
-\caption{Gillespie Direct Method for SIR Compartmental Model CTMC}
+We can simplify (@eq-KolmogorovForward) and (@eq-KolmogorovBack), by considering the matrix $Q$ specifying the rates of all transitions $q_{ij}$ for $i,j \in \mathbb{S}$.
 
-\begin{algorithmic}
-\input
-\output
-\State Initialise time $t = 0$ and state $X = x_{0}$
-  \While{$t < T_{max}$}
-      \State set $a_0 = 0$
-      \For{reaction $R_j$}
-          \State compute $a_j$
-          \State update $a_0 = a_0 + a_j$
-      \EndFor
-      \State generate two random numbers $r_1$, $r_2$ in $(0,1)$
-      \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
-      \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$
-      \State update $X = X + v_\mu$
-      \State set $t = t + \tau$
-  \EndWhile
-\end{algorithmic}
-\end{algorithm}
-```
+-   similarly to the transition probability matrix $P(t)$, $Q$ has dimension $(N+1)(N+2)/2 \times (N+1)(N+2)/2$ .
+
+-   The system of equations @eq-KolmogorovForward and @eq-KolmogorovBack, can now be written as $dP(t)/dt = P(t)Q$ and $dP(t)/dt = QP(t)$, respectively.
+
+-   Similarly, since if $p′(t) = qp(t)$, where $p$ is a differentiable function and $q$ is a constant, when $p(0) = 1$, there is a unique solution $p(t) = e^{tq}$, we can solve the Kolmogorov @eq-KolmogorovForward and @eq-KolmogorovBack as as $P(t) = e^{Qt}$ and $P(t) = e^{tQ}$ (when $P(0) = I$), respectively.
+
+-   Thus, the theoretically and empirically derived event rates presented in @eqSIR_CTMC_rates, along with the assumptions of time homogeneity and memorylessness, allow us to compute the probability of any state transition at time t.
+
+-   This technique can be used, for example, to derive important statistics about an epidemic, such as its mean final size and the effects of vaccination programs @teo2017, @teo2021.
+
+-   However, "computing the matrix exponential is often numerically challenging. Finding accurate and eficient algorithms is still a topic of current research" @dobrow
+
+## Stochastic Simulation
+
+[^stochasticsir-1]: lower case letters (e.g. $s$, $i$) represent specific values of the random variables ($S(t)$ and $I(t)$)
+
+[^stochasticsir-2]: Note that while the ordering of state space is arbitrary, it is not without consequence @black2015

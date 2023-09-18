@@ -51,7 +51,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./03-Hierarchical_models.html" rel="next">
-<link href="./01-Background.html" rel="prev">
+<link href="./01-CompartmentalModels.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -128,7 +128,7 @@ MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Background.html">Background</a></li><li class="breadcrumb-item"><a href="./02-Metapopulation_Models.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-CompartmentalModels.html">Background</a></li><li class="breadcrumb-item"><a href="./02-Metapopulation_Models.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,8 +188,8 @@ MathJax = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Background.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span></a>
+  <a href="./01-CompartmentalModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compartmental Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,15 +256,24 @@ MathJax = {
     <h2 id="toc-title"><b>Sections</b></h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">2.1</span> Motivation</a></li>
-  <li><a href="#formulation" id="toc-formulation" class="nav-link" data-scroll-target="#formulation"><span class="header-section-number">2.2</span> Formulation</a>
+  <li><a href="#package-dependencies" id="toc-package-dependencies" class="nav-link active" data-scroll-target="#package-dependencies"><span class="header-section-number">3</span> Package dependencies</a></li>
+  <li><a href="#chapter-3" id="toc-chapter-3" class="nav-link" data-scroll-target="#chapter-3"><span class="header-section-number">4</span> Chapter 3</a>
+  <ul class="collapse">
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">4.1</span> Motivation</a></li>
+  <li><a href="#formulation" id="toc-formulation" class="nav-link" data-scroll-target="#formulation"><span class="header-section-number">4.2</span> Formulation</a>
   <ul class="collapse">
   <li><a href="#patches" id="toc-patches" class="nav-link" data-scroll-target="#patches">Patches</a></li>
   <li><a href="#mixing-matrix" id="toc-mixing-matrix" class="nav-link" data-scroll-target="#mixing-matrix">Mixing matrix</a></li>
   <li><a href="#force-of-infection" id="toc-force-of-infection" class="nav-link" data-scroll-target="#force-of-infection">Force of infection</a></li>
   <li><a href="#dynamics" id="toc-dynamics" class="nav-link" data-scroll-target="#dynamics">Dynamics</a></li>
   </ul></li>
-  <li><a href="#implimentation" id="toc-implimentation" class="nav-link" data-scroll-target="#implimentation"><span class="header-section-number">2.3</span> Implimentation</a></li>
+  <li><a href="#implimentation" id="toc-implimentation" class="nav-link" data-scroll-target="#implimentation"><span class="header-section-number">4.3</span> Implimentation</a>
+  <ul class="collapse">
+  <li><a href="#patches-1" id="toc-patches-1" class="nav-link" data-scroll-target="#patches-1">Patches</a></li>
+  <li><a href="#initial-conditions" id="toc-initial-conditions" class="nav-link" data-scroll-target="#initial-conditions">Initial conditions</a></li>
+  <li><a href="#mixing" id="toc-mixing" class="nav-link" data-scroll-target="#mixing">Mixing</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -288,13 +297,18 @@ MathJax = {
 
 </header>
 
-<section id="motivation" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">2.1</span> Motivation</h2>
+<section id="package-dependencies" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Package dependencies</h1>
+</section>
+<section id="chapter-3" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Chapter 3</h1>
+<section id="motivation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.1</span> Motivation</h2>
 <p>Multi-patch, ‘subdivided’ models</p>
 <ul>
-<li><p><span class="citation" data-cites="wilson1945">Wilson &amp; Worcester (<a href="refs.html#ref-wilson1945" role="doc-biblioref">1945</a>)</span>, <span class="citation" data-cites="haskey1957">Haskey (<a href="refs.html#ref-haskey1957" role="doc-biblioref">1957</a>)</span></p></li>
+<li><p><span class="citation" data-cites="wilson1945">Wilson &amp; Worcester (<a href="#ref-wilson1945" role="doc-biblioref">1945</a>)</span>, <span class="citation" data-cites="haskey1957">Haskey (<a href="#ref-haskey1957" role="doc-biblioref">1957</a>)</span></p></li>
 <li><p>Within patch mixing is random, between patch mixing is limited.</p></li>
-<li><p>assumptions <span class="citation" data-cites="sattenspiel1987">Sattenspiel (<a href="refs.html#ref-sattenspiel1987" role="doc-biblioref">1987</a>)</span></p>
+<li><p>assumptions <span class="citation" data-cites="sattenspiel1987">Sattenspiel (<a href="#ref-sattenspiel1987" role="doc-biblioref">1987</a>)</span></p>
 <ul>
 <li><p>Constant size</p>
 <ul>
@@ -305,9 +319,9 @@ MathJax = {
 <li><p>Disease spread can occur on contact between susceptible individuals</p>
 <ul>
 <li><p>“the total number of new cases is a proportion, <span class="math inline">\beta</span>, of the number of contacts”</p></li>
-<li><p>“The number of new cases is a proportion <span class="math inline">\sigma</span> of the total number of contacts between susceptible and infective individuals, corrected by a factor a, for differences in population size and density among the groups.” <span class="citation" data-cites="sattenspiel1988">Sattenspiel &amp; Simon (<a href="refs.html#ref-sattenspiel1988" role="doc-biblioref">1988</a>)</span></p></li>
+<li><p>“The number of new cases is a proportion <span class="math inline">\sigma</span> of the total number of contacts between susceptible and infective individuals, corrected by a factor a, for differences in population size and density among the groups.” <span class="citation" data-cites="sattenspiel1988">Sattenspiel &amp; Simon (<a href="#ref-sattenspiel1988" role="doc-biblioref">1988</a>)</span></p></li>
 </ul></li>
-<li><p>Proportionate mixing <span class="citation" data-cites="sattenspiel1988">Sattenspiel &amp; Simon (<a href="refs.html#ref-sattenspiel1988" role="doc-biblioref">1988</a>)</span></p>
+<li><p>Proportionate mixing <span class="citation" data-cites="sattenspiel1988">Sattenspiel &amp; Simon (<a href="#ref-sattenspiel1988" role="doc-biblioref">1988</a>)</span></p>
 <ul>
 <li><p>“where the number of encounters is proportional to the size of the subpopulations involved”</p></li>
 <li><p>“The mixing matrices used are chosen to fit known patterns of incidence, rather than on theoretical grounds; and there is no exploration of the importance of variation in the mixing patterns to the transmission of infection through the population.”</p></li>
@@ -316,18 +330,18 @@ MathJax = {
 </ul>
 <p>Mixing matrix</p>
 <ul>
-<li><p>Migration matrix <span class="citation" data-cites="bodmer1968">Bodmer &amp; Cavalli-Sforza (<a href="refs.html#ref-bodmer1968" role="doc-biblioref">1968</a>)</span></p>
+<li><p>Migration matrix <span class="citation" data-cites="bodmer1968">Bodmer &amp; Cavalli-Sforza (<a href="#ref-bodmer1968" role="doc-biblioref">1968</a>)</span></p>
 <ul>
 <li>“These models use a backward stochastic migration matrix, in which the elements m, j give the probabilitiesthat the parents of individuals in population i came from population j”</li>
 </ul></li>
-<li><p>Mixing (contact) matrix <span class="citation" data-cites="sattenspiel1987">Sattenspiel (<a href="refs.html#ref-sattenspiel1987" role="doc-biblioref">1987</a>)</span></p>
+<li><p>Mixing (contact) matrix <span class="citation" data-cites="sattenspiel1987">Sattenspiel (<a href="#ref-sattenspiel1987" role="doc-biblioref">1987</a>)</span></p>
 <ul>
-<li>“the probability of two individuals from different neighborhoods coming into contact. This matrix is a forward stochastic migration matrix, with each element m,,giving the probability that an individual from population i moves topopulation j.” <span class="citation" data-cites="sattenspiel1988">Sattenspiel &amp; Simon (<a href="refs.html#ref-sattenspiel1988" role="doc-biblioref">1988</a>)</span></li>
+<li>“the probability of two individuals from different neighborhoods coming into contact. This matrix is a forward stochastic migration matrix, with each element m,,giving the probability that an individual from population i moves topopulation j.” <span class="citation" data-cites="sattenspiel1988">Sattenspiel &amp; Simon (<a href="#ref-sattenspiel1988" role="doc-biblioref">1988</a>)</span></li>
 </ul></li>
 </ul>
 </section>
-<section id="formulation" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="formulation"><span class="header-section-number">2.2</span> Formulation</h2>
+<section id="formulation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="formulation"><span class="header-section-number">4.2</span> Formulation</h2>
 <section id="patches" class="level3">
 <h3 class="anchored" data-anchor-id="patches">Patches</h3>
 <ul>
@@ -347,7 +361,7 @@ MathJax = {
 </section>
 <section id="force-of-infection" class="level3">
 <h3 class="anchored" data-anchor-id="force-of-infection">Force of infection</h3>
-<p><span class="citation" data-cites="moss2019">Moss et al. (<a href="refs.html#ref-moss2019" role="doc-biblioref">2019</a>)</span></p>
+<p><span class="citation" data-cites="moss2019">Moss et al. (<a href="#ref-moss2019" role="doc-biblioref">2019</a>)</span></p>
 <ul>
 <li><p>FOI in region <span class="math inline">i</span> exerted by infectious individuals who reside in patch<span class="math inline">j</span> (<span class="math inline">\beta_{ij}</span>)</p>
 <p><span class="math display">\beta_{ij} = \beta \cdot I_j \cdot M'_{j,i}</span></p></li>
@@ -371,17 +385,84 @@ MathJax = {
 \frac{d R_i}{d t} &amp; =\gamma I_i
 \end{aligned}
 </span></p>
-<p><span class="citation" data-cites="jacquez1988">Jacquez et al. (<a href="refs.html#ref-jacquez1988" role="doc-biblioref">1988</a>)</span></p>
+<p><span class="citation" data-cites="jacquez1988">Jacquez et al. (<a href="#ref-jacquez1988" role="doc-biblioref">1988</a>)</span></p>
 </section>
 </section>
-<section id="implimentation" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="implimentation"><span class="header-section-number">2.3</span> Implimentation</h2>
+<section id="implimentation" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="implimentation"><span class="header-section-number">4.3</span> Implimentation</h2>
 <ul>
-<li>We impliment the metapopulation model as a CTMC in an analogous way to <span class="quarto-unresolved-ref">?sec-SIR_CTMC</span></li>
+<li><p>We impliment the metapopulation model as a CTMC in an analogous way to <a href="#sec-SIR_CTMC"><span class="quarto-unresolved-ref">sec-SIR_CTMC</span></a>, but with a few key differences</p></li>
+<li><p>Following <span class="citation" data-cites="moss2019">Moss et al. (<a href="#ref-moss2019" role="doc-biblioref">2019</a>)</span></p></li>
+</ul>
+<section id="patches-1" class="level3">
+<h3 class="anchored" data-anchor-id="patches-1">Patches</h3>
+<pre><code>-   The GMGCCSA is partitioned into 40 subpopulations, based on the @2023AustralianStatisticalGeographya SA3 classification system.
+
+-   The population of each patch is given in appendix_n and shown in @figGMelbSA3Pop</code></pre>
+<div class="cell" data-caption="Population of SA3 regions in the GMGCCSA">
+<div class="cell-output-display">
+<div id="fig-GMelbSA3Pop" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="02-Metapopulation_Models_files/figure-html/fig-GMelbSA3Pop-1.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: <strong>?(caption)</strong></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="initial-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="initial-conditions">Initial conditions</h3>
+<ul>
+<li><p>At the beginning of a simulation, all patches are composed of entirely susceptivle individuals.</p></li>
+<li><p>a number, <span class="math inline">I_0</span>, of individuals in a randomly selected patch, <span class="math inline">\alpha</span>, become infected.</p></li>
+<li><p>i.e</p></li>
+</ul>
+<p><span class="math display">
+\begin{aligned}
+\alpha &amp; \sim \mathcal{U}\{1, r\} \\
+S_i(0) &amp; = \begin{cases}N_i &amp; \text { if } i \neq \alpha \\
+N_i-E_0 &amp; \text { if } i=\alpha\end{cases} \\
+E_i(0) &amp; = \begin{cases}0 &amp; \text { if } i \neq \alpha \\
+E_0 &amp; \text { if } i=\alpha\end{cases} \\
+R_i(0)=0
+\end{aligned}
+</span></p>
+</section>
+<section id="mixing" class="level3">
+<h3 class="anchored" data-anchor-id="mixing">Mixing</h3>
+<ul>
+<li><p>The mixing matrix was defined after <span class="citation" data-cites="moss2019">Moss et al. (<a href="#ref-moss2019" role="doc-biblioref">2019</a>)</span></p></li>
+<li><p>Empirically informed Origin Destination (OD) matrix</p>
+<ul>
+<li><p>Derived from the 2016 Census data</p>
+<ul>
+<li><p>usual residence X place of work matrix</p></li>
+<li><p>Determines contact <em>between regions</em> but not <em>within</em> the region of residence</p></li>
+</ul></li>
+<li><p><span class="math display">
+F=\left(\begin{array}{cccc}f_{1,1} &amp; f_{1,2} &amp; \cdots &amp; f_{1, r} \\f_{2,1} &amp; f_{2,2} &amp; \cdots &amp; f_{2, r} \\\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\f_{r, 1} &amp; f_{r, 2} &amp; \cdots &amp; f_{r, r}\end{array}\right)
+</span></p></li>
+<li><p><span class="math display">
+\begin{aligned}
+f_{i, i} &amp; =0 \\
+\sum_{j=1}^{r} f_{i, j} &amp; =1 \quad \forall i \in[1 . . r]
+\end{aligned}</span></p></li>
+</ul></li>
+<li><p>Within patch mixing is given by a parameter <span class="math inline">\delta^H_i</span>, the remaining mixing proportion, <span class="math inline">\delta^*_r = 1-\delta^H_i</span> is distributed among the non-local patches <span class="math display">
+M=\left(\begin{array}{cccc}
+\delta_{1}^{H} &amp; \delta_{1}^{*} f_{1,2} &amp; \cdots &amp; \delta_{1}^{*} f_{1, r} \\
+\delta_{2}^{*} f_{2,1} &amp; \delta_{2}^{H} &amp; \cdots &amp; \delta_{2}^{*} f_{2, r} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\delta_{r}^{*} f_{r, 1} &amp; \delta_{r}^{*} f_{r, 2} &amp; \cdots &amp; \delta_{r}^{H}
+\end{array}\right)
+</span> ### Simulation</p></li>
+<li><p>As per <a href="#sec-SIR_sim"><span class="quarto-unresolved-ref">sec-SIR_sim</span></a></p></li>
+<li><p>detlta t will be the sum of exponentially distributed times (expt(sum.rates))</p></li>
+<li><p>State change will involve event type (as in single patch), and event location</p></li>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bodmer1968" class="csl-entry" role="listitem">
 Bodmer, W. F., &amp; Cavalli-Sforza, L. L. (1968). A MIGRATION MATRIX MODEL FOR THE STUDY OF RANDOM GENETIC DRIFT. <em>Genetics</em>, <em>59</em>(4), 565–592. <a href="https://doi.org/10.1093/genetics/59.4.565">https://doi.org/10.1093/genetics/59.4.565</a>
 </div>
@@ -404,6 +485,8 @@ Sattenspiel, L., &amp; Simon, C. P. (1988). The spread and persistence of infect
 Wilson, E. B., &amp; Worcester, J. (1945). The spread of an epidemic. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, <em>31</em>(10), 327–333. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1078835/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1078835/</a> PMID: 16588703 PMCID: PMC1078835
 </div>
 </div>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -642,8 +725,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-Background.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span>
+      <a href="./01-CompartmentalModels.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compartmental Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

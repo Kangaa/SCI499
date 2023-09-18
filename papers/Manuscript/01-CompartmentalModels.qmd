@@ -42,47 +42,6 @@ EXAMPLE
 
 While @eq-SIR-ODE provides a neat solution for the expected behaviour of a epidemic, it fails to caputure the variability inherent in a complex process like disease spread.
 
-### Stochastic Process (Markov Chain) Representation
-
-A Stochastic Process is a collection of random variables, $X_t$.
-
-#### Markov chains
-
-A Markov chain is a sequence of random variables $X_0, X_1, \ldots$ taking values in $S$ with the property that
-
-$$
-\begin{aligned}
-P\left(X_{n+1}\right. & \left.=j \mid X_0=x_0, \ldots, X_{n-1}=x_{n-1}, X_n=i\right) \\
-& =P\left(X_{n+1}=j \mid X_n=i\right),
-\end{aligned}
-$$ {#eq-Markov-Property}
-
-for all $x_0, \ldots, x_{n-1}, i, j \in S$, and $n \geq 0$. That is, the state at the next time step is determined only by the state at the current time step.
-
-#### Time Homogeneity
-
-While not a general property of Markov chains, all of those considered in this work will have the additional property of *time homogeneity*:
-
-$$
-P\left(X_{n+1}=j \mid X_n=i\right)=P\left(X_1=j \mid X_0=i\right),
-$$ i.e. the probabilities in @eq-Markov-Property do not vary with $t$
-
-#### SIR DTMC
-
-An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).
-
-There are two potential events (tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
-
-$$
-p _ {(s +k, i +j),(s,i)}(\Delta t) =
-\begin{cases}
-{\frac { \beta i s} { N}} \Delta t, & {(k, j) = (-1, 1) } \\ 
-{ \gamma i \Delta t}, & { (k, j) = (0, -1)  } \\ 
-{ 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, & { (k, j) = (0, 0)} \\
-0 & {otherwise}
-\end{cases}
-$$ {#eq-SIR_DTMC_Trans}
-
 ##### Transition Matrix
 
 #### SIR CTMC {#sec-SIR_CTMC}
