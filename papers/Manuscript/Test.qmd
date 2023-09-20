@@ -192,4 +192,4 @@ In the case of our SIR model, the state change vector is given by @tbl-SIR_Trans
 
 As an example, @fig-GMelb_SIR_Sim 100 sample trajectories of an SIR CTMC comprising N = 4976157, the population of the Greater Melbourne region. In this example, $I_0 = 10$, $\beta = 1.4$, and $\gamma = 1.0$, though clearly variation in these parameter values can be explored.
 
-The Greater Melbourne Region presents large geographical region which highlights the important assumption of homogeneous mixing, which we will explore relaxing in the next chapter.                
+The Greater Melbourne Region presents large geographical region which highlights the important assumption of homogeneous mixing, which we will explore relaxing in the next chapter.
