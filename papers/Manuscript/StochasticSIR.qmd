@@ -40,8 +40,6 @@ $$ Where $S(t), I(t) \in \{0,1,2, \ldots, N\}$, $S(t) + I(t) \leq N$, and $t\in 
 
 We can represent the probability of a transitioning one particular state $x = (s, i)$[^stochasticsir-1] to another $x = (s+k, i+j)$ (i.e. due to infection or recovery) after a time $\Delta t > 0$, as
 
-[^stochasticsir-1]: lower case letters (e.g. $s$, $i$) represent specific values of the random variables ($S(t)$ and $I(t)$)
-
 $$
 P(X(t+\Delta t) =(s+k, i+j) \mid(S(t), I(t))=(s, i))
 $$
@@ -61,10 +59,10 @@ We will make two assumptions about the probability of states, $P(X(t))$:
 
 Representing our compartmental model as such a 'Time Homogeneous Markov Chain' means that we can succinctly describe the probabilities of possible state transitions ('events') because they only depend on the intervening time ($\Delta t$) and the current state $x_t = (s_t, i_t)$.
 
-| Event     | Change ($\Delta S$ , $\Delta I$) | Probability                           |
-|------------------|----------------------------|--------------------------|
+| Event     | Change ($\Delta S$ , $\Delta I$) | Probability                                  |
+|-----------|----------------------------------|----------------------------------------------|
 | Infection | $(-1,+1)$                        | $\beta i \frac{s}{N} \Delta t + o(\Delta t)$ |
-| Recovery  | $(0,-1)$                         | $\gamma i \Delta t + o(\Delta t)$                   |
+| Recovery  | $(0,-1)$                         | $\gamma i \Delta t + o(\Delta t)$            |
 
 : Transition events in a SIR time homogeneous markov chain {#tbl-SIR_Transitions}
 
@@ -74,15 +72,13 @@ $$p_{ij} = P(X(t) = P(X(t) = j \mid X(0) = i)$$
 
 and represent the possible state transition probabilities for our SIR model as $$
 p_{(s, i),(s+k, i+j)}(\Delta t)= \begin{cases}\beta i \frac{s}{N} \Delta t+o(\Delta t), & (k, j)=(-1,+1) \\ \gamma i \Delta t+o(\Delta t), & (k, j)=(0,-1) \\ 1-\left(\beta i \frac{s}{N}+\gamma i\right) \Delta t & \\ +o(\Delta t), & (k, j)=(0,0) \\ 0(\Delta t), & \text { otherwise. }\end{cases}
-$${#eq-SIR_CTMC_rates}
+$$ {#eq-SIR_CTMC_rates}
 
 Moreover, if we consider the state space of $X(t)$, (e.g. containing all possible comninations of numbers of susceptible and infected individuals $(s,i$), $$
 \mathbb{S} = \{s, i: 0 \leq s,i; s + i \leq N\}.
 $$
 
 For a particular ordering of this space[^stochasticsir-2] (e.g. $(s,i) \in \{(N,0),(N-1,1),\ldots,(0,0)\}$), $P(t)$ can be represented as a matrix specifying the probability of every state transition at time $t$. Our bivariate SIR state space contains $(N+1)(N+2)/2$ elements, and therefore P(t) corresponds to a $(N+1)(N+2)/2 \times (N+1)(N+2)/2$ matrix.
-
-[^stochasticsir-2]: Note that while the ordering of state space is arbitrary, it is not without consequence @black2015
 
 We can now consider the derivative of the transition function, $p'_{i,j}(t)$, which has two forms known as the forward (@eq-KolmogorovForward) and backward (@eq-KolmogorovBack) Kolmogorov equations
 
@@ -192,4 +188,8 @@ In the case of our SIR model, the state change vector is given by @tbl-SIR_Trans
 
 As an example, @fig-GMelb_SIR_Sim 100 sample trajectories of an SIR CTMC comprising N = 4976157, the population of the Greater Melbourne region. In this example, $I_0 = 10$, $\beta = 1.4$, and $\gamma = 1.0$, though clearly variation in these parameter values can be explored.
 
-The Greater Melbourne Region presents large geographical region which highlights the important assumption of homogeneous mixing, which we will explore relaxing in the next chapter.                
+The Greater Melbourne Region presents large geographical region which highlights the important assumption of homogeneous mixing, which we will explore relaxing in the next chapter.
+
+[^stochasticsir-1]: lower case letters (e.g. $s$, $i$) represent specific values of the random variables ($S(t)$ and $I(t)$)
+
+[^stochasticsir-2]: Note that while the ordering of state space is arbitrary, it is not without consequence @black2015

@@ -11,14 +11,13 @@ book:
     - abstract.qmd
     - declaration.qmd
     - acknowledgements.qmd
+    - introduction.qmd
     - part: "Background"
       chapters:
-       - 01-CompartmentalModels.qmd
-       - 02-Metapopulation_Models.qmd
+       - CompartmentalModels.qmd
+       - StochasticSIR.qmd
+       - Metapopulation_Models.qmd
     - part: "Current Study"
-      chapters:
-      - 03-Hierarchical_models.qmd
-      - 04-Interventions.qmd
   appendices:
     - A-appA.qmd
   references: refs.qmd
