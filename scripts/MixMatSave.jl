@@ -33,7 +33,7 @@ MixingMatrices.ODMixingMatrix("SA4", 0.1) |>
 
 
 MixingMatrices.HMixingMatrix(codes, ξ)  |>
- x -> Tables.table(x) |>
+x -> DataFrame([codes x], ["i"; codes])  |>
  x ->  CSV.write("Papers/Manuscript/data/MixingMatrices/SAMM_SA2.csv", x)
 
 MixingMatrices.HPMixingMatrix(
