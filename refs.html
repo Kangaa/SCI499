@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.302">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -51,7 +51,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./A-appA.html" rel="next">
-<link href="./04-Interventions.html" rel="prev">
+<link href="./Metapopulation_Models.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,7 +77,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -115,7 +116,7 @@ MathJax = {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./refs.html">Bibliography</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -161,6 +162,12 @@ MathJax = {
  <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -172,40 +179,27 @@ MathJax = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Background.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Background</span></span></a>
+  <a href="./CompartmentalModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compartmental Models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-Metapopulation_Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Metapopulation Model</span></span></a>
+  <a href="./StochasticSIR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models as stochastic processes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Metapopulation_Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Current Study</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-Hierarchical_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hierarchical Structure of the SA classification</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-Interventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modelling interventions different scales</span></span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Current Study</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -259,14 +253,51 @@ MathJax = {
 </header>
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-2023AustralianStatisticalGeographya" class="csl-entry" role="listitem">
-Australian statistical geography standard (ASGS), (2023).
+<div id="ref-black2015" class="csl-entry" role="listitem">
+Black, A. J., &amp; Ross, J. V. (2015). Computation of epidemic final
+size distributions. <em>Journal of Theoretical Biology</em>,
+<em>367</em>, 159–165. <a href="https://doi.org/10.1016/j.jtbi.2014.11.029">https://doi.org/10.1016/j.jtbi.2014.11.029</a>
+QID: Q41604696
+</div>
+<div id="ref-bodmer1968" class="csl-entry" role="listitem">
+Bodmer, W. F., &amp; Cavalli-Sforza, L. L. (1968). A MIGRATION MATRIX
+MODEL FOR THE STUDY OF RANDOM GENETIC DRIFT. <em>Genetics</em>,
+<em>59</em>(4), 565–592. <a href="https://doi.org/10.1093/genetics/59.4.565">https://doi.org/10.1093/genetics/59.4.565</a>
+</div>
+<div id="ref-dobrow" class="csl-entry" role="listitem">
+Dobrow, R. P. (n.d.). <em>Introduction to Stochastic Processes with
+R</em>.
+</div>
+<div id="ref-gillespie1976" class="csl-entry" role="listitem">
+Gillespie, D. T. (1976). A general method for numerically simulating the
+stochastic time evolution of coupled chemical reactions. <em>Journal of
+Computational Physics</em>, <em>22</em>(4), 403–434. <a href="https://doi.org/10.1016/0021-9991(76)90041-3">https://doi.org/10.1016/0021-9991(76)90041-3</a>
+</div>
+<div id="ref-haskey1957" class="csl-entry" role="listitem">
+Haskey, H. W. (1957). Stochastic cross-infection between two otherwise
+isolated groups. <em>Biometrika</em>, <em>44</em>(1/2), 193–204. <a href="https://doi.org/10.2307/2333252">https://doi.org/10.2307/2333252</a>
+Publisher: [Oxford University Press, Biometrika Trust]
 </div>
 <div id="ref-jacquez1988" class="csl-entry" role="listitem">
 Jacquez, J. A., Simon, C. P., Koopman, J., Sattenspiel, L., &amp; Perry,
 T. (1988). Modeling and analyzing HIV transmission: The effect of
 contact patterns. <em>Mathematical Biosciences</em>, <em>92</em>(2),
 119–199. <a href="https://doi.org/10.1016/0025-5564(88)90031-4">https://doi.org/10.1016/0025-5564(88)90031-4</a>
+</div>
+<div id="ref-moss2019" class="csl-entry" role="listitem">
+Moss, R., Naghizade, E., Tomko, M., &amp; Geard, N. (2019). What can
+urban mobility data reveal about the spatial distribution of infection
+in a single city? <em>BMC Public Health</em>, <em>19</em>(1), 656. <a href="https://doi.org/10.1186/s12889-019-6968-x">https://doi.org/10.1186/s12889-019-6968-x</a>
+</div>
+<div id="ref-sattenspiel1987" class="csl-entry" role="listitem">
+Sattenspiel, L. (1987). Population structure and the spread of disease.
+<em>Human Biology</em>, <em>59</em>(3), 411–438. <a href="https://www.jstor.org/stable/41464816">https://www.jstor.org/stable/41464816</a>
+Publisher: Wayne State University Press
+</div>
+<div id="ref-sattenspiel1988" class="csl-entry" role="listitem">
+Sattenspiel, L., &amp; Simon, C. P. (1988). The spread and persistence
+of infectious diseases in structured populations. <em>Mathematical
+Biosciences</em>, <em>90</em>(1-2), 341–366. <a href="https://doi.org/10.1016/0025-5564(88)90074-0">https://doi.org/10.1016/0025-5564(88)90074-0</a>
 </div>
 <div id="ref-simoni2019" class="csl-entry" role="listitem">
 Simoni, G., Reali, F., Priami, C., &amp; Marchetti, L. (2019).
@@ -277,10 +308,26 @@ Medicine</em>, <em>11</em>(6), e1459. <a href="https://doi.org/10.1002/wsbm.1459
 https://wires.onlinelibrary.wiley.com/doi/pdf/10.1002/wsbm.1459 QID:
 Q91506994
 </div>
+<div id="ref-teo2017" class="csl-entry" role="listitem">
+Teo, M. (2017). <em>Optimal allocation of vaccines in
+metapopulations</em> [PhD thesis].
+</div>
+<div id="ref-teo2021" class="csl-entry" role="listitem">
+Teo, M., Bean, N., &amp; Ross, J. V. (2021). Optimised prophylactic
+vaccination in metapopulations. <em>Epidemics</em>, <em>34</em>, 100420.
+<a href="https://doi.org/10.1016/j.epidem.2020.100420">https://doi.org/10.1016/j.epidem.2020.100420</a>
+QID: Q104571690
+</div>
 <div id="ref-renv" class="csl-entry" role="listitem">
 Ushey, K. (2022). <em><span class="nocase">renv</span>: Project
 environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a>
 R package version 0.16.0
+</div>
+<div id="ref-wilson1945" class="csl-entry" role="listitem">
+Wilson, E. B., &amp; Worcester, J. (1945). The spread of an epidemic.
+<em>Proceedings of the National Academy of Sciences of the United States
+of America</em>, <em>31</em>(10), 327–333. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1078835/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1078835/</a>
+PMID: 16588703 PMCID: PMC1078835
 </div>
 </div>
 
@@ -522,8 +569,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-Interventions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modelling interventions different scales</span></span>
+      <a href="./Metapopulation_Models.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

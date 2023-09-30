@@ -8,7 +8,7 @@
 
 <meta name="description" content="A thesis submitted for the degree of Graduate Diploma in Applied Statistics at The University of New England in 2023. School of Science and Technology.">
 
-<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - Declaration</title>
+<title>Hierarchical Spatial Structure in Compartmental Epidemiological models - 3&nbsp; Compartmental models as stochastic processes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./acknowledgements.html" rel="next">
-<link href="./abstract.html" rel="prev">
+<link href="./Metapopulation_Models.html" rel="next">
+<link href="./CompartmentalModels.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,6 +101,22 @@ MathJax = {
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 <link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 </head>
 
@@ -113,7 +129,7 @@ MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./declaration.html">Declaration</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./CompartmentalModels.html">Background</a></li><li class="breadcrumb-item"><a href="./StochasticSIR.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models as stochastic processes</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -152,7 +168,7 @@ MathJax = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./declaration.html" class="sidebar-item-text sidebar-link active">
+  <a href="./declaration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Declaration</span></a>
   </div>
 </li>
@@ -185,7 +201,7 @@ MathJax = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./StochasticSIR.html" class="sidebar-item-text sidebar-link">
+  <a href="./StochasticSIR.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models as stochastic processes</span></span></a>
   </div>
 </li>
@@ -234,12 +250,8 @@ MathJax = {
     <h2 id="toc-title"><b>Sections</b></h2>
    
   <ul>
-  <li><a href="#standard-thesis" id="toc-standard-thesis" class="nav-link active" data-scroll-target="#standard-thesis">Standard thesis</a>
-  <ul class="collapse">
-  <li><a href="#publications-during-enrolment" id="toc-publications-during-enrolment" class="nav-link" data-scroll-target="#publications-during-enrolment">Publications during enrolment</a></li>
-  <li><a href="#reproducibility-statement" id="toc-reproducibility-statement" class="nav-link" data-scroll-target="#reproducibility-statement">Reproducibility statement</a></li>
-  </ul></li>
-  <li><a href="#thesis-including-published-works-declaration" id="toc-thesis-including-published-works-declaration" class="nav-link" data-scroll-target="#thesis-including-published-works-declaration">Thesis including published works declaration</a></li>
+  <li><a href="#stochastic-processes" id="toc-stochastic-processes" class="nav-link active" data-scroll-target="#stochastic-processes"><span class="header-section-number">3.1</span> Stochastic processes</a></li>
+  <li><a href="#stochastic-simulation" id="toc-stochastic-simulation" class="nav-link" data-scroll-target="#stochastic-simulation"><span class="header-section-number">3.2</span> Stochastic simulation</a></li>
   </ul>
 </nav>
     </div>
@@ -248,7 +260,7 @@ MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Declaration</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compartmental models as stochastic processes</span></h1>
 </div>
 
 
@@ -263,50 +275,135 @@ MathJax = {
 
 </header>
 
-<blockquote class="blockquote">
-<p>Use only one of the following declarations.</p>
-</blockquote>
-<section id="standard-thesis" class="level2">
-<h2 class="anchored" data-anchor-id="standard-thesis">Standard thesis</h2>
-<p>This thesis is an original work of my research and contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.</p>
-<p>Student name:</p>
-<p>Student signature:</p>
-<p>Date:</p>
-<section id="publications-during-enrolment" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="publications-during-enrolment">Publications during enrolment</h3>
-<blockquote class="blockquote">
-<p>Remove this section if you do not have publications.</p>
-</blockquote>
-<p>The material in sec-intro has been submitted to the journal <em>Journal of Impossible Results</em> for possible publication.</p>
-<p>The contribution in sec-litreview of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.</p>
+<section id="stochastic-processes" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="stochastic-processes"><span class="header-section-number">3.1</span> Stochastic processes</h2>
+<p>A Stochastic Process is a collection of random variables, <span class="math inline">X(t)</span>. In the case of a compartmental SIR model <span class="quarto-unresolved-ref">?sec-ref</span>, the state of the model at time <span class="math inline">t</span> can be represented by the number of individuals in the Susceptible and Infected compartments, i.e.&nbsp;<span class="math display">
+X(t) = S(t) + I(t)
+</span> Where <span class="math inline">S(t), I(t) \in \{0,1,2, \ldots, N\}</span>, <span class="math inline">S(t) + I(t) \leq N</span>, and <span class="math inline">t\in [0,\infty)</span></p>
+<p>We can represent the probability of a transitioning one particular state <span class="math inline">x = (s, i)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to another <span class="math inline">x = (s+k, i+j)</span> (i.e.&nbsp;due to infection or recovery) after a time <span class="math inline">\Delta t &gt; 0</span>, as</p>
+<p><span class="math display">
+P(X(t+\Delta t) =(s+k, i+j) \mid(S(t), I(t))=(s, i))
+</span></p>
+<p>We will make two assumptions about the probability of states, <span class="math inline">P(X(t))</span>:</p>
+<ol type="1">
+<li><p>Time Homogeneity <span class="math display">
+P\left(X(t+\Delta t)=j \mid X(t)=i\right)=P\left(X(t)=j \mid X(0)=i\right)
+</span></p>
+<p>Which states that the transition probabilities depend on the time between events, <span class="math inline">\Delta t</span>, but not on the specific time <span class="math inline">t</span>.</p></li>
+<li><p>Memorylessness (Markov Property) <span class="math display">
+P(X(t+\Delta t) = j \mid X(t) = i, X(u) = k, 0 \leq u &lt; t ) = P(X(t+\Delta t) = j \mid X(t) = i)</span></p>
+<p>Which states that the probability of transitioning from a state <span class="math inline">i</span> at time <span class="math inline">t</span> to a state <span class="math inline">j</span> at time <span class="math inline">(t+\Delta t)</span> depends on the state at <span class="math inline">t</span> and not on any previous state.</p></li>
+</ol>
+<p>Representing our compartmental model as such a ‘Time Homogeneous Markov Chain’ means that we can succinctly describe the probabilities of possible state transitions (‘events’) because they only depend on the intervening time (<span class="math inline">\Delta t</span>) and the current state <span class="math inline">x_t = (s_t, i_t)</span>.</p>
+<div id="tbl-SIR_Transitions" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.1: Transition events in a SIR time homogeneous markov chain</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 37%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>Change (<span class="math inline">\Delta S</span> , <span class="math inline">\Delta I</span>)</th>
+<th>Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Infection</td>
+<td><span class="math inline">(-1,+1)</span></td>
+<td><span class="math inline">\beta i \frac{s}{N} \Delta t + o(\Delta t)</span></td>
+</tr>
+<tr class="even">
+<td>Recovery</td>
+<td><span class="math inline">(0,-1)</span></td>
+<td><span class="math inline">\gamma i \Delta t + o(\Delta t)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Time homogeneity and the markov property allow us to define the ‘transition function’ <span class="math inline">p_{ij}(t)</span>, which gives the probabilty of transitioning from state <span class="math inline">i</span> to state <span class="math inline">j</span> after time <span class="math inline">t</span></p>
+<p><span class="math display">p_{ij} = P(X(t) = P(X(t) = j \mid X(0) = i)</span></p>
+<p>and represent the possible state transition probabilities for our SIR model as <span id="eq-SIR_CTMC_rates"><span class="math display">
+p_{(s, i),(s+k, i+j)}(\Delta t)= \begin{cases}\beta i \frac{s}{N} \Delta t+o(\Delta t), &amp; (k, j)=(-1,+1) \\ \gamma i \Delta t+o(\Delta t), &amp; (k, j)=(0,-1) \\ 1-\left(\beta i \frac{s}{N}+\gamma i\right) \Delta t &amp; \\ +o(\Delta t), &amp; (k, j)=(0,0) \\ 0(\Delta t), &amp; \text { otherwise. }\end{cases}
+\tag{3.1}</span></span></p>
+<p>Moreover, if we consider the state space of <span class="math inline">X(t)</span>, (e.g.&nbsp;containing all possible comninations of numbers of susceptible and infected individuals <span class="math inline">(s,i</span>), <span class="math display">
+\mathbb{S} = \{s, i: 0 \leq s,i; s + i \leq N\}.
+</span></p>
+<p>For a particular ordering of this space<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> (e.g.&nbsp;<span class="math inline">(s,i) \in \{(N,0),(N-1,1),\ldots,(0,0)\}</span>), <span class="math inline">P(t)</span> can be represented as a matrix specifying the probability of every state transition at time <span class="math inline">t</span>. Our bivariate SIR state space contains <span class="math inline">(N+1)(N+2)/2</span> elements, and therefore P(t) corresponds to a <span class="math inline">(N+1)(N+2)/2 \times (N+1)(N+2)/2</span> matrix.</p>
+<p>We can now consider the derivative of the transition function, <span class="math inline">p'_{i,j}(t)</span>, which has two forms known as the forward (<a href="#eq-KolmogorovForward">Equation&nbsp;<span>3.2</span></a>) and backward (<a href="#eq-KolmogorovBack">Equation&nbsp;<span>3.3</span></a>) Kolmogorov equations</p>
+<p><span id="eq-KolmogorovForward"><span class="math display">
+\frac{d p_{i, j}(t)}{d t}=\sum_{k \neq i} p_{i, k}(t) q_{k, j}-q_{i, i} p_{i, j}(t)
+\tag{3.2}</span></span></p>
+<p><span id="eq-KolmogorovBack"><span class="math display">
+\frac{d p_{i, j}(t)}{d t}=\sum_{k \neq i} q_{i, k} p_{k, j}(t)-q_{i, i} p_{i, j}(t)
+\tag{3.3}</span></span></p>
+<p>where <span class="math inline">q_{k,j}</span>,<span class="math inline">q_{i,i}</span>, and <span class="math inline">q_{i,k}</span> are the transition <em>rates</em>&nbsp;defined in <a href="#eq-SIR_CTMC_rates">Equation&nbsp;<span>3.1</span></a>, i.e.&nbsp;for our SIR model, the forward Kolmogorov equations are</p>
+<p><span class="math display">
+\frac{d p_{a,(s, i)}(t)}{d t}=p_{a,(s+1, i-1)}(t) \frac{\beta}{N}(s+1)(i-1)+p_{a,(s, i+1)}(t) \gamma(i+1)-p_{a,(s, i)}(t)\left[\frac{\beta}{N} s i+\gamma i\right] .
+</span></p>
+<p>and the backward Kolmogorov equations are</p>
+<p><span class="math display">
+\frac{d p_{(s, i), b}(t)}{d t}=\frac{\beta s i}{N} p_{(s-1, i+1), b}(t)+\gamma i p_{(s, i-1), b}(t)-\left[\frac{\beta}{N} s i+\gamma i\right] p_{(s, i), b}(t) .
+</span></p>
+<p>We can simplify (<a href="#eq-KolmogorovForward">Equation&nbsp;<span>3.2</span></a>) and (<a href="#eq-KolmogorovBack">Equation&nbsp;<span>3.3</span></a>), by considering the matrix <span class="math inline">Q</span> specifying the rates of all transitions <span class="math inline">q_{ij}</span> for <span class="math inline">i,j \in \mathbb{S}</span>.Similarly to the transition probability matrix <span class="math inline">P(t)</span>, <span class="math inline">Q</span> has dimension <span class="math inline">(N+1)(N+2)/2 \times (N+1)(N+2)/2</span> .</p>
+<p>The system of equations <a href="#eq-KolmogorovForward">Equation&nbsp;<span>3.2</span></a> and <a href="#eq-KolmogorovBack">Equation&nbsp;<span>3.3</span></a>, can now be written as <span class="math inline">dP(t)/dt = P(t)Q</span> and <span class="math inline">dP(t)/dt = QP(t)</span>, respectively. Considering<span class="math inline">p′(t) = qp(t)</span>, where <span class="math inline">p</span> is a differentiable function and <span class="math inline">q</span> is a constant, when <span class="math inline">p(0) = 1</span>, there is a unique solution <span class="math inline">p(t) = e^{tq}</span>, we can similarly solve the Kolmogorov <a href="#eq-KolmogorovForward">Equation&nbsp;<span>3.2</span></a> and <a href="#eq-KolmogorovBack">Equation&nbsp;<span>3.3</span></a> as as <span class="math inline">P(t) = e^{Qt}</span> and <span class="math inline">P(t) = e^{tQ}</span> (when <span class="math inline">P(0) = I</span>), respectively.</p>
+<p>Thus, the theoretically and empirically derived event rates presented in <a href="#eq-SIR_CTMC_rates">Equation&nbsp;<span>3.1</span></a>, along with the assumptions of time homogeneity and memorylessness, allow us to compute the probability of any state transition at time <span class="math inline">t</span>. This technique can be used, for example, to derive important statistics about an epidemic, such as its mean final size and the effects of vaccination programs <span class="citation" data-cites="teo2017">Teo (<a href="refs.html#ref-teo2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="teo2021">Teo et al. (<a href="refs.html#ref-teo2021" role="doc-biblioref">2021</a>)</span>. However, “computing the matrix exponential is often numerically challenging. Finding accurate and eficient algorithms is still a topic of current research” <span class="citation" data-cites="dobrow">Dobrow (<a href="refs.html#ref-dobrow" role="doc-biblioref">n.d.</a>)</span></p>
 </section>
-<section id="reproducibility-statement" class="level3">
-<h3 class="anchored" data-anchor-id="reproducibility-statement">Reproducibility statement</h3>
-<p>This thesis is written using Quarto with renv <span class="citation" data-cites="renv">(<a href="refs.html#ref-renv" role="doc-biblioref">Ushey, 2022</a>)</span> to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository <a href="https://github.com/SusanSu/thesis"><code>github.com/SusanSu/thesis</code></a>.</p>
-<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-</section>
-</section>
-<section id="thesis-including-published-works-declaration" class="level2">
-<h2 class="anchored" data-anchor-id="thesis-including-published-works-declaration">Thesis including published works declaration</h2>
-<p>I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.</p>
-<p>This thesis includes ?? original papers published in peer reviewed journals and ?? submitted publications. The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics &amp; Business Statistics under the supervision of ??</p>
-<p>(The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)</p>
-<p>In the case of (??insert chapter numbers) my contribution to the work involved the following:</p>
-<p>I have / have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.</p>
-<p>Student name:</p>
-<p>Student signature:</p>
-<p>Date:</p>
-<p>I hereby certify that the above declaration correctly reflects the nature and extent of the student’s and co-authors’ contributions to this work. In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.</p>
-<p>Main Supervisor name:</p>
-<p>Main Supervisor signature:</p>
-<p>Date:</p>
+<section id="stochastic-simulation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="stochastic-simulation"><span class="header-section-number">3.2</span> Stochastic simulation</h2>
+<p>Instead of analytically deriving the marginal probability of a particular series of events by the method outlined above, we can simulate instantiations of the continuous time markov chain (“sample paths”) numerically. There are several stochastic simulation algorithms <span class="citation" data-cites="simoni2019">Simoni et al. (<a href="refs.html#ref-simoni2019" role="doc-biblioref">2019</a>)</span>, but in this thesis, we will use only the original ‘Direct-method’ algorithm put forward by <span class="citation" data-cites="gillespie1976">Gillespie (<a href="refs.html#ref-gillespie1976" role="doc-biblioref">1976</a>)</span>.</p>
+<p>Originally a method for simulating chemical reaction networks, the Gillespie direct algorithm is applicable to many domains of stochastic simulation with discrete state spaces, continuous time, and known rate equations.</p>
+<p>In general, the core of the Gillespie algorithm takes in the possible state changes in a system, and a ‘propensity function’ for each state change. Random number generation is used to select a particular state change, <span class="math inline">u</span> and a time interval, <span class="math inline">\tau</span>, which can be used to update the state of the system <span class="math inline">X(t) = i \rightarrow X(t + \tau) = i + u</span> (<a href="#alg-Gillespie">Algorithm 3.1</a>).</p>
+<div id="alg-Gillespie" class="pseudocode-container" data-line-number-punc=":" data-comment-delimiter="//" data-pseudocode-index="1" data-line-number="true" data-no-end="false" data-alg-title="Algorithm" data-indent-size="1.2em">
+<div class="pseudocode">
+\begin{algorithm} \caption{Gillespie Direct Method} \textbf{Input:} \emph{v}, \emph{a} \\ \textbf{Output:} $\mu$, $\tau$ \begin{algorithmic} \State set $a_{net} = 0$ \ForAll{j} \State compute $a_j$ \State update $a_{net} = a_{net} + a_j$ \EndFor \State generate two random numbers $r_1$, $r_2$ in $\mathcal{U} (0,1)$ \State select $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau \gets \frac{1}{a_0}\ln(1/r_2)$ \State update $X \gets X + v_\mu$ \State set $t \gets t + \tau$ \end{algorithmic} \end{algorithm}
+</div>
+</div>
+<p>In particular, two random numbers <span class="math inline">r_1</span> and <span class="math inline">r_2</span> are used to compute <span class="math inline">mu</span> and <span class="math inline">\tau</span>, respectively</p>
+<ul>
+<li><span class="math inline">r_1</span> is used to calculate <span class="math inline">mu</span> by cumulatively adding the values of the propensity function to each other. mu gets the largest value which is smaller than <span class="math inline">r_1</span></li>
+<li><span class="math inline">r_2</span> is used to calculate <span class="math inline">\tau</span> by taking advantage of the fact that in a Continuous time markov proces <span class="math inline">\Delta t \sim \lambda e^{-\lambda t}</span>, where lambda is the sum of the rates for all possible events.</li>
+</ul>
+<p>In the case of our SIR model, the state change vector is given by <a href="#tbl-SIR_Transitions">Table&nbsp;<span>3.1</span></a> column two, and the propensity function vector is given in column 3.We can include the core stochastic event step in a loop which updates the state and time of our SIR model simulate the progression of an epidemic @alg-SIR_CTMC.</p>
+<div id="alg-SIR_CTMC" class="pseudocode-container" data-line-number-punc=":" data-comment-delimiter="//" data-pseudocode-index="2" data-line-number="true" data-no-end="false" data-alg-title="Algorithm" data-indent-size="1.2em">
+<div class="pseudocode">
+\begin{algorithm} \caption{Stochastic simulation of SIR Compartmental Model CTMC} \textbf{Input:}$N$, $I_0$, $\beta$, $\gamma$ \textbf{Output:} \begin{algorithmic} \State Initialise time $t \gets 0.0$ and $S \gets N - I_0$, $I \gets I_0$ \State state change vector $v = [(-1,1), (0, -1)]$ \State propensity vector $a = [(\beta I \frac{S}{N}), (\gamma I)]$ \While{$I &gt; 0$} \ForAll{j} \State compute $a_j$ \State update $a_{net} = a_{net} + a_j$ \EndFor \State generate two random numbers $r_1, r_2 \sim \mathcal{U}(0,1)$ \State select $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$ \State compute $\tau \gets \frac{1}{a_0}\ln(1/r_2)$ \State update $X \gets X + v_\mu$ \State set $t \gets t + \tau$ \EndWhile \end{algorithmic} \end{algorithm}
+</div>
+</div>
+<p>As an example, <span class="quarto-unresolved-ref">?fig-GMelb_SIR_Sim</span> 100 sample trajectories of an SIR CTMC comprising N = 4976157, the population of the Greater Melbourne region. In this example, <span class="math inline">I_0 = 10</span>, <span class="math inline">\beta = 1.4</span>, and <span class="math inline">\gamma = 1.0</span>, though clearly variation in these parameter values can be explored.</p>
+<p>The Greater Melbourne Region presents large geographical region which highlights the important assumption of homogeneous mixing, which we will explore relaxing in the next chapter.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-renv" class="csl-entry" role="listitem">
-Ushey, K. (2022). <em><span class="nocase">renv</span>: Project environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a> R package version 0.16.0
+<div id="ref-black2015" class="csl-entry" role="listitem">
+Black, A. J., &amp; Ross, J. V. (2015). Computation of epidemic final size distributions. <em>Journal of Theoretical Biology</em>, <em>367</em>, 159–165. <a href="https://doi.org/10.1016/j.jtbi.2014.11.029">https://doi.org/10.1016/j.jtbi.2014.11.029</a> QID: Q41604696
+</div>
+<div id="ref-dobrow" class="csl-entry" role="listitem">
+Dobrow, R. P. (n.d.). <em>Introduction to Stochastic Processes with R</em>.
+</div>
+<div id="ref-gillespie1976" class="csl-entry" role="listitem">
+Gillespie, D. T. (1976). A general method for numerically simulating the stochastic time evolution of coupled chemical reactions. <em>Journal of Computational Physics</em>, <em>22</em>(4), 403–434. <a href="https://doi.org/10.1016/0021-9991(76)90041-3">https://doi.org/10.1016/0021-9991(76)90041-3</a>
+</div>
+<div id="ref-simoni2019" class="csl-entry" role="listitem">
+Simoni, G., Reali, F., Priami, C., &amp; Marchetti, L. (2019). Stochastic simulation algorithms for computational systems biology: Exact, approximate, and hybrid methods. <em>WIREs Systems Biology and Medicine</em>, <em>11</em>(6), e1459. <a href="https://doi.org/10.1002/wsbm.1459">https://doi.org/10.1002/wsbm.1459</a> <span>_</span>Eprint: https://wires.onlinelibrary.wiley.com/doi/pdf/10.1002/wsbm.1459 QID: Q91506994
+</div>
+<div id="ref-teo2017" class="csl-entry" role="listitem">
+Teo, M. (2017). <em>Optimal allocation of vaccines in metapopulations</em> [PhD thesis].
+</div>
+<div id="ref-teo2021" class="csl-entry" role="listitem">
+Teo, M., Bean, N., &amp; Ross, J. V. (2021). Optimised prophylactic vaccination in metapopulations. <em>Epidemics</em>, <em>34</em>, 100420. <a href="https://doi.org/10.1016/j.epidem.2020.100420">https://doi.org/10.1016/j.epidem.2020.100420</a> QID: Q104571690
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>lower case letters (e.g.&nbsp;<span class="math inline">s</span>, <span class="math inline">i</span>) represent specific values of the random variables (<span class="math inline">S(t)</span> and <span class="math inline">I(t)</span>)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note that while the ordering of state space is arbitrary, it is not without consequence <span class="citation" data-cites="black2015">Black &amp; Ross (<a href="refs.html#ref-black2015" role="doc-biblioref">2015</a>)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -545,13 +642,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./abstract.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Abstract</span>
+      <a href="./CompartmentalModels.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compartmental Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./acknowledgements.html" class="pagination-link">
-        <span class="nav-page-text">Acknowledgements</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Metapopulation_Models.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metapopulation Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
