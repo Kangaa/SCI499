@@ -11,10 +11,13 @@ book:
     - abstract.qmd
     - declaration.qmd
     - acknowledgements.qmd
-    - 01-IntroBackground.qmd
-    - 02-Metapopulation Models.qmd
-    - 03-CurrentStudy.qmd
-    - 04-Interventions.qmd
+    - introduction.qmd
+    - part: "Background"
+      chapters:
+       - CompartmentalModels.qmd
+       - StochasticSIR.qmd
+       - Metapopulation_Models.qmd
+    - part: "Current Study"
   appendices:
     - A-appA.qmd
   references: refs.qmd
@@ -41,11 +44,34 @@ affiliation: School of Science and Technology
 degrees: 'B.Sc. (Hons), University of Queensland'
 
 execute:
-  freeze: true
+  freeze: auto
   echo: false
   warning: false
   message: false
 
 format:
   html:
-    toc: true
+    include-in-header:
+      text: |
+        <script>
+        MathJax = {
+          loader: {
+            load: ['[tex]/boldsymbol']
+          },
+          tex: {
+            tags: "all",
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\\[','\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {
+              '[+]': ['boldsymbol']
+            }
+          }
+        };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+
+filters:
+ - pseudocode

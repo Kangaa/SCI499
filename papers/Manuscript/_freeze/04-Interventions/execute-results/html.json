@@ -1,0 +1,16 @@
+{
+  "hash": "855efffa0716feb07a642f4fdb28c128",
+  "result": {
+    "markdown": "---\ntitle: \"Modelling interventions different scales\"\neditor: visual\n---\n---\ntitle: \"Code and data for Chp 4\"\n---\n# Package dependencies\n::: {.cell}\n\n:::\n\n# Chapter 4\n::: {.cell}\n\n:::\n\n## Population proportional SA mixing matrix\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-2-1.png){width=604.8}\n:::\n:::\n\n::: {.cell}\n\n:::\n\n## peak size\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-4-1.png){width=604.8}\n:::\n:::\n\n## Final Size\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-5-1.png){width=604.8}\n:::\n:::\n\n## Duration\n\n### SA3\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-6-1.png){width=604.8}\n:::\n:::\n\n### SA4\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-7-1.png){width=604.8}\n:::\n:::\n\n\n\n\n## Motivation\n\n-   Reduce the total epidemic size/effects by intervening in strategic locations\n\n-   Spatial resolution allows for precise targeting. Behavioural intervention (restriction of mixing) Mixing matrix is modified during simulation\n\n## Formulation\n\n-   Parameters\n\n    -   Trigger: condition at which intervention occurs\n\n    -   Effect:\n      \n        -   `local` reduce the intra-patch mixing\n\n        -   `travel` reduce inter-patch mixing\n\n        -   `total` reduce intra- and inter-patch mixing\n\n## Implimentation\n\n### local intervention\n\n#### final size\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-8-1.png){width=604.8}\n:::\n:::\n\n\n#### peak size\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-9-1.png){width=604.8}\n:::\n:::\n\n#### duration\n\n::: {.cell}\n::: {.cell-output-display}\n![](04-Interventions_files/figure-html/unnamed-chunk-10-1.png){width=604.8}\n:::\n:::\n",
+    "supporting": [
+      "04-Interventions_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

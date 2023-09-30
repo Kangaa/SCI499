@@ -7,7 +7,7 @@ nsims = parse(Int64, ARGS[4])
 # Define the range of parameters to use
 
 if MM_type == "HMM"
-    β = [2.2, 2.4, 2.6, 2.8, 3.0]
+    β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 4.0]
     γ = [1.0]
     params = Base.product(β, γ)
     for param in params
@@ -50,7 +50,7 @@ if MM_type == "HMM"
 
 elseif MM_type == "HPMM"
     mmcoef = [1.0, 0.5, 0.0]
-    β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.5, 4]
+    β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     γ = [1.0]
     params = Base.product(mmcoef, β, γ)
     for param in params

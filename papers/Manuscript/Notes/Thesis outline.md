@@ -1,6 +1,5 @@
 Abstract
-1. Intro and Background
-	1. [[Disease spread]]
+1. Background: Compartmental models in epidemiology
 	2. [[Compartmental models]]
 		1. [[SIR]]
 		2. Structure (compartments)
@@ -27,13 +26,13 @@ Abstract
 		8. Stochastic simulation
 			1. [[Gillespie algorithm]] for homogenous mixing model
 	5. Example: Melbourne region compartmental SIR model
-2.  Spatially structured Metapopulation models
-	1. [[Metapopulation models]]
+2. Structured [[Metapopulation models]]
 		1. Motivation
-		2. Mixing matrix
-	3. Spatial structure in mixing matrix
-		1. e.g. transport info
-	4. Case study: Melbourne city (replication if Moss et. al )
+			1. transmission between different groups
+			2. Case study: Melbourne city (replication if Moss et. al )
+		2. Formalization
+			1. 
+		3. Implementation
 3. Hierarchically Structured metapopulation model
 	2. Hierarchical mixing matrix
 		1.  [[SA classification]]
@@ -53,4 +52,8 @@ Abstract
 			1. intra-level mixing parameter $\xi$
 			2. effect of mm-blending parameter ?
 			3. comparisons between models with differen spatial resolution
+4. Interventions at different spatial scales
+	1. Motivation
+	2. Formalisation
+	3. Implimentation
 	

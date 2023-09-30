@@ -1,110 +1,361 @@
-SA4_CODE_2021,Names,Popn
-101,Capital Region,238238
-102,Central Coast,346695
-103,Central West,213057
-104,Coffs Harbour - Grafton,146225
-105,Far West and Orana,115589
-106,Hunter Valley exc Newcastle,291779
-107,Illawarra,313626
-108,Mid North Coast,229340
-109,Murray,123345
-110,New England and North West,185406
-111,Newcastle and Lake Macquarie,390334
-112,Richmond - Tweed,257046
-113,Riverina,163580
-114,Southern Highlands and Shoalhaven,160965
-115,Sydney - Baulkham Hills and Hawkesbury,264177
-116,Sydney - Blacktown,400903
-117,Sydney - City and Inner South,331440
-118,Sydney - Eastern Suburbs,261266
-119,Sydney - Inner South West,604949
-120,Sydney - Inner West,304875
-121,Sydney - North Sydney and Hornsby,424084
-122,Sydney - Northern Beaches,263445
-123,Sydney - Outer South West,297201
-124,Sydney - Outer West and Blue Mountains,331817
-125,Sydney - Parramatta,493298
-126,Sydney - Ryde,202008
-127,Sydney - South West,474336
-128,Sydney - Sutherland,229517
-197,Migratory - Offshore - Shipping (NSW),0
-199,No usual address (NSW),11371
-201,Ballarat,174014
-202,Bendigo,167637
-203,Geelong,327891
-204,Hume,184970
-205,Latrobe - Gippsland,300672
-206,Melbourne - Inner,616847
-207,Melbourne - Inner East,373521
-208,Melbourne - Inner South,422761
-209,Melbourne - North East,540638
-210,Melbourne - North West,424137
-211,Melbourne - Outer East,518315
-212,Melbourne - South East,860173
-213,Melbourne - West,853001
-214,Mornington Peninsula,308192
-215,North West,155574
-216,Shepparton,137495
-217,Warrnambool and South West,127993
-297,Migratory - Offshore - Shipping (Vic.),35
-299,No usual address (Vic.),9089
-301,Brisbane - East,239780
-302,Brisbane - North,224459
-303,Brisbane - South,371140
-304,Brisbane - West,189332
-305,Brisbane Inner City,292150
-306,Cairns,253511
-307,Darling Downs - Maranoa,128667
-308,Central Queensland,228395
-309,Gold Coast,640936
-310,Ipswich,367178
-311,Logan - Beaudesert,359834
-312,Mackay - Isaac - Whitsunday,180884
-313,Moreton Bay - North,264642
-314,Moreton Bay - South,217695
-315,Queensland - Outback,79714
-316,Sunshine Coast,398698
-317,Toowoomba,162124
-318,Townsville,234166
-319,Wide Bay,307698
-397,Migratory - Offshore - Shipping (Qld),184
-399,No usual address (Qld),14670
-401,Adelaide - Central and Hills,312371
-402,Adelaide - North,455641
-403,Adelaide - South,374740
-404,Adelaide - West,244130
-405,Barossa - Yorke - Mid North,114410
-406,South Australia - Outback,82657
-407,South Australia - South East,193749
-497,Migratory - Offshore - Shipping (SA),12
-499,No usual address (SA),3377
-501,Bunbury,188557
-502,Mandurah,107615
-503,Perth - Inner,182325
-504,Perth - North East,276260
-505,Perth - North West,577283
-506,Perth - South East,529423
-507,Perth - South West,443490
-509,Western Australia - Wheat Belt,137252
-510,Western Australia - Outback (North),90085
-511,Western Australia - Outback (South),118702
-597,Migratory - Offshore - Shipping (WA),522
-599,No usual address (WA),8055
-601,Hobart,247019
-602,Launceston and North East,151190
-603,South East,41766
-604,West and North West,115999
-697,Migratory - Offshore - Shipping (Tas.),17
-699,No usual address (Tas.),1377
-701,Darwin,139846
-702,Northern Territory - Outback,89072
-797,Migratory - Offshore - Shipping (NT),91
-799,No usual address (NT),3500
-801,Australian Capital Territory,453764
-897,Migratory - Offshore - Shipping (ACT),0
-899,No usual address (ACT),605
-901,Other Territories,4785
-997,Migratory - Offshore - Shipping (OT),0
-999,No usual address (OT),11
-ZZZ,Outside Australia,NA
+SA3_CODE_2021,Names,Popn
+10102,Queanbeyan,64747
+10103,Snowy Mountains,20648
+10104,South Coast,76487
+10105,Goulburn - Mulwaree,38237
+10106,Young - Yass,38119
+10201,Gosford,178351
+10202,Wyong,168344
+10301,Bathurst,49187
+10302,Lachlan Valley,54732
+10303,Lithgow - Mudgee,47792
+10304,Orange,61346
+10401,Clarence Valley,53804
+10402,Coffs Harbour,92421
+10501,Bourke - Cobar - Coonamble,21625
+10502,Broken Hill and Far West,19861
+10503,Dubbo,74103
+10601,Lower Hunter,98016
+10602,Maitland,86898
+10603,Port Stephens,76294
+10604,Upper Hunter,30571
+10701,Dapto - Port Kembla,79856
+10702,Illawarra Catchment Reserve,8
+10703,Kiama - Shellharbour,99169
+10704,Wollongong,134593
+10801,Great Lakes,33313
+10802,Kempsey - Nambucca,51221
+10803,Lord Howe Island,443
+10804,Port Macquarie,86929
+10805,Taree - Gloucester,57434
+10901,Albury,66927
+10902,Lower Murray,13059
+10903,Upper Murray exc. Albury,43359
+11001,Armidale,37576
+11002,Inverell - Tenterfield,38683
+11003,Moree - Narrabri,24702
+11004,Tamworth - Gunnedah,84445
+11101,Lake Macquarie - East,126318
+11102,Lake Macquarie - West,84970
+11103,Newcastle,179046
+11201,Richmond Valley - Coastal,87798
+11202,Richmond Valley - Hinterland,71868
+11203,Tweed Valley,97380
+11301,Griffith - Murrumbidgee (West),49542
+11302,Tumut - Tumbarumba,14894
+11303,Wagga Wagga,99144
+11401,Shoalhaven,108223
+11402,Southern Highlands,52742
+11501,Baulkham Hills,154615
+11502,Dural - Wisemans Ferry,27855
+11503,Hawkesbury,25036
+11504,Rouse Hill - McGraths Hill,56671
+11601,Blacktown,142563
+11602,Blacktown - North,142730
+11603,Mount Druitt,115610
+11701,Botany,58804
+11702,Marrickville - Sydenham - Petersham,54770
+11703,Sydney Inner City,217866
+11801,Eastern Suburbs - North,127092
+11802,Eastern Suburbs - South,134174
+11901,Bankstown,186301
+11902,Canterbury,141119
+11903,Hurstville,131699
+11904,Kogarah - Rockdale,145830
+12001,Canada Bay,86680
+12002,Leichhardt,56454
+12003,Strathfield - Burwood - Ashfield,161741
+12101,Chatswood - Lane Cove,117501
+12102,Hornsby,87439
+12103,Ku-ring-gai,124308
+12104,North Sydney - Mosman,94836
+12201,Manly,43207
+12202,Pittwater,63404
+12203,Warringah,156834
+12301,Camden,73563
+12302,Campbelltown (NSW),177742
+12303,Wollondilly,45896
+12401,Blue Mountains,77864
+12402,Blue Mountains - South,3
+12403,Penrith,159218
+12404,Richmond - Windsor,37981
+12405,St Marys,56751
+12501,Auburn,103500
+12502,Carlingford,74035
+12503,Merrylands - Guildford,163764
+12504,Parramatta,151999
+12601,Pennant Hills - Epping,54876
+12602,Ryde - Hunters Hill,147132
+12701,Bringelly - Green Valley,143085
+12702,Fairfield,195090
+12703,Liverpool,136161
+12801,Cronulla - Miranda - Caringbah,117824
+12802,Sutherland - Menai - Heathcote,111693
+19797,Migratory - Offshore - Shipping (NSW),0
+19999,No usual address (NSW),11371
+20101,Ballarat,116238
+20102,Creswick - Daylesford - Ballan,30993
+20103,Maryborough - Pyrenees,26783
+20201,Bendigo,102925
+20202,Heathcote - Castlemaine - Kyneton,52456
+20203,Loddon - Elmore,12256
+20301,Barwon - West,22487
+20302,Geelong,211955
+20303,Surf Coast - Bellarine Peninsula,93449
+20401,Upper Goulburn Valley,60064
+20402,Wangaratta - Benalla,48513
+20403,Wodonga - Alpine,76393
+20501,Baw Baw,57757
+20502,Gippsland - East,48700
+20503,Gippsland - South West,71478
+20504,Latrobe Valley,77271
+20505,Wellington,45466
+20601,Brunswick - Coburg,89747
+20602,Darebin - South,53248
+20603,Essendon,68614
+20604,Melbourne City,149536
+20605,Port Phillip,102023
+20606,Stonnington - West,62497
+20607,Yarra,91182
+20701,Boroondara,167901
+20702,Manningham - West,98449
+20703,Whitehorse - West,107171
+20801,Bayside,101390
+20802,Glen Eira,156587
+20803,Kingston,122644
+20804,Stonnington - East,42140
+20901,Banyule,126227
+20902,Darebin - North,95262
+20903,Nillumbik - Kinglake,67073
+20904,Whittlesea - Wallan,252076
+21001,Keilor,61673
+21002,Macedon Ranges,32952
+21003,Moreland - North,80487
+21004,Sunbury,45073
+21005,Tullamarine - Broadmeadows,203952
+21101,Knox,159107
+21102,Manningham - East,26343
+21103,Maroondah,114541
+21104,Whitehorse - East,63009
+21105,Yarra Ranges,155315
+21201,Cardinia,118397
+21202,Casey - North,137253
+21203,Casey - South,227960
+21204,Dandenong,193775
+21205,Monash,182788
+21301,Brimbank,186015
+21302,Hobsons Bay,86540
+21303,Maribyrnong,85281
+21304,Melton - Bacchus Marsh,198523
+21305,Wyndham,296642
+21401,Frankston,139235
+21402,Mornington Peninsula,168957
+21501,Grampians,60295
+21502,Mildura,56944
+21503,Murray River - Swan Hill,38335
+21601,Campaspe,38845
+21602,Moira,30522
+21603,Shepparton,68128
+21701,Glenelg - Southern Grampians,36771
+21703,Colac - Corangamite,38500
+21704,Warrnambool,52722
+29797,Migratory - Offshore - Shipping (Vic.),35
+29999,No usual address (Vic.),9089
+30101,Capalaba,73359
+30102,Cleveland - Stradbroke,93419
+30103,Wynnum - Manly,73002
+30201,Bald Hills - Everton Park,46064
+30202,Chermside,74275
+30203,Nundah,42999
+30204,Sandgate,61121
+30301,Carindale,54306
+30302,Holland Park - Yeronga,79342
+30303,Mt Gravatt,79446
+30304,Nathan,39927
+30305,Rocklea - Acacia Ridge,67942
+30306,Sunnybank,50177
+30401,Centenary,33051
+30402,Kenmore - Brookfield - Moggill,47789
+30403,Sherwood - Indooroopilly,54306
+30404,The Gap - Enoggera,54186
+30501,Brisbane Inner,87438
+30502,Brisbane Inner - East,44377
+30503,Brisbane Inner - North,100101
+30504,Brisbane Inner - West,60234
+30601,Cairns - North,57675
+30602,Cairns - South,105439
+30603,Innisfail - Cassowary Coast,35364
+30604,Port Douglas - Daintree,12237
+30605,Tablelands (East) - Kuranda,42796
+30701,Darling Downs (West) - Maranoa,44291
+30702,Darling Downs - East,42826
+30703,Granite Belt,41550
+30801,Central Highlands (Qld),28956
+30803,Rockhampton,121378
+30804,Biloela,14507
+30805,Gladstone,63554
+30901,Broadbeach - Burleigh,66375
+30902,Coolangatta,57526
+30903,Gold Coast - North,69480
+30904,Gold Coast Hinterland,20106
+30905,Mudgeeraba - Tallebudgera,36032
+30906,Nerang,69671
+30907,Ormeau - Oxenford,158129
+30908,Robina,53918
+30909,Southport,64519
+30910,Surfers Paradise,45180
+31001,Forest Lake - Oxley,78821
+31002,Ipswich Hinterland,67238
+31003,Ipswich Inner,115943
+31004,Springfield - Redbank,105176
+31101,Beaudesert,14646
+31102,Beenleigh,46296
+31103,Browns Plains,93616
+31104,Jimboomba,61649
+31105,Loganlea - Carbrook,64501
+31106,Springwood - Kingston,79126
+31201,Bowen Basin - North,35820
+31202,Mackay,121644
+31203,Whitsunday,23420
+31301,Bribie - Beachmere,37064
+31302,Caboolture,79678
+31303,Caboolture Hinterland,14875
+31304,Narangba - Burpengary,69255
+31305,Redcliffe,63770
+31401,The Hills District,89800
+31402,North Lakes,88021
+31403,Strathpine,39874
+31501,Far North,32190
+31502,Outback - North,30351
+31503,Outback - South,17173
+31601,Buderim,58933
+31602,Caloundra,96327
+31603,Maroochy,63598
+31605,Noosa,46628
+31606,Sunshine Coast Hinterland,59029
+31607,Nambour,50011
+31608,Noosa Hinterland,24172
+31701,Toowoomba,162124
+31801,Charters Towers - Ayr - Ingham,41403
+31802,Townsville,192763
+31901,Bundaberg,93741
+31902,Burnett,49665
+31903,Gympie - Cooloola,53169
+31904,Hervey Bay,63503
+31905,Maryborough,47620
+39797,Migratory - Offshore - Shipping (Qld),184
+39999,No usual address (Qld),14670
+40101,Adelaide City,25099
+40102,Adelaide Hills,79712
+40103,Burnside,46047
+40104,Campbelltown (SA),55144
+40105,Norwood - Payneham - St Peters,37509
+40106,Prospect - Walkerville,30272
+40107,Unley,38588
+40201,Gawler - Two Wells,37680
+40202,Playford,99966
+40203,Port Adelaide - East,76778
+40204,Salisbury,144585
+40205,Tea Tree Gully,96632
+40301,Holdfast Bay,35701
+40302,Marion,96319
+40303,Mitcham,66203
+40304,Onkaparinga,176517
+40401,Charles Sturt,118398
+40402,Port Adelaide - West,60787
+40403,West Torrens,64945
+40501,Barossa,37939
+40502,Lower North,22696
+40503,Mid North,27170
+40504,Yorke Peninsula,26605
+40601,Eyre Peninsula and South West,57104
+40602,Outback - North and East,25553
+40701,Fleurieu - Kangaroo Island,55501
+40702,Limestone Coast,66946
+40703,Murray and Mallee,71302
+49797,Migratory - Offshore - Shipping (SA),12
+49999,No usual address (SA),3377
+50101,Augusta - Margaret River - Busselton,57126
+50102,Bunbury,107542
+50103,Manjimup,23889
+50201,Mandurah,107615
+50301,Cottesloe - Claremont,71744
+50302,Perth City,110581
+50401,Bayswater - Bassendean,84398
+50402,Mundaring,43750
+50403,Swan,148112
+50501,Joondalup,160618
+50502,Stirling,208200
+50503,Wanneroo,208465
+50601,Armadale,94198
+50602,Belmont - Victoria Park,75339
+50603,Canning,99100
+50604,Gosnells,126421
+50605,Kalamunda,58716
+50606,Serpentine - Jarrahdale,32196
+50607,South Perth,43453
+50701,Cockburn,115904
+50702,Fremantle,39928
+50703,Kwinana,45800
+50704,Melville,106166
+50705,Rockingham,135692
+50901,Albany,61834
+50902,Wheat Belt - North,56048
+50903,Wheat Belt - South,19370
+51001,Kimberley,35090
+51002,East Pilbara,25391
+51003,West Pilbara,29604
+51101,Esperance,15933
+51102,Gascoyne,9515
+51103,Goldfields,38284
+51104,Mid West,54970
+59797,Migratory - Offshore - Shipping (WA),522
+59999,No usual address (WA),8055
+60101,Brighton,19608
+60102,Hobart - North East,59201
+60103,Hobart - North West,57923
+60104,Hobart - South and West,36688
+60105,Hobart Inner,55072
+60106,Sorell - Dodges Ferry,18527
+60201,Launceston,87365
+60202,Meander Valley - West Tamar,24252
+60203,North East,39573
+60301,Central Highlands (Tas.),12465
+60302,Huon - Bruny Island,21719
+60303,South East Coast,7582
+60401,Burnie - Ulverstone,50013
+60402,Devonport,48209
+60403,West Coast,17777
+69797,Migratory - Offshore - Shipping (Tas.),17
+69999,No usual address (Tas.),1377
+70101,Darwin City,27115
+70102,Darwin Suburbs,54574
+70103,Litchfield,20954
+70104,Palmerston,37203
+70201,Alice Springs,36430
+70202,Barkly,5290
+70203,Daly - Tiwi - West Arnhem,15781
+70204,East Arnhem,12782
+70205,Katherine,18789
+79797,Migratory - Offshore - Shipping (NT),91
+79999,No usual address (NT),3500
+80101,Belconnen,106090
+80103,Canberra East,1952
+80104,Gungahlin,87604
+80105,North Canberra,61246
+80106,South Canberra,31609
+80107,Tuggeranong,89403
+80108,Weston Creek,24582
+80109,Woden Valley,39253
+80110,Molonglo,11399
+80111,Uriarra - Namadgi,626
+89797,Migratory - Offshore - Shipping (ACT),0
+89999,No usual address (ACT),605
+90101,Christmas Island,1699
+90102,Cocos (Keeling) Islands,593
+90103,Jervis Bay,308
+90104,Norfolk Island,2185
+99797,Migratory - Offshore - Shipping (OT),0
+99999,No usual address (OT),11
+ZZZZZ,Outside Australia,NA
 NA,NA,NA

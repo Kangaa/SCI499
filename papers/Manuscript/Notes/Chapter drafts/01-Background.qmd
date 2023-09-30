@@ -1,0 +1,129 @@
+# Introduction & Background {#sec-intro}
+
+## Modelling Infectious Epidemics
+
+"Epidemic models are used to inform decisions on disease prevention, surveillance, control and treatment and can be applied to new epidemics" @bjørnstad2020
+
+## Compartment Models
+
+"Compartmental models are the most frequently used type of epidemic model. In this class of models, individuals can be in a finite number of discrete states. Some of these states are simply labels that specify the various traits of individuals. Of these, some will be changing with time, such as age class, and others will be fixed, such as sex or species. Other states indicate the progress of an infection: for example, an individual can upon becoming infected, typically first enter a state of latency, then progress to a state of infectiousness, and then lose infected status to progress to a recovered/immune state. With each state one can associate the subpopulation of individuals who are in that particular state at the given time (e.g. a female in a latent state of infection). Often the same symbol is used as a label for a state and to denote the corresponding subpopulation size, either as a fraction or as a number (e.g. I or Y for individuals in an infectious state)" - @diekmann2010
+
+### The SIR compartmental model
+
+The simplest comparmental model of infectious disease spread is the SIR Compartmental Model, with three compartments: S - for individuals *susceptible* to the disease; I - for *infected* individuals; and R - for previously infected individuals who have *recovered* (or been otherwise *removed* from that compartment). With the simplifying assumption of a constant population size, $N$, i.e.
+
+$$
+N = S + I + R
+$$ {#eq-SIR_N}
+
+Individuals move between compartments in a fixed set of ways, they may either become infected (moving from S -\> I), or recover from infection (I -\> R).
+
+At each time unit an infected individual can come into contact with, on average, $k\frac{S}{N}$ Susceptible individuals. $\pi$ is the probability of infecting somebody on coming in contact, so $\beta = k\pi$ is the average rate at which an infected indivudual will infect a susceptible. Infected individuals recover at the constant rate, $\gamma$, with $1/\gamma$ the mean recovery time.
+
+| Parameter | Interpretation    |
+|-----------|-------------------|
+| $\beta$   | Transmission rate |
+| $\gamma$  | Recovery rate     |
+
+Thus, an SIR model can be represented by the schematic
+
+## SIR Dynamics
+
+### ODE representation
+
+Given the rate parameters defined above, the change in compartment composition over time can be described by the system of differential equations
+
+$$
+\begin{aligned}
+& \frac{d S}{d t}=-\beta I \frac{S}{N} \\
+& \frac{d I}{d t}=\beta I \frac{S}{N}-\gamma I \\
+& \frac{d R}{d t}=\gamma I
+\end{aligned}
+$$ {#eq-SIR-ODE} Importantly, if the total population size is known, given @eq-SIR_N, R = N - S + I and the entire system can be described by two of the equations in @eq-SIR-ODE.
+
+EXAMPLE
+
+#### Limitations of Deterministic ODE
+
+While @eq-SIR-ODE provides a neat solution for the expected behaviour of a epidemic, it fails to caputure the variability inherent in a complex process like disease spread.
+
+### Stochastic Process (Markov Chain) Representation
+
+A Stochastic Process is a collection of random variables, $X_t$.
+
+#### Markov chains
+
+A Markov chain is a sequence of random variables $X_0, X_1, \ldots$ taking values in $S$ with the property that
+
+$$
+\begin{aligned}
+P\left(X_{n+1}\right. & \left.=j \mid X_0=x_0, \ldots, X_{n-1}=x_{n-1}, X_n=i\right) \\
+& =P\left(X_{n+1}=j \mid X_n=i\right),
+\end{aligned}
+$$ {#eq-Markov-Property}
+
+for all $x_0, \ldots, x_{n-1}, i, j \in S$, and $n \geq 0$. That is, the state at the next time step is determined only by the state at the current time step.
+
+#### Time Homogeneity
+
+While not a general property of Markov chains, all of those considered in this work will have the additional property of *time homogeneity*:
+
+$$
+P\left(X_{n+1}=j \mid X_n=i\right)=P\left(X_1=j \mid X_0=i\right),
+$$ i.e. the probabilities in @eq-Markov-Property do not vary with $t$
+
+#### SIR DTMC
+
+An SIR Compartment model an be described by a Markov chain of two independent random variables S(t) and I(t) representing the number of susceptible or individuals infected at time t respectively (as in the ODE case, a third RV R(t) denoting the number of recovered individuals is fully determined when the population size is known, and can be left out from this characterisation).
+
+There are two potential events (tbl-SIR_Events) resulting in a change of state i.e. from $X_{t}$ to $X_{t+\delta t}$
+
+$$
+p _ {(s +k, i +j),(s,i)}(\Delta t) =
+\begin{cases}
+{\frac { \beta i s} { N}} \Delta t, & {(k, j) = (-1, 1) } \\ 
+{ \gamma i \Delta t}, & { (k, j) = (0, -1)  } \\ 
+{ 1 - \bigg[ \frac { \beta i s } { N } +  \gamma i }\bigg] \Delta t, & { (k, j) = (0, 0)} \\
+0 & {otherwise}
+\end{cases}
+$$ {#eq-SIR_DTMC_Trans}
+
+##### Transition Matrix
+
+#### SIR CTMC {#sec-SIR_CTMC}
+
+### Stochastic simulation
+
+@simoni2019
+``` pseudocode
+#| label: alg-Gillespie
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
+\begin{algorithm}
+\caption{Gillespie Direct Method for SIR Compartmental Model CTMC}
+
+\begin{algorithmic}
+\input
+\output
+\State Initialise time $t = 0$ and state $X = x_{0}$
+  \While{$t < T_{max}$}
+      \State set $a_0 = 0$
+      \For{reaction $R_j$}
+          \State compute $a_j$
+          \State update $a_0 = a_0 + a_j$
+      \EndFor
+      \State generate two random numbers $r_1$, $r_2$ in $(0,1)$
+      \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
+      \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$
+      \State update $X = X + v_\mu$
+      \State set $t = t + \tau$
+  \EndWhile
+\end{algorithmic}
+\end{algorithm}
+```

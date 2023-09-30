@@ -11,12 +11,8 @@
             "id": "03cb95ba0750734e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "papers/Manuscript/03-CurrentStudy.qmd",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
@@ -161,6 +157,16 @@
                 "file": "Simulation checklist.md"
               }
             }
+          },
+          {
+            "id": "4895e7a23a5565eb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
+            }
           }
         ]
       }
@@ -181,12 +187,18 @@
   },
   "active": "c2f9dfbc6f12c1be",
   "lastOpenFiles": [
+    "papers/Manuscript/Notes/Thesis outline.md",
+    "notebooks/shapefiles.qmd",
     "Simulation checklist.md",
-    "papers/Manuscript/03-CurrentStudy.qmd",
-    "src/scheduler_Scheduler.jl",
-    "src/scheduler_Scheduler.sh",
-    "src/scheduler_Scheduler",
-    "data/slurm-3903.out",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_7.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_35.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_13.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_24.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchinf_30.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchinf_41.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_29.csv",
+    "data/SA3/SA3_2.0_1.0_HPMM_0.5_total_patchsus_2.csv",
+    "data/SA4/SA4_1.6_1.0_HPMM_1.0_travel_patchsus_21.csv",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA4-1.png",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA3-1.png",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GMelb_PMM_SA2-1.png",
@@ -194,11 +206,6 @@
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GCC_PMM_SA4-1.png",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GCC_PMM_SA3-1.png",
     "papers/Manuscript/_freeze/03-CurrentStudy/figure-html/fig-GCC_PMM_SA2-1.png",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_99.csv",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_98.csv",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_97.csv",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_96.csv",
-    "data/sims/SA4/SA4_2.0_1.0_OD0.8_95.csv",
     "papers/Manuscript/Notes/Chapter drafts/Ch1. IntroBackround/Implimentations of compartmental models.md",
     "papers/Manuscript/Notes/Chapter drafts/Ch1. IntroBackround/Compartmental models.md",
     "papers/Manuscript/Notes/Chapter drafts/Ch3. Hierarchical Spatial models/On the construction of the mixing matrix.md",
@@ -208,7 +215,6 @@
     "papers/Manuscript/Notes/Hierarchical mixing matrix/Melb mm.md",
     "papers/Manuscript/Notes/Hierarchical mixing matrix/Hierarchical mixing matrices.md",
     "papers/Manuscript/Notes/Chapter drafts/Untitled Kanban.md",
-    "papers/Manuscript/Notes/Thesis outline.md",
     "papers/Manuscript/Manuscript notes/Hierarchical mixing matrix/Revised Spatial Mixing Matrix definition.md",
     "papers/Manuscript/Manuscript notes/Hierarchical mixing matrix/Melb mm.md",
     "papers/Manuscript/Manuscript notes/Hierarchical mixing matrix/Random musings on mixing matrix to encourage writing.md",
@@ -222,7 +228,6 @@
     "papers/Manuscript/Notes/Manuscript notes/Chapter drafts/Ch3. Hierarchical Spatial models/On the construction of the mixing matrix.md",
     "papers/Manuscript/Notes/Manuscript notes/Chapter drafts/Ch3. Hierarchical Spatial models/Footscray example.md",
     "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Melb mm.md",
-    "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Revised Spatial Mixing Matrix definition.md",
-    "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Random musings on mixing matrix to encourage writing.md"
+    "papers/Manuscript/Notes/Manuscript notes/Hierarchical mixing matrix/Revised Spatial Mixing Matrix definition.md"
   ]
 }

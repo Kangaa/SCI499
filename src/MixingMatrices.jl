@@ -104,16 +104,15 @@ function PPMMij(i, j, popns)
 end
 
 function SAMMij(i, j, ξ, Codes, Popns)
+    mij = 0.0
     for l in eachindex(ξ)
-        if Codes[i, l] == Codes[j, l]
-
-            l == 1 && return ξ[1]
-
-            ll_pop = Popns[1]|> x -> get(x, Codes[j, 1], false) 
-            ul_pop = get(Popns[l], Codes[i, l], false) - get(Popns[l-1], Codes[i, l-1], false)
-            return ξ[l] * (ll_pop/ul_pop)
+        if Codes[j, l] ∈ Codes[i, 1:l]
+            ll_pop = get(Popns[1], Codes[j, 1], false) 
+            ul_pop = get(Popns[l], Codes[i, l], false) 
+            mij += (ξ[l] * (ll_pop/ul_pop))
         end
     end
+    mij
 end
 
 

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.302">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>hmods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Hmods_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Hmods_files/libs/quarto-html/quarto.js"></script>
+<script src="Hmods_files/libs/quarto-html/popper.min.js"></script>
+<script src="Hmods_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Hmods_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Hmods_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Hmods_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Hmods_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Hmods_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Hmods_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<p>In <strong>?@sec-MossGmelb</strong>, we observed the construction of a meta-population mixing matrix from empirical origin-destination (OD) data. The patches used in the example were based on the ‘SA3’ regions of the Australian Statistical Geography Standard’s Statistical Areas (SA) classification <span class="citation" data-cites="2023AustralianStatisticalGeographya">[@2023AustralianStatisticalGeographya]</span> (comprising forty patches for the Greater Melbourne area in that example).</p>
+<section id="hierarchical-structure-of-the-sa-classification" class="level2">
+<h2 class="anchored" data-anchor-id="hierarchical-structure-of-the-sa-classification">Hierarchical Structure of the SA classification</h2>
+<p>An important feature of the SA classification structure is that there are multiples scale of classification and that lower levels of SA are hierarchically nested within higher levels. For example, several SA3 regions are contained within a single SA4 region, and multiple SA4 regions are contained within the Greater Melbourne Capital City SA (GMCCSA). Moreover, each SA3 region is partitioned into a number of SA2 scale regions (in the case of he GMCCSA, 361 of them), which in turn are divided further into (for GMCCSA, 20xx) SA1 scale regions. <strong>?@fig-GMelbSA2SA3SA4</strong> shows the SA2, SA3, and SA4 regions of the GMCCSA.</p>
+<div id="fig-ASGSSA" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-ASGS" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ASGS_Diagram_2021.png" class="img-fluid figure-img" data-ref-parent="fig-ASGSSA" width="464"></p>
+<p></p><figcaption class="figure-caption">(a)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Showing (a) the abstract structure of The Australian Statistical Geography Standard (ASGS) Statistical Areas (SA) Classification and (b) an example of SA3 and SA4 regions within the Greater Melbourne Greater Capital City Statistical Area (GMGCCSA)</figcaption><p></p>
+</figure>
+</div>
+<p>For specific example, the Maribyrnong (SA3) region sits inside the West Melbourne (SA4) region alongside Essendon (SA3) <strong>?@fig-FootscraySAexample</strong>. Both West Melbourne and the neighbouring ‘Inner Melbourne’ (SA4), containing the city center and other SA3 regions, are part of the GSCCSA. Moreover, within Marybirnong (SA3) there are six SA2 level regions (Braybrook, Footscray, Maribyrnong, Seddon - Kingsville, West Footscray - Tottenham, Yarraville), which can likewise be partitioned in to smaller SA1 level and ‘Mesh Block’ level regions <a href="#fig-ASGS">Figure&nbsp;1 (a)</a>. In <strong>?@fig-FootscraySAexample</strong>, we highlight the SA1 region comprising the main footscray CBD (SA1 code ‘21303134811’; see <a href="#fig-FootscraySA1Code">Figure&nbsp;2</a>).</p>
+<p>Helpfully, Statistical Areas are also indexed by a structured code representing their classification hierarchy. For example, SA1 regions are denoted by an 11 digit code which can be decomposed into the higher level areas in which the region sits. <a href="#fig-FootscraySA1Code">Figure&nbsp;2</a> demonstrates this for an SA1 region in the area considered above.</p>
+<div id="fig-FootscraySA1Code" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="FootscraySA1eg.png" class="img-fluid figure-img" width="248"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Decomposition of theFootscray SA1 region code from <strong>?@fig-FootscraySAexample</strong> into its hierachical SA components</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="comparisons-between-models-of-different-scales" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-between-models-of-different-scales">Comparisons between models of different scales</h2>
+<ul>
+<li><p>Spatial Epidemic models derived from emirical data are usually limited by the spatial resolution of their source material.</p></li>
+<li><p>Comparing models at different scales has been achieved by using different model types (e.g.&nbsp;agent based and compartental models) to represent different scales, (Or different parameterisations(?ref)</p></li>
+<li><p>We can exploit the hierarchical structure of the ASGS Statistical Areas structure by creating meta-population models representing the same overarching spatial structure), but with varying levels of resolution (e.g.&nbsp;by using SA2 scale patches instead of SA3 scale patches).</p></li>
+<li><p>In what follows, we present metapopulation models of the GMGCSSA with patches corresponding to different levels of the SA hierarchy.</p></li>
+</ul>
+<section id="homogenous-mixing-in-metapopulation-models" class="level3">
+<h3 class="anchored" data-anchor-id="homogenous-mixing-in-metapopulation-models">Homogenous mixing in metapopulation models</h3>
+<p>We might initially consider the models with patch sizes 2, 3, 4 (for SA2, SA3, SA4), and construct a mixing matrix with uniform mixing across patches, i.e.&nbsp;<span class="math display">\[
+\phi_{ij} = \frac{1}{P_{tot}}
+\]</span> Where <span class="math inline">\(P_{tot}\)</span> is the total number of patches. - How should we interpret this mixing coefficient?</p>
+</section>
+<section id="sec-propmix" class="level3">
+<h3 class="anchored" data-anchor-id="sec-propmix">Proportionate mixing</h3>
+<p>To ensure equivalent representation of aggregate levels, patch population size can be used to scale mixing coefficients, i.e.. for two patches <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> the mixing coefficient <span class="math inline">\(\phi_{i,j}\)</span>:</p>
+<p><span class="math display">\[
+\phi_{ij} = N_j/N_{tot}
+\]</span></p>
+<p>Which gives mixing matrices shown in <a href="#fig-GMGCC_PMM">Figure&nbsp;3</a></p>
+<div id="fig-GMGCC_PMM" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GMelb_PMM_SA2_aca23e934f35a1b8cb723263db23c562" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MMpops[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GMelb_PMM_SA3_d81c81a1c58200c0ebd105325e7e66b9" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MMpops[[<span class="dv">2</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GMelb_PMM_SA4_cbb2f645739f9b19b7bf3e3f7fbc362a" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MMpops[[<span class="dv">3</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Population proportional mixing matrices</figcaption><p></p>
+</figure>
+</div>
+<p>We can implement a metapopulation model using these mixing matrices as described in chapter <strong>?@sec-MPMspec</strong>, to briefly summarise:</p>
+<section id="results-equivalent-models-at-different-spatial-resolution" class="level5">
+<h5 class="anchored" data-anchor-id="results-equivalent-models-at-different-spatial-resolution">Results: equivalent models at different spatial resolution</h5>
+<p>-total size -peak size -Duration of pop prop models with SA2 SA3 SA4 homogeneous patches - Expect equivalence</p>
+</section>
+</section>
+<section id="sec-SAmixmat" class="level3">
+<h3 class="anchored" data-anchor-id="sec-SAmixmat">Statistical Area Mixing structure</h3>
+<p>We can encoding the hierarchical structure of the SA classification by constructing hierarchical block matrices representing within and between SA region mixing. To do so, we specify a set of coefficients <span class="math inline">\(\xi = [\xi_1, ..., \xi_i]\)</span> such that <span class="math inline">\(\sum\limits_{i}\xi_{i}=1\)</span>, which determine the proportion of mixing occurs at each level, <span class="math inline">\(L\)</span>, of the spatial hierarchy (i.e.&nbsp;between SA2 regions, between SA3 regions, etc.) . This coefficient is distributed amongst patches occurring in the same level <span class="math inline">\(L\)</span> region, so mixing for any two patches, <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> <span id="eq-SAmix"><span class="math display">\[
+M_{ij}= \frac{\xi_{L}}{P^{L}}
+\tag{1}\]</span></span> where <span class="math display">\[
+j \in S_{i}^{L} \  \&amp; \ j \notin S_{i}^{L-1}
+\]</span> and <span class="math inline">\(S_{i}^{L}\)</span> is the set of patches in the same level <span class="math inline">\(L\)</span> region as <span class="math inline">\(i\)</span>.</p>
+<p>To extend the example from <strong>?@sec-XX</strong>, we can consider a subset of SA2 regions from the GMGCCSA (<strong>?@fig-GMelb_eg_Map</strong>, <span class="citation" data-cites="tab-MMeg">@tab-MMeg</span>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>GMelb_MM_eg <span class="ot">&lt;-</span>GMelb_Shapes<span class="sc">$</span>SA2 <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              SA2_NAME21 <span class="sc">==</span> <span class="st">"Port Melbourne Industrial"</span> <span class="sc">|</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"Port Melbourne"</span> <span class="sc">|</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"Docklands"</span> <span class="sc">|</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"West Melbourne - Industrial"</span> <span class="sc">|</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"Yarraville"</span> <span class="sc">|</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"Seddon - Kingsville"</span> <span class="sc">|</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"Footscray"</span> <span class="sc">|</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                SA2_NAME21 <span class="sc">==</span> <span class="st">"Newport"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>() <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> GMelb_MM_eg ,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">fill =</span> SA4_CODE21))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Docklands and West industrial are SA2 regions within the ‘Melbourne City’ SA3 region. Port Melbourne and Port Industrial are SA2 regions within the ‘Port Melbourne’ SA3 region. Footscray, Seddon-Kingsville, and Yarraville are SA2 regions within the ‘Maribyrnong’ SA3 region. Newport SA2 is within the Hobsons Bay SA3 region. Port Melbourne and Port Industrial are SA2 regions within the ‘Port Melbourne’ SA3 region. Furthermore, both ‘Melbourne city’ and ‘Port Melbourne’ are within the ‘Inner Melbourne’ SA4 region, while Maribyrnong and Hobsons Bay SA3 lie inside the ‘West Melbourne’ SA4 Region.</p>
+<p>To model mixing between these SA2 patches (isolated from the rest of the GMGCCSA), we can construct a <span class="math inline">\(8 \times 8\)</span> mixing matrix with <span class="math inline">\(\xi = \left[ \frac{1}{4}, \frac{1}{4},\frac{1}{4},\frac{1}{4} \right]\)</span> as follows:</p>
+<p>let <span class="math inline">\(i =\)</span> <code>Footscray</code>. Since <code>Footscray</code> is it’s own SA2 region, <span class="math display">\[M_{i,i} = \frac{1}{4}\]</span> When <span class="math inline">\(j\)</span> is a region in <code>Maribyrnong</code> SA3 (alongside <code>Footscray</code>), like <code>Yarraville</code> or <code>Seddon-Kingsville</code>, <span class="math inline">\(M_{i,j}\)</span> will be a proportion of <span class="math inline">\(\xi_{SA3}\)</span>. <span class="math display">\[
+M_{i,j} = \frac{\xi_{SA3}}{P_{i}^{SA3} - P_{i}^{SA2}} = \frac{\frac{1}{4}}{3 - 1} = \frac{1}{8}
+\]</span> When <span class="math inline">\(j\)</span> occurs outside the <code>Maribyrnong</code> SA3, but within the <code>West Melbourne</code> SA4, like <code>Newport</code> SA2 <span class="math display">\[
+M_{i,j} = \frac{\xi_{SA4}}{P_{i}^{SA4} - P_{i}^{SA3}} = \frac{\frac{1}{4}}{4 - 3} = \frac{1}{4}
+\]</span> Finally when <span class="math inline">\(j\)</span> is a patch outside the <code>West Melbourne</code> SA4, like those in the <code>Inner Melbourne</code>SA4 <span class="math display">\[
+M_{i,j} = \frac{\xi_{SA5}}{P_{i}^{SA5} - P_{i}^{SA4}} = \frac{\frac{1}{4}}{8 - 4} = \frac{1}{16}
+\]</span> thus for the row <span class="math inline">\(M_{i}\)</span>, representing the mixing of individuals from Footscray, <span class="math inline">\(\sum\limits_{j}M_{j}= \frac{1}{4} +\frac{1}{8} + \frac{1}{8} + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} = 1\)</span>. Repeating this for all patches <span class="math inline">\(i\)</span>, gives the mixing matrix represented in <strong>?@fig-GMelb_eg_MixMat</strong></p>
+<div class="cell" data-caption="Hierarchical Mixing matrix for the example region shown in @fig-Example_region">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Hmixmat</span>(GMelb_MM_eg) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Applying this process to the whole GMGCCSA yields the mixing matrices presented in figure <a href="#fig-GCC_HMM">Figure&nbsp;4</a></p>
+<div id="fig-GCC_HMM" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GCC_HMM_SA1_87f75ab11b5d5c8abcfb5075a21c6c16" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#GMelb_Shapes[[2]] %&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  Hmixmat %&gt;% </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  plotmixmat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GCC_HMM_SA2_2cb31a387896e3da9e83dd4d52bc9744" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GMelb_Shapes[[<span class="dv">3</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  Hmixmat <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  plotmixmat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GCC_HMM_SA3_650267cab34884858aa9b45ccdcf6116" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>GMelb_Shapes[[<span class="dv">4</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  Hmixmat <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  plotmixmat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell quarto-layout-cell" data-hash="Hmods_cache/html/fig-GCC_HMM_SA4_438fa0cff4fed88381b48726523908d3" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>GMelb_Shapes[[<span class="dv">5</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  Hmixmat <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  plotmixmat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Hierarchical Mixing matrices for the Greater Melbourne Capital City Statistical Area (GMGCCSA) at three levels of spatial resolution.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="population-normalised-sa-mixmat" class="level3">
+<h3 class="anchored" data-anchor-id="population-normalised-sa-mixmat">Population normalised SA mixmat</h3>
+<ul>
+<li><p>in the same way as in <strong>?@sec-proportionatemixing</strong>, the SA structured mixingmatrix given in <a href="#sec-SAmixmat">Section&nbsp;2.3</a>, <a href="#eq-SAmix">Equation&nbsp;1</a>, will result in hetrogenous mixing due to the different population per patch <strong>?@fig-gmelbpop</strong>.</p></li>
+<li><p>Again, we can rectify this by scaling columns in the mixing matrix by the according population size. Due to the hierarchical structure we can reduce patch counts to population counts</p></li>
+</ul>
+<p><span class="math display">\[M_{ij} = \frac{N_{j}}{N_{i}^{L} - N_{i}^{L-1}} \xi^{L}\]</span> if <span class="math inline">\(j \in S_{i}^{L}\)</span> &amp; <span class="math inline">\(j \notin S_{i}^{L-1}\)</span></p>
+<p>where <span class="math inline">\(i, j\)</span> are patches <span class="math inline">\(S_{i}^{L}\)</span> is the set of patches in level <span class="math inline">\(L\)</span> <span class="math inline">\(N_i\)</span> is the population of <span class="math inline">\(i\)</span> <span class="math inline">\(N_{i}^{L}\)</span> is the population of <span class="math inline">\(S_{i}^{L}\)</span> <span class="math inline">\(\xi^{L}(\delta)\)</span> is the proportion of mixing that occurs within <span class="math inline">\(S_{i}^{L}\)</span> but not<span class="math inline">\(S_{i}^{L-1}\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/MixingMatrices/HPMM_SA2_1.0.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"i"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/MixingMatrices/HPMM_SA2_1.0.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"i"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/MixingMatrices/HPMM_SA4_1.0.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"i"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotmixmat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

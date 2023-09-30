@@ -9,8 +9,8 @@ MB_data <- MB_data[2:13] %>%
   tibble() %>%
   unnest()
 
-
-Hierarchy <- read_excel("../../data/ASGS_GDA2020/MB_2021_AUST.xlsx")
+Hierarchy <- read_excel("../../data/ASGS_GDA2020/MB_2021_AUST.xlsx") %>%
+  filter(GCCSA_CODE_2021 == )
 
 MB_data <- full_join(MB_data,Hierarchy, by = "MB_CODE_2021")
 
@@ -59,3 +59,4 @@ MB_data %>%
     Popn = sum(Person)
   ) %>%
   write_csv("../../data/GCCSA_Popns_AUS.csv")
+

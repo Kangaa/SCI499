@@ -1,0 +1,516 @@
+---
+title: "Metapops"
+
+format:
+  pdf:
+    include-in-header:
+      text: |
+        \usepackage{algpseudocode}
+        \usepackage{algorithm}
+    include-before-body:
+      text: |
+
+        \algblock{Input}{EndInput}
+        \algnotext{EndInput}
+        \algblock{Output}{EndOutput}
+        \algnotext{EndOutput}
+        \newcommand{\Desc}[2]{\State \makebox[2em][l]{#1}#2}
+        \renewcommand{\Return}{\State \textbf{return}~}
+        \newcommand{\Print}{\State \textbf{print}~}
+        \newcommand{\Break}{\State \textbf{break}}
+        \newcommand{\Continue}{\State \textbf{continue}}
+        \newcommand{\True}{\textbf{true}}
+        \newcommand{\False}{\textbf{false}}
+        \renewcommand{\And}{\textbf{and}~}
+        \newcommand{\Or}{\textbf{or}~}
+        \renewcommand{\Not}{\textbf{not}~}
+        \newcommand{\To}{\textbf{to}~}
+        \newcommand{\DownTo}{\textbf{downto}~}
+    pdf-engine: xelatex
+    toc-depth: 2
+filters:
+  - pseudocode
+---
+
+### Relaxing the homogeneous mixing assumption
+
+A fundamental assumption of the simple compartmental model presented in [@sec-Compartmental_models] is that any susceptible individual is equally likely to become infected by any of the infectious individuals (at a rate proportional to the size of each compartment in the population). However, real-world populations are not uniform in their interactions (particularly on a scale like that of @sec-Melb_SIR), and the assumption of homogeneous mixing can be relaxed to produce more realistic models that demonstrate heterogeneous mixing patterns.
+
+## Multi Patch 'Metapopulation' Model
+
+The concept of multi-patch or subdivided models is a cornerstone in metapopulation modeling. Pioneering work by researchers such as Wilson [@wilson1945] and Haskey [@haskey1957] laid the foundation for these models. Within multi-patch models, each patch represents a distinct subpopulation, and interactions within a patch are assumed to be random, while interactions between patches are limited. Key Assumptions in Multi-Patch Models
+
+Metapopulation models, including multi-patch models, often rely on certain assumptions to simplify the mathematical framework while retaining essential epidemiological insights. These assumptions typically include:
+
+Constant Size: The population size within each patch remains constant over time, implying equal birth and death rates.
+
+Constant Recovery Parameter ($\gamma$): The rate of recovery from infection ($\gamma$) is assumed to be consistent across all patches.
+
+No Permanent Movement of Individuals Between Patches: Individuals do not permanently migrate between patches.
+
+Disease Spread on Contact: Disease transmission occurs through contact between susceptible and infective individuals. The total number of new cases is typically modeled as a proportion, $\beta$, of the number of contacts.
+
+Proportionate Mixing: Proportionate mixing, as proposed by Sattenspiel [@sattenspiel1988], implies that the number of encounters is proportional to the size of the subpopulations involved. The mixing matrices used in these models are chosen to fit known patterns of incidence, often based on empirical data, rather than theoretical grounds. The importance of variation in mixing patterns for infection transmission is often explored within this framework.
+
+### Heterogeneous mixing
+
+Metapopulation models heavily rely on mixing matrices to describe the dynamics of disease transmission within and between patches. Two key types of matrices are commonly used:
+
+Migration Matrix (Bodmer [@bodmer1968]): This matrix represents backward stochastic migration probabilities, where the elements m, j give the probabilities that the parents of individuals in population i came from population j.
+
+Mixing (Contact) Matrix (Sattenspiel [@sattenspiel1987]): This matrix characterizes the probability of two individuals from different neighborhoods coming into contact. Unlike the migration matrix, the mixing matrix is a forward stochastic migration matrix, with each element m, representing the probability that an individual from population i moves to population j [@sattenspiel1988].
+
+In summary, metapopulation models offer a powerful framework for capturing the complexities of disease transmission in heterogeneous populations. These models rely on assumptions that simplify real-world interactions, while mixing matrices provide a means to quantify the interactions within and between subpopulations. Through these models, we can gain valuable insights into the spread of infectious diseases in diverse and interconnected communities.
+
+## Formulation
+
+Let us more formally specify our SIR metapopulation.
+
+As in the simple SIR from @sec_SIR there are three main compartments representing the disease status of individuals of all individuals in the population
+
+$$ S + I + R = N $$
+
+However, each compartment is completely partitioned into a number, $n$, of separate patches $i$ for $i \in \{ 1 \ldots, n\}$.
+
+$$ \sum\limits_{i}^{n} S_{i} = S $$
+
+$$ \sum\limits_{i}^{n} I_{i} = I $$
+
+$$ \sum\limits_{i}^{n} R_{i} = R $$
+
+$$ S_{i} + I_i + R_i = N_i $$
+
+There is only one $n$, meaning each compartment has equal number of patches.
+
+### Mixing
+
+-   $m_{ij}$ represents the probability that a susceptible individual from in patch $i$ comes into contact with an infective individual from patch $j$.
+    -   $0 \leq m_{ij} \leq 1$ and $\sum_j m_{ij} =1$
+-   We can summarise all $m_{ij}$ in a $n \times n$ matrix $M$, which we call the 'mixing matrix'
+    -   M is a stochastic matrix
+
+    -   
+
+### Force of infection
+
+@moss2019
+
+-   Since the probability of infection is a product of the chance of coming in to contact with the constant infectiousness parameter $\beta$, we define the Force of Infection (FOI) between two patches, $i, j \in \{1,\ldots,n\}$
+
+    $$\lambda_{ij} = \beta \cdot I_j \cdot M'_{j,i}$$
+
+-   total FOI in patch $i$ ($\Lambda_i$)
+
+    $$
+    \Lambda_i = \sum\limits_{j =1}^{r}\lambda_{ij}
+    $$
+
+-   and the FOI vector
+
+    $$
+    \boldsymbol{\Lambda} = \beta \cdot \boldsymbol{I} \times M'
+    $$
+
+### Dynamics
+
+$$
+\begin{aligned}
+S'_{i} & =-\Lambda_i \cdot \frac{S_i}{N_i} \\
+I'_{i} & =\Lambda_i \cdot \frac{S_i}{N_{i}}-\gamma I_i \\
+\end{aligned}
+$$
+
+## Aside: The basic reproduction number $R_0$ in multipatch models.
+
+-   Simple formula derived by @old-guys doesnt necessarily hold (why?)
+-   Dominant eigenvalue of the Next Generation Matrix (NGM) is the expected number of infections in a population after the introduction of a single infectious individual @diekman
+    -   In the simple SIR this reduces to $\frac{\beta}{\gamma}$
+
+### NGM derivation @Feng et al 2015, @Diekman 2010
+
+the above comprises the 'infectious subsystem' The jacobian of the infectious subsystem can be decomposed in to contributions of the - Transmission matrix $T$ containing entries transmission events, - ijth entry of T is the rate at which an individual in infected state j produces individuals with infected state i, -transition, $\Sigma$, matrices encodein recoveries "The ij th entry of 2S21 can be interpreted as the expected time that an individual who presently has infected state j will spend in infected state i" The Next generation Matrix $K = -T\Sigma^{-1}$ - the $ijth$ entry of $K$ is the expected number of infected off- spring with state i at infection produced throughout its entire future infected life by an individual presently in infected state j \^ Diekman
+
+now, @Feng2015 The jacobian of the infectious subsystem of the metapopulation model given in \@-eq_SIR_Metapop_dynamix substituting
+
+$$J=
+\left(
+\begin{array}{ccc}
+\frac{\partial I'_{1}}{\partial I_{1}} & \cdots & \frac{\partial I'_{1}}{\partial I_{n}}\\
+\vdots  &  \ddots  & \vdots \\
+\frac{\partial I'_{n}}{\partial I_{1}} & \cdots & \frac{\partial f_{2}}{\partial I_{2}}
+\end{array}
+\right)_{\left(I_1=0, I_2=0\right)} =
+\left(
+\begin{array}{ccc}
+c_{11} \beta-\gamma & \cdots & c_{1n} \beta \\
+\vdots & \ddots & \vdots\\
+c_{n1} \beta & \cdots & c_{nn} \beta-\gamma
+\end{array}
+\right)$$
+
+Is decomposed into
+
+$$J=\left(
+\begin{array}{ccc}
+c_{11} \beta & \cdots & c_{1n} \beta \\
+\vdots & \ddots & \vdots\\
+c_{n1} \beta & \cdots & c_{nn} \beta
+\end{array}
+\right)-\left(
+\begin{array}{ccc}
+\gamma & \cdots & 0 \\
+\vdots & \ddots & \vdots\\
+0 & \cdots & \gamma
+\end{array}
+\right)$$
+
+and thus the NGM
+
+$$
+\begin{aligned}
+K = & \left(\begin{array}{ccc}
+c_{11} \beta & \cdots & c_{1n} \beta \\
+\vdots & \ddots & \vdots\\
+c_{n1} \beta & \cdots & c_{nn} \beta
+\end{array}\right) \times \left(\begin{array}{ccc}
+\gamma & \cdots & 0 \\
+\vdots & \ddots & \vdots\\
+0 & \cdots & \gamma
+\end{array}\right)^{-1}\\
+= & \left(\begin{array}{ccc}
+c_{11} \frac{\beta}{\gamma} & \cdots & c_{1n} \frac{\beta}{\gamma} \\
+\vdots & \ddots & \vdots\\
+c_{n1} \frac{\beta}{\gamma} & \cdots & c_{nn} \frac{\beta}{\gamma}
+\end{array}\right)\\
+= & \frac{\beta}{\gamma} C
+\end{aligned}
+$$
+
+-   where k is the vector of R_0 per patch i.e. scalar in our case and
+
+## Implementation
+
+The metapopulation model can be implemented as a Continuous Time Markov chain in a similar way to @sec-SIR_CTMC, but with a few key differences. Following @moss2019, we will use as an example a metapopulation model of the Greater Melbourne region partioned in to 40 subpopulations based on the @2023AustralianStatisticalGeographya SA3 classification system. The population of each patch along with its numeric SA identifier is given in @sec-appendix1 and shown in @figGMelbSA3Pop
+
+```{r}
+#| caption: Population of SA3 regions in the GMGCCSA
+#| label: fig-GMelbSA3Pop
+#| echo: false
+
+library(tidyverse)
+library(glue)
+library(sf) 
+
+levels <- list(SA3 = "SA3", SA4 = "SA4")
+Shapes <- map(
+  map(
+    levels,
+    \(x) glue("../../data/ASGS_GDA2020/{x}_2021_AUST_SHP_GDA2020/{x}_2021_AUST_GDA2020.shp")),
+  read_sf)
+
+
+GMelb_Shapes <- Shapes |>
+  map(\(x) filter(x, GCC_NAME21 == "Greater Melbourne"))
+
+GMelb_Popns <- map(
+  map(
+    c("3", "4"),
+    \(x) str_replace("../../data/GmelbSA_X_Pop21.csv", "_X_", x)),
+  read_csv) |>
+  `names<-`(c("SA3", "SA4"))
+
+ggplot() +
+  geom_sf(data = GMelb_Shapes$SA3 %>% 
+    left_join(GMelb_Popns[[1]], by = join_by(SA3_NAME21 == SA3_Name)),
+    lty = 0,
+      aes(fill = SA3_pop))+
+    scale_fill_continuous(type = "viridis")
+
+```
+
+### Initial conditions
+
+At the beginning of a simulation, all patches are composed of entirely susceptible individuals. A number, $I_0$, of individuals in a randomly selected patch, $\alpha$, become infected
+
+$$
+\begin{aligned}
+S_i(0) & = \begin{cases}N_i & \text { if } i \neq \alpha \\
+N_i-E_0 & \text { if } i=\alpha\end{cases} \\
+I_i(0) & = \begin{cases}0 & \text { if } i \neq \alpha \\
+I_0 & \text { if }  i=\alpha\end{cases} \\
+\end{aligned}
+$$
+
+for $i \in \{1, \ldots, n\}$ where $\alpha \sim \mathcal{U}\{1, r\}$.
+
+### Origin-destination mixing matrix
+
+The mixing matrix was developed after @moss2019 using an empirically informed origin-destination (OD) matrix derived from 'Place of work' data taken from the Australian Census @ABS_census2016. Rows ('origin') are the 'usual residence', and the columns (destination) are the 'place of work'.
+
+The empirically derived OD matrix can be seen in @fig-OD_mat_eg
+
+$$
+F=\left(\begin{array}{cccc}f_{1,1} & f_{1,2} & \cdots & f_{1, n} \\f_{2,1} & f_{2,2} & \cdots & f_{2, n} \\ \vdots & \vdots & \ddots & \vdots \\f_{n, 1} & f_{n, 2} & \cdots & f_{n, n}\end{array}\right)
+$$
+
+$f_{ij}$ is the proportion of people why usually reside in patch $i$ listing patch $j$ as their place of work. This empirical method is expected to describe contact patterns *between regions*, but contact patterns within *within* the region of residence are expected to resdult more from contact outside of a work context.
+
+$$
+\begin{aligned}
+f_{i, i} & =0 \\
+\sum_{j=1}^{r} f_{i, j} & =1 \quad \forall i \in[1 . . r]
+\end{aligned}
+$$
+
+Within patch 'local' mixing is given by a parameter $\delta^H_i$, with the remaining proportion, $\delta^*_r = 1-\delta^H_i$ distributed among the non-local patches giving us the mixing matrix M
+
+$$
+M=\left(\begin{array}{cccc}
+\delta_{1}^{H} & \delta_{1}^{*} f_{1,2} & \cdots & \delta_{1}^{*} f_{1, r} \\
+\delta_{2}^{*} f_{2,1} & \delta_{2}^{H} & \cdots & \delta_{2}^{*} f_{2, r} \\
+\vdots & \vdots & \ddots & \vdots \\
+\delta_{r}^{*} f_{r, 1} & \delta_{r}^{*} f_{r, 2} & \cdots & \delta_{r}^{H}
+\end{array}\right)
+$$
+
+### Stochastic Simulation
+
+-   As per @sec-SIR_sim
+
+-   as before, $\delta t$ will be the sum of exponentially distributed times (expt(sum.rates))
+
+-   State change will involve event type (as in single patch) *and* event location
+
+-   There are 2 possible events per patch so there are $2n$ possible events
+
+-   State change vector is now $2 \times n$ long
+
+-   i.e. containing elements for an infection and recovery in each patch
+
+-   $v$ is a vector of length $2n$ with elements each of length $2n$ representing the change in compartments $S_{i}$ and $I_{i}$for all patches $i \in \{1, \ldots, n\}$ as follows $$
+     v_{i}= (\Delta S_{1,}\ldots, \Delta S_{n},  \Delta I_{1}, \ldots,  \Delta I_{n})
+    $$
+
+-   $v_{i}$, where $i \leq n$, corresponds to an infection event in patch $i$, i.e. $$
+     v_{i} = (\{0\}^{i-1},-1,\{0\}^{n-1}, +1, \{0\}^{n-i})
+    $$ and $v_{i}$ where $n < i \leq 2n$ corresponds to a recovery in patch $n-i$, i.e. $$
+     v_{i} = (\{0\}^{i-1},-1,\{0\}^{2n-i})
+    $$
+
+-   Propensity vector
+
+-   for infection events (i.e. all $a_i$ where $i \leq n$) we use the FOI @eq-metapop_FOI vector at patch i
+
+$$
+a_{i}  =  \frac{S_i}{N_{i}} \cdot \Lambda_i  =  \frac{S_i}{N_{i}} \cdot \sum\limits_{j =1}^{r} \beta \cdot I_j \cdot M'_{j,i}
+$$
+
+and for recovery events
+
+$$
+a_{n+j}= \gamma I_{j} 
+$$ for $j \in \{1, \ldots, n\}$, i.e. recovery events The event type and location are thus computed by the same random number
+
+These additions to the standard SIR-simulation algorithm are summarised in @alg-SIR_Metapopulation_Gillespie
+
+-   population vector $\mathbf{N}$
+-   seed at random patch
+
+``` pseudocode
+#| label: alg-SIR_Metapopulation_Gillespie
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
+\begin{algorithm}
+\caption{Stochastic simulation of SIR Metapopulation CTMC}
+\textbf{Input:} $\mathbf{N}$, $I_0$, $\beta$, $\gamma$, mixing matrix $M$
+\textbf{Output:} df
+\begin{algorithmic}
+\State $t \gets 0.0$ \Comment{Initialise time} 
+    \ForAll{i} \Comment{Initialise susceptibles}
+        \State $S_{i} \gets N_{i}$
+    \EndFor
+\State Select $i \sim \mathcal{U}[1,n]$,  $I_{i} \gets I_0$                               \Comment{Seed infection}
+\While{$I \geq 0$}
+\ForAll{$i \in \{1, \ldots , n\}$}                                             \Comment{Update Infection Rates}
+  \State $a_{i} \gets \frac{S_{i}}{N_{i}} \cdot \sum\limits_{j = 1}^{n} \beta \cdot I_j \cdot M'_{j,i}$
+  \State update $a_{net} = a_{net} + a_i$
+\EndFor
+\ForAll{$r \in \{n + 1, \ldots , 2n\}$}                                     \Comment{Update Recovery Rates}
+  \State $a_{r} \gets \gamma I_{r-n}$
+  \State update $a_{net} = a_{net} + a_r$
+\EndFor
+\State generate two random numbers $r_1, r_2 \sim \mathcal{U}(0,1)$
+\State select $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_{net}$
+\State compute $\tau \gets \frac{1}{a_{net}}\ln(1/r_2)$
+\State update $X \gets X + v_\mu$
+\State set $t \gets t + \tau$
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+```
+
+## Simulation results
+
+### Overall outcome
+
+```{r}
+library(tidyverse)
+
+sim_dirs <- list.files("../../data/sims/SA3", pattern = "OD_..._none_([0-9]|[1-9][0-9]).csv", full.names = TRUE)
+
+sims <- read_csv(sim_dirs, col_names = c("t", "S", "I"), skip = 1, id = "sim")
+
+sims <-  sims |>
+  filter() %>%
+  mutate(
+    S = as.numeric(S),
+    I = as.numeric(I),
+    Cum_I = S - 4976157,
+    prop_I = I/4976157,
+    t = as.numeric(t),
+    SA = str_extract(sim, "SA./SA(.)", 1),
+    Mixmat = str_extract(sim, "SA./SA._..._..._(HPMM|HMM|OD)_", 1),
+    mu = as.numeric(str_extract(sim, "SA./SA.*_OD_(...)", 1)),
+    Intervention = factor(str_extract(sim,"/SA.*(none|local|travel|total)", 1),levels = c("none", "local", "travel", "total"), ordered = TRUE),
+    beta = as.numeric(str_extract(sim, "SA./SA._(...)", group = 1)),
+    gamma = as.numeric(str_extract(sim, "SA./SA._..._(...)", group = 1)),
+    R0 = beta/gamma,
+    sim_num = str_extract(sim, "_(.{1,3}).csv", 1))
+```
+
+```{r}
+sim_stats <- sims %>% 
+  group_by(t, mu, R0) %>% 
+  summarise(
+    avg_I = median(I),
+    sd_I = sd(I)
+  )
+```
+
+## Infection curves
+
+By $R_0$
+
+```{r}
+sim_stats %>%
+  filter(mu == "0.5" ) %>%
+  ggplot() +
+    aes(x = t, y = avg_I, group = R0) +
+    geom_line()+
+    geom_ribbon(aes(ymin = avg_I-sd_I, ymax= avg_I+sd_I), alpha = 0.2) +
+    xlim(c(0,100))
+```
+
+by $\delta_H$
+
+```{r}
+sim_stats %>%
+  filter(R0 == 1.2) %>%
+ggplot() +
+  aes(x = t, y = avg_I, group = mu, col = mu) +
+  geom_line() 
+```
+
+### Summary statistics
+
+```{r}
+sim_summary <- sims %>%
+  group_by(SA, Mixmat,mu,  Intervention, R0) %>%
+  summarise(peaksize = max(I)/4976157,
+            finalsize = (4976157 - min(S))/4976157,
+            duration = max(t),
+            peaktime = t[which(I == max(I))])
+```
+
+#### Final size
+
+```{r}
+sim_summary %>%
+  filter(Intervention == "none", SA == "3") %>%
+  ggplot() +
+  aes(x = R0, y = finalsize) +
+  geom_point(aes(col = mu)) +
+  facet_grid(rows = vars(SA))
+```
+
+#### Peak size
+
+```{r}
+sim_summary %>%
+  filter(Intervention == "none", SA == "3") %>%
+  ggplot() +
+  aes(x = R0, y = peaksize) +
+  geom_point(aes(col = mu)) +
+  facet_grid(rows = vars(SA))
+```
+
+#### Peak time
+
+```{r}
+sim_summary %>%
+  filter(Intervention == "none", SA == "3") %>%
+  ggplot() +
+  aes(x = R0, y = peaktime) +
+  geom_point(aes(col = mu)) +
+  facet_grid(rows = vars(SA))
+```
+
+#### Duration
+
+```{r}
+sim_summary %>%
+  filter(Intervention == "none", SA == "3") %>%
+  ggplot() +
+  aes(x = R0, y = duration) +
+  geom_point(aes(col = mu)) +
+  facet_grid(rows = vars(SA))
+```
+
+### patch example
+
+```{r}
+SA3_OD_Patch_dirs <- list.files("../../data/sims/SA3", pattern = "OD_..._none_(patchinf|patchsus)_([0-9]|[1-9][0-9]).csv", full.names = TRUE)
+
+SA3_OD_Patch_logs <- read_csv(SA3_OD_Patch_dirs, id = "sim")
+
+GMelb_Popns <- read_csv("../../data/GmelbSA3Pop21.csv")
+
+SA3_patch_sims <- SA3_OD_Patch_logs %>%
+  group_by(sim) %>%
+  mutate(t = row_number()) %>%
+  ungroup() %>%
+  pivot_longer(cols = c(-sim, -t), values_to = "Count", names_to = "patch") %>%
+  mutate(
+         SA = str_extract(sim, "SA./SA(.)", 1),
+         Mixmat = str_extract(sim, "SA./SA._..._..._(HPMM|HMM|OD)_", 1),
+         mu = as.numeric(str_extract(sim, "SA./SA.*_OD_(...)", 1)),
+         Intervention = "none",
+         beta = as.numeric(str_extract(sim, "SA./SA._(...)", group = 1)),
+         gamma = as.numeric(str_extract(sim, "SA./SA._..._(...)", group = 1)),
+         R0 = beta/gamma,
+         sim_num = str_extract(sim, "_(.{1,3}).csv", 1),
+         Measure = str_extract(sim, "(inf|sus)_.{1,3}.csv", 1),
+         ) %>%
+  select(-sim) %>%
+  left_join(GMelb_Popns, by = join_by("patch" == "SA3_Name")) %>%
+  pivot_wider( names_from = Measure, values_from = Count) %>%
+  mutate(cum_inf = SA3_pop - sus,
+         prop_inf = inf/SA3_pop)
+
+```
+
+```{r, eval=FALSE}
+SA3_patch_sims %>%
+  filter(R0 == 1.4, mu == "0.5", sim_num =="5") %>%
+  ggplot()+
+  aes(x = t, y = prop_inf) +
+  geom_line(aes(col = patch))
+```
+
+## 

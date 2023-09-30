@@ -1,0 +1,64 @@
+---
+title: "Modelling interventions different scales"
+editor: visual
+---
+
+{{< include _ch4_src.qmd >}} \## Motivation
+
+-   Reduce the total epidemic size/effects by intervening in strategic locations
+
+-   Spatial resolution allows for precise targeting. Behavioural intervention (restriction of mixing) Mixing matrix is modified during simulation
+
+## Formulation
+
+-   Parameters
+
+    -   Trigger: condition at which intervention occurs
+
+    -   Effect:
+
+        -   `local` reduce the intra-patch mixing
+
+        -   `travel` reduce inter-patch mixing
+
+        -   `total` reduce intra- and inter-patch mixing
+
+## Implimentation
+
+### local intervention
+
+#### final size
+
+```{r}
+sim_stats %>% 
+  ggplot(aes(x = R0, y = finalsize, col = Intervention), alpha = 0.4) +
+  geom_point() +
+  facet_grid(mu ~ SA)
+```
+
+#### peak size
+
+```{r}
+sim_stats %>% 
+  ggplot(aes(x = R0, y = peaksize, col = Intervention)) +
+  geom_point() +
+  facet_grid(mu ~ SA)
+```
+
+#### duration
+
+```{r}
+sim_stats %>% 
+  filter(duration < 1000, mu == "1.0") %>% 
+  ggplot(aes(x = finalsize, y = duration, color= Intervention)) +
+  geom_point()+
+  facet_grid(R0 ~ SA)
+
+sim_stats %>% 
+  filter(duration < 1000, mu == "1.0") %>% 
+  ggplot(aes(x = finalsize, y = duration, color= Intervention)) +
+  geom_point()+
+  facet_grid(SA ~ R0)
+```
+
+#choose single simulation and look at time evolution -look at patch counts - patch counts
