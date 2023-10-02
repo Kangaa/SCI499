@@ -112,29 +112,26 @@ function exp_sample(net_rate)::Float64
 end
 
 #update mixing matrix to simulate intervention
-function intervention!(mixmat, intervention_type, patch)
-    if intervention_type == "none"
-        return mixmat
-
-    elseif intervention_type == "local"
-        mixmat[patch,patch] *= 0.5
+function intervention!(model::CompartmentalModel, intervention_type::String, patch::Int64)
+    if intervention_type == "local"
+        model.mixing_matrix[patch,patch] *= 0.5
 
     elseif intervention_type == "travel"
-        for i in 1:size(mixmat, 2)
-            if i != patch
-                mixmat[patch,i] *= 0.5
-                mixmat[i,patch] *= 0.5
+        for i in 1:size(model.mixing_matrix, 2)
+            if i != patch && model.intervention[i] == 0
+                model.mixing_matrix[patch,i] *= 0.5
+                model.mixing_matrix[i,patch] *= 0.5
             end
         end
 
     elseif intervention_type == "total"
-        for i in 1:size(mixmat, 2)
-            if i != patch
-                mixmat[patch,i] *= 0.5
-                mixmat[i,patch] *= 0.5
+        for i in 1:size(model.mixing_matrix, 2)
+            if i != patch && model.intervention[i] == 0
+                model.mixing_matrix[patch,i] *= 0.5
+                model.mixing_matrix[i,patch] *= 0.5
             end
+            model.mixing_matrix[patch,patch] *= 0.5
         end
-        mixmat[patch,patch] *= 0.5
     else
         error("Intervention type must be none, local, travel or total")
     end
@@ -157,7 +154,7 @@ function sim_loop(model::CompartmentalModel, rates::EventRates, t::Float64, wk::
             ## if s_frac has changed to >x% then update mixmat 
             
             if model.intervention[event_location] == 0 && model.state.I[event_location] > 100
-                intervention!(model.mixing_matrix, Intervention_type, event_location)
+                intervention!(model, Intervention_type, event_location)
                 model.intervention[event_location] = 1
             end
             

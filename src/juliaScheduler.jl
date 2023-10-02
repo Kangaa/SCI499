@@ -49,8 +49,8 @@ if MM_type == "HMM"
     end
 
 elseif MM_type == "HPMM"
-    mmcoef = [1.0,0.9, 0.8, 0.7 , 0.6, 0.5, 0.4 , 0.3, 0.2, 0.1, 0.0]
-    β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 4.0]
+    mmcoef = [1.0, 0.5, 0.0]
+    β = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     γ = [1.0]
     params = Base.product(mmcoef, β, γ)
     for param in params
