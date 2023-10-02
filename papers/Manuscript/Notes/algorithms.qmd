@@ -1,5 +1,5 @@
 ---
-title: "Quarto Scratch"
+title: "Algorithms"
 filters:
   - pseudocode
 format:
@@ -27,8 +27,11 @@ format:
 ---
 
 ## Gillespie algorithm
+Next reaction: $R_{\mu}$
+Time until next reaction: $\tau$
 
-```pseudocode
+
+``` pseudocode
 #| label: alg-Gillespie
 #| html-indent-size: "1.2em"
 #| html-comment-delimiter: "//"
@@ -39,31 +42,64 @@ format:
 #| pdf-line-number: true
 
 \begin{algorithm}
-\caption{Gillespie Direct Method for SIR Compartmental Model CTMC}
+\caption{Gillespie Direct Method}
 
 \begin{algorithmic}
-\input
+\input{state change vector $v$, propensity formula $a$}
+\output{state  change index $\mu$, time $\tau$ }
+\State set $a_{net} = 0$
+\ForAll{j}
+    \State compute $a_j$
+    \State update $a_{net} = a_{net} + a_j$
+\EndFor
+\State generate two random numbers $r_1$, $r_2$ in $\mathcal{U} (0,1)$
+\State select $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
+\State compute $\tau \gets \frac{1}{a_0}\ln(1/r_2)$
+\State update $X \gets X + v_\mu$
+\State set $t \gets t + \tau$
+\end{algorithmic}
+\end{algorithm}
+```
+## Stochastic SIR
+``` pseudocode
+#| label: alg-SIR_CTMC
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
+\begin{algorithm}
+\caption{Stochastic simulation of SIR Compartmental Model CTMC}
+
+\begin{algorithmic}
+\input{$N$, $I_0$, $\beta$, $\gamma$}
 \output
-\State Initialise time $t = 0$ and state $X = x_0$
-  \While{$t < T_{max}$}
-      \State set $a_0 = 0$
-      \For{reaction $R_j$}
-          \State compute $a_j$
-          \State update $a_0 = a_0 + a_j$
-      \EndFor
-      \State generate two random numbers $r_1$, $r_2$ ion $\union (0,1)$
-      \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
-      \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$
-      \State update $X = X + v_\mu$
-      \State set $t = t + \tau$
+
+\State Initialise time $t \gets 0.0$ and $S \gets N - I_0$, $I \gets I_0$
+\State state change vector $v = [(-1,1), (0, -1)]$
+\State propensity vector $a = [(\beta I \frac{S}{N}), (\gamma I)]$
+\State $a_net \gets \sum{a}$
+  \While{$a_{net} > 0$}
+    \Procedure {Gillespie}{v, a}
+        \State $a_net \gets \sum{a}$
+        \State generate two random numbers $r_1$, $r_2$ in $\mathcal{U} (0,1)$
+        \State select $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
+        \State compute $\tau \gets \frac{1}{a_0}\ln(1/r_2)$
+    \EndProcedure
+    \State update $X \gets X + v_\mu$
+    \State set $t \gets t + \tau$
   \EndWhile
 \end{algorithmic}
 \end{algorithm}
 ```
-### Metapopulation CTMC
 
-```pseudocode
-#| label: alg-Gillespie
+## Stochastic Metapopulation SIR
+
+``` pseudocode
+#| label: alg-MetapopulationCTMC
 #| html-indent-size: "1.2em"
 #| html-comment-delimiter: "//"
 #| html-line-number: true
@@ -73,24 +109,23 @@ format:
 #| pdf-line-number: true
 
 \begin{algorithm}
-\caption{Gillespie Direct Method for SIR Compartmental Model CTMC}
+\caption{Stochastic simulation of Metapopulation compartment model}
 
 \begin{algorithmic}
-\input
-\output
-\State Initialise time $t = 0$ and state $X = x_0$
-  \While{$t < T_{max}$}
-      \State set $a_0 = 0$
-      \For{reaction $R_j$}
-          \State compute $a_j$
-          \State update $a_0 = a_0 + a_j$
-      \EndFor
-      \State generate two random numbers $r_1$, $r_2$ ion $\union (0,1)$
-      \State select $R_\mu$ with the smallest index $\mu$ such that $\sum\limits_{j = 1}^{\mu} a_j \leq r_1 a_0$
-      \State compute $\tau = \frac{1}{a_0}\ln(1/r_2)$
-      \State update $X = X + v_\mu$
-      \State set $t = t + \tau$
-  \EndWhile
+\input parameters @tbl-MetapopParams
+
+\State Initialise time $t = 0$ and state $S_i = N_i$ for all patches $i$
+\State Sample $\alpha$ from $\mathcal{U}\{1, r\} $
+\State Set $I_{\alpha} \gets I_{0}$ and $S_{\alpha} \gets N_{\alpha} - I_0$ 
+\State Set rates to be
+\While{sum(rates) $\neq$ 0}
+    \Procedure{Gillespie}{rates}
+       \State $\Delta t \sim Exp(sum(rates))$
+       \State $\Delta$State 
+     \EndProcedure
+\EndWhile
+ 
+\State
 \end{algorithmic}
 \end{algorithm}
 ```

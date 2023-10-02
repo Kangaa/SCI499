@@ -106,6 +106,24 @@ end
 function SAMMij(i, j, ξ, Codes, Popns)
     mij = 0.0
     for l in eachindex(ξ)
+        if Codes[j, l] == Codes[i, l]
+            if l == 1
+                mij = ξ[l] 
+                break
+            else
+                ll_pop = get(Popns[1], Codes[j, 1], false) 
+                ul_pop = get(Popns[l], Codes[i, l], false) - get(Popns[l], Codes[i, l-1], false) 
+                mij = (ξ[l] * (ll_pop/ul_pop))
+                break
+            end
+        end
+    end
+    mij
+end
+
+function SAMMij2(i, j, ξ, Codes, Popns)
+    mij = 0.0
+    for l in eachindex(ξ)
         if Codes[j, l] ∈ Codes[i, 1:l]
             ll_pop = get(Popns[1], Codes[j, 1], false) 
             ul_pop = get(Popns[l], Codes[i, l], false) 
@@ -114,7 +132,6 @@ function SAMMij(i, j, ξ, Codes, Popns)
     end
     mij
 end
-
 
 function  expandCodes(codes::Vector{String})
     lowerCodes = string.(codes)

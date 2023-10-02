@@ -2,7 +2,7 @@
 using CSV
 using StatsPlots
 using DataFrames
-include("../src/SCI499.jl")
+include("./src/SCI499.jl")
 using .SCI499
 
 ## ODMMs
@@ -14,7 +14,6 @@ for δH in 0:0.05:1, SA in ["SA2", "SA3", "SA4"]
      x -> Tables.table(x) |>
      x ->  CSV.write("Papers/Manuscript/data/MixingMatrices/ODMM_$(SA)_$(δH).csv", x)
 end
-
 
 
 MixingMatrices.ODMixingMatrix("SA4", 0.1) |>

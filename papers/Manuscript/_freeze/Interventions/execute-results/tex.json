@@ -1,0 +1,20 @@
+{
+  "hash": "5fba93705416763d3e5a2594deb83b83",
+  "result": {
+    "markdown": "---\ntitle: \"Mixing Matrix Interventions\"\neditor: visual\n---\n\n::: {.cell}\n\n:::\n\n\n## Motivation\n\n-   Reduce the total epidemic size/effects by intervening in strategic locations\n\n-   Spatial resolution allows for precise targeting. Behavioural intervention (restriction of mixing) Mixing matrix is modified during simulation\n\n## Formulation\n\n-   Parameters\n\n    -   Trigger: condition at which intervention occurs\n\n    -   Effect:\n\n        -   `local` reduce the intra-patch mixing\n\n        -   `travel` reduce inter-patch mixing\n\n        -   `total` reduce intra- and inter-patch mixing\n\n## Implimentation\n\n### local intervention\n\n## Simulation\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](Interventions_files/figure-pdf/unnamed-chunk-3-1.pdf)\n:::\n:::\n\n::: {#fig-SA3_OD_outcomes .cell layout-ncol=\"2\"}\n::: {.cell-output-display}\n![](Interventions_files/figure-pdf/fig-SA3_OD_outcomes-1.pdf){#fig-SA3_OD_outcomes-1}\n:::\n\n::: {.cell-output-display}\n![](Interventions_files/figure-pdf/fig-SA3_OD_outcomes-2.pdf){#fig-SA3_OD_outcomes-2}\n:::\n\n::: {.cell-output-display}\n![](Interventions_files/figure-pdf/fig-SA3_OD_outcomes-3.pdf){#fig-SA3_OD_outcomes-3}\n:::\n\n::: {.cell-output-display}\n![](Interventions_files/figure-pdf/fig-SA3_OD_outcomes-4.pdf){#fig-SA3_OD_outcomes-4}\n:::\n\nFinal (a) and peak (b) infection numbers (as a proportion of the entire population), peak time (c) and total duration (d) of a simulated SIR metapopulation model with OD mixing matrix at different values of $\\delta^H$ and $R_0$\n:::\n\n\nHowever, now we can decompose these metapopulation scale outcomes into those of the underlying subpopulation. For example, @fig-OD_patchinf_curve_eg\n\n\n",
+    "supporting": [
+      "Interventions_files\\figure-pdf"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}
