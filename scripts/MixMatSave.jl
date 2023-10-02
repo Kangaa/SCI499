@@ -2,7 +2,7 @@
 using CSV
 using StatsPlots
 using DataFrames
-include("./src/SCI499.jl")
+include("../src/SCI499.jl")
 using .SCI499
 
 ## ODMMs
